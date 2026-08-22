@@ -282,6 +282,70 @@ section.block{position:relative;padding:clamp(96px,15vh,180px) var(--pad);scroll
   content:'';position:absolute;left:0;top:22px;width:16px;height:2px;background:var(--celeste);
 }
 
+/* rubros: los tres pilares traducidos al vocabulario de cada rubro.
+   Sin JavaScript los cinco paneles quedan apilados y separados por una linea:
+   el contenido se lee igual, que es lo que importa. */
+#rubros .eyebrow{display:block;margin-bottom:14px}
+#rubros .lead{margin-top:18px;max-width:64ch}
+
+/* La barra de pestanas no tiene sentido sin JavaScript: sin el, cada boton no
+   hace nada. Nace oculta y main.js la muestra al terminar de conectarla. */
+.rubro-tabs{
+  display:none;flex-wrap:wrap;gap:8px;
+  margin-top:clamp(32px,5vh,52px);
+}
+.rubro-tabs.ready{display:flex}
+.rubro-tab{
+  background:none;border:1px solid var(--hairline);border-radius:100px;
+  color:var(--ash);font-family:'Geist Mono',monospace;font-size:10.5px;
+  letter-spacing:.2em;text-transform:uppercase;padding:10px 18px;cursor:pointer;
+  transition:color .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease);
+}
+.rubro-tab:hover{color:var(--celeste);border-color:rgba(127,201,242,.45)}
+.rubro-tab[aria-selected="true"]{
+  color:var(--void);background:var(--celeste);border-color:var(--celeste);
+}
+
+.rubro-panels{margin-top:clamp(32px,5vh,52px)}
+.rubro-panel{
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  column-gap:clamp(28px,4vw,64px);row-gap:0;
+  padding:clamp(28px,4vh,44px) 0;
+  border-top:1px solid var(--hairline);
+}
+/* El CTA es hermano de la lista y no hijo del titulo: asi en desktop se ubica por
+   grid debajo del titulo, y en mobile, que es una sola columna, cae al final en vez
+   de partir la lectura entre el problema y lo que se hace. */
+.rubro-head{grid-column:1;grid-row:1}
+.r-list{grid-column:2;grid-row:1 / span 2}
+.r-cta{grid-column:1;grid-row:2;align-self:start}
+.rubro-panel:last-child{border-bottom:1px solid var(--hairline)}
+/* Con JavaScript solo se ve el panel elegido, y la linea divisoria sobra. */
+.rubro-panels.tabbed .rubro-panel{border:0;padding-top:0}
+.rubro-panels.tabbed .rubro-panel[hidden]{display:none}
+
+.r-word{
+  font-size:clamp(24px,3.4vw,44px);line-height:.95;
+  color:var(--celeste);
+}
+.r-who{
+  margin-top:12px;font-family:'Geist Mono',monospace;font-size:10.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ash);
+}
+.r-pain{margin-top:18px;font-size:clamp(15px,1.5vw,18px);color:var(--bone);max-width:42ch}
+
+.r-list{list-style:none;display:flex;flex-direction:column;gap:22px}
+.r-list li{display:grid;grid-template-columns:132px minmax(0,1fr);gap:20px;align-items:start}
+.r-tag{
+  font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.22em;
+  color:var(--celeste);padding-top:4px;
+}
+.r-list p{font-size:14.5px;color:var(--ash)}
+.r-cta{justify-self:start;margin-top:26px}
+.r-foot{
+  margin-top:clamp(28px,4vh,44px);font-size:14px;color:var(--ash);max-width:62ch;
+}
+
 /* casos */
 #casos .eyebrow{display:block;margin-bottom:14px}
 #casos .lead{margin-top:18px}
@@ -410,6 +474,8 @@ footer p{
   .step:nth-child(2n){border-right:0}
   .rules{grid-template-columns:repeat(2,1fr)}
   .pillar{grid-template-columns:1fr;gap:18px}
+  .rubro-panel{grid-template-columns:1fr;row-gap:26px}
+  .rubro-head,.r-list,.r-cta{grid-column:auto;grid-row:auto}
 }
 @media(max-width:640px){
   :root{--pad:20px}
@@ -424,6 +490,12 @@ footer p{
   .step{border-right:0;padding-right:0}
   .rules{grid-template-columns:1fr;gap:24px}
   .p-word{font-size:clamp(21px,7vw,30px);-webkit-text-stroke-width:1px}
+  /* Las etiquetas de los tres pilares pasan arriba del texto: en una columna de
+     320px, 132px para "AUTOMATIZO" dejan el parrafo en tres palabras por linea. */
+  .r-list li{grid-template-columns:1fr;gap:8px}
+  .r-tag{padding-top:0}
+  .r-word{font-size:clamp(21px,7vw,32px)}
+  .rubro-tab{padding:9px 14px;letter-spacing:.16em}
   .hero-title h1{font-size:clamp(58px,19vw,96px)}
   .scroll-cue{display:none}
   footer .inner{flex-direction:column}

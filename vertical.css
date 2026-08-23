@@ -419,3 +419,10 @@ h1.v-titulo{
 @media(max-width:640px){
   .cierre-v h2.display.giant{font-size:clamp(23px,7vw,32px)}
 }
+
+/* La base comun: cinco pasos numerados. Patron distinto al de las soluciones del
+   rubro a proposito, porque es otra cosa: no es lo que te diferencia, es el piso. */
+.base-grid{margin-top:clamp(30px,4.5vh,50px)}
+.base-grid .tarjeta.paso{padding:2px 0 2px 22px}
+.base-grid .tarjeta.paso h3{margin-bottom:8px}
+@media(max-width:960px){.base-grid{gap:clamp(20px,3vw,28px)}}

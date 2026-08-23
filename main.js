@@ -28,48 +28,10 @@
     });
   }
 
-  /* ---------- rubros: tabs, as progressive enhancement ----------
-     The markup ships every panel visible so the content exists without JS and
-     for anything that does not run it. Only here do the panels become tabs.
-     This block sits BEFORE the reduced-motion return on purpose: a reader who
-     asked for less movement still wants the tabs to work. */
-  (function rubroTabs() {
-    var tablist = document.querySelector('.rubro-tabs');
-    var panels = document.querySelector('.rubro-panels');
-    if (!tablist || !panels) return;
-
-    var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
-    if (tabs.length === 0) return;
-
-    function select(index, moveFocus) {
-      tabs.forEach(function (tab, i) {
-        var active = i === index;
-        tab.setAttribute('aria-selected', String(active));
-        /* Only the selected tab stays in the tab order: arrows move between
-           them, which is what a tablist is supposed to do. */
-        tab.tabIndex = active ? 0 : -1;
-
-        var panel = document.getElementById(tab.getAttribute('aria-controls'));
-        if (panel) panel.hidden = !active;
-      });
-
-      if (moveFocus) tabs[index].focus();
-    }
-
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () { select(i, false); });
-      tab.addEventListener('keydown', function (event) {
-        var delta = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
-        if (delta === 0) return;
-        event.preventDefault();
-        select((i + delta + tabs.length) % tabs.length, true);
-      });
-    });
-
-    panels.classList.add('tabbed');
-    tablist.classList.add('ready');
-    select(0, false);
-  })();
+  /* Las paginas de rubro comparten este archivo por los reveals y nada mas: no
+     tienen hero. Sin este corte, todo lo que sigue busca elementos que ahi no
+     existen y la pagina se queda con los bloques invisibles. */
+  if (!document.querySelector('.hero')) return;
 
   if (reduced) {
     /* CSS shows the title statically; the CTAs must be reachable */

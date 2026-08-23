@@ -1,0 +1,421 @@
+/* EL TIO - landings verticales.
+   Reemplaza a nicho.css.
+
+   Cada pagina inyecta su propio bloque de tokens en el head. Aca no hay ni un
+   color literal: todo sale de las variables, y por eso el mismo componente
+   funciona sobre fondo casi negro y sobre fondo crema sin tocar una linea.
+
+   Lo que NO cambia entre las siete, y es lo que las mantiene hermanas:
+   tipografia, wordmark, avatar, ritmo editorial y disciplina de interfaz.
+   Lo que SI cambia: superficie, acento, orden de secciones, layout del hero,
+   patron de tarjetas y diagramas. */
+
+/* ---------- base ---------- */
+body.vertical{
+  background:var(--fondo);
+  color:var(--texto);
+}
+.vertical ::selection{background:var(--acento);color:var(--fondo)}
+
+.vertical .inner{max-width:var(--max);margin:0 auto;position:relative;z-index:2}
+.vertical .bloque{
+  position:relative;
+  padding:clamp(72px,11vh,140px) var(--pad);
+  scroll-margin-top:24px;
+}
+.vertical .bloque.apretado{padding-top:clamp(40px,6vh,72px)}
+.vertical .bloque.elevado{background:var(--superficie)}
+
+.vertical .tag{
+  display:block;
+  font-family:'Geist Mono',monospace;
+  font-size:10.5px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--acento-texto);
+  margin-bottom:14px;
+}
+.vertical h2.display{color:var(--texto)}
+.vertical .lead{color:var(--texto-2);max-width:56ch}
+.vertical .hl{color:var(--acento-texto)}
+
+/* ---------- cabecera ----------
+   Sin menu: una landing de adquisicion no necesita salidas. El wordmark existe
+   por confianza, no por navegacion. */
+.vertical header.top{
+  position:absolute;
+  background:transparent;
+  pointer-events:none;
+}
+.vertical header.top::before{
+  content:'';position:absolute;inset:-1px 0 -44px;z-index:-1;
+  background:linear-gradient(180deg,rgba(4,7,11,.9) 0%,rgba(4,7,11,.55) 45%,rgba(4,7,11,0) 100%);
+}
+/* Cuando el hero no pone una imagen oscura detras del encabezado, el velo sobra
+   y el wordmark blanco no se lee. Ahi el encabezado usa los colores de la pagina. */
+.vertical.header-claro header.top::before{display:none}
+.vertical.header-claro .wordmark{color:var(--texto)}
+.vertical.header-claro header.top .status{color:var(--texto-3)}
+
+.vertical .wordmark{pointer-events:auto;color:#EDF1F4}
+.vertical .wordmark .dot{color:var(--acento)}
+.vertical header.top .status{color:rgba(237,241,244,.62)}
+.vertical header.top .status .pulse{
+  background:var(--acento);
+  box-shadow:0 0 10px 1px var(--acento-glow);
+}
+
+/* ---------- la banda del hero ----------
+   Las siete abren con el avatar sobre casi negro. Es la costura que une el
+   sistema: debajo de esta banda la pagina puede ser clara sin dejar de ser
+   El Tio. */
+.banda{
+  position:relative;
+  width:100%;
+  background:#04070B;
+  overflow:hidden;
+}
+.banda img{
+  width:100%;height:100%;object-fit:cover;
+  object-position:center 32%;
+}
+/* El degradado tiene que resolver a fondo solido antes de que empiece el texto:
+   si el titular cae sobre la parte translucida, no se lee sobre la foto. */
+.banda::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:58%;
+  background:linear-gradient(to top,var(--fondo) 14%,rgba(4,7,11,.42) 62%,transparent);
+}
+/* 2:1 y no 21:9: en un recorte mas angosto se pierde el contexto del rubro, y
+   ese contexto es la mitad de lo que hace que la pagina se reconozca sin leerla. */
+.banda.corta{aspect-ratio:2 / 1;max-height:62vh}
+.banda.corta img{object-position:center 42%}
+.banda.alta{aspect-ratio:3 / 2;max-height:78vh}
+
+/* ---------- los tres layouts de hero ----------
+   Uno por familia. No es variedad decorativa: cada rubro tiene una relacion
+   distinta entre imagen y palabra. */
+
+/* A. Texto debajo de la banda. Editorial, premium, deja respirar la foto. */
+.hero-banda .hero-texto{
+  position:relative;z-index:3;
+  margin-top:clamp(-88px,-6vw,-40px);
+  padding:0 var(--pad) clamp(20px,3vh,40px);
+}
+
+/* B. Texto encima de la imagen. Solo sobre superficie oscura. */
+.hero-encima{position:relative}
+.hero-encima .banda{position:absolute;inset:0;height:100%}
+.hero-encima .banda img{object-position:center 28%}
+.hero-encima .banda::after{
+  inset:0;height:100%;
+  background:linear-gradient(90deg,var(--fondo) 4%,rgba(8,9,11,.82) 42%,rgba(8,9,11,.25) 100%);
+}
+.hero-encima .hero-texto{
+  position:relative;z-index:3;
+  padding:clamp(120px,17vh,190px) var(--pad) clamp(64px,10vh,110px);
+  min-height:min(88vh,860px);
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+
+/* C. Imagen y texto lado a lado. Da lugar a un mockup junto al titular. */
+.hero-partido .hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  align-items:center;
+  gap:clamp(28px,4vw,64px);
+  padding:clamp(120px,16vh,180px) var(--pad) clamp(56px,8vh,96px);
+  max-width:var(--max);margin:0 auto;
+}
+.hero-partido .banda{
+  border-radius:2px;
+  aspect-ratio:4 / 5;
+  max-height:none;
+}
+.hero-partido .banda::after{height:38%}
+
+/* ---------- tipografia del hero ---------- */
+.v-eyebrow{
+  display:block;
+  font-family:'Geist Mono',monospace;
+  font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--acento);
+  margin-bottom:16px;
+}
+.hero-encima .v-eyebrow,.hero-banda .hero-texto .v-eyebrow{color:var(--acento)}
+h1.v-titulo{
+  font-family:'Archivo',sans-serif;
+  font-variation-settings:'wdth' 125;
+  font-weight:800;
+  text-transform:uppercase;
+  line-height:.98;
+  letter-spacing:-.012em;
+  font-size:clamp(27px,4.3vw,56px);
+  max-width:21ch;
+}
+.hero-encima h1.v-titulo{color:#F4F2F0}
+.v-sub{
+  margin-top:22px;
+  font-size:clamp(15px,1.55vw,19px);
+  line-height:1.55;
+  color:var(--texto-2);
+  max-width:52ch;
+}
+.hero-encima .v-sub{color:rgba(240,238,236,.74)}
+.v-quien{
+  display:block;margin-top:26px;
+  font-family:'Geist Mono',monospace;
+  font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--texto-3);
+}
+.v-cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+
+/* ---------- botones ---------- */
+.vertical .btn{
+  display:inline-block;
+  padding:15px 30px;
+  font-family:'Geist Mono',monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  border:1px solid var(--acento);
+  transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease);
+}
+.vertical .btn.solid{background:var(--acento);color:var(--sobre-acento)}
+.vertical .btn.solid:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--acento-glow)}
+.vertical .btn.ghost{background:transparent;color:var(--acento-texto)}
+.vertical .btn.ghost:hover{background:var(--acento-suave);transform:translateY(-2px)}
+.hero-encima .btn.ghost{border-color:rgba(240,238,236,.3);color:rgba(240,238,236,.9)}
+
+/* ---------- lista de etiqueta y texto ---------- */
+.filas{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--linea)}
+.filas li{
+  display:grid;
+  grid-template-columns:180px minmax(0,1fr);
+  gap:24px;align-items:start;
+  padding:24px 0;
+  border-bottom:1px solid var(--linea);
+}
+.filas .f-tag{
+  font-family:'Geist Mono',monospace;
+  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--acento-texto);
+  padding-top:3px;
+}
+.filas p{font-size:15px;line-height:1.6;color:var(--texto-2);max-width:60ch}
+.filas strong{color:var(--texto);font-weight:600}
+
+/* ---------- tarjetas ----------
+   Tres patrones distintos. Cada vertical usa el que le sirve, no el que toca. */
+.tarjetas{display:grid;gap:clamp(12px,1.6vw,20px);margin-top:clamp(30px,4.5vh,50px)}
+.tarjetas.de2{grid-template-columns:repeat(2,1fr)}
+.tarjetas.de3{grid-template-columns:repeat(3,1fr)}
+.tarjetas.de4{grid-template-columns:repeat(4,1fr)}
+
+/* Patron 1: caja con borde. Neutro, sirve para casi todo. */
+.tarjeta{
+  border:1px solid var(--linea);
+  background:var(--superficie);
+  padding:clamp(20px,2.4vw,30px);
+}
+.tarjeta h3{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125;
+  font-weight:700;font-size:16.5px;line-height:1.25;margin-bottom:9px;color:var(--texto);
+}
+.tarjeta p{font-size:14px;line-height:1.6;color:var(--texto-2)}
+
+/* Patron 2: solo una linea arriba. Mas liviano, mas editorial. */
+.tarjeta.linea{border:0;border-top:2px solid var(--acento);background:transparent;padding:18px 0 0}
+
+/* Patron 3: numerada. Para secuencias. */
+.tarjeta.paso{border:0;background:transparent;padding:0;border-left:1px solid var(--linea);padding-left:20px}
+.tarjeta.paso .n{
+  display:block;font-family:'Geist Mono',monospace;font-size:11px;
+  letter-spacing:.2em;color:var(--acento-texto);margin-bottom:12px;
+}
+
+/* ---------- capturas y mockups ---------- */
+.captura{
+  margin-top:clamp(28px,4vh,44px);
+  border:1px solid var(--linea);
+  background:var(--fondo-captura);
+  overflow:hidden;
+}
+.captura img{width:100%;height:auto;display:block}
+.captura figcaption{
+  padding:12px clamp(14px,1.6vw,20px);
+  border-top:1px solid var(--linea);
+  font-family:'Geist Mono',monospace;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--texto-3);
+}
+
+/* ---------- diagramas ----------
+   Vectoriales e inline: heredan el acento de cada pagina, pesan poco y se ven
+   nitidos en cualquier pantalla. */
+.diagrama{
+  margin-top:clamp(30px,4.5vh,50px);
+  border:1px solid var(--linea);
+  background:var(--superficie);
+  padding:clamp(20px,3vw,40px);
+}
+.diagrama svg{width:100%;height:auto;display:block}
+.diagrama figcaption{
+  margin-top:18px;padding-top:14px;border-top:1px solid var(--linea);
+  font-family:'Geist Mono',monospace;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--texto-3);
+}
+.dg-linea{stroke:var(--linea-fuerte);stroke-width:1;fill:none}
+.dg-acento{stroke:var(--acento);stroke-width:1.5;fill:none}
+.dg-caja{fill:var(--fondo);stroke:var(--linea-fuerte);stroke-width:1}
+.dg-caja-acento{fill:var(--acento-suave);stroke:var(--acento);stroke-width:1}
+.dg-relleno{fill:var(--acento)}
+.dg-tenue{fill:var(--linea-fuerte)}
+.dg-t{fill:var(--texto);font-family:'Geist',sans-serif;font-size:12px}
+.dg-t.chico{font-size:10px;fill:var(--texto-2)}
+.dg-t.mono{font-family:'Geist Mono',monospace;font-size:9.5px;letter-spacing:.16em;fill:var(--texto-3)}
+.dg-t.grande{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125;font-weight:800;font-size:22px}
+.dg-t.acento{fill:var(--acento-texto)}
+
+/* ---------- escenario de demostracion ----------
+   Lleva su etiqueta pegada arriba a la izquierda y no se puede leer sin verla.
+   Es la diferencia entre un ejemplo y una mentira. */
+.escenario{
+  position:relative;
+  margin-top:clamp(30px,4.5vh,50px);
+  border:1px solid var(--linea);
+  background:var(--superficie);
+  padding:clamp(26px,3.4vw,44px);
+}
+.escenario-badge{
+  position:absolute;top:0;left:clamp(20px,3vw,36px);
+  transform:translateY(-50%);
+  background:var(--acento);
+  color:var(--sobre-acento);
+  font-family:'Geist Mono',monospace;
+  font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+  padding:6px 12px;
+}
+.escenario h3{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125;
+  font-weight:700;font-size:clamp(17px,2vw,23px);margin-bottom:16px;color:var(--texto);
+}
+.escenario dl{display:grid;grid-template-columns:200px minmax(0,1fr);gap:14px 24px}
+.escenario dt{
+  font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--texto-3);padding-top:3px;
+}
+.escenario dd{font-size:14.5px;line-height:1.6;color:var(--texto-2)}
+.escenario .medimos{
+  margin-top:22px;padding-top:18px;border-top:1px solid var(--linea);
+  font-size:14.5px;line-height:1.6;color:var(--texto);
+}
+
+/* ---------- precio ---------- */
+.precios{display:grid;gap:clamp(12px,1.6vw,20px);margin-top:clamp(30px,4.5vh,50px)}
+.precios.de2{grid-template-columns:repeat(2,1fr)}
+.precio-caja{border:1px solid var(--linea);background:var(--superficie);padding:clamp(24px,3vw,40px)}
+.precio-caja.principal{border-color:var(--acento);background:var(--acento-suave)}
+.precio-nombre{
+  font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--texto-3);
+}
+.precio-monto{
+  display:block;margin:12px 0 6px;
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125;
+  font-weight:800;font-size:clamp(30px,3.6vw,50px);line-height:1;
+  color:var(--acento-texto);
+}
+.precio-nota{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--texto-3);margin-bottom:20px}
+.precio-caja ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.precio-caja li{position:relative;padding-left:19px;font-size:14px;line-height:1.55;color:var(--texto-2)}
+.precio-caja li::before{
+  content:"";position:absolute;left:0;top:.62em;width:9px;height:1px;background:var(--acento);opacity:.7;
+}
+
+/* ---------- preguntas ---------- */
+.faq{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,26px);margin-top:clamp(30px,4.5vh,50px)}
+.faq-item{border-top:1px solid var(--linea);padding-top:20px}
+.faq-item h3{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125;
+  font-weight:700;font-size:16px;line-height:1.3;margin-bottom:10px;color:var(--texto);
+}
+.faq-item p{font-size:14.5px;line-height:1.62;color:var(--texto-2)}
+
+/* ---------- nota honesta ---------- */
+.honesto{
+  margin-top:clamp(26px,3.6vh,40px);
+  padding-top:18px;border-top:1px solid var(--linea);
+  font-size:13.5px;line-height:1.7;color:var(--texto-3);max-width:70ch;
+}
+
+/* ---------- cierre ---------- */
+.cierre-v{background:var(--superficie);text-align:left}
+.cierre-v h2{max-width:16ch}
+.cierre-v .lead{margin-top:20px}
+
+/* ---------- pie ---------- */
+.vertical footer{
+  border-top:1px solid var(--linea);
+  padding:clamp(40px,6vh,70px) var(--pad);
+}
+.vertical footer .inner{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between}
+.vertical footer p{font-size:12.5px;color:var(--texto-3)}
+.vertical .foot-link{color:var(--acento-texto)}
+
+/* ---------- reveals ---------- */
+.vertical .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.vertical .reveal.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .tarjetas.de3,.tarjetas.de4{grid-template-columns:repeat(2,1fr)}
+  .precios.de2,.faq{grid-template-columns:1fr}
+  .hero-partido .hero-grid{grid-template-columns:1fr;padding-top:clamp(96px,14vh,140px)}
+  .hero-partido .banda{aspect-ratio:16 / 10;order:-1}
+  .escenario dl{grid-template-columns:1fr;gap:6px 0}
+  .escenario dt{padding-top:12px}
+}
+@media(max-width:640px){
+  .tarjetas.de2,.tarjetas.de3,.tarjetas.de4{grid-template-columns:1fr}
+  .filas li{grid-template-columns:1fr;gap:9px}
+  .filas .f-tag{padding-top:0}
+  .banda.corta{aspect-ratio:4 / 3;max-height:52vh}
+  .banda.alta{aspect-ratio:4 / 3;max-height:58vh}
+  .hero-banda .hero-texto{margin-top:-28px}
+  .hero-encima .hero-texto{min-height:auto;padding-top:clamp(96px,15vh,130px)}
+  .vertical .bloque{padding:56px var(--pad)}
+  .escenario-badge{position:static;transform:none;display:inline-block;margin-bottom:16px}
+  .escenario{padding-top:clamp(22px,3vw,30px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .vertical .reveal{opacity:1;transform:none;transition:none}
+  .vertical .btn:hover{transform:none}
+}
+
+/* ---------- variantes de layout ---------- */
+
+/* Imagen a la izquierda. Le da a Hospitality un ritmo distinto al de Artistas
+   sin cambiar un solo componente. */
+.hero-partido.espejo .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}
+.hero-partido.espejo .banda{aspect-ratio:4 / 5}
+
+/* La pieza que define al vertical, apenas debajo del hero: la carta en el
+   telefono, el panel de alertas, el flujo de cotizacion. Aparece antes que
+   cualquier parrafo largo. */
+.hero-banda.con-pieza .hero-texto{margin-top:clamp(-76px,-5vw,-34px)}
+.pieza-hero{padding:0 var(--pad);margin-top:clamp(34px,5vh,58px)}
+.pieza-hero .diagrama{margin-top:0}
+
+@media(max-width:960px){
+  .hero-partido.espejo .hero-grid{grid-template-columns:1fr}
+  .hero-partido.espejo .banda{aspect-ratio:16 / 10}
+}
+@media(max-width:640px){
+  .hero-banda.con-pieza .hero-texto{margin-top:-24px}
+  .pieza-hero .diagrama{padding:14px}
+}
+
+/* Los titulares del cierre son los mas largos de la pagina y los que mas rapido
+   se desbordan en un telefono. Dos defensas: el cuerpo baja un escalon, y si aun
+   asi una palabra sola no entra, se separa con guion en vez de salirse. */
+.cierre-v h2{hyphens:auto}
+@media(max-width:640px){
+  .cierre-v h2.display.giant{font-size:clamp(23px,7vw,32px)}
+}

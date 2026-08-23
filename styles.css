@@ -282,142 +282,6 @@ section.block{position:relative;padding:clamp(96px,15vh,180px) var(--pad);scroll
   content:'';position:absolute;left:0;top:22px;width:16px;height:2px;background:var(--celeste);
 }
 
-/* Versiones: una tarjeta por rubro, cada una con su pagina. El id sigue siendo
-   #rubros porque es el ancla que ya usa la navegacion y la que puede estar
-   compartida en algun lado. */
-#rubros .eyebrow{display:block;margin-bottom:14px}
-#rubros .lead{margin-top:18px;max-width:64ch}
-
-/* ---------- versiones: una tarjeta por vertical ----------
-   Siete verticales. Real Estate va a lo ancho porque es el unico con software
-   terminado y precio publicado, y eso tiene que verse antes de leer nada. Los
-   otros seis entran en dos filas de tres. */
-.v-grid{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:clamp(14px,1.8vw,24px);
-  margin-top:clamp(32px,5vh,52px);
-}
-.version{
-  grid-column:span 2;
-  display:flex;
-  flex-direction:column;
-  border:1px solid var(--hairline);
-  background:var(--carbon);
-  overflow:hidden;
-  transition:border-color .4s var(--ease),transform .4s var(--ease);
-}
-.version:hover,.version:focus-visible{
-  border-color:rgba(127,201,242,.45);
-  transform:translateY(-3px);
-}
-.version:focus-visible{outline:2px solid var(--celeste);outline-offset:3px}
-
-/* La destacada: imagen a la izquierda, texto a la derecha, y el borde ya encendido
-   para que se lea como el vertical activo sin necesidad de pasar el mouse. */
-.version.destacada{
-  grid-column:span 6;
-  flex-direction:row;
-  align-items:stretch;
-  border-color:rgba(127,201,242,.32);
-}
-.version.destacada .v-media{flex:0 0 52%;aspect-ratio:auto}
-.version.destacada .v-media::after{
-  inset:0 0 0 auto;
-  width:40%;height:100%;
-  background:linear-gradient(to right,transparent,var(--carbon));
-}
-.version.destacada .v-body{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:clamp(24px,3.4vw,52px);
-}
-.version.destacada .v-name{font-size:clamp(30px,4vw,58px)}
-.version.destacada .v-who{font-size:15.5px;max-width:40ch}
-
-.v-media{
-  display:block;
-  position:relative;
-  aspect-ratio:3 / 2;
-  overflow:hidden;
-  background:var(--void);
-}
-.v-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:grayscale(.35) contrast(1.05);
-  transition:transform .8s var(--ease),filter .5s var(--ease);
-}
-.version:hover .v-media img,.version:focus-visible .v-media img{
-  transform:scale(1.04);
-  filter:grayscale(0) contrast(1.05);
-}
-/* Un velo desde abajo: la tipografia arranca sobre negro y no sobre la foto. */
-.v-media::after{
-  content:"";
-  position:absolute;
-  inset:auto 0 0 0;
-  height:55%;
-  background:linear-gradient(to top,var(--carbon),transparent);
-}
-.v-body{
-  display:block;
-  padding:clamp(18px,2vw,26px);
-  padding-top:clamp(14px,1.6vw,18px);
-}
-.v-linea{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.v-brand{
-  font-family:'Geist Mono',monospace;
-  font-size:10px;
-  letter-spacing:.34em;
-  color:var(--celeste);
-}
-.v-name{
-  display:block;
-  margin-top:8px;
-  font-size:clamp(22px,2.3vw,34px);
-}
-.version:hover .v-name,.version:focus-visible .v-name{color:var(--celeste)}
-.v-who{
-  display:block;
-  margin-top:10px;
-  font-size:13.5px;
-  color:var(--ash);
-}
-.v-go{
-  display:inline-block;
-  margin-top:20px;
-  font-family:'Geist Mono',monospace;
-  font-size:10.5px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--celeste);
-  border-bottom:1px solid rgba(127,201,242,.4);
-  padding-bottom:4px;
-  align-self:flex-start;
-}
-
-/* ---------- estado de cada vertical ----------
-   Tres estados y ninguno decorativo: dicen que se puede comprar hoy y que no.
-   Solo el activo lleva color; el resto se lee sin gritar. */
-.chip{
-  font-family:'Geist Mono',monospace;
-  font-size:9.5px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  padding:4px 9px;
-  border:1px solid var(--hairline);
-  color:var(--ash);
-  white-space:nowrap;
-}
-.chip.activo{
-  color:var(--celeste);
-  border-color:rgba(127,201,242,.5);
-  background:var(--celeste-dim);
-}
-
 .r-foot{
   margin-top:clamp(28px,4vh,44px);font-size:14px;color:var(--ash);max-width:62ch;
 }
@@ -526,6 +390,23 @@ section.block{position:relative;padding:clamp(96px,15vh,180px) var(--pad);scroll
 .cierre .hero-cta{margin-top:36px}
 .cierre .eyebrow{display:block;margin-bottom:20px}
 
+/* Navegacion del pie. Existe por una sola razon: sin ningun enlace interno las
+   siete landings quedan huerfanas y no se indexan. Es texto y nada mas, para que
+   no vuelva a ser el directorio que sacamos del cuerpo de la pagina. */
+.foot-nav{
+  padding:0 var(--pad) clamp(28px,4vh,44px);
+  border-bottom:1px solid var(--hairline);
+  margin-bottom:clamp(28px,4vh,44px);
+}
+.foot-nav-titulo{
+  font-family:'Geist Mono',monospace;
+  font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--ash);margin-bottom:14px;
+}
+.foot-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px clamp(18px,2.4vw,30px)}
+.foot-nav a{font-size:13.5px;color:var(--ash);transition:color .3s var(--ease)}
+.foot-nav a:hover,.foot-nav a:focus-visible{color:var(--celeste)}
+
 footer{
   padding:36px var(--pad) 44px;border-top:1px solid var(--hairline);
 }
@@ -550,15 +431,6 @@ footer p{
   .step:nth-child(2n){border-right:0}
   .rules{grid-template-columns:repeat(2,1fr)}
   .pillar{grid-template-columns:1fr;gap:18px}
-  /* La destacada se apila y los otros seis van de a dos. */
-  .v-grid{grid-template-columns:repeat(2,1fr)}
-  .version{grid-column:span 1}
-  .version.destacada{grid-column:span 2;flex-direction:column}
-  .version.destacada .v-media{flex:none;aspect-ratio:3 / 2}
-  .version.destacada .v-media::after{
-    inset:auto 0 0 0;width:100%;height:55%;
-    background:linear-gradient(to top,var(--carbon),transparent);
-  }
 }
 @media(max-width:640px){
   :root{--pad:20px}
@@ -573,8 +445,6 @@ footer p{
   .step{border-right:0;padding-right:0}
   .rules{grid-template-columns:1fr;gap:24px}
   .p-word{font-size:clamp(21px,7vw,30px);-webkit-text-stroke-width:1px}
-  .v-grid{grid-template-columns:1fr}
-  .version,.version.destacada{grid-column:span 1}
   .hero-title h1{font-size:clamp(58px,19vw,96px)}
   .scroll-cue{display:none}
   footer .inner{flex-direction:column}

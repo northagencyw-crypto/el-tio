@@ -1,0 +1,405 @@
+/* ============================================================================
+   EL TIO DISTRIBUCION
+   Concepto: el juego de tres copias.
+
+   Cada bloque se escribe una sola vez y se lee en dos columnas atadas por un
+   filete de conversion: a la izquierda lo que el cliente escribio en su idioma
+   (abreviatura, columna cambiada, apodo), a la derecha lo que la casa entiende
+   (codigo, descripcion, cantidad en bultos). El margen que se pierde en el medio
+   es, literalmente, el espacio entre las dos columnas.
+
+   POR QUE NO SE CRUZA CON LAS SEIS. Las otras ordenan por una linea de tiempo o
+   por una acumulacion: el reloj avanza por horas, la cuenta regresiva baja hacia
+   una fecha, la recorrida avanza por puertas, la lista de asistencia avanza por
+   dias, el catalogo apila hacia adelante y el legajo se hojea. Esta no avanza en
+   ninguna direccion temporal: se lee siempre el mismo tramo, de izquierda a
+   derecha, porque el mecanismo es una traduccion y no una secuencia.
+
+   LA REGLA QUE ORDENA TODO: la jerarquia se hace por MEDIDA DE COLUMNA y peso de
+   filete, no por cuerpo tipografico. Hay tres cuerpos y casi no varian; lo que
+   cambia es cuanto ancho y cuanto filete recibe cada bloque. Se prueba
+   entrecerrando los ojos: si la mancha de LA BASE y la de la frutilla miden lo
+   mismo de ancho, el diseno esta contradiciendo al texto.
+
+   Hoja propia. Hay un test que falla si dos verticales comparten hoja,
+   tipografia, color o mas del 30 por ciento de sus componentes. Y otro que mide
+   el contraste de cada texto en el navegador.
+   ========================================================================= */
+
+:root {
+  /* Papel autocopiativo. El rubro entero converge en azul marino sobre blanco con
+     acento turquesa o naranja: se midieron trece competidores y no hay una sola
+     excepcion. La salida no es cambiar el azul por otro color de marca sino
+     cambiar de material. El reparto de copias del talonario esta normado, y el
+     fondo de la pagina es la copia rosa, que es la hoja que se queda en la casa.
+
+     Contraste medido, todos los pares de texto por arriba de 4,5 a 1:
+       tinta sobre rosa 12,35   tinta sobre original 15,84   tinta sobre canario 11,99
+       gastada sobre rosa 5,39  gastada sobre original 6,91  gastada sobre canario 5,23
+       sello sobre rosa 8,75    original sobre sello 11,22
+     El desgaste de copia se logra con desregistro y tinte, jamas bajando contraste. */
+  --rosa: #ecd8d2;      /* primera copia, la que vuelve al vendedor: fondo general */
+  --original: #faf7f2;  /* la hoja blanca: panel izquierdo y el unico bloque elevado */
+  --canario: #e7d9a6;   /* tercera copia: la banda de cifras, nunca lleva parrafo */
+  --tinta: #201c18;     /* marron negro de cinta entintada, no negro puro */
+  --gastada: #63524d;
+  --sello: #35287d;     /* violeta de goma. Ninguno de los ocho acentos ya usados
+                           es azul violaceo, y no es el azul de software del rubro. */
+  /* Solo hairlines, nunca texto: el escalon entre el rosa y el blanco de original
+     mide cerca de 1,3 a 1 y es invisible en un monitor de oficina, asi que la
+     separacion la hace el filete explicito y no el cambio de superficie. */
+  --filete: #8d7770;
+
+  --display: 'Familjen Grotesk', system-ui, sans-serif;
+  --texto: 'Hanken Grotesk', system-ui, sans-serif;
+  --dato: 'Sometype Mono', ui-monospace, monospace;
+
+  /* Base de 9px. Las hermanas usan 4, 5, 6, 7, 8 y 11. */
+  --u1: 9px;  --u2: 18px; --u3: 27px; --u4: 45px;
+  --u5: 63px; --u6: 108px; --u7: 162px;
+
+  --ancho: 1120px;
+  --canal: 27px;  /* el espacio donde se pierde el margen */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+body {
+  margin: 0;
+  background: var(--rosa);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: 19px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.talonario { max-width: var(--ancho); margin: 0 auto; padding: 0 clamp(18px, 4vw, 45px); }
+
+/* ------------------------------------------------------------------ escala
+   Tres cuerpos y nada mas. La jerarquia esta en la medida, abajo. */
+h1 {
+  font-family: var(--display);
+  font-size: clamp(32px, 4.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  max-width: 19ch;
+}
+h2 { font-family: var(--display); font-size: 27px; font-weight: 600; line-height: 1.2; margin: 0; }
+h3 {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  margin: 0;
+}
+p { margin: 0 0 var(--u3); max-width: 58ch; }
+.suave { color: var(--gastada); }
+
+.dato {
+  font-family: var(--dato);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--gastada);
+  margin: 0;
+}
+.rotulo {
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gastada);
+  margin: 0;
+}
+
+.hoja { padding: var(--u6) 0; border-block-start: 1px solid var(--filete); }
+.hoja:first-of-type { border-block-start: 0; }
+
+/* ---------------------------------------------------- MEDIDA (la jerarquia)
+   Tres anchos, tres pesos de filete. La frutilla pierde ademas el folio y la
+   columna de cifra: baja de rango sin achicar una sola letra. Ningun competidor
+   ordena por ancho de renglon; los trece ordenan por tamano de fuente. */
+.medida-lista { max-width: 58ch; border-block-start: 3px solid var(--tinta); padding-top: var(--u2); }
+.medida-carga { max-width: 34ch; border-block-start: 1.5px solid var(--tinta); padding-top: var(--u2); }
+.medida-talon { max-width: 22ch; border-block-start: 0.5px solid var(--filete); padding-top: var(--u1); }
+
+/* ------------------------------------------- el renglon de conversion (firma)
+   La unidad de contenido de toda la pagina y el reemplazo de TODA tarjeta con
+   icono, que es la pieza que usan las nueve homes del rubro.
+   Izquierda: lo que el cliente escribio, citado literal, con el desorden intacto.
+   Derecha: lo que la casa entiende. En el medio, el canal donde se pierde el
+   margen, siempre en el mismo lugar de la pantalla. */
+.conversion {
+  display: grid;
+  grid-template-columns: 1fr var(--canal) 1fr;
+  align-items: stretch;
+  margin-top: var(--u3);
+}
+.conversion .entra {
+  background: var(--original);
+  border: 1px solid var(--filete);
+  padding: var(--u2);
+  font-family: var(--dato);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gastada);
+  white-space: pre-line;   /* el desorden del pedido se conserva tal cual */
+}
+.conversion .canal {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.conversion .canal::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 50%;
+  margin-inline-start: -1.5px;
+  width: 3px;
+  background: var(--sello);
+}
+.conversion .canal span {
+  position: relative;
+  writing-mode: vertical-rl;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sello);
+  background: var(--rosa);
+  padding: var(--u1) 0;
+}
+.conversion .sale { padding: var(--u2) 0 var(--u2) var(--u2); }
+.conversion .sale .codigo { font-family: var(--dato); font-size: 14px; font-variant-numeric: tabular-nums; color: var(--tinta); }
+.conversion .sale h3 { margin-top: var(--u1); text-transform: none; letter-spacing: 0; font-weight: 600; }
+.conversion .sale p { margin: var(--u1) 0 0; font-size: 15px; color: var(--gastada); max-width: none; }
+
+@media (max-width: 760px) {
+  /* En pantalla angosta el filete pasa de vertical a horizontal: el canal sigue
+     existiendo, cambia de eje. */
+  .conversion { grid-template-columns: 1fr; }
+  .conversion .canal { min-height: var(--u4); }
+  .conversion .canal::before { inset: 50% 0 auto; margin: -1.5px 0 0; width: auto; height: 3px; }
+  .conversion .canal span { writing-mode: horizontal-tb; padding: 0 var(--u2); }
+  .conversion .sale { padding: var(--u2) 0 0; }
+}
+
+/* ------------------------------------------------- el sello de conforme (firma)
+   El marcador de estado. Aparece donde algo fue revisado por una persona antes de
+   avanzar, y contesta sola la objecion de que un error de precio cuesta un
+   cliente: nada avanza sin conforme. Reemplaza a la pastilla de color, al check
+   redondo y a las insignias de rating que el rubro pone abajo del hero.
+   La unica licencia es la rotacion: sin sombra, sin desenfoque, sin textura. */
+.sello-conforme {
+  display: inline-block;
+  border: 2px solid var(--sello);
+  outline: 1px solid var(--sello);
+  outline-offset: 3px;
+  background: var(--sello);
+  color: var(--original);
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: var(--u1) var(--u2);
+  transform: rotate(-2.5deg);
+}
+.sello-conforme.contorno { background: transparent; color: var(--sello); }
+/* El renglon de firma que va debajo, vacio a proposito. */
+.firma-vacia { display: block; width: 108px; height: 1px; background: var(--filete); margin-top: var(--u3); }
+
+/* --------------------------------------------------- el talon de carga (firma)
+   Las siete areas como bultos numerados de una misma carga, con dos columnas de
+   conteo. Hace visible que la mirada es completa: al final la cuenta cierra.
+   Reemplaza a la grilla de tarjetas iguales y, sobre todo, al selector de rubros
+   que esconde once de doce items en seis de las nueve paginas del rubro. */
+.talon-de-carga {
+  background: var(--canario);
+  border-block: 3px solid var(--tinta);
+  margin-top: var(--u3);
+}
+.talon-de-carga table { width: 100%; border-collapse: collapse; }
+.talon-de-carga th {
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gastada);
+  text-align: left;
+  padding: var(--u1) var(--u2);
+  border-block-end: 1px solid var(--filete);
+}
+.talon-de-carga th.cifra, .talon-de-carga td.cifra { text-align: right; width: 63px; }
+.talon-de-carga td.cifra { border-inline-start: 1px solid var(--filete); }
+.talon-de-carga td {
+  padding: var(--u2);
+  border-block-start: 1px solid var(--filete);
+  vertical-align: top;
+  height: 63px;   /* siete unidades de nueve */
+}
+.talon-de-carga td.folio {
+  font-family: var(--dato);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--gastada);
+  width: var(--u5);
+}
+.talon-de-carga td.cifra {
+  font-family: var(--dato);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--tinta);
+}
+.talon-de-carga td p { margin: var(--u1) 0 0; font-size: 15px; color: var(--gastada); max-width: 34ch; }
+
+@media (max-width: 720px) {
+  /* Las dos columnas de conteo son lo primero que se va: la cuenta se sigue
+     entendiendo por el folio. */
+  .talon-de-carga th.cifra, .talon-de-carga td.cifra { display: none; }
+  .talon-de-carga td { padding: var(--u2) var(--u1); }
+}
+
+/* --------------------------------------------- el juego de tres copias (firma)
+   El dispositivo del hero: la frase del problema impresa tres veces, una por
+   copia, cada una rotulada con su destinatario. Es la tesis dicha en un objeto:
+   una sola escritura genera tres constancias que viajan a tres lugares distintos.
+   Reemplaza a la foto de la persona con la tablet y las tarjetas de interfaz
+   flotando, que es la plantilla exacta de cinco de los diecisiete heroes.
+   EL DESREGISTRO ES DE POSICION, NUNCA DE OPACIDAD: ninguna copia baja de su
+   ratio medido. */
+.tres-copias { position: relative; padding: 0 var(--u2) var(--u2) 0; }
+.tres-copias .copia {
+  border: 1px solid var(--filete);
+  padding: var(--u3);
+  font-family: var(--dato);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.tres-copias .copia + .copia { margin-top: calc(var(--u1) * -1); }
+/* La de mas abajo primero, para que el apilado quede en el orden del talonario. */
+.tres-copias .tercera { background: var(--canario); color: var(--gastada); margin-inline-start: var(--u2); }
+.tres-copias .segunda { background: var(--rosa); color: var(--gastada); margin-inline-start: var(--u1); }
+.tres-copias .primera { background: var(--original); color: var(--tinta); }
+/* El borde microperforado del talonario, en un degradado de puntos de 1px. */
+.tres-copias .copia::before {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-bottom: var(--u2);
+  background: repeating-linear-gradient(90deg, var(--filete) 0 1px, transparent 1px 5px);
+}
+.tres-copias .destino {
+  display: block;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: var(--u1);
+}
+
+/* El unico bloque elevado de la pagina: el de USD 50, sobre blanco de original. */
+.elevado {
+  background: var(--original);
+  border: 1px solid var(--filete);
+  padding: var(--u4);
+}
+.elevado .monto {
+  font-family: var(--display);
+  font-size: clamp(44px, 6vw, 63px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums lining-nums;
+  line-height: 1;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--u2);
+  background: var(--sello);
+  color: var(--original);
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: var(--u2) var(--u3);
+  min-height: 44px;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+}
+.boton .monto-chico {
+  font-family: var(--dato);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  border-inline-start: 1px solid rgba(250, 247, 242, 0.45);
+  padding-inline-start: var(--u2);
+}
+.boton:hover { background: #2a1f66; }
+.boton:focus-visible { outline: 2px solid var(--tinta); outline-offset: 3px; }
+
+/* Las objeciones van abiertas, nunca en acordeon: la pregunta en la voz del dueno
+   a la izquierda y la respuesta a la derecha, con el mismo canal de conversion. */
+.objecion { border-block-start: 1px solid var(--filete); padding: var(--u3) 0; }
+.objecion .pregunta { font-family: var(--display); font-size: 19px; font-weight: 600; margin: 0; }
+.objecion .respuesta { margin: var(--u1) 0 0; max-width: 58ch; }
+
+/* ------------------------------------------------------------------ figuras
+   A sangre dentro de su columna, sin marco ni paspartu: el papel se muestra
+   porque funciona, nunca como chiste ni como antes y despues. */
+figure { margin: 0; }
+.evidencia img { width: 100%; display: block; border: 1px solid var(--filete); }
+.evidencia figcaption {
+  font-family: var(--dato);
+  font-size: 14px;
+  color: var(--gastada);
+  margin-top: var(--u1);
+}
+
+/* El hero pone la imagen a la IZQUIERDA: ninguno de los diecisiete competidores
+   auditados lo hace. */
+.partido { display: grid; grid-template-columns: 1fr 1.15fr; gap: var(--u4); align-items: center; }
+.partido.derecha { grid-template-columns: 1.15fr 1fr; }
+@media (max-width: 900px) { .partido, .partido.derecha { grid-template-columns: 1fr; gap: var(--u3); } }
+
+.saltar { position: absolute; left: -9999px; background: var(--sello); color: var(--original); padding: var(--u2) var(--u3); min-height: 44px; display: inline-flex; align-items: center; }
+.saltar:focus { left: var(--u3); top: var(--u3); position: fixed; z-index: 10; }
+
+.pie-pagina {
+  border-block-start: 3px solid var(--tinta);
+  padding: var(--u4) 0;
+  font-family: var(--dato);
+  font-size: 14px;
+  color: var(--gastada);
+}
+.pie-pagina a {
+  color: var(--tinta);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-block: -14px;
+}
+.pie-pagina nav { display: flex; gap: var(--u3); flex-wrap: wrap; margin-top: var(--u1); }
+
+@media (max-width: 640px) {
+  body { font-size: 18px; }
+  .hoja { padding: var(--u5) 0; }
+  .elevado { padding: var(--u3); }
+  /* Las medidas NO se anulan en mobile. Ese era el reflejo, y mataba el mecanismo:
+     los tres anchos quedaban en 354px y la jerarquia de la pagina desaparecia justo
+     donde mas se nota. Un max-width en ch no fuerza ancho, solo lo limita, asi que
+     el de 58ch simplemente deja de atar en una pantalla angosta mientras los de 34ch
+     y 22ch siguen atando. La diferencia sobrevive sola. */
+}

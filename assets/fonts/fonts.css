@@ -164,3 +164,28 @@
   font-display: swap;
   src: url('azeret-mono.woff2') format('woff2-variations');
 }
+
+/* Distribucion. La pieza que decide es la monoespaciada: se midieron ocho bundles del
+   rubro y practicamente nadie pide cifras tabulares, en una categoria cuyo trabajo entero
+   es alinear columnas de cantidades, precios y codigos. */
+@font-face {
+  font-family: 'Familjen Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('familjen-grotesk.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('hanken-grotesk.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Sometype Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('sometype-mono.woff2') format('woff2-variations');
+}

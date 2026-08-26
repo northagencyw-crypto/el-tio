@@ -1,0 +1,284 @@
+/* ============================================================================
+   EL TIO ARTISTAS
+   Concepto: tu carrera es un catalogo, no un feed.
+
+   El caso dificil del proyecto. Eventos ya estaba hecha y son rubros vecinos:
+   los dos son musica en vivo. La diferencia que las separa no es estetica sino
+   semantica, y la encontro la auditoria del campo:
+
+     el productor cuenta hacia atras hasta una noche y despues tira la pagina;
+     el artista apila hacia adelante y no tira nada, porque el catalogo viejo
+     es el activo que sigue cobrando.
+
+   Por eso aca no hay ninguna cuenta regresiva, ninguna barra de progreso hacia
+   una fecha y ningun rotulo de cupo. La pagina se lee como una edicion con
+   Lado A y Lado B, y todo lo que entro sigue estando.
+
+   Prohibido cruzarse con las otras tres: hay un test que lo verifica.
+   ========================================================================= */
+
+:root {
+  /* Cuarto material del sistema. Gastronomia y real estate son papel claro,
+     eventos es negro; este es un gris calido de funda gastada. */
+  --funda: #cfc5c0;
+  --papel: #f8efec;
+  --tinta: #33262a;
+  --tinta-suave: #544548;
+  --azufre: #d8c81f;
+  --linea: #8c7b76;
+
+  --display: 'Syne', system-ui, sans-serif;
+  --texto: 'Instrument Sans', system-ui, sans-serif;
+
+  /* Base de 5px. Las hermanas usan 4, 6 y 8. */
+  --e1: 5px; --e2: 10px; --e3: 15px; --e4: 25px;
+  --e5: 40px; --e6: 65px; --e7: 105px;
+
+  --ancho: 1120px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+
+body {
+  margin: 0;
+  background: var(--funda);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hoja { max-width: var(--ancho); margin: 0 auto; padding: 0 clamp(20px, 5vw, 60px); }
+
+/* ------------------------------------------------------------------ escala
+   Rampa densa de seis escalones con techo duro en 31px. Nada puede alcanzarlo:
+   ni un numero, ni un precio, ni una cifra. Es lo contrario del acantilado de
+   eventos, que salta de 132 a 28 sin nada en el medio. */
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 31px;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  margin: 0;
+  max-width: 22ch;
+}
+h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.25;
+  margin: 0;
+}
+h3 { font-family: var(--texto); font-weight: 600; font-size: 17px; line-height: 1.35; margin: 0; }
+p { margin: 0 0 var(--e3); max-width: 60ch; }
+.nota { font-size: 15px; color: var(--tinta-suave); }
+
+/* La unica etiqueta en caja alta, y siempre chica. */
+.ref {
+  font-family: var(--texto);
+  font-weight: 500;
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--tinta-suave);
+  margin: 0;
+}
+.ref.acento { color: var(--tinta); background: var(--azufre); display: inline-block; padding: 2px var(--e2); }
+
+.lado { padding: var(--e7) 0; border-block-start: 1px solid var(--linea); }
+.lado:first-of-type { border-block-start: 0; }
+.lado.claro { background: var(--papel); }
+
+/* ------------------------------------------------- renglon de catalogo (firma)
+   Reemplaza a la tarjeta en TODA la pagina: no existe una sola card en la hoja,
+   contra las grillas de tarjetas de las hermanas. Numero de serie, concepto,
+   una sola frase de contratapa, y el estado a la derecha. */
+.catalogo { list-style: none; margin: var(--e5) 0 0; padding: 0; }
+.catalogo li {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: var(--e2) var(--e4);
+  align-items: baseline;
+  padding: var(--e3) 0;
+  border-block-end: 1px solid var(--linea);
+}
+.catalogo .serie {
+  font-family: var(--texto);
+  font-weight: 500;
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--tinta-suave);
+}
+.catalogo .titulo { font-size: 17px; font-weight: 600; }
+.catalogo .estado {
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+}
+/* Una sola frase por item, nunca una lista: es la nota de contratapa del rubro. */
+.catalogo .contratapa {
+  grid-column: 2 / -1;
+  font-size: 15px;
+  color: var(--tinta-suave);
+  margin: 0;
+  max-width: 64ch;
+}
+@media (max-width: 620px) {
+  .catalogo li { grid-template-columns: 60px 1fr; }
+  .catalogo .estado { grid-column: 2; }
+  .catalogo .contratapa { grid-column: 1 / -1; }
+}
+
+/* Lo descatalogado: lo que El Tio explicitamente NO hace. Sustituye a las
+   promesas de resultado, que estan prohibidas, por una declaracion de limites. */
+.catalogo.descatalogado .titulo { text-decoration: line-through; text-decoration-thickness: 1px; color: var(--tinta-suave); }
+
+/* ------------------------------------------------------ riel de lomos (firma)
+   Se recorre en horizontal, cuando las tres hermanas son documentos
+   estrictamente verticales. Cada lomo es un ano del catalogo. */
+.riel {
+  display: flex;
+  gap: var(--e1);
+  overflow-x: auto;
+  padding: var(--e4) 0 var(--e3);
+  scrollbar-width: thin;
+}
+.lomo {
+  flex: 0 0 auto;
+  width: 46px;
+  min-height: 150px;
+  border: 1px solid var(--linea);
+  background: var(--papel);
+  padding: var(--e2) var(--e1);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.lomo span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+}
+.lomo.vigente { background: var(--azufre); border-color: var(--tinta); }
+.lomo.vigente span { color: var(--tinta); font-weight: 600; }
+
+/* ------------------------------------------------------------- el sello (firma)
+   El unico border-radius del sistema entero: tres hojas declaran radio 0 en
+   absolutamente todo, y aca hay un disco. */
+.sello {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  background: var(--azufre);
+  border: 1px solid var(--tinta);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: var(--e3);
+  position: relative;
+}
+.sello::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--funda);
+  border: 1px solid var(--tinta);
+}
+.sello p {
+  margin: 0;
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 600;
+  max-width: none;
+}
+
+/* --------------------------------------------- funda cuadrada con reverso (firma)
+   Toda imagen lleva 1:1 sin una sola excepcion, contra la mezcla de eventos.
+   Al pasar el cursor gira y muestra la ficha tecnica del dato. */
+.funda { perspective: 900px; }
+.funda .cara {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  transform-style: preserve-3d;
+  transition: transform 420ms ease;
+}
+.funda:hover .cara, .funda:focus-within .cara { transform: rotateY(180deg); }
+.funda .frente, .funda .reverso {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border: 1px solid var(--linea);
+}
+.funda .frente img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.funda .reverso {
+  transform: rotateY(180deg);
+  background: var(--papel);
+  padding: var(--e4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--e2);
+}
+.funda .reverso p { margin: 0; font-size: 15px; }
+@media (prefers-reduced-motion: reduce) {
+  .funda .cara { transform: none !important; }
+  .funda .reverso { display: none; }
+}
+
+.fundas { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--e4); margin-top: var(--e5); }
+
+.btn {
+  display: inline-block;
+  background: var(--tinta);
+  color: var(--papel);
+  font-family: var(--texto);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+}
+.btn:hover { background: #4a373c; }
+.btn:focus-visible { outline: 2px solid var(--azufre); outline-offset: 3px; }
+
+.dos { display: grid; grid-template-columns: 1fr 300px; gap: var(--e6); align-items: start; }
+@media (max-width: 880px) { .dos { grid-template-columns: 1fr; gap: var(--e5); } }
+
+.saltar { position: absolute; left: -9999px; background: var(--tinta); color: var(--papel); padding: var(--e2) var(--e3); }
+.saltar:focus { left: var(--e3); top: var(--e3); position: fixed; z-index: 10; }
+
+.pie-pagina {
+  border-block-start: 1px solid var(--linea);
+  padding: var(--e5) 0;
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.pie-pagina a { color: var(--tinta); }
+.pie-pagina nav { display: flex; gap: var(--e3); flex-wrap: wrap; margin-top: var(--e1); }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  h1 { font-size: 27px; }
+  .lado { padding: var(--e6) 0; }
+  .sello { width: 108px; height: 108px; }
+}

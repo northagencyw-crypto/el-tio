@@ -101,3 +101,21 @@
   font-display: swap;
   src: url('spline-mono.woff2') format('woff2-variations');
 }
+
+/* ------------------------------------------------------------------ artistas
+   Solo DOS familias, contra las tres de las hermanas. Syne para display en caja
+   normal, Instrument Sans para todo lo demas, incluido el dato. */
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('syne.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('instrument-sans.woff2') format('woff2-variations');
+}

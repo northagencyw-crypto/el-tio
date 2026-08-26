@@ -1,0 +1,319 @@
+/* ============================================================================
+   EL TIO EVENTOS
+   Concepto: cuenta regresiva a puertas. La sala se va encendiendo a medida que
+   se acerca la fecha, y lo que decide el resultado ya estaba escrito cuando
+   todavia no habia nadie adentro.
+
+   Hoja propia. Cero cruce con gastronomia.css ni real-estate.css: hay un test
+   que falla si comparten hoja, tipografia, color o componentes.
+
+   La categoria entera es negro RETROILUMINADO con neon y degradados. El
+   discriminante duro no es huir del negro sino cambiarle la naturaleza: aca es
+   tinta plana mate. Cero gradientes en toda la hoja, cero sombra decorativa,
+   radio 0 en absolutamente todo salvo el unico boton.
+   ========================================================================= */
+
+:root {
+  /* Escalera de luminancia: la pagina se aclara hacia PUERTAS. Un tramo por
+     seccion, no un fondo unico. */
+  --l0: #0b0d0e;
+  --l1: #14171a;
+  --l2: #1a1e21;
+  --l3: #212529;
+
+  --cal: #f2f4f3;      /* cal de afiche, no blanco puro: ese lo tomo real estate */
+  --cal-suave: #9aa3a1;
+  --gel: #2e9e8b;      /* gel frio de sala, matiz 170. Libre en todo el sistema. */
+  --linea: #3a4245;
+
+  --cartel: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --texto: 'Schibsted Grotesk', system-ui, sans-serif;
+  --dato: 'Spline Sans Mono', ui-monospace, monospace;
+
+  /* Base de 6px. Distinta de la de 4 de gastronomia y la de 8 de real estate. */
+  --p1: 6px;  --p2: 12px; --p3: 18px; --p4: 30px;
+  --p5: 48px; --p6: 78px; --p7: 126px;
+
+  /* No hay contenedor centrado ni ancho maximo: todo se alinea a la izquierda
+     contra un margen duro y las bandas van a sangre. Las dos hermanas tienen
+     contenedor de 1180 y 1280; esta no tiene ninguno. */
+  --margen: clamp(18px, 4.2vw, 56px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--l0);
+  color: var(--cal);
+  font-family: var(--texto);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------------ escala
+   El acantilado. Entre 28px y 132px no existe ningun tamano intermedio: el
+   salto es de 4,7 veces. El cartel aparece UNA sola vez en toda la pagina.
+   El 78 por ciento del texto vive en dos escalones, 17px y 13px. */
+.cartel {
+  font-family: var(--cartel);
+  font-weight: 800;
+  font-size: clamp(66px, 12.2vw, 132px);
+  line-height: 0.84;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  margin: 0;
+  max-width: 14ch;
+}
+h2 {
+  font-family: var(--cartel);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+h3 {
+  font-family: var(--texto);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.35;
+  margin: 0;
+}
+p { margin: 0 0 var(--p3); max-width: 64ch; }
+.fino { font-size: 14px; color: var(--cal-suave); }
+
+.rotulo {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gel);
+  margin: 0 0 var(--p2);
+}
+.rotulo.apagado { color: var(--cal-suave); }
+
+.dato {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  color: var(--cal-suave);
+}
+
+/* --------------------------------------------------- escalera de luz (firma)
+   Cada seccion declara data-luz de 0 a 3 y la hoja redefine el fondo en ese
+   unico selector. PUERTAS invierte a sangre. Cortes duros, sin transicion. */
+.tramo {
+  padding: var(--p6) var(--margen);
+  border-block-start: 1px solid var(--linea);
+}
+.tramo[data-luz='0'] { background: var(--l0); }
+.tramo[data-luz='1'] { background: var(--l1); }
+.tramo[data-luz='2'] { background: var(--l2); }
+.tramo[data-luz='3'] { background: var(--l3); }
+.tramo[data-luz='puertas'] {
+  background: var(--gel);
+  color: var(--l0);
+  border-block-start: 0;
+}
+.tramo[data-luz='puertas'] .rotulo,
+.tramo[data-luz='puertas'] .dato { color: var(--l0); }
+.tramo[data-luz='puertas'] p { color: rgba(11, 13, 14, 0.82); }
+
+/* ------------------------------------------- filete de cuenta regresiva (firma)
+   Una sola regla vertical de 1px que corre sin cortarse de D-90 a D+1, con el
+   desfase en mono a la izquierda. Es el espinazo de toda la pagina. */
+.regresiva {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: var(--p4);
+  align-items: start;
+}
+.regresiva > .marca {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  color: var(--gel);
+  position: relative;
+  padding-block-start: 3px;
+}
+.regresiva > .marca::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 28px;
+  inset-block-end: calc(var(--p6) * -1 - 30px);
+  inset-inline-start: 4px;
+  width: 1px;
+  background: var(--linea);
+}
+.tramo:last-of-type .regresiva > .marca::after { display: none; }
+.tramo[data-luz='puertas'] .regresiva > .marca { color: var(--l0); }
+.tramo[data-luz='puertas'] .regresiva > .marca::after { background: rgba(11, 13, 14, 0.35); }
+
+@media (max-width: 720px) {
+  .regresiva { grid-template-columns: 1fr; gap: var(--p2); }
+  .regresiva > .marca::after { display: none; }
+}
+
+/* ------------------------------------------------- line-up agrupado (firma)
+   Etiqueta minuscula arriba de cada grupo y los nombres apilados uno por
+   linea, TODOS al mismo cuerpo. El peso plano hace que la lista se lea entera
+   en vez de que el ojo salte al nombre mas grande y abandone. La jerarquia se
+   lee por posicion y por cantidad de renglones, nunca por tamano. */
+.lineup { margin: var(--p5) 0 0; }
+.lineup .grupo + .grupo { margin-block-start: var(--p5); }
+.lineup .etiqueta {
+  font-family: var(--dato);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gel);
+  padding-block-end: var(--p2);
+  border-block-end: 1px solid var(--linea);
+  margin: 0 0 var(--p3);
+}
+.lineup ul { list-style: none; margin: 0; padding: 0; }
+.lineup li {
+  font-family: var(--cartel);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding-block: var(--p1);
+}
+.lineup li span {
+  display: block;
+  font-family: var(--texto);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--cal-suave);
+  max-width: 64ch;
+  margin-block-start: var(--p1);
+}
+/* La frutilla se lee mas chica sin necesidad de explicar por que. */
+.lineup.postre li { font-size: 17px; font-family: var(--texto); font-weight: 600; text-transform: none; letter-spacing: 0; }
+
+/* ---------------------------------------------- running order (firma)
+   Regla de tiempo a la izquierda y bloques cuya ALTURA sale de la duracion
+   real. Convierte una pagina de marketing en algo que se parece a una
+   herramienta de trabajo, que es lo que hay que vender. */
+.running { margin: var(--p5) 0 0; }
+.running .fila {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: var(--p4);
+  border-block-start: 1px solid var(--linea);
+  padding-block: var(--p2);
+}
+.running .hora {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--cal-suave);
+  white-space: nowrap;
+}
+.running .bloque {
+  border-inline-start: 2px solid var(--gel);
+  padding: var(--p2) 0 var(--p2) var(--p3);
+  /* La altura es proporcional a la duracion, no decorativa. */
+  min-height: calc(var(--min, 15) * 1.6px);
+}
+.running .bloque h3 { text-transform: uppercase; font-family: var(--cartel); font-weight: 600; font-size: 21px; letter-spacing: 0.02em; }
+.running .bloque p { margin: var(--p1) 0 0; font-size: 15px; color: var(--cal-suave); }
+
+@media (max-width: 720px) {
+  .running .fila { grid-template-columns: 1fr; gap: var(--p1); }
+  .running .bloque { min-height: 0; }
+}
+
+/* ------------------------------------------------------------------- ficha
+   Dato duro con barras verticales y caja alta. Es la sintaxis nativa del
+   rubro: se reconoce antes de leerla, como un compas. */
+.ficha {
+  font-family: var(--dato);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cal-suave);
+  margin: var(--p4) 0 0;
+}
+.ficha b { color: var(--cal); font-weight: 500; }
+
+/* El unico elemento con radio de toda la hoja, y a proposito. */
+.btn {
+  display: inline-block;
+  background: var(--gel);
+  color: var(--l0);
+  font-family: var(--dato);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 17px 34px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 180ms ease;
+}
+.btn:hover { background: #3fb9a3; }
+.btn:focus-visible { outline: 2px solid var(--cal); outline-offset: 3px; }
+.tramo[data-luz='puertas'] .btn { background: var(--l0); color: var(--gel); }
+.tramo[data-luz='puertas'] .btn:hover { background: #1a1e21; }
+
+/* --------------------------------------------------------------- imagenes */
+figure { margin: 0; }
+.banda img { width: 100%; display: block; object-fit: cover; filter: saturate(0.55) contrast(1.05); }
+.banda.ancha img { aspect-ratio: 2.39 / 1; }
+.banda.media img { aspect-ratio: 5 / 4; }
+.banda.alta img { aspect-ratio: 3 / 4; }
+.banda.cuadro img { aspect-ratio: 1 / 1; }
+figcaption {
+  font-family: var(--dato);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cal-suave);
+  padding: var(--p2) var(--margen) 0;
+}
+
+.dos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--p5);
+  align-items: start;
+}
+@media (max-width: 860px) { .dos { grid-template-columns: 1fr; gap: var(--p4); } }
+
+.saltar { position: absolute; left: -9999px; background: var(--gel); color: var(--l0); padding: var(--p2) var(--p3); }
+.saltar:focus { left: var(--p3); top: var(--p3); position: fixed; z-index: 10; }
+
+.pie-pagina {
+  padding: var(--p5) var(--margen);
+  border-block-start: 1px solid var(--linea);
+  font-family: var(--dato);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cal-suave);
+}
+.pie-pagina a { color: var(--cal); }
+.pie-pagina nav { display: flex; gap: var(--p3); flex-wrap: wrap; margin-block-start: var(--p1); }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .tramo { padding-block: var(--p5); }
+  .lineup li { font-size: 24px; }
+  h2 { font-size: 24px; }
+}

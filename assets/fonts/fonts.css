@@ -75,3 +75,29 @@
   font-display: swap;
   src: url('plex-mono.woff2') format('woff2');
 }
+
+/* -------------------------------------------------------------------- eventos
+   Tres familias mas, sin cruce con las seis anteriores. Condensada de
+   senaletica para el cartel, grotesca de diario para el cuerpo, y una mono que
+   aca no es adorno sino el espinazo estructural de la pagina. */
+@font-face {
+  font-family: 'Big Shoulders Display';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('big-shoulders.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('schibsted.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Spline Sans Mono';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('spline-mono.woff2') format('woff2-variations');
+}

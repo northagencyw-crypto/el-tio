@@ -183,7 +183,11 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
 .btn:hover { background: #8a3309; }
 .btn:focus-visible { outline: 2px solid var(--oliva); outline-offset: 3px; }
 
+/* Es un CTA secundario, asi que necesita area tactil aunque se lea como enlace. */
 .enlace {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--dato);
   font-size: 11px;
   font-variation-settings: 'wdth' 87.5;
@@ -414,7 +418,15 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
   font-variation-settings: 'wdth' 87.5;
   color: var(--tinta-suave);
 }
-.pie-pagina a { color: var(--tinta); }
+/* Area tactil de 44px sin engordar el renglon: el padding lo da via min-height y
+   el margen negativo lo devuelve, asi el pie se sigue leyendo como una linea. */
+.pie-pagina a {
+  color: var(--tinta);;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-block: -14px;
+}
 .pie-pagina nav { display: flex; gap: var(--e4); flex-wrap: wrap; margin-top: var(--e3); }
 
 .saltar {

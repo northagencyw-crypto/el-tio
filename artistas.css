@@ -273,7 +273,15 @@ p { margin: 0 0 var(--e3); max-width: 60ch; }
   text-transform: uppercase;
   color: var(--tinta-suave);
 }
-.pie-pagina a { color: var(--tinta); }
+/* Area tactil de 44px sin engordar el renglon: el padding lo da via min-height y
+   el margen negativo lo devuelve, asi el pie se sigue leyendo como una linea. */
+.pie-pagina a {
+  color: var(--tinta);;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-block: -14px;
+}
 .pie-pagina nav { display: flex; gap: var(--e3); flex-wrap: wrap; margin-top: var(--e1); }
 
 @media (max-width: 640px) {

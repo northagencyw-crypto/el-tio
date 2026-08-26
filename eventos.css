@@ -308,7 +308,15 @@ figcaption {
   text-transform: uppercase;
   color: var(--cal-suave);
 }
-.pie-pagina a { color: var(--cal); }
+/* Area tactil de 44px sin engordar el renglon: el padding lo da via min-height y
+   el margen negativo lo devuelve, asi el pie se sigue leyendo como una linea. */
+.pie-pagina a {
+  color: var(--cal);;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-block: -14px;
+}
 .pie-pagina nav { display: flex; gap: var(--p3); flex-wrap: wrap; margin-block-start: var(--p1); }
 
 @media (max-width: 640px) {

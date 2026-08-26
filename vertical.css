@@ -311,7 +311,10 @@ h1.v-titulo{
 .precios{display:grid;gap:clamp(12px,1.6vw,20px);margin-top:clamp(30px,4.5vh,50px)}
 .precios.de2{grid-template-columns:repeat(2,1fr)}
 .precio-caja{border:1px solid var(--linea);background:var(--superficie);padding:clamp(24px,3vw,40px)}
-.precio-caja.principal{border-color:var(--acento);background:var(--acento-suave)}
+/* La caja principal se tine con el acento, asi que su fondo efectivo es mas oscuro
+   que la superficie normal y el gris de apoyo cae a 4,19 a 1. Se redefine el token
+   adentro de la caja en vez de tocar el global, que sobre el fondo comun ya da bien. */
+.precio-caja.principal{border-color:var(--acento);background:var(--acento-suave);--texto-3:#4A5560}
 .precio-nombre{
   font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.24em;
   text-transform:uppercase;color:var(--texto-3);

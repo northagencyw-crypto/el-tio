@@ -1,0 +1,347 @@
+/* ============================================================================
+   EL TIO FITNESS
+   Concepto: la lista de asistencia.
+
+   Todo lo que entra en la hoja entra dentro de un renglon: folio a la izquierda,
+   nombre en un ancho fijo y una tira de casillas a la derecha. Y lo que se lee
+   no son las marcas sino los huecos que dejan, que es exactamente el problema
+   del rubro: la baja no se ve cuando pasa, se ve cuando no entra el pago.
+
+   LA REGLA QUE ORDENA TODO: la jerarquia se hace a lo ANCHO, no a lo alto.
+   En una planilla el alto del renglon es fijo y lo unico que se puede repartir
+   es el ancho. Por eso los tres registros de la hoja se distinguen por el eje
+   wdth de la variable (62 comprimido, 88 medio, 112 ancho) y no por saltos de
+   tamano. Eventos ya se quedo con el acantilado de tamano y hospitality con la
+   escala invertida; el tercer eje, el ancho, no lo uso nadie.
+
+   Hoja propia. Hay un test que falla si dos verticales comparten hoja,
+   tipografia, color o mas del 30 por ciento de sus componentes.
+   ========================================================================= */
+
+:root {
+  /* Piso de goma de sala. El rubro entero se reparte entre dos uniformes: blanco
+     con gris frio y teal para el que administra, negro con color chillon para el
+     que entrena. El Tio le habla al dueno, que no es ninguno de los dos.
+
+     CORRECCION MEDIDA: la direccion pedia un medio tono claro (#8d938f) con la
+     tiza como recurso caro para los titulos. Se midio y no daba: la tiza sobre
+     ese fondo era 2,75 a 1 y el texto de dato 1,97 a 1, o sea ilegible, cuando
+     el minimo es 4,5. El valor bajo hasta el piso de goma real, que ademas es el
+     material que nombra el brief de la foto, y la escasez se mudo de la tiza al
+     acento, que aparece tres o cuatro veces en toda la hoja. Sigue sin ser el
+     casi negro de eventos ni el verde de vestibulo de hospitality.
+
+     Todos los pares de texto quedan medidos arriba de 4,5 a 1. */
+  --goma: #3a413e;
+  --goma-honda: #2f3532;
+  --tiza: #eef1ec;      /* 9,19 sobre goma. Texto y marcas. */
+  --polvo: #a9b0ac;     /* 4,73 sobre goma. Datos, folios y lo de segundo plano. */
+  --filete: #5f6764;    /* Solo reglas de 1px, nunca texto. */
+  /* El acento NO puede ser verde: en este rubro el verde significa aprobado, y el
+     punto del texto es que el sistema mostraba todo en verde mientras la persona
+     se iba. Hace falta un color que signifique "esto lo tenes que mirar", y ese es
+     el del marcador con que se senala al deudor en la planilla.
+     Van dos valores porque relleno y texto son cosas distintas: el profundo es
+     fondo de boton con tiza encima (5,75) y el claro es el acento como texto
+     sobre la goma (4,84). Un solo valor no puede hacer las dos cosas. */
+  --marcador: #b4145e;
+  --marcador-claro: #ff8cba;
+
+  --display: 'Archivo', system-ui, sans-serif;
+  --texto: 'Asap', system-ui, sans-serif;
+  --dato: 'Azeret Mono', ui-monospace, monospace;
+
+  /* Base de 11px. Las hermanas usan 4, 5, 6, 7 y 8. Once es medida de celda, no
+     de texto: es el ancho de media casilla de la tira. */
+  --c1: 11px; --c2: 22px; --c3: 33px; --c4: 55px;
+  --c5: 88px; --c6: 132px; --c7: 198px;
+
+  /* La grilla de la tira: 31 casillas para cubrir cualquier mes. */
+  --casilla: 22px;
+  --casilla-alto: 33px;
+
+  --ancho: 1100px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+body {
+  margin: 0;
+  background: var(--goma);
+  color: var(--tiza);
+  font-family: var(--texto);
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hoja { max-width: var(--ancho); margin: 0 auto; padding: 0 clamp(22px, 5vw, 55px); }
+
+/* ------------------------------------------------------------------ escala
+   Tres registros y nada mas. Lo que cambia entre ellos es el ANCHO de la letra. */
+h1 {
+  font-family: var(--display);
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 62;
+  line-height: 1.06;
+  margin: 0;
+  max-width: 17ch;
+}
+h2 {
+  font-family: var(--display);
+  font-size: 27px;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 88;
+  line-height: 1.2;
+  margin: 0;
+}
+h3 { font-family: var(--texto); font-weight: 600; font-size: 18px; line-height: 1.35; margin: 0; }
+p { margin: 0 0 var(--c3); max-width: 62ch; }
+.grande { font-size: 22px; line-height: 1.5; max-width: 54ch; }
+.apagado { color: var(--polvo); }
+
+/* Toda cifra de la hoja es tabular y va en mono. Verificado en la auditoria de
+   campo: ninguno de los nueve productos del rubro declara tabular-nums, en
+   herramientas cuya pantalla principal es una columna de cifras. */
+.dato {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--polvo);
+  margin: 0;
+}
+.dato.marca { color: var(--marcador-claro); }
+
+.banda { padding: var(--c6) 0; border-block-start: 1px solid var(--filete); }
+.banda:first-of-type { border-block-start: 0; }
+.banda.hundida { background: var(--goma-honda); }
+
+/* ----------------------------------------------- el renglon de planilla (firma)
+   La unidad de la hoja y el reemplazo de TODA tarjeta: no hay una sola card en
+   este archivo, cuando la grilla de tres a cinco tarjetas es la pieza mas
+   repetida del rubro. Folio, nombre, tira. Nunca hay recuadro alrededor. */
+.planilla { list-style: none; margin: var(--c4) 0 0; padding: 0; }
+.renglon-marca {
+  display: grid;
+  grid-template-columns: var(--c4) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0 var(--c3);
+  min-height: 66px;
+  padding: var(--c2) 0;
+  border-block-end: 1px solid var(--filete);
+}
+.renglon-marca:first-child { border-block-start: 1px solid var(--filete); }
+
+/* ------------------------------------------------------ el folio de socio (firma)
+   Cuatro digitos con ceros a la izquierda, como el numero que vive a la vez en
+   el carnet, en el llavero y en la placa del casillero. No ordena laminas como
+   el foliado de real estate: identifica personas. Jamas se anima, jamas crece,
+   jamas se pinta con el acento. */
+.folio-socio {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--polvo);
+  text-align: right;
+  padding-right: var(--c2);
+  border-right: 1px solid var(--filete);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.renglon-marca .cuerpo { min-width: 0; }
+.renglon-marca .cuerpo h3 { color: var(--tiza); }
+.renglon-marca .cuerpo p { margin: var(--c1) 0 0; font-size: 16px; color: var(--polvo); max-width: 52ch; }
+
+/* ----------------------------------------------------------- la tira de casillas
+   31 casillas para cubrir cualquier mes. Esquinas vivas absolutas, cero sombra,
+   cero radio: la hoja entera declara radio 0, y es la unica de las seis que lo
+   hace junto con eventos, pero eventos ademas no tiene ni una linea vertical. */
+.tira { display: flex; gap: 0; border: 1px solid var(--filete); }
+.tira i {
+  display: block;
+  width: var(--casilla);
+  height: var(--casilla-alto);
+  border-right: 1px solid var(--filete);
+  background: var(--goma-honda);
+  position: relative;
+}
+.tira i:last-child { border-right: 0; }
+/* La marca del dia: una barra vertical, que es como se tilda una planilla real. */
+.tira i.hay { background: transparent; }
+.tira i.hay::after {
+  content: '';
+  position: absolute;
+  inset-block: 7px;
+  inset-inline-start: 50%;
+  width: 2px;
+  margin-inline-start: -1px;
+  background: var(--tiza);
+}
+.banda.hundida .tira i { background: var(--goma); }
+.banda.hundida .tira i.hay { background: transparent; }
+
+@media (max-width: 900px) {
+  /* En pantalla angosta la tira no se achica: se recorta. Una planilla se lee
+     por el tramo que entra, no por una version miniatura de si misma. */
+  .renglon-marca { grid-template-columns: var(--c4) minmax(0, 1fr); }
+  .tira { grid-column: 2; margin-top: var(--c2); overflow: hidden; }
+}
+
+/* -------------------------------------------------------- la franja hueco (firma)
+   El parrafo del molinete, dibujado. Quince marcas y despues nada, y recien
+   sobre la ultima casilla cae la etiqueta del cobro. Reemplaza a la captura de
+   dashboard que los diez competidores ponen en el hero, y de paso a la banda de
+   logos y ratings que va pegada al h1 en siete de ellos.
+   Ninguna casilla lleva numero de dia: la escala es abstracta a proposito, para
+   no inventar un socio, una fecha ni una cifra. */
+.franja-hueco { margin: var(--c4) 0 0; }
+.franja-hueco .tira i { width: auto; flex: 1 1 0; height: 44px; }
+.franja-hueco .pie {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0;
+}
+.franja-hueco .tirante {
+  border-left: 1px solid var(--marcador);
+  padding-left: var(--c1);
+  padding-top: var(--c2);
+  margin-right: 2px;
+}
+
+/* ------------------------------------------------- el renglon de cuaderno (firma)
+   Las preguntas y las notas al pie. Linea corrida con una regla fina abajo, como
+   el cuaderno del mostrador donde se anota lo que ningun campo de ningun sistema
+   acepta. Reemplaza al acordeon en caja redondeada con sombra, que cinco de los
+   competidores ponen en la anteultima posicion.
+   Se puede plegar, pero el estado abierto no cambia de fondo ni de color: solo
+   aparece la respuesta. Cero icono de flecha, cero relleno de tarjeta. */
+.cuaderno { margin-top: var(--c4); border-block-start: 1px solid var(--filete); }
+.renglon-cuaderno { border-block-end: 1px solid var(--filete); padding: var(--c3) 0; }
+.renglon-cuaderno summary {
+  font-family: var(--display);
+  font-size: 27px;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 88;
+  line-height: 1.2;
+  cursor: pointer;
+  list-style: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.renglon-cuaderno summary::-webkit-details-marker { display: none; }
+.renglon-cuaderno summary:focus-visible { outline: 2px solid var(--marcador); outline-offset: 4px; }
+.renglon-cuaderno p { margin: var(--c2) 0 0; max-width: 60ch; }
+
+/* -------------------------------------------------------- la casilla agrandada
+   El precio vive adentro de la misma grilla, no en una tarjeta de plan: es una
+   casilla de la tira, agrandada. La cifra va en ancho 112, que es el unico lugar
+   de la hoja donde la letra se ensancha del todo. */
+.casilla-precio {
+  border: 1px solid var(--filete);
+  padding: var(--c3) var(--c4);
+  display: inline-grid;
+  justify-items: center;
+  gap: var(--c1);
+  background: var(--goma);
+}
+.casilla-precio .cifra {
+  font-family: var(--display);
+  font-size: clamp(58px, 8vw, 88px);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 112;
+  font-variant-numeric: tabular-nums lining-nums;
+  line-height: 0.92;
+  color: var(--tiza);
+}
+
+/* La frutilla: mismo idioma, menos superficie. Medio ancho, letra comprimida,
+   sin tira, sin tiza y sin una sola aparicion del acento. La jerarquia menor se
+   dice con superficie, no con puntos de tamano. */
+.anexo { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 var(--c4); margin-top: var(--c4); }
+.anexo .renglon-marca { grid-template-columns: var(--c4) minmax(0, 1fr); }
+.anexo h3 {
+  font-family: var(--display);
+  font-size: 21px;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 88;
+  color: var(--polvo);
+}
+
+/* --------------------------------------------------------------- el unico boton
+   Uno solo por seccion, con el precio escrito adentro. Esquinas vivas. El acento
+   aparece tres o cuatro veces en toda la hoja y esta es una de ellas. */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--c2);
+  background: var(--marcador);
+  color: var(--tiza);
+  font-family: var(--display);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 88;
+  font-size: 17px;
+  text-decoration: none;
+  padding: var(--c2) var(--c3);
+  min-height: 44px;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+}
+.boton .precio {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums lining-nums;
+  border-left: 1px solid rgba(238, 241, 236, 0.45);
+  padding-left: var(--c2);
+}
+.boton:hover { background: #99114f; }
+.boton:focus-visible { outline: 2px solid var(--tiza); outline-offset: 3px; }
+
+/* ------------------------------------------------------------------ figuras
+   A sangre dentro de su columna, sin paspartu y sin marco: no es una galeria
+   como hospitality ni una lamina montada como real estate. La foto es evidencia
+   de mostrador, no ilustracion. */
+figure { margin: 0; }
+.evidencia img { width: 100%; display: block; filter: saturate(0.72); }
+.evidencia figcaption {
+  font-family: var(--dato);
+  font-size: 13px;
+  color: var(--polvo);
+  margin-top: var(--c1);
+}
+
+.par { display: grid; grid-template-columns: 1fr 1fr; gap: var(--c4); align-items: center; }
+@media (max-width: 900px) { .par { grid-template-columns: 1fr; gap: var(--c3); } }
+
+.saltar { position: absolute; left: -9999px; background: var(--marcador); color: var(--tiza); padding: var(--c2) var(--c3); min-height: 44px; display: inline-flex; align-items: center; }
+.saltar:focus { left: var(--c3); top: var(--c3); position: fixed; z-index: 10; }
+
+.pie-pagina {
+  border-block-start: 1px solid var(--filete);
+  padding: var(--c4) 0;
+  font-family: var(--dato);
+  font-size: 13px;
+  color: var(--polvo);
+}
+.pie-pagina a {
+  color: var(--tiza);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-block: -14px;
+}
+.pie-pagina nav { display: flex; gap: var(--c3); flex-wrap: wrap; margin-top: var(--c1); }
+
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .banda { padding: var(--c5) 0; }
+  .folio-socio { padding-right: var(--c1); }
+  .renglon-marca { grid-template-columns: 44px minmax(0, 1fr); gap: 0 var(--c2); }
+  .casilla-precio { padding: var(--c3); }
+}

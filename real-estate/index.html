@@ -1,298 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Software para inmobiliarias · El Tío Real Estate</title>
 <meta name="description" content="Carga una propiedad una vez y queda lista para vender: ficha, descripción, versión en inglés, WhatsApp y código QR. Y encuentra compradores en tu base.">
-<meta name="theme-color" content="#F4F1EC">
 <link rel="canonical" href="https://eltio.net/real-estate/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://eltio.net/real-estate/">
-<meta property="og:title" content="El Tío Real Estate">
+<meta property="og:title" content="Software para inmobiliarias · El Tío Real Estate">
 <meta property="og:description" content="Carga una propiedad una vez y queda lista para vender: ficha, descripción, versión en inglés, WhatsApp y código QR. Y encuentra compradores en tu base.">
 <meta property="og:image" content="https://eltio.net/assets/og-real-estate.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" as="image" href="../assets/nicho-real-estate.webp" fetchpriority="high">
-<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/archivo.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/geist.woff2" crossorigin>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="../assets/re-hero-oficina.webp">
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
-<link rel="stylesheet" href="../base.css">
-<link rel="stylesheet" href="../vertical.css">
-<style>:root{
-  --fondo:#F4F1EC;
-  --superficie:#EAE5DC;
-  --texto:#14100C;
-  --texto-2:#4A443B;
-  --texto-3:#6B6357;
-  --linea:rgba(20,16,12,.13);
-  --linea-fuerte:rgba(20,16,12,.28);
-  --acento:#A8875B;
-  --acento-texto:#7A5F35;
-  --acento-suave:rgba(168,135,91,.13);
-  --acento-glow:rgba(168,135,91,.35);
-  --sobre-acento:#14100C;
-  --fondo-captura:#0A111A;
-}</style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "El Tío Real Estate",
-  "serviceType": "Software para inmobiliarias",
-  "description": "Carga una propiedad una vez y queda lista para vender: ficha, descripción, versión en inglés, WhatsApp y código QR. Y encuentra compradores en tu base.",
-  "areaServed": "Latinoamérica",
-  "audience": {
-    "@type": "Audience",
-    "audienceType": "Inmobiliarias, desarrolladoras y brokers"
-  },
-  "provider": {
-    "@type": "ProfessionalService",
-    "name": "El Tío",
-    "url": "https://eltio.net/",
-    "email": "hola@eltio.net"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "El Tío",
-      "item": "https://eltio.net/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Real Estate",
-      "item": "https://eltio.net/real-estate/"
-    }
-  ]
-}
-</script>
+<link rel="stylesheet" href="../real-estate.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "El Tío AI Audit para inmobiliarias", "serviceType": "Auditoría de inteligencia artificial para inmobiliarias", "provider": {"@type": "Organization", "name": "El Tío", "url": "https://eltio.net"}, "areaServed": "Latinoamérica", "offers": {"@type": "Offer", "price": "50", "priceCurrency": "USD", "url": "https://app.eltio.net/auditoria/real-estate"}}</script>
 </head>
-<body class="vertical">
+<body>
+<a class="saltar" href="#emplazamiento">Saltar al contenido</a>
 
-<a class="skip" href="#contenido">Saltar al contenido</a>
-<header class="top">
-  <a class="wordmark" href="../">EL TIO<span class="dot">.</span></a>
-  <div class="status" aria-hidden="true"><span class="pulse"></span>REAL ESTATE</div>
+<header class="caratula plancha">
+  <div class="caratula-montaje">
+    <figure class="figura">
+      <img class="caratula-foto" src="../assets/re-hero-oficina.webp"
+           alt="Interior de oficina inmobiliaria vacía con luz de día entrando por el ventanal"
+           width="1536" height="1024" fetchpriority="high">
+      <figcaption>Lámina 00 · Emplazamiento</figcaption>
+    </figure>
+    <div class="placa">
+      <p class="rotulo">EL TÍO REAL ESTATE</p>
+      <h1>Lo que sostiene una inmobiliaria no es el aviso. Es lo que hay debajo.</h1>
+      <dl>
+        <div><dt>Auditoría</dt><dd>guiada</dd></div>
+        <div><dt>Duración</dt><dd>15 a 25 min</dd></div>
+        <div><dt>Llamada</dt><dd>30 min</dd></div>
+        <div><dt>Precio</dt><dd>USD 50</dd></div>
+      </dl>
+      <a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">Auditar mi inmobiliaria</a>
+    </div>
+  </div>
 </header>
 
-<main>
-
-<section class="hero-banda">
-  <figure class="banda alta">
-    <img src="../assets/nicho-real-estate.webp" alt="El Tío en un departamento vacío con la ciudad al fondo" width="1200" height="800" fetchpriority="high" decoding="async">
-  </figure>
-  <div class="hero-texto inner">
-    <p class="v-eyebrow">EL TÍO REAL ESTATE</p>
-    <h1 class="v-titulo">Carga una propiedad una vez.<br>Déjala lista para vender.</h1>
-    <p class="v-sub">Y cuando entra nuevo inventario, encuentra compradores de tu propia base que ya buscaban algo parecido.</p>
-    <span class="v-quien">Inmobiliarias, desarrolladoras y brokers</span>
-    <div class="v-cta">
-      <a class="btn solid" data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">Auditar mi inmobiliaria · USD 50</a>
-      <a class="btn ghost" href="#auditamos">Qué auditamos</a>
+<section class="plancha" id="emplazamiento">
+  <div class="lamina ">
+    <div class="margen">
+      <span class="num">01</span>
+      <p class="rotulo">EMPLAZAMIENTO</p>
     </div>
-  </div>
-</section>
-
-<section class="bloque " id="contenido">
-  <div class="inner">
-    <p class="tag reveal">EL PROBLEMA</p>
-    <h2 class="display reveal d1">La misma propiedad, cinco veces.</h2>
-    <p class="lead reveal d1">Una inmobiliaria escribe la misma propiedad cinco veces: la descripción del portal, la del sitio propio, la traducción al inglés, el mensaje de WhatsApp para un colega y el posteo de Instagram. Lo hace una persona del equipo, a mano, entre media hora y dos horas por propiedad.</p>
-    <p class="lead reveal d1">Y acumula otra cosa que no usa. Toda inmobiliaria con tres años encima tiene miles de personas que preguntaron alguna vez: qué buscaban, en qué zona, con qué presupuesto. Cuando entra una propiedad nueva, nadie mira esa lista. Se sale a buscar compradores nuevos, que cuestan dinero, mientras los que ya preguntaron siguen ahí.</p>
-    <ul class="filas reveal d2">
-      <li><span class="f-tag">UNA SOLA CARGA</span><p>Fotos y datos entran una vez. Todo el material sale de ahí.</p></li>
-      <li><span class="f-tag">LA BASE VUELVE A SERVIR</span><p>Cada propiedad nueva se cruza contra los contactos de los últimos años.</p></li>
-      <li><span class="f-tag">EL INGLÉS DEJA DE SER UN PROBLEMA</span><p>La versión en inglés se escribe sola, no se traduce por encima.</p></li>
-    </ul>
-  </div>
-</section>
-
-<section class="bloque" id="base">
-  <div class="inner">
-    <p class="tag reveal">EL FUNDAMENTO</p>
-    <h2 class="display reveal d1">La base para crecer.</h2>
-    <p class="lead reveal d1">Es lo que sostiene todo lo demás y lo que más veces cambia el resultado: saber quiénes son tus clientes, tener los datos en un solo lugar, y que te encuentren. Sin esto, cualquier automatización se monta sobre arena.</p>
-    <div class="tarjetas de3 base-grid">
-      <div class="tarjeta paso reveal"><span class="n">01</span><h3>CRM</h3><p>Si ya tienes uno, trabajamos sobre ese y no lo tocamos. Si no tienes, lo montamos con tus etapas reales: consulta, visita, oferta, cierre.</p></div>
-      <div class="tarjeta paso reveal d1"><span class="n">02</span><h3>Tu base de datos, ordenada</h3><p>Los contactos de los últimos años deduplicados, con zona y presupuesto recuperados donde se pueda. Es lo que hace posible buscar compradores adentro.</p></div>
-      <div class="tarjeta paso reveal d2"><span class="n">03</span><h3>Newsletter propio</h3><p>Tu lista para avisar de inventario nuevo sin depender del portal ni del alcance de una red.</p></div>
-      <div class="tarjeta paso reveal d3"><span class="n">04</span><h3>Web propia y editable</h3><p>El sitio de la inmobiliaria con las fichas conectadas, que se actualiza solo cuando cargas una propiedad.</p></div>
-      <div class="tarjeta paso reveal d3"><span class="n">05</span><h3>Chatbot que atiende y califica</h3><p>Responde por una propiedad a cualquier hora, pregunta lo que hace falta y deja la visita propuesta.</p></div>
-    </div>
-    <p class="honesto reveal">Nada de esto es una plataforma nuestra. Se monta sobre herramientas que ya existen, queda a tu nombre y con tus accesos, y el equipo aprende a operarlo. Si ya tienes algo funcionando, se trabaja sobre eso: no reemplazamos por reemplazar.</p>
-  </div>
-</section>
-
-<section class="bloque" id="auditamos">
-  <div class="inner">
-    <p class="tag reveal">QUÉ AUDITAMOS</p>
-    <h2 class="display reveal d1">Toda la operación, no solo el dolor que te trajo.</h2>
-    <p class="lead reveal d1">Entramos por un problema concreto y miramos las siete áreas. Muchas veces lo que más deja no es lo que el cliente vino a buscar, y decirlo es parte del trabajo.</p>
-    <ul class="filas reveal d2">
-      <li><span class="f-tag">VENTAS</span><p>Cómo entra una consulta, quién la sigue y qué pasa con los contactos de los últimos años.</p></li>
-      <li><span class="f-tag">OPERACIONES</span><p>Cuánto lleva dejar una propiedad lista y cuántas veces se carga lo mismo.</p></li>
-      <li><span class="f-tag">DATOS</span><p>Qué sabés de cada comprador: zona, presupuesto, qué buscaba.</p></li>
-      <li><span class="f-tag">MARKETING</span><p>Portales, contenido, fotos, video y qué trae cada peso de publicidad.</p></li>
-      <li><span class="f-tag">ATENCIÓN</span><p>Qué pasa con la consulta que entra un domingo, y en qué idiomas responden.</p></li>
-      <li><span class="f-tag">EQUIPO</span><p>Qué podrían resolver solos los agentes si supieran usar las herramientas.</p></li>
-      <li><span class="f-tag">SOFTWARE</span><p>Qué sistemas usan, si se hablan entre ellos y qué falta.</p></li>
-    </ul>
-  </div>
-</section>
-
-<section class="bloque elevado" id="solucion">
-  <div class="inner">
-    <p class="tag reveal">LA SOLUCIÓN</p>
-    <h2 class="display reveal d1">Property Launch</h2>
-    <p class="lead reveal d1">Cargas la propiedad una vez y quedan listas las seis piezas con las que se vende. Las pantallas que siguen son del software real, no ilustraciones.</p>
-    <figure class="captura reveal d1">
-      <img src="../assets/ui-launch.webp" alt="La pantalla del producto con los textos generados de una sola carga" width="1200" height="458" loading="lazy" decoding="async">
-      <figcaption>Los materiales quedan editables: lo que el agente corrige, gana</figcaption>
-    </figure>
-    <div class="tarjetas de3">
-      <div class="tarjeta reveal"><h3>La ficha pública</h3><p>Con su dirección propia, para mandar por donde sea.</p></div>
-      <div class="tarjeta reveal d1"><h3>La descripción</h3><p>La que va a la ficha y a los portales.</p></div>
-      <div class="tarjeta reveal d2"><h3>La versión en inglés</h3><p>Escrita, no traducida por encima.</p></div>
-      <div class="tarjeta reveal d3"><h3>WhatsApp e Instagram</h3><p>Listos para copiar y pegar.</p></div>
-      <div class="tarjeta reveal d3"><h3>El código QR</h3><p>Para el cartel en la puerta.</p></div>
-      <div class="tarjeta reveal d3"><h3>La ficha para imprimir</h3><p>Para la visita, en papel.</p></div>
-    </div>
-    <figure class="diagrama reveal d1">
-<svg viewBox="0 0 900 300" role="img" aria-label="Una carga produce seis piezas"><rect class="dg-caja-acento" x="20" y="112" width="190" height="76" rx="2"/><text class="dg-t mono" x="34" y="134">UNA CARGA</text><text class="dg-t" x="34" y="156">Fotos y datos</text><path class="dg-linea" d="M232 150 L272 150"/><path class="dg-acento" d="M266 146 L272 150 L266 154"/><path class="dg-linea" d="M290 30 L290 270"/><path class="dg-linea" d="M290 30 L322 30"/><circle class="dg-relleno" cx="290" cy="30" r="3"/><text class="dg-t" x="334" y="34">Ficha pública</text><path class="dg-linea" d="M290 72 L322 72"/><circle class="dg-relleno" cx="290" cy="72" r="3"/><text class="dg-t" x="334" y="76">Descripción</text><path class="dg-linea" d="M290 114 L322 114"/><circle class="dg-relleno" cx="290" cy="114" r="3"/><text class="dg-t" x="334" y="118">Versión en inglés</text><path class="dg-linea" d="M290 156 L322 156"/><circle class="dg-relleno" cx="290" cy="156" r="3"/><text class="dg-t" x="334" y="160">WhatsApp</text><path class="dg-linea" d="M290 198 L322 198"/><circle class="dg-relleno" cx="290" cy="198" r="3"/><text class="dg-t" x="334" y="202">Instagram</text><path class="dg-linea" d="M290 240 L322 240"/><circle class="dg-relleno" cx="290" cy="240" r="3"/><text class="dg-t" x="334" y="244">Código QR</text></svg>
-      <figcaption>Una carga, seis piezas</figcaption>
-    </figure>
-    <figure class="captura reveal d1">
-      <img src="../assets/ui-ficha.webp" alt="La ficha pública de una propiedad, como la ve un comprador" width="1200" height="686" loading="lazy" decoding="async">
-      <figcaption>Así la ve el comprador que recibe el enlace</figcaption>
-    </figure>
-    <p class="honesto reveal">Nada de lo que se publica se inventa: si un dato no se cargó, ninguna versión del texto lo menciona. Un aviso con un dato que no es cierto es un problema de la inmobiliaria, no del software.</p>
-  </div>
-</section>
-
-<section class="bloque ">
-  <div class="inner">
-    <p class="tag reveal">SIGNATURE SOLUTIONS</p>
-    <h2 class="display reveal d1">Ejemplos de lo que podemos implementar.</h2>
-    <figure class="captura reveal d1">
-      <img src="../assets/ui-buyers.webp" alt="Un comprador cruzado con la propiedad, con los motivos a la vista" width="1200" height="545" loading="lazy" decoding="async">
-      <figcaption>Cada nombre viene con lo que coincide, lo que no, y lo que no se pudo evaluar</figcaption>
-    </figure>
-    <div class="tarjetas de2">
-      <div class="tarjeta linea reveal"><h3>Find Buyers</h3><p>Entra una propiedad y el sistema recorre los contactos históricos y devuelve a quién llamar, con lo que coincide, lo que no y lo que no se pudo evaluar. Prepara el mensaje y abre WhatsApp con el texto puesto.</p><p class="honesto">Construido y funcionando. No envía: quien aprieta enviar es una persona de tu equipo.</p></div>
-      <div class="tarjeta linea reveal d1"><h3>Find Properties</h3><p>El mismo motor al revés: entra un comprador y devuelve qué del inventario le sirve, con las mismas razones a la vista.</p><p class="honesto">El motor de cruce está construido. La pantalla todavía no, así que hoy no se cobra.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="bloque elevado" id="precio">
-  <div class="inner">
-    <p class="tag reveal">POR DÓNDE SE EMPIEZA</p>
-    <h2 class="display reveal d1">Primero miramos. Después se decide.</h2>
-    <div class="precios de2">
-      <div class="precio-caja principal reveal">
-        <p class="precio-nombre">EL AUDIT</p>
-        <span class="precio-monto">USD 50</span>
-        <p class="precio-nota">Pago único</p>
-        <ul>
-          <li>Un cuestionario guiado, de 15 a 25 minutos, que podés cortar y retomar.</li>
-          <li>Las siete áreas de tu operación, más lo propio de tu rubro.</li>
-          <li>Un mapa con lo que conviene hacer ahora, después y más adelante.</li>
-          <li>El porqué de cada recomendación, con tu propia respuesta al lado.</li>
-          <li>Lo revisa una persona antes de que te llegue.</li>
-        </ul>
+    <div class="cuerpo">
+      <h2>Antes de vender hay que saber qué se tiene.</h2>
+      <p class="bajada">Una inmobiliaria escribe la misma propiedad cinco veces: la descripción del portal, la del sitio propio, la traducción al inglés, el mensaje de WhatsApp para un colega y el posteo de Instagram. Lo hac</p>
+      <div class="montaje">
+        <figure class="figura der">
+          <img src="../assets/re-lamina-mensura.webp" alt="Vista cenital de un terreno urbano con la trama de calles" width="1536" height="1024" loading="lazy">
+          <figcaption>Lámina 01 · Lo que hay hoy</figcaption>
+        </figure>
       </div>
-      <div class="precio-caja reveal d1">
-        <p class="precio-nombre">LA LLAMADA</p>
-        <span class="precio-monto">Incluida</span>
-        <p class="precio-nota">Media hora, mano a mano</p>
-        <ul>
-          <li>Repasamos el mapa juntos, con vos preguntando.</li>
-          <li>Escuchamos lo que el cuestionario no preguntó.</li>
-          <li>Decidimos por dónde conviene empezar.</li>
-          <li>Si hay algo para implementar, ahí se define el alcance y el precio.</li>
-          <li>Si no lo hay, te lo decimos y el mapa queda tuyo igual.</li>
-        </ul>
+      <ul class="libro">
+        <li><span class="concepto">UNA SOLA CARGA</span><span class="medida">se mide</span><p class="nota">Fotos y datos entran una vez. Todo el material sale de ahí.</p></li>
+        <li><span class="concepto">LA BASE VUELVE A SERVIR</span><span class="medida">se mide</span><p class="nota">Cada propiedad nueva se cruza contra los contactos de los últimos años.</p></li>
+        <li><span class="concepto">EL INGLÉS DEJA DE SER UN PROBLEMA</span><span class="medida">se mide</span><p class="nota">La versión en inglés se escribe sola, no se traduce por encima.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="plancha" id="base">
+  <div class="lamina ">
+    <div class="margen">
+      <span class="num">02</span>
+      <p class="rotulo">CIMIENTOS</p>
+    </div>
+    <div class="cuerpo">
+      <h2>La base para crecer.</h2>
+      <p class="bajada">Es lo que sostiene todo lo demás y lo que más veces cambia el resultado. Sin esto, cualquier automatización se apoya sobre un terreno sin medir.</p>
+      <ul class="libro">
+        <li><span class="concepto">CRM</span><span class="medida">quién preguntó y cuándo</span><p class="nota">Si ya tienes uno, trabajamos sobre ese y no lo tocamos. Si no tienes, lo montamos con tus etapas reales: consulta, visita, oferta, cierre.</p></li>
+        <li><span class="concepto">Tu base de datos, ordenada</span><span class="medida">una sola cartera</span><p class="nota">Los contactos de los últimos años deduplicados, con zona y presupuesto recuperados donde se pueda. Es lo que hace posible buscar compradores adentro.</p></li>
+        <li><span class="concepto">Newsletter propio</span><span class="medida">alcance sin pagar</span><p class="nota">Tu lista para avisar de inventario nuevo sin depender del portal ni del alcance de una red.</p></li>
+        <li><span class="concepto">Web propia y editable</span><span class="medida">que te encuentren</span><p class="nota">El sitio de la inmobiliaria con las fichas conectadas, que se actualiza solo cuando cargas una propiedad.</p></li>
+        <li><span class="concepto">Chatbot que atiende y califica</span><span class="medida">sin horario</span><p class="nota">Responde por una propiedad a cualquier hora, pregunta lo que hace falta y deja la visita propuesta.</p></li>
+      </ul>
+      <div class="cota"></div>
+      <p class="dato">Nada de esto es una plataforma nuestra. Se monta sobre herramientas que ya existen, queda a tu nombre y con tus accesos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="plancha" id="auditamos">
+  <div class="lamina ">
+    <div class="margen">
+      <span class="num">03</span>
+      <p class="rotulo">ESTRUCTURA</p>
+    </div>
+    <div class="cuerpo">
+      <h2>Qué auditamos.</h2>
+      <p class="bajada">Entramos por un problema concreto y medimos toda la operación. Muchas veces lo que más deja no es lo que el dueño vino a buscar, y decirlo es parte del trabajo.</p>
+      <ul class="libro">
+        <li><span class="concepto">VENTAS</span><span class="medida">área 01</span><p class="nota">Cómo entra una consulta, quién la sigue y qué pasa con los contactos de los últimos años.</p></li>
+        <li><span class="concepto">OPERACIONES</span><span class="medida">área 02</span><p class="nota">Cuánto lleva dejar una propiedad lista y cuántas veces se carga lo mismo.</p></li>
+        <li><span class="concepto">DATOS</span><span class="medida">área 03</span><p class="nota">Qué sabés de cada comprador: zona, presupuesto, qué buscaba.</p></li>
+        <li><span class="concepto">MARKETING</span><span class="medida">área 04</span><p class="nota">Portales, contenido, fotos, video y qué trae cada peso de publicidad.</p></li>
+        <li><span class="concepto">ATENCIÓN</span><span class="medida">área 05</span><p class="nota">Qué pasa con la consulta que entra un domingo, y en qué idiomas responden.</p></li>
+        <li><span class="concepto">EQUIPO</span><span class="medida">área 06</span><p class="nota">Qué podrían resolver solos los agentes si supieran usar las herramientas.</p></li>
+        <li><span class="concepto">SOFTWARE</span><span class="medida">área 07</span><p class="nota">Qué sistemas usan, si se hablan entre ellos y qué falta.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="plancha" id="metodo">
+  <div class="lamina foto">
+    <div class="margen">
+      <span class="num">04</span>
+      <p class="rotulo">INSTALACIONES</p>
+    </div>
+    <div class="cuerpo">
+      <h2>Cuatro tiempos, siempre en este orden.</h2>
+      <ul class="libro">
+        <li><span class="concepto">Auditamos</span><span class="medida">01</span><p class="nota">Medimos cómo funciona la inmobiliaria hoy, área por área. No la impresión: los datos.</p></li>
+        <li><span class="concepto">Optimizamos</span><span class="medida">02</span><p class="nota">Se ordena el proceso antes de automatizarlo. Automatizar algo malo lo hace más rápido, no mejor.</p></li>
+        <li><span class="concepto">Automatizamos</span><span class="medida">03</span><p class="nota">Solo lo que tiene sentido en tu operación, no lo que está de moda.</p></li>
+        <li><span class="concepto">Capacitamos</span><span class="medida">04</span><p class="nota">Tu equipo queda sabiendo operarlo. Si no, en tres meses no lo usa nadie.</p></li>
+      </ul>
+      <div class="montaje">
+        <figure class="figura izq">
+          <img src="../assets/re-lamina-fachada.webp" alt="Alzado frontal de un edificio residencial con luz difusa" width="1536" height="1024" loading="lazy">
+          <figcaption>Lámina 04 · Alzado</figcaption>
+        </figure>
       </div>
     </div>
   </div>
 </section>
 
-<section class="bloque" id="metodo">
-  <div class="inner">
-    <p class="tag reveal">CÓMO TRABAJAMOS</p>
-    <h2 class="display reveal d1">Cuatro pasos. Siempre en este orden.</h2>
-    <p class="lead reveal d1">Optimizar antes de automatizar no es un detalle: automatizar un proceso malo lo hace más rápido, no mejor.</p>
-    <div class="tarjetas de4">
-      <div class="tarjeta paso reveal"><span class="n">01</span><h3>Auditamos</h3><p>Entendemos cómo funciona tu operación, área por área.</p></div>
-      <div class="tarjeta paso reveal d1"><span class="n">02</span><h3>Optimizamos</h3><p>Corregimos el proceso antes de automatizarlo.</p></div>
-      <div class="tarjeta paso reveal d2"><span class="n">03</span><h3>Automatizamos</h3><p>Implementamos solo lo que tiene sentido implementar.</p></div>
-      <div class="tarjeta paso reveal d3"><span class="n">04</span><h3>Capacitamos</h3><p>Tu equipo queda sabiendo trabajar con lo que dejamos.</p></div>
+<section class="plancha" id="solucion">
+  <div class="lamina datos">
+    <div class="margen">
+      <span class="num">05</span>
+      <p class="rotulo">TERMINACIONES</p>
+    </div>
+    <div class="cuerpo">
+      <h2>Después de la base.</h2>
+      <p class="bajada">Ejemplos de lo que se puede implementar una vez que los cimientos están. No son la estructura y no se venden como tal. Lo que te toque sale del Audit.</p>
+      <ul class="libro">
+        <li><span class="concepto">Find Buyers</span><span class="medida">opcional</span><p class="nota">Entra una propiedad y el sistema recorre los contactos históricos y devuelve a quién llamar, con lo que coincide, lo que no y lo que no se pudo evaluar. Prepara el mensaj</p></li>
+        <li><span class="concepto">Find Properties</span><span class="medida">opcional</span><p class="nota">El mismo motor al revés: entra un comprador y devuelve qué del inventario le sirve, con las mismas razones a la vista.</p></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="bloque" id="escenario">
-  <div class="inner">
-    <p class="tag reveal">CÓMO SE VE UNA IMPLEMENTACIÓN</p>
-    <h2 class="display reveal d1">Un ejemplo, dicho como ejemplo.</h2>
-    <div class="escenario reveal d1">
-      <span class="escenario-badge">Datos de demostración</span>
-      <h3>Una inmobiliaria de Cancún con 120 propiedades activas y 4.000 contactos</h3>
-      <dl>
-        <dt>QUÉ MIRARÍAMOS</dt><dd>Cuánto tarda hoy dejar una propiedad lista desde que llegan las fotos, cuántas se publican por mes, qué porcentaje del material se traduce, y cuántos de esos contactos tienen zona y presupuesto cargados.</dd>
-        <dt>QUÉ SUELE APARECER</dt><dd>Que el tiempo por propiedad lo sabe una sola persona y nunca se midió, que el inglés se hace a veces, y que más de la mitad de los contactos no tiene zona ni presupuesto registrados.</dd>
-        <dt>QUÉ ACCIÓN GENERA</dt><dd>Que cada propiedad nueva salga completa el mismo día, y que la parte de la base que sí tiene datos se cruce contra el inventario actual.</dd>
-      </dl>
-      <p class="medimos">Lo que mediríamos: el tiempo por propiedad antes y después, y cuántas conversaciones salen de la base vieja.</p>
+<section class="plancha" id="precio">
+  <div class="lamina datos">
+    <div class="margen">
+      <span class="num">06</span>
+      <p class="rotulo">HONORARIOS</p>
+    </div>
+    <div class="cuerpo">
+      <h2>Primero se mide. Después se decide.</h2>
+      <ul class="libro">
+        <li><span class="concepto">Cuestionario guiado</span><span class="medida">15 a 25 min</span></li>
+        <li><span class="concepto">Áreas medidas</span><span class="medida">7 más el rubro</span></li>
+        <li><span class="concepto">Mapa de oportunidades</span><span class="medida">ahora y después</span></li>
+        <li><span class="concepto">Revisión humana</span><span class="medida">antes de entregar</span></li>
+        <li><span class="concepto">Llamada mano a mano</span><span class="medida">30 min</span></li>
+        <li><span class="concepto">Total</span><span class="medida">USD 50</span></li>
+      </ul>
+      <div class="cota"></div>
+      <p class="dato">La implementación se define en la llamada, según lo que el Audit encuentre. No se cotiza antes de medir.</p>
+      <p style="margin-top:var(--t4)"><a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">Auditar mi inmobiliaria</a></p>
     </div>
   </div>
 </section>
 
-<section class="bloque" id="preguntas">
-  <div class="inner">
-    <p class="tag reveal">LO QUE SIEMPRE PREGUNTAN</p>
-    <h2 class="display reveal d1">Respuestas cortas.</h2>
-    <div class="faq">
-      <div class="faq-item reveal"><h3>¿Tengo que dar mi base de contactos para empezar?</h3><p>No. Cargar propiedades no necesita ni un contacto tuyo. Cruzar tu base es un paso aparte, después, y solo si te interesa.</p></div>
-      <div class="faq-item reveal d1"><h3>¿Reemplaza a mi CRM?</h3><p>No, y no queremos. Tu CRM sigue siendo donde vive la relación con el cliente. Esto es lo que hace que una propiedad quede lista para publicar.</p></div>
-      <div class="faq-item reveal d2"><h3>¿El sistema le escribe a mis clientes?</h3><p>No. Prepara el mensaje, te lo muestra para que lo corrijas y abre WhatsApp con el texto puesto. Quien aprieta enviar es una persona de tu equipo.</p></div>
-      <div class="faq-item reveal d3"><h3>¿Cuánto tarda estar andando?</h3><p>Una reunión. El objetivo de esa reunión es que salgas con tu primera propiedad publicada.</p></div>
+<section class="plancha" id="preguntas">
+  <div class="lamina datos">
+    <div class="margen">
+      <span class="num">07</span>
+      <p class="rotulo">NOTAS DE OBRA</p>
+    </div>
+    <div class="cuerpo">
+      <h2>Lo que suelen preguntar.</h2>
+      <ul class="libro">
+        <li><span class="concepto">¿Tengo que dar mi base de contactos para empezar?</span><span class="medida">nota 01</span><p class="nota">No. Cargar propiedades no necesita ni un contacto tuyo. Cruzar tu base es un paso aparte, después, y solo si te interesa.</p></li>
+        <li><span class="concepto">¿Reemplaza a mi CRM?</span><span class="medida">nota 02</span><p class="nota">No, y no queremos. Tu CRM sigue siendo donde vive la relación con el cliente. Esto es lo que hace que una propiedad quede lista para publicar.</p></li>
+        <li><span class="concepto">¿El sistema le escribe a mis clientes?</span><span class="medida">nota 03</span><p class="nota">No. Prepara el mensaje, te lo muestra para que lo corrijas y abre WhatsApp con el texto puesto. Quien aprieta enviar es una persona de tu equipo.</p></li>
+        <li><span class="concepto">¿Cuánto tarda estar andando?</span><span class="medida">nota 04</span><p class="nota">Una reunión. El objetivo de esa reunión es que salgas con tu primera propiedad publicada.</p></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="bloque cierre-v" id="contacto">
-  <div class="inner">
-    <p class="tag reveal">EL SIGUIENTE PASO</p>
-    <h2 class="display giant reveal d1">Vemos si te sirve<br><span class="hl">en diez minutos.</span></h2>
-    <p class="lead reveal d2">Con una propiedad tuya, cargada en vivo. Si no te ahorra trabajo, te lo decimos nosotros primero.</p>
-    <div class="v-cta reveal d3">
-      <a class="btn solid" data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">Auditar mi inmobiliaria · USD 50</a>
+<section class="cierre-oscuro" id="contacto">
+  <div class="plancha" style="padding-block:var(--alto-foto)">
+    <div class="montaje">
+      <figure class="figura retrato izq" style="grid-column:1/4">
+        <img src="../assets/re-tio-retrato.webp" alt="El Tío de traje oscuro y lentes de sol, retrato nocturno" width="1024" height="1536" loading="lazy">
+      </figure>
+      <div style="grid-column:5/13">
+        <p class="rotulo">LÁMINA 09 · CAJETÍN</p>
+        <h2>Una propiedad cargada una vez. Lista para vender.</h2>
+        <p class="bajada">Media hora de llamada y un mapa de tu operación por USD 50. Si no hay nada que valga la pena implementar, te lo decimos y el mapa queda tuyo igual.</p>
+        <p style="margin-top:var(--t4)"><a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">Auditar mi inmobiliaria</a></p>
+      </div>
+    </div>
+    <div class="cajetin" style="margin-top:var(--alto-dibujo)">
+      <div><p class="rotulo">PRODUCTO</p><p class="valor">El Tío AI Audit</p></div>
+      <div><p class="rotulo">RUBRO</p><p class="valor">Real estate</p></div>
+      <div><p class="rotulo">ENTREGA</p><p class="valor">24 a 48 h hábiles</p></div>
+      <div><p class="rotulo">PRECIO</p><p class="valor">USD 50</p></div>
     </div>
   </div>
 </section>
-
-</main>
-
-<footer>
-  <div class="inner">
-    <p>EL TIO · El Tío Real Estate</p>
-    <p>Optimizamos · Automatizamos · Capacitamos</p>
-    <p><a class="foot-link" data-cta="correo" href="mailto:hola@eltio.net">hola@eltio.net</a></p>
+<footer class="pie-pagina">
+  <div class="plancha">
+    <p>El Tío · Inteligencia artificial aplicada a empresas · hola@eltio.net</p>
+    <nav>
+      <a href="https://eltio.net/">Portada</a>
+      <a href="https://app.eltio.net/legal/privacidad">Privacidad</a>
+    </nav>
   </div>
 </footer>
-
-<script src="../vertical.js" defer></script>
 </body>
 </html>

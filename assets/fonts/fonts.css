@@ -49,3 +49,29 @@
   font-display: swap;
   src: url('martian-mono.woff2') format('woff2-variations');
 }
+
+/* ---------------------------------------------------------------- real estate
+   Tres familias propias, sin cruce con las de gastronomia. El rubro compone con
+   didona de contraste alto y grotesca institucional: es la letra del legajo
+   tecnico y del expediente, no la del comedor. */
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('bodoni-moda.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('public-sans.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('plex-mono.woff2') format('woff2');
+}

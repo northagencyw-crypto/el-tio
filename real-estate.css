@@ -1,0 +1,377 @@
+/* ============================================================================
+   EL TIO REAL ESTATE
+   Concepto: la mensura. Lo que no esta acotado, no existe.
+
+   Hoja propia. No comparte nada con vertical.css ni con gastronomia.css: si
+   dos verticales comparten componentes vuelven a leerse como la misma pagina.
+
+   La pagina es un juego de laminas de un legajo tecnico. El blanco es material
+   de montaje, no relleno. Radio cero, sombra cero, gradiente cero: nada
+   decorativo sobrevive salvo que mida algo.
+
+   Contraste deliberado con gastronomia: papel frio contra papel calido, didona
+   contra serif humanista, escala plana contra escala expresiva, lacre como
+   filete de 1px contra brasa como relleno de boton.
+   ========================================================================= */
+
+:root {
+  --papel: #e7eae6;   /* papel de copia frio, gris levemente verde, sin grano */
+  --lamina: #ffffff;  /* blanco puro: es MATERIAL de montaje, no fondo */
+  --grafito: #15181a;
+  --grafito-suave: #565d58;
+  --lacre: #7a2436;   /* el rojo del sello notarial. Nunca rellena un boton. */
+  --linea: #808880;   /* regla de lapiz */
+
+  --display: 'Bodoni Moda', 'Times New Roman', serif;
+  --texto: 'Public Sans', system-ui, sans-serif;
+  --dato: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Base de 8px. Tres alturas de seccion distintas para que ninguna mida lo
+     mismo que la anterior. */
+  --t1: 8px;  --t2: 16px; --t3: 24px; --t4: 32px;
+  --alto-datos: 56px; --alto-dibujo: 96px; --alto-foto: 144px;
+
+  --ancho: 1280px;
+  --margen: clamp(20px, 5vw, 72px);
+  --columna: 132px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--grafito);
+  font-family: var(--texto);
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------------ escala
+   Cinco escalones y ninguno mas. La jerarquia la hacen la caja, el tracking y
+   el aire, no el tamano: asi lo mas grande de la pantalla es siempre la foto,
+   que es la regla dura del rubro. */
+h1, h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.12;
+  letter-spacing: 0.005em;
+  margin: 0;
+  text-wrap: balance;
+}
+@media (min-width: 1600px) { h1, h2 { font-size: 40px; } }
+h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.4;
+  margin: 0;
+}
+p { margin: 0 0 var(--t3); max-width: 58ch; }
+
+.bajada {
+  font-family: var(--display);
+  font-size: 21px;
+  line-height: 1.4;
+  color: var(--grafito-suave);
+  max-width: 46ch;
+}
+
+.rotulo {
+  font-family: var(--texto);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grafito-suave);
+  margin: 0 0 var(--t2);
+}
+
+.dato {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--grafito-suave);
+}
+.dato.alta { text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ------------------------------------------------------------------ grilla
+   Plancha con columna de margen, como una lamina de arquitectura. La regla
+   vertical de 1px corre de la caratula al cajetin sin cortarse nunca: es el
+   margen del plano y es lo que sostiene la pagina entera. */
+.plancha {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 0 var(--margen);
+}
+.lamina {
+  display: grid;
+  grid-template-columns: var(--columna) 1fr;
+  align-items: start;
+}
+.lamina > .margen {
+  padding-top: var(--t1);
+  padding-right: var(--t3);
+}
+.lamina > .cuerpo {
+  border-inline-start: 1px solid var(--linea);
+  padding-inline-start: var(--t4);
+  padding-block: var(--alto-dibujo);
+  min-width: 0;
+}
+.lamina.datos > .cuerpo { padding-block: var(--alto-datos); }
+.lamina.foto > .cuerpo { padding-block: var(--alto-foto); }
+
+.margen .num {
+  font-family: var(--dato);
+  font-size: 13px;
+  color: var(--grafito-suave);
+  display: block;
+}
+.margen .rotulo { margin-top: var(--t1); }
+
+@media (max-width: 1079px) {
+  .lamina { grid-template-columns: 1fr; }
+  .lamina > .margen {
+    padding: 0 0 var(--t2);
+    display: flex;
+    gap: var(--t2);
+    align-items: baseline;
+  }
+  .lamina > .margen .rotulo { margin: 0; }
+  .lamina > .cuerpo {
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--linea);
+    padding-inline-start: 0;
+    padding-block: var(--t4) var(--alto-dibujo);
+  }
+}
+
+/* --------------------------------------------------------- la placa (firma)
+   Panel de blanco puro apoyado sobre la zona vacia de la foto, saliendose de
+   su borde. Es la traduccion digital de la placa de bronce en la puerta: da
+   autoridad sin decorar, porque el papel opaco de esquinas rectas lee como
+   documento y no como widget. */
+.caratula { position: relative; }
+.caratula-foto {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+}
+.placa {
+  background: var(--lamina);
+  width: 320px;
+  max-width: 100%;
+  padding: var(--t4);
+}
+.placa .rotulo { margin-bottom: var(--t3); }
+.placa h1 { margin-bottom: var(--t3); }
+.placa dl {
+  margin: 0 0 var(--t4);
+  display: grid;
+  gap: 0;
+}
+.placa dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--t2);
+  padding: var(--t1) 0;
+  border-block-end: 1px solid var(--linea);
+  font-family: var(--dato);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.placa dt { color: var(--grafito-suave); }
+.placa dd { margin: 0; }
+
+@media (min-width: 1080px) {
+  /* La placa se monta sobre la ZONA VACIA de la foto, nunca sobre el sujeto: se apoya
+     donde el fotografo dejo aire. Por eso ocupa la primera columna y la foto corre por
+     debajo de las dos, en vez de partir la fila en dos bloques que no se tocan. */
+  .caratula-montaje {
+    display: grid;
+    grid-template-columns: 352px 1fr;
+    align-items: start;
+  }
+  .caratula-montaje .figura {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  .caratula-montaje .placa {
+    grid-area: 1 / 1 / 2 / 2;
+    margin-block-start: var(--alto-dibujo);
+    margin-inline-start: var(--t4);
+    position: relative;
+    z-index: 2;
+  }
+  /* El pie no puede quedar tapado por la placa. */
+  .caratula-montaje figcaption { text-align: right; }
+}
+
+/* El boton es fantasma: rectangulo de 1px. El lacre aparece como filete, nunca
+   como relleno, que es lo que lo separa del boton de campana. */
+.btn {
+  display: inline-block;
+  border: 1px solid var(--grafito);
+  background: transparent;
+  color: var(--grafito);
+  font-family: var(--texto);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 28px;
+  cursor: pointer;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+.btn:hover { border-color: var(--lacre); color: var(--lacre); }
+.btn:focus-visible { outline: 2px solid var(--lacre); outline-offset: 3px; }
+
+.enlace {
+  font-family: var(--texto);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grafito);
+  text-decoration: none;
+  border-block-end: 1px solid var(--lacre);
+  padding-block-end: 3px;
+}
+.enlace:hover { color: var(--lacre); }
+
+/* ---------------------------------------------------------- la cota (firma)
+   Regla de 1px con terminadores a 45 grados, como una acotacion de plano. */
+.cota {
+  position: relative;
+  border-block-start: 1px solid var(--linea);
+  margin: var(--t4) 0;
+  height: 1px;
+}
+.cota::before, .cota::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  width: 1px;
+  height: 12px;
+  background: var(--linea);
+  transform: rotate(45deg);
+}
+.cota::before { left: 0; }
+.cota::after { right: 0; }
+
+/* ------------------------------------------- renglon de libro mayor (firma)
+   Dos columnas justificadas: concepto a la izquierda, dato a la derecha en
+   numerales tabulares. La alineacion a derecha de la cifra es la convencion
+   contable de siempre y hace comparables dos filas sin insistir. */
+.libro { list-style: none; margin: var(--t4) 0 0; padding: 0; }
+.libro li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--t2) var(--t3);
+  padding: var(--t3) 0;
+  border-block-end: 1px solid var(--linea);
+}
+.libro .concepto { font-size: 17px; }
+.libro .medida {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--lacre);
+  text-align: right;
+  white-space: nowrap;
+}
+.libro .nota {
+  grid-column: 1 / -1;
+  font-size: 15px;
+  color: var(--grafito-suave);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ------------------------------------------------------- el cajetin (firma)
+   Rotulo de plano: grilla de celdas con bordes de 1px colapsados. */
+.cajetin {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  background: var(--grafito);
+  color: var(--papel);
+}
+.cajetin > div {
+  border: 1px solid rgba(231, 234, 230, 0.28);
+  margin: -1px 0 0 -1px;
+  padding: var(--t3);
+}
+.cajetin .rotulo { color: rgba(231, 234, 230, 0.62); margin-bottom: var(--t1); }
+.cajetin .valor { font-family: var(--dato); font-size: 13px; font-variant-numeric: tabular-nums; }
+
+.cierre-oscuro { background: var(--grafito); color: var(--papel); }
+.cierre-oscuro h2 { color: var(--papel); }
+.cierre-oscuro .bajada { color: rgba(231, 234, 230, 0.72); }
+.cierre-oscuro .btn { border-color: var(--papel); color: var(--papel); }
+.cierre-oscuro .btn:hover { border-color: #c98494; color: #c98494; }
+
+/* ------------------------------------------------------------------ figuras
+   3:2 en absolutamente todo. La unica excepcion de la pagina es el retrato del
+   avatar en 2:3, y esta declarada aparte a proposito. */
+figure { margin: 0; }
+.figura img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  background: var(--lamina);
+}
+.figura.retrato img { aspect-ratio: 2 / 3; }
+figcaption {
+  font-family: var(--texto);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grafito-suave);
+  margin-top: var(--t2);
+}
+
+/* Montaje escalonado: las laminas nunca van a sangre ni al ancho total, y
+   alternan de lado. Es el antidoto contra la tira uniforme de secciones. */
+.montaje { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--t3); }
+.montaje .izq { grid-column: 1 / 9; }
+.montaje .der { grid-column: 4 / 13; }
+.montaje .texto { grid-column: 1 / 8; }
+@media (max-width: 860px) {
+  .montaje { grid-template-columns: 1fr; }
+  .montaje .izq, .montaje .der, .montaje .texto { grid-column: 1; }
+}
+
+.saltar { position: absolute; left: -9999px; background: var(--grafito); color: var(--papel); padding: var(--t2) var(--t3); z-index: 10; }
+.saltar:focus { left: var(--t3); top: var(--t3); position: fixed; }
+
+.pie-pagina {
+  border-block-start: 1px solid var(--linea);
+  padding: var(--t4) 0;
+  font-family: var(--texto);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grafito-suave);
+}
+.pie-pagina a { color: var(--grafito); }
+.pie-pagina nav { display: flex; gap: var(--t3); flex-wrap: wrap; margin-top: var(--t1); }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  h1, h2 { font-size: 27px; }
+  h3, .bajada { font-size: 19px; }
+  .dato, .libro .medida, .placa dl > div { font-size: 12px; }
+  :root { --alto-datos: 40px; --alto-dibujo: 64px; --alto-foto: 88px; }
+}

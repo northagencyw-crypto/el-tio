@@ -41,6 +41,16 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+/* El atributo height del HTML entra como hint de presentacion y GANA sobre aspect-ratio,
+   porque aspect-ratio solo aplica cuando una de las dos medidas queda en auto. Sin esta
+   linea cada imagen se pintaba con la altura de su atributo (1024 o 1536 px) en vez de la
+   proporcion que declara esta hoja: en un telefono eso es una pantalla entera de foto
+   recortada entre parrafo y parrafo, y la portada de real estate no mostraba una sola
+   palabra hasta el segundo scroll.
+   Va antes que cualquier regla de imagen: las que necesitan alto fijo la pisan por
+   especificidad. */
+img { height: auto; }
+
 
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

@@ -1,0 +1,277 @@
+/* ============================================================================
+   EL TIO HOSPITALITY
+   Concepto: la recorrida. El dueno camina su propia casa de noche, planta baja
+   primero, y en cada puerta comprueba que pasa cuando el no esta.
+
+   Hoja propia. Hay un test que falla si dos verticales comparten hoja,
+   tipografia, color o mas del 30 por ciento de sus componentes.
+
+   El riesgo de este rubro era parecerse a gastronomia, que tambien es calido y
+   de hospedaje. Se resuelve por temperatura y por profundidad: gastronomia es
+   papel claro con grano y sin sombras; esto es verde de vestibulo oscuro donde
+   el sistema de profundidad entero son apliques de luz calida.
+
+   Y contra eventos, que tambien es oscuro: eventos declara cero sombras y
+   tinta plana mate; aca la sombra es el material principal.
+   ========================================================================= */
+
+:root {
+  /* Verde de vestibulo y laton: el par material de un lobby de noche. */
+  --vestibulo: #10251c;
+  --sala: #1e382d;
+  --cal: #c9ded3;
+  --cal-suave: #a6bfb2;
+  --laton: #c69858;
+  --linea: #325244;
+
+  --grabado: 'Marcellus', 'Times New Roman', serif;
+  --texto: 'Karla', system-ui, sans-serif;
+  --dato: 'DM Mono', ui-monospace, monospace;
+
+  /* Base de 7px. La unidad del negocio es la noche y la semana tiene siete. */
+  --n1: 7px;  --n2: 14px; --n3: 28px; --n4: 42px;
+  --n5: 70px; --n6: 112px; --n7: 175px;
+
+  --ancho: 1040px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+body {
+  margin: 0;
+  background: var(--vestibulo);
+  color: var(--cal);
+  font-family: var(--texto);
+  font-size: 16.5px;
+  line-height: 1.78;
+  -webkit-font-smoothing: antialiased;
+}
+
+.planta { max-width: var(--ancho); margin: 0 auto; padding: 0 clamp(22px, 5vw, 56px); }
+
+/* ------------------------------------------------------------------ escala
+   INVERTIDA a proposito: lo mas grande de la pagina es la cifra de puerta, no
+   el titular. En una recorrida lo primero que ves de una habitacion es su
+   numero. Ninguna hermana invierte la jerarquia asi. */
+.cifra-puerta {
+  font-family: var(--grabado);
+  font-size: clamp(63px, 7.5vw, 91px);
+  line-height: 1;
+  color: var(--laton);
+  margin: 0;
+}
+h1 {
+  font-family: var(--grabado);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.22;
+  margin: 0;
+  max-width: 20ch;
+}
+h2 { font-family: var(--grabado); font-size: 28px; line-height: 1.25; margin: 0; }
+h3 { font-family: var(--grabado); font-size: 21px; line-height: 1.3; margin: 0; }
+p { margin: 0 0 var(--n3); max-width: 66ch; }
+.bajada { font-size: 21px; line-height: 1.6; color: var(--cal-suave); max-width: 52ch; }
+
+/* La linea de ubicacion del rubro. Donde un hotel escribe la localidad debajo
+   del nombre, aca se escribe a quien le habla la pagina: resuelve que se
+   entienda que hablamos de hoteles sin una aclaracion torpe. */
+.ubicacion {
+  font-family: var(--texto);
+  font-weight: 500;
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cal-suave);
+  margin: var(--n1) 0 0;
+}
+.rotulo {
+  font-family: var(--texto);
+  font-weight: 500;
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--laton);
+  margin: 0 0 var(--n2);
+}
+.hora {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--cal-suave);
+}
+
+.umbral { padding: var(--n6) 0; border-block-start: 1px solid var(--linea); }
+.umbral:first-of-type { border-block-start: 0; }
+.umbral.iluminado { background: var(--sala); }
+
+/* -------------------------------------------------- la chapa de puerta (firma)
+   Placa de laton con la cifra grabada. El unico radio del sistema es de 3px,
+   que es el de una chapa real, no el de un widget. */
+.chapa {
+  display: inline-grid;
+  place-items: center;
+  min-width: 112px;
+  padding: var(--n2) var(--n3);
+  border-radius: 3px;
+  background: linear-gradient(160deg, #d8ad6e, #a87c40);
+  color: #221607;
+  /* Grabado: una sombra hacia adentro arriba y un brillo abajo. */
+  box-shadow: inset 0 1px 0 rgba(255, 244, 222, 0.55), inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+}
+.chapa .cifra-puerta { color: #221607; font-size: 42px; }
+.chapa small {
+  font-family: var(--texto);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+/* --------------------------------------------------- el aplique (firma)
+   El sistema de profundidad entero de la hoja, y la oposicion directa a
+   eventos, que declara cero sombras y tinta plana. Aca cada bloque encendido
+   tiene una luz calida que cae desde arriba a la izquierda. */
+.aplique {
+  position: relative;
+  background: var(--sala);
+  padding: var(--n4);
+  box-shadow: 0 1px 0 rgba(201, 222, 211, 0.06) inset, 0 24px 48px -32px rgba(0, 0, 0, 0.9);
+}
+.aplique::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 62%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(198, 152, 88, 0.75), transparent);
+}
+
+/* --------------------------------------------- el tablero de llaves (firma)
+   Reemplaza a TODA grilla de tarjetas de la pagina. Cada casillero lleva su
+   numero de sala, el concepto y una sola frase: es la ficha de habitacion del
+   rubro, que nunca lleva especificaciones. */
+.tablero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+  gap: 1px;
+  background: var(--linea);
+  margin-top: var(--n4);
+  border: 1px solid var(--linea);
+}
+.casillero {
+  background: var(--vestibulo);
+  padding: var(--n3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--n2);
+  min-height: 168px;
+}
+.umbral.iluminado .casillero { background: var(--sala); }
+.casillero .sala {
+  font-family: var(--grabado);
+  font-size: 21px;
+  color: var(--laton);
+}
+.casillero h3 { font-size: 18px; }
+.casillero p { margin: 0; font-size: 15px; color: var(--cal-suave); max-width: none; }
+/* El gancho de la llave: una marca de 1px, no un icono. */
+.casillero .sala::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--linea);
+  margin-top: var(--n1);
+}
+
+/* Lo del rubro va con la misma forma pero mas chico y sin cifra de sala: asi
+   se marca jerarquia menor sin cambiar de idioma visual. */
+.tablero.anexo .casillero { min-height: 0; padding: var(--n2) var(--n3); }
+.tablero.anexo h3 { font-family: var(--texto); font-weight: 600; font-size: 16px; }
+
+/* ------------------------------------------------------- la campanilla (firma)
+   Unico elemento relleno de toda la pagina, unico destino, unica etiqueta. En
+   el rubro repetir la misma etiqueta suave veinte veces y reservar todo el
+   peso para una sola accion elimina la competencia interna. */
+.campanilla {
+  display: inline-block;
+  background: var(--laton);
+  color: #1a1005;
+  font-family: var(--texto);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 17px 34px;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0 12px 28px -18px rgba(198, 152, 88, 0.9);
+  transition: background-color 200ms ease;
+}
+.campanilla:hover { background: #d8ad6e; }
+.campanilla:focus-visible { outline: 2px solid var(--cal); outline-offset: 3px; }
+
+/* Todo lo demas es el mismo enlace subrayado, repetido sin variacion. */
+.paso {
+  font-family: var(--texto);
+  font-size: 14px;
+  color: var(--cal);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: var(--laton);
+}
+.paso:hover { color: var(--laton); }
+
+/* ------------------------------------------------------------------ figuras
+   Montadas con paspartu, no a sangre: da aire de galeria sin exigir una foto
+   espectacular. Es lo contrario de las bandas a sangre de eventos. */
+figure { margin: 0; }
+.montada {
+  background: var(--sala);
+  padding: var(--n2);
+}
+.montada img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+figcaption {
+  font-family: var(--dato);
+  font-size: 13px;
+  color: var(--cal-suave);
+  margin-top: var(--n2);
+}
+
+/* Dos columnas desiguales, nunca tres iguales: saca a la pagina del aire de
+   catalogo. */
+.desigual { display: grid; grid-template-columns: 1.35fr 1fr; gap: var(--n5); align-items: center; }
+@media (max-width: 900px) { .desigual { grid-template-columns: 1fr; gap: var(--n4); } }
+
+.saltar { position: absolute; left: -9999px; background: var(--laton); color: #1a1005; padding: var(--n2) var(--n3); }
+.saltar:focus { left: var(--n3); top: var(--n3); position: fixed; z-index: 10; }
+
+.pie-pagina {
+  border-block-start: 1px solid var(--linea);
+  padding: var(--n5) 0;
+  font-family: var(--texto);
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cal-suave);
+}
+/* Area tactil de 44px sin engordar el renglon: el padding vertical la da y el
+   margen negativo la devuelve, asi el pie se sigue leyendo como una linea. */
+.pie-pagina a {
+  color: var(--cal);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-block: -14px;
+}
+.pie-pagina nav { display: flex; gap: var(--n3); flex-wrap: wrap; margin-top: var(--n1); }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .umbral { padding: var(--n5) 0; }
+  .aplique { padding: var(--n3); }
+}

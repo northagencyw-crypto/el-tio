@@ -119,3 +119,29 @@
   font-display: swap;
   src: url('instrument-sans.woff2') format('woff2-variations');
 }
+
+/* -------------------------------------------------------------- hospitality
+   Capital romana inscripcional para el display, que es la letra de una placa
+   grabada y no la de una pantalla. Es el registro que dejaron libres las
+   cuatro anteriores. */
+@font-face {
+  font-family: 'Marcellus';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('marcellus.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('karla.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('dm-mono.woff2') format('woff2');
+}

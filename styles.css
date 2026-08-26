@@ -163,9 +163,11 @@ header.top::before{
   position:absolute;z-index:6;left:0;right:0;bottom:clamp(56px,11vh,130px);
   padding:0 var(--pad);text-align:left;
   max-width:var(--max);margin:0 auto;
-  opacity:0;transform:translateY(30px);will-change:opacity,transform;
-  pointer-events:none;
+  will-change:opacity,transform;
 }
+/* Se esconde solo si el scrub va a correr. Sin script el titular y sus dos botones
+   quedaban invisibles y fuera del alcance del teclado, para siempre. */
+.js .hero-title{opacity:0;transform:translateY(30px);pointer-events:none}
 .hero-title.live{pointer-events:auto}
 .hero-title h1{
   font-size:clamp(64px,13vw,190px);
@@ -245,8 +247,8 @@ header.top::before{
 /* ---------- sections ---------- */
 section.block{position:relative;padding:clamp(96px,15vh,180px) var(--pad);scroll-margin-top:24px}
 .inner{max-width:var(--max);margin:0 auto;position:relative;z-index:2}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.reveal.in{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
 #manifiesto{padding-top:clamp(110px,18vh,210px)}
 #manifiesto .eyebrow{display:block;margin-bottom:22px}
@@ -463,8 +465,8 @@ footer p{
   #rain{display:none}
   .beat{display:none}
   .hero-media .frame{transform:none}
-  .hero-title{opacity:1;transform:none;pointer-events:auto}
-  .reveal{opacity:1;transform:none;transition:none}
+  .js .hero-title{opacity:1;transform:none;pointer-events:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
   .scroll-cue::after{animation:none}
   .status .pulse{animation:none}
   .marquee{-webkit-mask-image:none;mask-image:none}

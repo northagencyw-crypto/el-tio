@@ -1,7 +1,19 @@
 /* EL TIO - hero scrub, matrix rain, reveals */
 (function () {
   'use strict';
+
+  /* Progresivo, no al reves. Todo lo que se oculta para despues animarlo se oculta solo
+     si este archivo llego a correr. Sin esta marca, la portada sin JavaScript quedaba con
+     las 44 secciones en opacity 0 y el hero invisible e inerte: no una version degradada,
+     una pagina en blanco. Y pasaba igual si este script fallaba en cargar. */
+  document.documentElement.classList.add('js');
+
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* El hero se saca del alcance del teclado y de los lectores recien ahora, por el mismo
+     motivo: en el HTML ya no viene inerte. */
+  var heroTitulo = document.querySelector('.hero-title');
+  if (heroTitulo && !reduced) heroTitulo.setAttribute('inert', '');
 
   /* reveal on scroll */
   var io = new IntersectionObserver(function (entries) {

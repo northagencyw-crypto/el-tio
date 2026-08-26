@@ -438,3 +438,17 @@ figcaption {
   .respiro { padding: var(--e7) 0; }
   .servicio { padding: var(--e6) 0; }
 }
+
+/* Dos columnas con foto en vertical. Es el unico bloque de la pagina con esta
+   forma: rompe la tira de secciones de ancho completo sin agregar una tarjeta. */
+.dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 380px);
+  gap: var(--e7);
+  align-items: start;
+}
+.columna-foto img { width: 100%; height: auto; display: block; filter: saturate(0.92); }
+@media (max-width: 860px) {
+  .dos-columnas { grid-template-columns: 1fr; gap: var(--e5); }
+  .columna-foto { max-width: 420px; }
+}

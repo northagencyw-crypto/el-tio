@@ -386,6 +386,10 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23t)' fill='%23fff'/%3E%3C/svg%3E");
 }
 .pizarra-bloque h2 { color: var(--tiza); max-width: 20ch; margin: 0 auto; }
+/* Centrar el texto no centra el bloque: el parrafo hereda max-width y se pega a la
+   izquierda. Hay que centrar la caja, no solo su contenido. */
+.pizarra-bloque p, .respiro p, [style*="text-align:center"] > .rotulo,
+[style*="text-align:center"] > .precio-linea { margin-inline: auto; }
 .pizarra-bloque .acciones { justify-content: center; }
 
 /* --------------------------------------------------------------- frutilla

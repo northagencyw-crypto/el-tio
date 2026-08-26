@@ -49,6 +49,7 @@ h2.display{font-size:clamp(26px,4.2vw,54px)}
   background:var(--acento,#7FC9F2);
   color:var(--sobre-acento,#04070B);
   padding:10px 18px;
+  display:inline-flex;align-items:center;min-height:44px;
   font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;
   text-transform:uppercase;
   transition:top .2s var(--ease);
@@ -67,6 +68,9 @@ header.top{
   font-family:'Archivo',sans-serif;
   font-variation-settings:'wdth' 125;
   font-weight:900;font-size:17px;letter-spacing:.06em;
+  /* Es un enlace a la portada, asi que necesita area tactil de 44px. El margen
+     negativo la devuelve para que la cabecera no crezca. */
+  display:inline-flex;align-items:center;min-height:44px;margin-block:-14px;
 }
 .status{
   font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.3em;
@@ -81,7 +85,7 @@ header.top{
 /* ---------- pie ---------- */
 footer .inner{max-width:var(--max);margin:0 auto}
 footer p{font-size:12.5px}
-.foot-link{transition:color .3s var(--ease)}
+.foot-link{transition:color .3s var(--ease);display:inline-flex;align-items:center;min-height:44px;margin-block:-14px}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

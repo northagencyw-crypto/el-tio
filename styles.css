@@ -85,11 +85,14 @@ header.top::before{
   font-weight:900;font-size:17px;letter-spacing:.06em;
 }
 .wordmark .dot{color:var(--celeste);margin-left:2px}
-.nav{display:flex;gap:clamp(16px,2.4vw,34px);pointer-events:auto}
+.nav{display:flex;gap:clamp(16px,2.4vw,34px);pointer-events:auto;align-items:center}
 .nav a{
   font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.22em;
   text-transform:uppercase;color:var(--ash);
   transition:color .3s var(--ease);
+  /* Area tactil de 44px sin engordar la barra: el alto lo da min-height y el
+     margen negativo lo devuelve. */
+  display:inline-flex;align-items:center;min-height:44px;margin-block:-14px;
 }
 .nav a:hover{color:var(--celeste)}
 .status{
@@ -218,6 +221,7 @@ header.top::before{
   background:none;border:1px solid var(--hairline);border-radius:100px;
   color:var(--ash);font-family:'Geist Mono',monospace;font-size:10px;
   letter-spacing:.2em;text-transform:uppercase;padding:7px 16px;cursor:pointer;
+  display:inline-flex;align-items:center;min-height:44px;justify-content:center;
   transition:color .3s var(--ease),border-color .3s var(--ease);
 }
 .marquee-pause:hover{color:var(--celeste);border-color:rgba(127,201,242,.45)}
@@ -403,8 +407,10 @@ section.block{position:relative;padding:clamp(96px,15vh,180px) var(--pad);scroll
   font-size:10px;letter-spacing:.3em;text-transform:uppercase;
   color:var(--ash);margin-bottom:14px;
 }
-.foot-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px clamp(18px,2.4vw,30px)}
-.foot-nav a{font-size:13.5px;color:var(--ash);transition:color .3s var(--ease)}
+.foot-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:0 clamp(18px,2.4vw,30px)}
+/* Los siete enlaces del pie son la unica forma de llegar a las verticales desde
+   la portada, asi que necesitan area tactil de verdad. */
+.foot-nav a{font-size:13.5px;color:var(--ash);transition:color .3s var(--ease);display:inline-flex;align-items:center;min-height:44px;}
 .foot-nav a:hover,.foot-nav a:focus-visible{color:var(--celeste)}
 
 footer{
@@ -417,7 +423,7 @@ footer p{
   font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.22em;
   text-transform:uppercase;color:var(--ash);
 }
-.foot-link{text-transform:none;transition:color .3s var(--ease)}
+.foot-link{text-transform:none;transition:color .3s var(--ease);display:inline-flex;align-items:center;min-height:44px;margin-block:-14px}
 .foot-link:hover{color:var(--celeste)}
 
 /* ---------- responsive ---------- */

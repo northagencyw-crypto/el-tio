@@ -1,0 +1,82 @@
+# El Tío
+
+> Inteligencia artificial aplicada a empresas. Auditamos, optimizamos,
+> automatizamos y capacitamos, en ese orden.
+
+El Tío mira como trabaja hoy una empresa, encuentra donde se pierde tiempo,
+clientes o dinero, y devuelve un mapa de lo que conviene hacer primero, con el
+motivo de cada cosa. El producto de entrada es el AI Audit: un cuestionario
+guiado de 15 a 25 minutos por USD 50, mas media hora de llamada. Lo revisa
+una persona antes de que llegue.
+
+## Como funciona
+
+1. Auditamos. Se mira la operacion area por area: ventas, operaciones, datos,
+   marketing, atencion, equipo y software.
+2. Optimizamos. Se ordena el proceso antes de automatizarlo, porque automatizar
+   algo malo lo hace mas rapido y no mejor.
+3. Automatizamos. Solo lo que tiene sentido en esa operacion.
+4. Capacitamos. El equipo queda sabiendo operarlo.
+
+## La base, que se implementa siempre
+
+Sea cual sea el rubro y sea cual sea lo que encuentre el Audit: un CRM, la base
+de datos ordenada y sin duplicados, una web propia y editable, un newsletter
+propio y un chatbot que atiende y califica. Lo especifico de cada rubro va
+despues de eso, nunca antes.
+
+## Rubros
+
+### Real Estate (https://eltio.net/real-estate/)
+
+Para quien: Inmobiliarias, desarrolladoras y brokers.
+
+Una inmobiliaria escribe la misma propiedad cinco veces: la descripción del portal, la del sitio propio, la traducción al inglés, el mensaje de WhatsApp para un colega y el posteo de Instagram. Lo hace una persona del equipo, a mano, entre media hora y dos horas por propiedad.
+
+### Eventos (https://eltio.net/eventos/)
+
+Para quien: Productoras, promotores, salas y ticketeras.
+
+En eventos, todo lo que pasa después de firmar es ejecución. Lo que decide si la fecha gana o pierde ya está decidido cuando se firmó: qué artista, qué día, qué sala, a qué cachet y con qué precio de entrada.
+
+### Artistas (https://eltio.net/artistas/)
+
+Para quien: Artistas, DJs y sus managers.
+
+Un artista con carrera tiene números grandes en todos lados y no es dueño de ninguno. Los seguidores están en una plataforma, los oyentes en otra, y las dos deciden a quién le muestran qué.
+
+### Gastronomía (https://eltio.net/gastronomia/)
+
+Para quien: Restaurantes, cafeterías, panaderías y bares.
+
+Un restaurante que funciona bien tiene tres problemas que no se parecen entre sí. El primero es de presentación: la carta es un PDF de hace dos años y el plato que mejor sale no se ve en ningún lado. Quien decide dónde comer mira el teléfono treinta segundos, y en esos treinta segundos se juega la mesa.
+
+### Hospitality (https://eltio.net/hospitality/)
+
+Para quien: Hoteles boutique, villas y alquileres vacacionales.
+
+Un hotel boutique o una villa vive con un socio silencioso. El intermediario se lleva su porcentaje de casi toda la ocupación y, lo que es peor, se queda con el contacto del huésped. Al año siguiente se vuelve a pagar por el mismo cliente.
+
+### Fitness (https://eltio.net/fitness/)
+
+Para quien: Gimnasios, estudios y centros de bienestar.
+
+En un gimnasio la baja no se ve cuando pasa: se ve cuando no entra el pago. Para entonces la persona hace tres semanas que no viene y ya se acostumbró a no venir. La señal existía y estaba en el molinete.
+
+### Distribución (https://eltio.net/distribucion/)
+
+Para quien: Ferreterías, materiales, suministros, mayoristas e importadores.
+
+En una distribuidora el margen se pierde en el medio: entre que el cliente pide y que alguien le manda el precio. El pedido llega como el cliente quiere, con abreviaturas, en un PDF escaneado o en un Excel con las columnas cambiadas. Alguien lo lee, busca cada producto y arma la cotización a mano.
+
+## Que no hacemos
+
+- No prometemos resultados ni publicamos porcentajes de mejora.
+- No inventamos clientes, testimonios ni respaldos.
+- No vendemos una plataforma propia: implementamos sobre lo que la empresa usa.
+- No publicamos precios de implementacion. Salen del Audit, con su alcance.
+
+## Contacto
+
+hola@eltio.net
+https://eltio.net/

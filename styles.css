@@ -431,7 +431,12 @@ footer p{
 /* ---------- responsive ---------- */
 @media(max-width:960px){
   .nav a{display:none}
-  .nav a[href="#contacto"]{display:inline-block}
+  /* inline-FLEX, no inline-block: la regla base centra el texto dentro del area
+     tactil de 44px con align-items, que solo existe en un contenedor flex. Con
+     inline-block el centrado se caia y el texto quedaba pegado arriba, 14px por
+     encima del centro de su propio boton (exactamente el margin-block negativo).
+     Se veia en mobile, que es donde este es el unico enlace visible del header. */
+  .nav a[href="#contacto"]{display:inline-flex}
   .case-grid{grid-template-columns:repeat(2,1fr)}
   .cap-grid{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr)}

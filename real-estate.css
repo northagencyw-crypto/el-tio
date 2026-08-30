@@ -653,9 +653,12 @@ html:not(.js) .recorrido-ficha li { opacity: 1; }
 .detalles-obra { padding: 0; }
 .tira-obra { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; }
 .tira-obra figure { margin: 0; position: relative; }
+/* Cuatro por cinco y no cuadrado: es la proporcion con la que un portal muestra una
+   propiedad, y ademas la unica que aguanta las tres tomas de la cartera sin perderlas.
+   Una torre de Manhattan recortada a cuadrado deja de ser una torre. */
 .tira-obra img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   display: block;
 }

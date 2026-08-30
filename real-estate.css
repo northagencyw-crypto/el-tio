@@ -1866,3 +1866,77 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
   .como-tio::after,
   .vista-marco::after { border-color: CanvasText; }
 }
+
+
+/* --------------------------------------------- el hero en ventanas muy bajas
+   El hero apila su placa y su ficha adentro de un marco pegado de 100vh. Con una ventana
+   alta eso sobra; con una baja no entra, y la capa, que va posicionada, se derrama sobre
+   la seccion siguiente. Medido a 320 por 256 pixeles CSS, que es lo que ve alguien con el
+   navegador al cuatrocientos por ciento sobre una pantalla de 1280: seis textos del hero
+   cayendo encima del titulo y la bajada de la primera lamina.
+
+   Debajo de 560 de alto el recorrido deja de ser pegado y pasa a fluir. Se pierde el
+   scrub, que a esa altura no se podia mirar igual, y se gana que el contenido entre. La
+   fotografia queda arriba con una proporcion fija y el texto abajo, que es como se lee
+   una portada cuando no hay alto para superponer. */
+@media (max-height: 560px) {
+  .recorrido { height: auto; }
+  .recorrido-marco {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+  .recorrido-canvas {
+    position: relative;
+    inset: auto;
+    height: 62vh;
+    min-height: 220px;
+  }
+  .recorrido-encima {
+    position: static;
+    padding: clamp(20px, 5vh, 40px) var(--margen) clamp(24px, 6vh, 48px);
+    background: var(--verde);
+  }
+  /* Los dos velos existen para separar el texto de la fotografia. Sin superposicion no
+     separan nada y solo oscurecen el fondo. */
+  .recorrido-encima::before,
+  .recorrido-encima::after { display: none; }
+  /* Sin JavaScript el respaldo es la tira de fotografias, que ya fluye sola. */
+  .recorrido-vivo .recorrido-respaldo { display: none; }
+}
+
+/* Y en una ventana baja Y angosta, la ficha pasa debajo de la placa en vez de al lado. */
+@media (max-height: 560px) and (max-width: 900px) {
+  .recorrido-encima { grid-template-columns: 1fr; gap: var(--t3); }
+}
+
+
+/* ------------------------------------- las filas que tienen que poder envolver
+   Con el espaciado de texto forzado (interlineado 1,5 y un doceavo de eme entre letras,
+   que el lector puede pedir) las filas de dos columnas dejan de entrar. Una fila flex sin
+   `wrap` no achica: empuja el ancho minimo de su contenedor, y a 320 pixeles el panel del
+   presupuesto crecia hasta que sus esquinas grabadas se salian dos pixeles de la ventana.
+
+   Medido en la combinacion de zoom al cuatrocientos por ciento CON espaciado forzado, que
+   es la unica donde aparece: cada cosa por separado pasaba. */
+.pres-membrete,
+.pres-total,
+.fi-cabeza,
+.ent-texto h3,
+.pie-pagina .plancha {
+  flex-wrap: wrap;
+}
+.pres-membrete > *,
+.pres-total > *,
+.fi-cabeza > * {
+  min-width: 0;
+}
+/* Y el ornamento de esquina no cuelga hacia afuera en pantallas angostas, donde esos seis
+   pixeles son la diferencia entre entrar y no entrar. */
+@media (max-width: 520px) {
+  .esq--ai { top: 0; left: 0; }
+  .esq--ad { top: 0; right: 0; }
+  .esq--bi { bottom: 0; left: 0; }
+  .esq--bd { bottom: 0; right: 0; }
+  .ficha-agencia, .presupuesto { outline-offset: 2px; }
+}

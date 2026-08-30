@@ -1335,9 +1335,18 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
   float: left;
   font-family: var(--display);
   font-weight: 400;
-  font-size: 3.4em;
-  line-height: 0.82;
-  padding: 0.06em 0.1em 0 0;
+  /* El alto de la capitular tiene que ser un multiplo exacto del interlineado, o el
+     ultimo renglon que la rodea queda sangrado a media palabra. Alto = tamanio por
+     interlineado = 3.573 * 0.75 = 2.68 em del parrafo, y el renglon del parrafo mide
+     1.34: exactamente dos. Sin padding vertical, que sumaria al alto de la caja flotante
+     y volveria a romper la cuenta.
+
+     Dos y no tres porque la tinta de una capital de Cormorant es mas alta que su caja de
+     linea: a tres renglones el trazo se salia por abajo del parrafo en dos de las tres
+     bajadas, medido. A dos, la tinta mide 66 pixeles contra 70 de caja. */
+  font-size: 3.573em;
+  line-height: 0.75;
+  padding: 0 0.1em 0 0;
   color: var(--laton-texto);
   font-style: normal;
 }
@@ -1558,9 +1567,10 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
 /* Los numeros y las medidas, que son texto y no adorno, en el laton oscuro. Sobre fondo
    nocturno vuelven al claro, donde el contraste va al reves. */
 .ent-num, .paso-num, .fi-num, .libro .medida, .lam-num, .margen .num,
-.recorrido-precio, .pres-cifra { color: var(--laton-texto); }
+.pres-cifra { color: var(--laton-texto); }
 .cierre-oscuro .ent-num, .cierre-oscuro .rotulo, .recorrido .rotulo,
-.cierre-oscuro .fi-num, .recorrido-ficha .ficha-num { color: var(--laton-claro); }
+.cierre-oscuro .fi-num, .recorrido-ficha .ficha-num,
+.recorrido-precio { color: var(--laton-claro); }
 
 
 /* --------------------------------------------------------------- la marginalia
@@ -1737,4 +1747,14 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
 .pres-pie { max-width: 34ch; }
 @media (max-width: 900px) {
   .honorarios-grid { grid-template-columns: 1fr; }
+}
+
+
+/* El pie de la vista de cierre es una frase entera, no un rotulo: va en cursiva y en caja
+   normal. Las versalitas espaciadas son para etiquetas de dos palabras; una oracion
+   completa en mayusculas con un cuarto de eme de espaciado se lee como un cartel. */
+.vista-marco figcaption {
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-family: var(--display);
 }

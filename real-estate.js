@@ -261,8 +261,17 @@
     // la misma URL y la foto se descarga una sola vez.
     function url(el) {
       var base = el.getAttribute('data-ambiente');
-      var lista = (el.getAttribute('data-anchos') || '').split(',').filter(Boolean);
       if (!base) return el.getAttribute('src');
+      // Si ya viene entera, se usa tal cual.
+      //
+      // Esta funcion daba por hecho que el atributo es SIEMPRE una ruta sin extension a la
+      // que hay que pegarle la variante. El empaquetado para un archivo suelto incrusta la
+      // foto como data URI, y ahi el resultado era
+      // `data:image/webp;base64,UklGR...-1200.webp`: ocho ERR_INVALID_URL, ninguna textura,
+      // el canvas nunca se agregaba al documento y el hero quedaba en verde plano y quieto.
+      // La pagina servida estaba bien, asi que mirarla ahi no lo mostraba nunca.
+      if (base.indexOf('data:') === 0 || /\.(webp|avif|jpe?g|png)$/i.test(base)) return base;
+      var lista = (el.getAttribute('data-anchos') || '').split(',').filter(Boolean);
       if (!lista.length) return base + '.webp';
       var objetivo = window.innerWidth * (window.devicePixelRatio || 1);
       for (var i = 0; i < lista.length; i++) {

@@ -55,7 +55,7 @@
 
   --ancho: 1280px;
   --margen: clamp(20px, 5vw, 72px);
-  --columna: 132px;
+  --columna: 156px;
   /* El canal de los margenes donde corre la filigrana. */
   --canal: 74px;
 }
@@ -1145,7 +1145,7 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
   text-anchor: middle;
 }
 .sello-marca {
-  font: 700 25px/1 var(--display);
+  font: 400 24px/1 var(--display);
   fill: var(--lacre);
   text-anchor: middle;
   letter-spacing: 0.04em;
@@ -1561,3 +1561,180 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
 .recorrido-precio, .pres-cifra { color: var(--laton-texto); }
 .cierre-oscuro .ent-num, .cierre-oscuro .rotulo, .recorrido .rotulo,
 .cierre-oscuro .fi-num, .recorrido-ficha .ficha-num { color: var(--laton-claro); }
+
+
+/* --------------------------------------------------------------- la marginalia
+   La columna de margen de cada lamina llevaba un numero de trece pixeles y un rotulo, y
+   nada mas: ciento treinta y dos pixeles por toda la altura de la seccion, vacios. Es el
+   blanco estructural que quedaba despues de arreglar los huecos sueltos.
+
+   Ahora lleva lo que lleva el margen de un libro grabado: el numeral grande, el nombre
+   de la seccion girado sobre un hilo, y una roseta al pie. Se lee de arriba abajo y
+   acompania al texto en vez de rotularlo. */
+.lamina > .margen {
+  position: relative;
+  padding-top: var(--t2);
+  padding-right: var(--t3);
+  min-height: 340px;
+}
+.margen .num {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(38px, 4vw, 62px);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--tinta);
+  display: block;
+  text-align: right;
+}
+/* El nombre girado noventa grados sobre el hilo, como el lomo de un tomo. */
+/* El rotulo girado, leyendose de arriba abajo sobre el hilo.
+   Con `transform-origin: 100% 0` la rotacion de noventa grados manda el texto hacia
+   ARRIBA desde su ancla, que es por lo que se montaba sobre el numeral: la caja rotada
+   ocupa y en [-ancho, 0]. Con el origen en la esquina superior izquierda ocupa
+   y en [0, ancho], que es hacia abajo, y x en [-alto, 0], o sea a la izquierda del
+   ancla. De ahi que el ancla vaya a la derecha del hilo y no encima. */
+.rotulo--vertical {
+  position: absolute;
+  top: 122px;
+  left: 108px;
+  transform-origin: 0 0;
+  transform: rotate(90deg);
+  white-space: nowrap;
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0.34em;
+}
+.marg-hilo {
+  position: absolute;
+  top: 122px;
+  bottom: 104px;
+  right: 14px;
+  width: 24px;
+  height: auto;
+}
+.marg-hilo line { stroke: var(--filete); stroke-width: 1; }
+.marg-roseta {
+  position: absolute;
+  bottom: 26px;
+  right: 6px;
+  width: 76px;
+  height: 76px;
+  overflow: visible;
+}
+.marg-roseta path { fill: none; stroke: var(--laton); stroke-width: 1.1; opacity: 0.5; }
+
+@media (max-width: 900px) {
+  /* En el telefono la lamina es de una columna y el margen se vuelve una cabecera: el
+     hilo y la roseta se van, el numeral y el nombre se ponen en linea. */
+  .lamina > .margen {
+    min-height: 0;
+    display: flex;
+    align-items: baseline;
+    gap: var(--t2);
+    padding-right: 0;
+  }
+  .margen .num { font-size: 30px; text-align: left; }
+  .rotulo--vertical { position: static; transform: none; }
+  .marg-hilo, .marg-roseta { display: none; }
+}
+
+
+/* ------------------------------------------------ el canal, respetado por todos
+   La filigrana ocupa setenta y cuatro pixeles de cada margen. Las secciones que usan la
+   lamina ya empiezan en 243 y no la tocan, pero las tres que no la usan arrancaban en 72
+   y el grabado les caia sobre la primera letra. Medido, no mirado: el canal mide 74 y el
+   texto empezaba en 72. */
+.entrega > .inner, .entrega > .plancha, .como > .plancha, .como > .inner {
+  padding-inline: calc(var(--canal) + var(--t3));
+}
+/* La tira de propiedades va a sangre y tiene que TAPAR el grabado, no llevarlo encima.
+   Alcanza con posicionarla: la filigrana esta posicionada y va antes en el DOM, asi que
+   cualquier seccion posicionada que venga despues pinta arriba. Nada de z-index, que
+   crearia contexto de apilado sin necesidad. */
+.detalles-obra { position: relative; }
+
+@media (max-width: 1099px) {
+  /* Sin filigrana no hay canal que respetar. */
+  .entrega > .inner, .entrega > .plancha, .como > .plancha, .como > .inner {
+    padding-inline: var(--margen);
+  }
+}
+
+
+/* -------------------------------------------------- el cierre, sin la celda vacia
+   La celda de consultas ocupaba media fila con un correo adentro: medio ancho de pagina
+   con una direccion de veinte caracteres y nada mas, que es el hueco de 121 pixeles que
+   marcaba la medicion. Consultas baja a un cuarto y la firma se lleva los tres cuartos,
+   que es donde estan el monograma y el wordmark y donde el aire si trabaja. */
+.rotulo-lamina .cel--correo { grid-column: span 3; }
+.rotulo-lamina .cel--firma {
+  grid-column: span 9;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(20px, 3vw, 46px);
+}
+.rotulo-lamina .cel--firma .monograma { flex: none; }
+.rotulo-lamina .cel--firma .marca { margin: 0; }
+/* El rotulo de la firma sale del flujo para no empujar al monograma, pero con posicion
+   explicita: sin `top` ni `left` se quedaba donde lo dejaba el flex, o sea justo encima
+   del monograma. */
+.rotulo-lamina .cel--firma > .rotulo {
+  position: absolute;
+  top: var(--t3);
+  left: var(--t3);
+  margin: 0;
+}
+.rotulo-lamina .cel--firma {
+  position: relative;
+  padding-top: calc(var(--t3) + 26px);
+  /* Sin `space-between`: heredado, mandaba el wordmark al borde derecho de una celda de
+     tres cuartos de ancho y lo dejaba solo a media pagina del monograma. */
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  .rotulo-lamina .cel--correo, .rotulo-lamina .cel--firma { grid-column: span 6; }
+  .rotulo-lamina .cel--firma { flex-direction: column; align-items: flex-start; }
+}
+
+
+/* ---------------------------------------------------------------- el sello, afuera
+   El sello volvio a caer sobre la cifra del total y sobre la nota de pago unico. La
+   primera vez se corrio a la izquierda y el rediseno le movio el piso: la hoja cambio de
+   padding y de filete y el sello quedo otra vez encima del unico dato que no puede
+   taparse.
+
+   Ahora cuelga por debajo del borde inferior, del lado donde la ultima fila no tiene
+   texto. Un sello de goma se apoya sobre el papel y se sale un poco, que es justo esto,
+   y ademas asi no hay dato posible debajo. */
+.presupuesto .sello {
+  left: auto;
+  right: clamp(10px, 2vw, 34px);
+  bottom: clamp(-66px, -5vw, -46px);
+  width: clamp(104px, 11vw, 138px);
+}
+@media (max-width: 860px) {
+  /* En pantalla angosta la nota del pie se parte en dos renglones y llega hasta el borde
+     derecho, asi que no queda esquina libre: el sello baja entero por fuera de la hoja. */
+  .presupuesto .sello {
+    right: auto;
+    left: 50%;
+    bottom: -58px;
+    width: 96px;
+    transform: translateX(-50%) rotate(-13deg);
+  }
+  /* Apilado, lo que sigue a la hoja es la nota del costado: sin este aire el sello que
+     cuelga por abajo le cae encima al primer renglon. */
+  .pres-lado { margin-top: 64px; }
+}
+
+
+/* La hoja cede ancho a la nota del costado: con 780 fijos la columna de al lado quedaba
+   en 130 pixeles, o sea tres o cuatro palabras por renglon, que se lee peor que un
+   parrafo angosto a proposito. */
+.honorarios-grid { grid-template-columns: minmax(0, 660px) minmax(240px, 1fr); }
+.pres-pie { max-width: 34ch; }
+@media (max-width: 900px) {
+  .honorarios-grid { grid-template-columns: 1fr; }
+}

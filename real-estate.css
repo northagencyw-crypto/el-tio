@@ -15,6 +15,14 @@
    ========================================================================= */
 
 :root {
+  /* Esta pagina es clara y no tiene version oscura, y eso hay que declararlo.
+     Sin `color-scheme`, Chrome en Android puede aplicar su oscurecido automatico e
+     invertir el diseno entero, y ademas el navegador dibuja sus propios controles (la
+     barra de desplazamiento, el resaltado de seleccion) segun la preferencia del sistema:
+     alguien con el sistema en oscuro veia una barra negra contra una pagina de marfil.
+     Declarado, el navegador sabe que la pagina eligio, y deja de adivinar. */
+  color-scheme: light;
+
   /* La paleta de una casa senorial, no la de un legajo. El gris frio de papel de copia
      y la grotesca tecnica eran, juntos, lo que hacia que la pagina se leyera como un
      estudio de arquitectura por mucho que se cambiaran las fotos. */
@@ -1478,7 +1486,7 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
 
 /* ------------------------------------------------------- las secciones nocturnas */
 .cierre-oscuro { background: var(--verde); color: var(--marfil); }
-.rotulo-lamina { background: rgba(168, 135, 79, 0.28); border-color: rgba(168, 135, 79, 0.28); }
+.rotulo-lamina { background: rgba(168, 135, 79, 0.42); border-color: rgba(168, 135, 79, 0.28); }
 .rotulo-lamina .cel { background: var(--verde); }
 .cierre-oscuro .rotulo { color: var(--laton-claro); }
 .recorrido { background: var(--verde); }
@@ -1939,4 +1947,17 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
   .esq--bi { bottom: 0; left: 0; }
   .esq--bd { bottom: 0; right: 0; }
   .ficha-agencia, .presupuesto { outline-offset: 2px; }
+}
+
+
+/* La seleccion de texto, en la tinta y el laton de la casa. El azul del sistema sobre
+   marfil es lo unico de la pagina que no eligio nadie. */
+::selection {
+  background: rgba(168, 135, 79, 0.28);
+  color: var(--tinta);
+}
+.cierre-oscuro ::selection,
+.recorrido ::selection {
+  background: rgba(201, 173, 120, 0.40);
+  color: var(--marfil-alto);
 }

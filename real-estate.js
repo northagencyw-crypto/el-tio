@@ -94,8 +94,18 @@
     '}',
     '',
     'void main(){',
-    '  vec3 a = rayo(ambienteA, relacionA, escalaA, vec2(0.5), centroA, derivaA);',
-    '  vec3 b = rayo(ambienteB, relacionB, escalaB, anclaB, vec2(0.5), derivaB);',
+    // Con la camara quieta el barrido vale cero, y el bucle de seis muestras termina
+    // leyendo doce veces el mismo texel por pixel. La rama depende de un uniform, asi que
+    // todos los pixeles toman el mismo camino y no cuesta nada decidirla: es el caso de
+    // siempre, porque el hero esta visible mucho mas tiempo del que se lo scrollea.
+    '  vec3 a; vec3 b;',
+    '  if (borron < 0.002) {',
+    '    a = texture2D(ambienteA, cubrir(uv, relacionA, escalaA, vec2(0.5), centroA, derivaA)).rgb;',
+    '    b = texture2D(ambienteB, cubrir(uv, relacionB, escalaB, anclaB, vec2(0.5), derivaB)).rgb;',
+    '  } else {',
+    '    a = rayo(ambienteA, relacionA, escalaA, vec2(0.5), centroA, derivaA);',
+    '    b = rayo(ambienteB, relacionB, escalaB, anclaB, vec2(0.5), derivaB);',
+    '  }',
     // La de adelante se abre y se va; la de atras venia creciendo desde el centro y
     // queda. Las dos escalas son la misma exponencial corrida un tramo, asi que en el
     // momento del cruce la de atras esta exactamente donde estaba la de adelante al

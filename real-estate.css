@@ -499,6 +499,37 @@ figcaption {
 .recorrido-num { color: var(--lacre); }
 .recorrido-vivo .recorrido-respaldo { display: none; }
 
+/* --------------------------------------------- el hero nunca queda vacio
+   El modulo se hace cargo del hero apenas compila WebGL, que es lo correcto para que la
+   tira de respaldo no choque con la capa de texto. Pero entre ese momento y el primer
+   cuadro pintado hay que bajar dos fotografias, y en una conexion de verdad eso son
+   segundos de fondo verde: el hero aparecia vacio. En localhost la ventana dura
+   milisegundos y por eso ninguna medicion lo vio.
+
+   Mientras tanto se deja la PRIMERA figura de la tira, a sangre y sin su pie, haciendo de
+   cartel. No cuesta una descarga nueva: es la misma imagen que el `preload` ya pidio.
+   Cuando el canvas tiene con que dibujar, se va. */
+.recorrido-vivo:not(.recorrido-pintando) .recorrido-respaldo {
+  display: block;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.recorrido-vivo:not(.recorrido-pintando) .recorrido-respaldo > * { display: none; }
+.recorrido-vivo:not(.recorrido-pintando) .recorrido-respaldo > *:first-child {
+  display: block;
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+.recorrido-vivo:not(.recorrido-pintando) .recorrido-respaldo > *:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+.recorrido-vivo:not(.recorrido-pintando) .recorrido-respaldo figcaption { display: none; }
+
 .recorrido-encima {
   position: absolute;
   inset: 0;

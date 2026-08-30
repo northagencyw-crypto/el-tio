@@ -6,8 +6,11 @@
 El Tío mira como trabaja hoy una empresa, encuentra donde se pierde tiempo,
 clientes o dinero, y devuelve un mapa de lo que conviene hacer primero, con el
 motivo de cada cosa. El producto de entrada es el AI Audit: un cuestionario
-guiado de 15 a 25 minutos por USD 50, mas media hora de llamada. Lo revisa
-una persona antes de que llegue.
+guiado de 15 a 25 minutos por USD 99, mas media hora de llamada. Lo revisa
+una persona antes de que llegue. De ahi sale la hoja de ruta con todo lo que se
+puede optimizar y automatizar, en que orden y por que, y la conclusion con los
+cambios a aplicar. Queda del cliente, contrate o no despues. Si contrata un
+desarrollo con El Tío, el precio del Audit se descuenta de ese trabajo.
 
 ## Como funciona
 

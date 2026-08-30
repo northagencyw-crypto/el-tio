@@ -231,9 +231,11 @@
       .forEach(function (n) { u[n] = gl.getUniformLocation(prog, n); });
 
     var texturas = [];
+    var pedidas = [];
     var relaciones = [];
     var corriendo = false;
     var arrancado = false;
+    var pintado = false;
 
     // Cuanto se acerca la camara a lo largo de un tramo. Es la razon de la progresion
     // geometrica del vuelo: el plano de atras arranca en 1/K y termina en 1, el de
@@ -290,12 +292,31 @@
       img.src = url(laminas[i]);
     }
 
-    var siguiente = 2;
+    // La fila se adelanta a la lectura. Se pide siempre la primera que falte a partir de
+    // donde esta el scroll, no la siguiente en orden: quien baja rapido necesita la seis
+    // antes que la tres, y pedirlas en orden fijo lo deja mirando un cuadro quieto.
+    var pidiendo = false;
     function enFila() {
-      if (siguiente >= laminas.length) return;
-      cargar(siguiente++, enFila);
+      pidiendo = false;
+      var tramos = Math.max(1, laminas.length - 1);
+      var caja = escenario.getBoundingClientRect();
+      var total = Math.max(1, escenario.offsetHeight - window.innerHeight);
+      var p = Math.min(1, Math.max(0, -caja.top / total));
+      var desde = Math.floor(p * tramos);
+      for (var d = 0; d < laminas.length; d++) {
+        // Primero hacia adelante desde donde se esta leyendo, despues lo que quedo atras.
+        var i = (desde + d) % laminas.length;
+        if (!texturas[i] && !pedidas[i]) {
+          pedidas[i] = true;
+          pidiendo = true;
+          cargar(i, enFila);
+          return;
+        }
+      }
     }
-    cargar(0, null);
+    pedidas[0] = true;
+    pedidas[1] = true;
+    cargar(0, enFila);
     cargar(1, enFila);
 
     // Escalones de resolucion. Se arranca en 1.5 y no en 2 porque el barrido radial son
@@ -380,15 +401,33 @@
 
       marcarTramo(Math.min(texturas.length - 1, Math.floor(d + 0.5)));
 
-      var a = i;
-      var b = Math.min(texturas.length - 1, i + 1);
-      if (!texturas[a] || !texturas[b]) {
+      // Nunca se saltea el cuadro.
+      //
+      // Antes, si la toma que tocaba todavia no habia llegado, se volvia sin dibujar: el
+      // canvas se quedaba con lo ultimo pintado y el vuelo parecia clavado. En una
+      // conexion de verdad eso pasa siempre, porque las tomas van llegando mientras se
+      // baja; en localhost nunca, y por eso no se veia. Ahora se dibuja con la ultima
+      // toma que si esta: el descenso se detiene un momento en un lugar valido en vez de
+      // congelarse en un cuadro a medias, y sigue solo en cuanto llega la que falta.
+      var tope = -1;
+      for (var t = 0; t < texturas.length; t++) if (texturas[t]) tope = t; else break;
+      if (tope < 0) {
         if (corriendo) requestAnimationFrame(pintar);
         return;
       }
+      var a = Math.min(i, tope);
+      var b = Math.min(i + 1, tope);
+      if (a !== i) {
+        // Se congela la geometria en el empalme de la ultima toma disponible, para que
+        // no se vea un zoom sin destino mientras se espera.
+        escalaA = 1.0;
+        escalaB = 1.0;
+        f = 0;
+      }
 
-      var escalaA = Math.pow(K, f);
-      var escalaB = Math.pow(K, f - 1.0);
+      var escalaA, escalaB;
+      escalaA = Math.pow(K, f);
+      escalaB = Math.pow(K, f - 1.0);
       // La disolvencia ocupa casi todo el tramo. Con las dos tomas encastradas por
       // escala se pueden cruzar largo sin que se lea como doble exposicion, y cruzarlas
       // largo es lo que borra el limite entre una y la siguiente.
@@ -422,6 +461,16 @@
       gl.uniform1i(u.ambienteB, 1);
 
       gl.drawArrays(gl.TRIANGLES, 0, 3);
+      // El cartel de espera se retira DESPUES del primer dibujo, no al montar el canvas.
+      //
+      // Se retiraba al montarlo, y entre montar y pintar hay un hueco: el canvas ya esta
+      // adelante y todavia no tiene nada, asi que el hero se ponia en negro. Medido con
+      // una conexion de 700 kbps, el hueco duraba cinco segundos y era exactamente lo que
+      // el founder vio: "se quedo quieto o en negro".
+      if (!pintado) {
+        pintado = true;
+        escenario.classList.add('recorrido-pintando');
+      }
       if (corriendo) requestAnimationFrame(pintar);
     }
 

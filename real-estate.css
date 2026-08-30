@@ -22,9 +22,18 @@
   --lacre: #7a2436;   /* el rojo del sello notarial. Nunca rellena un boton. */
   --linea: #808880;   /* regla de lapiz */
 
-  --display: 'Bodoni Moda', 'Times New Roman', serif;
-  --texto: 'Public Sans', system-ui, sans-serif;
+  /* Chivo en los dos roles y IBM Plex Mono para el dato. Sale Bodoni Moda, que era
+     buena por su cuenta (Bodoni es la letra de las laminas de ingenieria neoclasicas) y
+     mala de conjunto: gastronomia quedo con Prata, otra didone, y dos verticales con
+     display didone se leen como parientes por mucho que el test verifique que los
+     nombres son distintos. La regla no es que no compartan archivo, es que no se
+     parezcan. Un legajo tecnico se compone en grotesca, y siendo todo grotesca esta
+     pagina queda en el extremo opuesto de la de gastronomia, que es toda romana. */
+  --display: 'Chivo', system-ui, sans-serif;
+  --texto: 'Chivo', system-ui, sans-serif;
   --dato: 'IBM Plex Mono', ui-monospace, monospace;
+  /* Lapiz. Solo para las acotaciones a mano sobre el plano. */
+  --lapiz: 'Caveat', cursive;
 
   /* Base de 8px. Tres alturas de seccion distintas para que ninguna mida lo
      mismo que la anterior. */
@@ -692,4 +701,121 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
   background: transparent;
   color: var(--lamina);
   border-color: var(--lamina);
+}
+
+/* ============================================================ lo que se implementa
+
+   Misma columna vertebral que gastronomia y resuelta distinto, que es la unica forma de
+   que dos paginas del mismo producto no se lean iguales.
+
+   Alla el mosaico se reparte en columnas porque las piezas son objetos de un local y no
+   tienen orden. Aca hay orden: las tres primeras son producto desplegado y las cinco
+   siguientes son la base que se monta encima. Por eso van en filas numeradas, como las
+   laminas de un legajo, y la captura ocupa el lugar grande.
+   ========================================================================= */
+.entrega { padding: 92px 0 62px; }
+/* Esta hoja no tiene `.inner`: su sistema de contenedor es `.plancha`, con el ancho y
+   el margen lateral propios. Escribi el vocabulario de gastronomia otra vez y el bloque
+   salio pegado al borde izquierdo, sin ancho maximo. Es la segunda vez que me pasa entre
+   estas dos hojas, y por eso ahora las secciones nuevas usan `.plancha`. */
+.entrega > .plancha { max-width: 1440px; }
+.entregables { list-style: none; margin: 44px 0 0; padding: 0; }
+
+.ent {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+  gap: 48px;
+  align-items: center;
+  padding: 30px 0;
+  border-top: 1px solid var(--linea);
+}
+.ent:last-child { border-bottom: 1px solid var(--linea); }
+/* Las impares dan vuelta la plantilla, no el orden de los hijos: con `order` el
+   elemento cambia de lugar pero las columnas no, y la captura terminaba en la columna
+   angosta. Ya paso en el metodo de gastronomia. */
+.ent:nth-child(even) { grid-template-columns: minmax(0, 0.62fr) minmax(0, 1fr); }
+/* `order: 2`, no `-1`. La figura ya es el primer hijo, asi que un orden negativo no la
+   movia y lo unico que quedaba en pie era la plantilla invertida: la captura terminaba
+   en la columna angosta y en las filas pares se leia la mitad de chica. */
+.ent:nth-child(even) > .ent-foto { order: 2; }
+
+.ent-foto { margin: 0; }
+.ent-foto img { width: 100%; height: auto; display: block; }
+/* La captura de producto lleva marco de lamina: filete de un pixel y fondo blanco, que
+   en esta hoja es material de montaje. Una pantalla oscura sin marco flota sobre el
+   papel frio. */
+.ent-foto--producto img {
+  border: 1px solid var(--linea);
+  background: var(--lamina);
+  padding: 8px;
+}
+.ent-foto--producto figcaption {
+  margin-top: 8px;
+  font-family: var(--dato);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--grafito-suave);
+}
+.ent-foto--obra img { aspect-ratio: 4 / 3; object-fit: cover; }
+
+.ent-texto { max-width: 46ch; }
+.ent-texto h3 {
+  margin: 0 0 12px;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.08;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.ent-num {
+  font-family: var(--dato);
+  font-size: 12px;
+  color: var(--lacre);
+  flex: none;
+}
+.ent-texto p { margin: 0; color: var(--grafito-suave); }
+
+/* ------------------------------------------------------------- la auditoria */
+.como { padding: 92px 0 62px; background: var(--papel); }
+.como > .plancha { max-width: 1440px; }
+.como-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.68fr);
+  gap: 62px;
+  align-items: start;
+}
+.como-texto h2 { font-size: clamp(30px, 3.6vw, 48px); }
+.pasos { list-style: none; margin: 44px 0 0; padding: 0; }
+.pasos li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 18px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--linea);
+}
+.paso-num { font-family: var(--dato); font-size: 12px; color: var(--lacre); }
+.pasos h3 { margin: 0 0 6px; font-size: 22px; }
+.pasos p { margin: 0; color: var(--grafito-suave); max-width: 48ch; }
+
+.como-tio { margin: 0; position: sticky; top: 44px; }
+.como-tio img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--linea);
+}
+.como-tio figcaption {
+  margin-top: 10px;
+  font-family: var(--dato);
+  font-size: 11px;
+  color: var(--grafito-suave);
+}
+
+@media (max-width: 900px) {
+  .ent, .ent:nth-child(even) { grid-template-columns: 1fr; gap: 22px; }
+  .ent:nth-child(even) > .ent-foto { order: 0; }
+  .como-grid { grid-template-columns: 1fr; gap: 32px; }
+  .como-tio { position: static; max-width: 340px; }
 }

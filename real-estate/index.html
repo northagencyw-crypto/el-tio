@@ -12,7 +12,7 @@
 <meta property="og:description" content="Carga una propiedad una vez y queda lista para vender: ficha, descripción, versión en inglés, WhatsApp y código QR. Y encuentra compradores en tu base.">
 <meta property="og:image" content="https://eltio.net/assets/og-real-estate.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" as="image" href="../assets/re-hero-oficina.webp">
+<link rel="preload" as="image" href="../assets/re-paso-01-fachada.webp">
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/bodoni-moda.woff2" crossorigin>
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../real-estate.css">
@@ -21,24 +21,35 @@
 <body>
 <a class="saltar" href="#emplazamiento">Saltar al contenido</a>
 
-<header class="caratula plancha">
-  <div class="caratula-montaje">
-    <figure class="figura">
-      <img class="caratula-foto" src="../assets/re-hero-oficina.webp"
-           alt="Interior de oficina inmobiliaria vacía con luz de día entrando por el ventanal"
-           width="1536" height="1024" fetchpriority="high">
-      <figcaption>Lámina 00 · Emplazamiento</figcaption>
-    </figure>
-    <div class="placa">
-      <p class="rotulo">EL TÍO REAL ESTATE</p>
-      <h1>Lo que sostiene una inmobiliaria no es el aviso. Es lo que hay debajo.</h1>
-      <dl>
-        <div><dt>Auditoría</dt><dd>guiada</dd></div>
-        <div><dt>Duración</dt><dd>15 a 25 min</dd></div>
-        <div><dt>Llamada</dt><dd>30 min</dd></div>
-        <div><dt>Precio</dt><dd>USD 50</dd></div>
-      </dl>
-      <a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">Auditar mi inmobiliaria</a>
+<header class="recorrido" data-recorrido>
+  <div class="recorrido-marco">
+    <div class="recorrido-respaldo">
+      <figure class="recorrido-lamina"><img data-ambiente="../assets/re-paso-01-fachada.webp" src="../assets/re-paso-01-fachada.webp" alt="Fachada de hormigón visto y listones de madera, con la entrada retirada al centro" width="1536" height="1024" fetchpriority="high"><figcaption><span class="recorrido-num">01</span>Fachada</figcaption></figure>
+      <figure class="recorrido-lamina"><img data-ambiente="../assets/re-paso-02-entrada.webp" src="../assets/re-paso-02-entrada.webp" alt="Hall con piso de hormigón pulido y un banco de roble empotrado" width="1536" height="1024" loading="lazy"><figcaption><span class="recorrido-num">02</span>Hall</figcaption></figure>
+      <figure class="recorrido-lamina"><img data-ambiente="../assets/re-paso-03-living.webp" src="../assets/re-paso-03-living.webp" alt="Living de doble altura con ventanal a los árboles" width="1536" height="1024" loading="lazy"><figcaption><span class="recorrido-num">03</span>Living</figcaption></figure>
+      <figure class="recorrido-lamina"><img data-ambiente="../assets/re-paso-04-cocina.webp" src="../assets/re-paso-04-cocina.webp" alt="Cocina con isla de piedra gris y alacenas de roble sin tiradores" width="1536" height="1024" loading="lazy"><figcaption><span class="recorrido-num">04</span>Cocina</figcaption></figure>
+      <figure class="recorrido-lamina"><img data-ambiente="../assets/re-paso-05-dormitorio.webp" src="../assets/re-paso-05-dormitorio.webp" alt="Dormitorio con cama baja, ventanal a la derecha y cortina de gasa" width="1536" height="1024" loading="lazy"><figcaption><span class="recorrido-num">05</span>Dormitorio</figcaption></figure>
+      <figure class="recorrido-lamina"><img data-ambiente="../assets/re-paso-06-terraza.webp" src="../assets/re-paso-06-terraza.webp" alt="Terraza de hormigón con parapeto bajo y vista sobre las copas de los árboles" width="1536" height="1024" loading="lazy"><figcaption><span class="recorrido-num">06</span>Terraza</figcaption></figure>
+    </div>
+    <div class="recorrido-encima">
+      <div class="recorrido-placa">
+        <p class="rotulo">EL TÍO REAL ESTATE</p>
+        <h1>Carga la propiedad una vez.</h1>
+        <p class="recorrido-bajada">Recórrela mientras bajas. Cada ambiente deja un dato, y al final la ficha está completa. Eso es exactamente lo que hace el software: se carga una vez y queda lista para vender.</p>
+        <a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">Auditar mi inmobiliaria</a>
+        <p class="recorrido-precio">USD 50, pago único. 15 a 25 minutos más media hora de llamada.</p>
+      </div>
+      <div class="recorrido-ficha">
+        <p class="ficha-titulo">FICHA DE LA PROPIEDAD</p>
+        <ul>
+          <li data-ficha="0"><span class="ficha-num">01</span><span class="ficha-lugar">Fachada</span><span class="ficha-dato">Frente y orientación</span></li>
+          <li data-ficha="1"><span class="ficha-num">02</span><span class="ficha-lugar">Hall</span><span class="ficha-dato">Superficie cubierta</span></li>
+          <li data-ficha="2"><span class="ficha-num">03</span><span class="ficha-lugar">Living</span><span class="ficha-dato">Ambientes</span></li>
+          <li data-ficha="3"><span class="ficha-num">04</span><span class="ficha-lugar">Cocina</span><span class="ficha-dato">Instalaciones</span></li>
+          <li data-ficha="4"><span class="ficha-num">05</span><span class="ficha-lugar">Dormitorio</span><span class="ficha-dato">Antigüedad</span></li>
+          <li data-ficha="5"><span class="ficha-num">06</span><span class="ficha-lugar">Terraza</span><span class="ficha-dato">Superficie descubierta</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </header>
@@ -76,16 +87,32 @@
     <div class="cuerpo">
       <h2>La base para crecer.</h2>
       <p class="bajada">Es lo que sostiene todo lo demás y lo que más veces cambia el resultado. Sin esto, cualquier automatización se apoya sobre un terreno sin medir.</p>
-      <ul class="libro">
+      <div class="con-lamina">
+        <ul class="libro">
         <li><span class="concepto">CRM</span><span class="medida">quién preguntó y cuándo</span><p class="nota">Si ya tienes uno, trabajamos sobre ese y no lo tocamos. Si no tienes, lo montamos con tus etapas reales: consulta, visita, oferta, cierre.</p></li>
         <li><span class="concepto">Tu base de datos, ordenada</span><span class="medida">una sola cartera</span><p class="nota">Los contactos de los últimos años deduplicados, con zona y presupuesto recuperados donde se pueda. Es lo que hace posible buscar compradores adentro.</p></li>
         <li><span class="concepto">Newsletter propio</span><span class="medida">alcance sin pagar</span><p class="nota">Tu lista para avisar de inventario nuevo sin depender del portal ni del alcance de una red.</p></li>
         <li><span class="concepto">Web propia y editable</span><span class="medida">que te encuentren</span><p class="nota">El sitio de la inmobiliaria con las fichas conectadas, que se actualiza solo cuando cargas una propiedad.</p></li>
         <li><span class="concepto">Chatbot que atiende y califica</span><span class="medida">sin horario</span><p class="nota">Responde por una propiedad a cualquier hora, pregunta lo que hace falta y deja la visita propuesta.</p></li>
-      </ul>
+        </ul>
+        <figure class="lamina-tecnica" data-revela>
+          <img src="../assets/re-plano-mesa.webp"
+               alt="Plano de arquitectura extendido sobre una mesa gris, con escalimetro y portaminas"
+               loading="lazy" width="1536" height="1024">
+          <figcaption>Lo que no está acotado, no existe.</figcaption>
+        </figure>
+      </div>
       <div class="cota"></div>
       <p class="dato">Nada de esto es una plataforma nuestra. Se monta sobre herramientas que ya existen, queda a tu nombre y con tus accesos.</p>
     </div>
+  </div>
+</section>
+
+<section class="detalles-obra">
+  <div class="tira-obra">
+      <figure data-revela><img src="../assets/re-ventanal-detalle.webp" alt="Encuentro de carpintería de acero con hormigón visto" loading="lazy" width="1024" height="1024"><figcaption>CARPINTERÍA</figcaption></figure>
+      <figure data-revela><img src="../assets/re-escalera-detalle.webp" alt="Escalón de hormigón en voladizo contra el revoque, visto desde abajo" loading="lazy" width="1024" height="1024"><figcaption>ESTRUCTURA</figcaption></figure>
+      <figure data-revela><img src="../assets/re-piso-detalle.webp" alt="Junta entre el hormigón pulido y el umbral de roble, vista cenital" loading="lazy" width="1024" height="1024"><figcaption>TERMINACIÓN</figcaption></figure>
   </div>
 </section>
 
@@ -133,6 +160,13 @@
       </div>
     </div>
   </div>
+</section>
+
+<section class="sangre-noche">
+  <img src="../assets/re-fachada-noche.webp"
+       alt="La casa vista desde el jardín al anochecer, con las ventanas iluminadas contra el cielo azul"
+       width="1536" height="658" loading="lazy">
+  <p class="pie-noche">La operación termina con alguien adentro. Todo lo anterior es medir.</p>
 </section>
 
 <section class="plancha" id="solucion">
@@ -229,5 +263,6 @@
     </nav>
   </div>
 </footer>
+<script src="../real-estate.js" defer></script>
 </body>
 </html>

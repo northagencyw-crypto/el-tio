@@ -189,3 +189,64 @@
   font-display: swap;
   src: url('sometype-mono.woff2') format('woff2-variations');
 }
+
+/* ---------------------------------------------------------------- gastronomia
+   Tipografia romana. El founder pidio "algo un poco mas romano" y tenia razon:
+   Fraunces es un serif variable con guinos contemporaneos (el eje WONK, las
+   terminaciones blandas) y se lee como fuente de tendencia, no como carta.
+
+   EB Garamond es un roman de estilo antiguo, el mismo linaje con el que se compone
+   un libro y una carta de restaurante desde hace cuatro siglos. Se usa en los dos
+   roles, display y texto, que es como se compone un libro de verdad: una familia,
+   distintos tamanos.
+
+   Courier Prime para los datos: la comanda de cocina sale de una impresora, no de
+   una interfaz. Martian Mono era ancha y tecnologica, justo lo contrario. */
+/* ---------------------------------------------------------------- gastronomia
+   Alegreya y Alegreya Sans. Del mismo disenador y pensadas para acompanarse: un par
+   hecho a proposito, no dos fuentes que quedaron juntas.
+
+   Se reemplaza a EB Garamond, que era correcta pero es la serif que aparece por
+   defecto cuando se pide "elegante" y por eso se lee como generada. Alegreya es
+   humanista con raiz caligrafica, disenada para literatura, y tiene textura propia:
+   las terminaciones no son simetricas y la italica es una cursiva de verdad. */
+
+/* ---------------------------------------------------------------- gastronomia
+   Prata y Sorts Mill Goudy.
+
+   Prata es una didone italiana de alto contraste: el registro de un cartel de
+   trattoria, con el trazo fino que se abre de golpe. No figura en ninguna lista de
+   "fuentes elegantes", que es medio motivo para elegirla.
+
+   Goudy trabajo sobre los romanos del Renacimiento italiano y su Sorts Mill tiene
+   irregularidad de verdad: la que deja un punzon, no una curva perfecta. La 'e' no es
+   simetrica, las serifas cambian de angulo segun la letra. Eso es lo que hace que un
+   parrafo se lea escrito y no compuesto.
+
+   Y ya no hay monoespaciada. Una mono es una reja: todos los caracteres del mismo
+   ancho, o sea la cosa mas cuadrada que puede tener una pagina. Los rotulos pasan a
+   ser versalitas espaciadas de la misma romana. */
+@font-face {
+  font-family: 'Prata';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('prata.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sorts Mill Goudy';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('goudy.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sorts Mill Goudy';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('goudy-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

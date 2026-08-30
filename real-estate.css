@@ -397,3 +397,299 @@ figcaption {
   .dato, .libro .medida, .placa dl > div { font-size: 12px; }
   :root { --alto-datos: 40px; --alto-dibujo: 64px; --alto-foto: 88px; }
 }
+
+/* ============================================================== el recorrido
+
+   La propiedad se camina y se carga al mismo tiempo. Seis ambientes encadenados
+   en un bloque pinneado, con la camara avanzando hacia adentro, y la ficha de la
+   derecha anotandose sola a medida que se pasa por cada uno.
+
+   No se parece al pase de gastronomia a proposito: alla hay un objeto calido que
+   gira sobre su eje, aca un espacio frio por el que se avanza. Comparten que los
+   dos son WebGL propio y que los dos degradan a fotografia, nada mas.
+   ========================================================================= */
+.recorrido {
+  position: relative;
+  height: 480vh;      /* seis tramos: menos que esto y los ambientes se atropellan */
+  background: var(--grafito);
+}
+.recorrido-marco {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.recorrido-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* El respaldo sin motor: la tira de los seis ambientes, en orden y legible. */
+.recorrido-respaldo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 40px var(--margen);
+  overflow-x: auto;
+}
+.recorrido-lamina { flex: none; width: min(56vw, 520px); margin: 0; }
+.recorrido-lamina img { width: 100%; height: auto; display: block; }
+.recorrido-lamina figcaption {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--papel);
+}
+.recorrido-num { color: var(--lacre); }
+.recorrido-vivo .recorrido-respaldo { display: none; }
+
+.recorrido-encima {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.44fr);
+  align-items: end;
+  gap: 40px;
+  padding: 0 var(--margen) clamp(32px, 6vh, 76px);
+  pointer-events: none;
+}
+.recorrido-encima::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(21, 24, 26, 0.93) 0%,
+    rgba(21, 24, 26, 0.72) 34%,
+    rgba(21, 24, 26, 0.10) 62%,
+    rgba(21, 24, 26, 0) 84%);
+  pointer-events: none;
+}
+.recorrido-placa, .recorrido-ficha { position: relative; }
+.recorrido-placa { max-width: 42ch; }
+.recorrido-placa a { pointer-events: auto; }
+.recorrido-placa .rotulo { color: #c98a92; }
+.recorrido-placa h1 {
+  color: var(--lamina);
+  /* Las referencias del rubro llegan a 216 px de display. La nuestra tenia 36 en
+     toda la pagina, o sea ninguna tipografia de titular. */
+  font-size: clamp(40px, 6.4vw, 104px);
+  line-height: 0.96;
+  margin: 12px 0 0;
+}
+.recorrido-bajada {
+  color: #b9c0bd;
+  font-size: clamp(15px, 1.35vw, 18px);
+  max-width: 46ch;
+  margin: 20px 0 28px;
+}
+.recorrido-precio {
+  margin: 18px 0 0;
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #9aa29e;
+}
+
+/* La ficha: el dato de cada ambiente se anota al pasar y se queda anotado. Al
+   final del recorrido estan los seis, que es lo que la seccion afirma. */
+.recorrido-ficha {
+  border-top: 1px solid rgba(231, 234, 230, 0.3);
+  padding-top: 14px;
+}
+.ficha-titulo {
+  font-family: var(--dato);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: #9aa29e;
+  margin: 0 0 12px;
+}
+.recorrido-ficha ul { list-style: none; margin: 0; padding: 0; }
+.recorrido-ficha li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  grid-template-areas: 'num lugar' 'num dato';
+  gap: 0 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(231, 234, 230, 0.14);
+  opacity: 0.3;
+  transition: opacity 0.45s ease;
+}
+.recorrido-ficha li.anotada { opacity: 1; }
+.recorrido-ficha li.activa { border-bottom-color: var(--lacre); }
+.ficha-num {
+  grid-area: num;
+  font-family: var(--dato);
+  font-size: 10px;
+  color: var(--lacre);
+  align-self: center;
+}
+.ficha-lugar {
+  grid-area: lugar;
+  font-family: var(--dato);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9aa29e;
+}
+.ficha-dato { grid-area: dato; color: var(--lamina); font-size: 15px; }
+
+/* Sin JavaScript el bloque deja de ser un recorrido y pasa a ser una tira. Nada
+   queda invisible ni fuera del alcance del teclado. */
+html:not(.js) .recorrido { height: auto; }
+html:not(.js) .recorrido-marco { position: static; height: auto; }
+html:not(.js) .recorrido-respaldo { position: static; }
+html:not(.js) .recorrido-encima {
+  position: static;
+  padding-top: 48px;
+  align-items: start;
+}
+html:not(.js) .recorrido-encima::before { display: none; }
+html:not(.js) .recorrido-ficha li { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .recorrido-ficha li { transition: none; }
+}
+
+@media (max-width: 900px) {
+  .recorrido { height: 420vh; }
+  .recorrido-encima {
+    grid-template-columns: 1fr;
+    align-items: end;
+    gap: 20px;
+  }
+  /* La ficha completa no entra al lado en vertical: quedan los dos ultimos datos
+     anotados, que es lo que sostiene el argumento sin tapar el titular. */
+  .recorrido-ficha li:not(.activa):not(.anotada) { display: none; }
+  .recorrido-ficha li.anotada:not(.activa) { display: none; }
+}
+
+/* -------------------------------------------------- fotografia en las laminas
+
+   La hoja tenia cinco imagenes en catorce pantallas. Las referencias del rubro
+   (Storey, Kononenko, Base31, LIKOVA) van de 49 a 194. La diferencia no es de
+   gusto: en arquitectura la fotografia ES el argumento, y un legajo sin fotos de
+   obra es una propuesta, no un proyecto.
+   ------------------------------------------------------------------------- */
+
+/* El plano al lado del libro mayor. La foto no ilustra el texto: es el objeto del
+   que el texto habla. */
+.con-lamina {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+  gap: 48px;
+  align-items: start;
+}
+.lamina-tecnica { margin: 0; position: sticky; top: 40px; }
+.lamina-tecnica img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Marco de lamina: filete de un pixel y fondo blanco puro, que en esta hoja es
+     material de montaje y no relleno. */
+  border: 1px solid var(--linea);
+  background: var(--lamina);
+  padding: 10px;
+}
+.lamina-tecnica figcaption {
+  margin-top: 10px;
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--grafito-suave);
+}
+
+/* Tres detalles de obra, a sangre, sin margen entre ellos: en un juego de planos
+   las fotos de obra van pegadas, no espaciadas como tarjetas. */
+.detalles-obra { padding: 0; }
+.tira-obra { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; }
+.tira-obra figure { margin: 0; position: relative; }
+.tira-obra img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.tira-obra figcaption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  font-family: var(--dato);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--lamina);
+  background: rgba(21, 24, 26, 0.82);
+  padding: 6px 10px;
+}
+
+/* La unica imagen calida de la hoja. */
+.sangre-noche { position: relative; }
+.sangre-noche img {
+  width: 100%;
+  height: clamp(260px, 46vh, 520px);
+  object-fit: cover;
+  display: block;
+}
+.pie-noche {
+  position: absolute;
+  left: var(--margen);
+  bottom: 20px;
+  max-width: 36ch;
+  margin: 0;
+  font-family: var(--dato);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--lamina);
+  background: rgba(21, 24, 26, 0.86);
+  padding: 10px 14px;
+}
+
+[data-revela] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-revela].visible { opacity: 1; transform: none; }
+html:not(.js) [data-revela] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-revela] { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 900px) {
+  .con-lamina { grid-template-columns: 1fr; gap: 32px; }
+  .lamina-tecnica { position: static; }
+  .tira-obra { grid-template-columns: 1fr; }
+}
+
+/* El CTA sobre el recorrido va invertido.
+
+   `.btn` es un filete oscuro con texto oscuro, que es lo correcto sobre el papel
+   frio de la hoja y es invisible sobre la fotografia oscura del recorrido. El test
+   de contraste no lo agarra, y no es una falla del test: mide el texto contra la
+   cadena de fondos declarada en CSS, y detras de este boton no hay un fondo
+   declarado, hay un canvas. Es el mismo punto ciego que aparecio con el pie de la
+   panoramica en gastronomia.
+
+   Se rellena con el blanco de lamina, que en esta hoja es material de montaje. NO
+   con lacre: el rojo del sello notarial no rellena un boton, esa regla es del
+   sistema y vale mas que la comodidad de este caso. */
+.recorrido .btn {
+  background: var(--lamina);
+  border-color: var(--lamina);
+  color: var(--grafito);
+}
+.recorrido .btn:hover,
+.recorrido .btn:focus-visible {
+  background: transparent;
+  color: var(--lamina);
+  border-color: var(--lamina);
+}

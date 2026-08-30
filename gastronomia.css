@@ -23,19 +23,39 @@
   --oliva: #4a5a2e;
   --tiza: #ede6d6;
 
-  --display: 'Fraunces', Georgia, serif;
-  --texto: 'Newsreader', Georgia, serif;
-  --dato: 'Martian Mono', ui-monospace, monospace;
+  /* Prata para el display y Sorts Mill Goudy para el texto.
+
+     Prata es una didone italiana de alto contraste, el registro de un cartel de
+     trattoria. Goudy trabajo sobre los romanos del Renacimiento italiano y su Sorts
+     Mill conserva la irregularidad del punzon: la 'e' no es simetrica y las serifas
+     cambian de angulo segun la letra, que es lo que hace que un parrafo se lea escrito
+     en vez de compuesto.
+
+     `--dato` ya no es una monoespaciada. Una mono es una reja: todos los caracteres del
+     mismo ancho, la cosa mas cuadrada que puede tener una pagina. Los rotulos pasan a
+     versalitas espaciadas de la propia romana. */
+  --display: 'Prata', 'Playfair Display', Georgia, serif;
+  --texto: 'Sorts Mill Goudy', Georgia, 'Times New Roman', serif;
+  --dato: 'Sorts Mill Goudy', Georgia, serif;
 
   /* Linea de base de 4px. Todo espaciado es multiplo. */
   --e1: 4px;  --e2: 8px;  --e3: 12px; --e4: 20px;
-  --e5: 32px; --e6: 52px; --e7: 84px; --e8: 136px;
+  --e5: 30px; --e6: 44px; --e7: 62px; --e8: 92px;
 
   --ancho: 1180px;
+  --ancho-ancho: 1440px;   /* para los bloques que respiran a lo ancho */
   --borde: clamp(20px, 5vw, 64px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+
+/* El atributo `height` del HTML es una pista de presentacion y le gana a
+   `aspect-ratio`: una foto con height="1280" y `aspect-ratio: 4/5` en la hoja se pinta
+   de 1280 pixeles de alto igual, deformada. Los atributos se declaran igual, porque son
+   los que reservan el espacio y evitan que la pagina salte al cargar; lo que hace falta
+   es esta linea para que la altura la decida la hoja. Lo agarro
+   `tests/e2e/landing-imagenes.spec.ts`, que compara lo pintado contra lo declarado. */
+img { height: auto; }
 
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
@@ -48,9 +68,8 @@ body {
   background: var(--papel);
   color: var(--tinta);
   font-family: var(--texto);
-  font-variation-settings: 'opsz' 16;
-  font-size: 17px;
-  line-height: 1.66;
+  font-size: 19px;
+  line-height: 1.62;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -81,17 +100,14 @@ h1, h2, h3 {
 h1 {
   font-size: clamp(34px, 4.6vw, 60px);
   line-height: 1.02;
-  font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 1;
 }
 h2 {
   font-size: clamp(26px, 3.2vw, 40px);
   line-height: 1.1;
-  font-variation-settings: 'opsz' 72, 'SOFT' 20;
 }
 h3 {
   font-size: 21px;
   line-height: 1.25;
-  font-variation-settings: 'opsz' 36;
 }
 p { margin: 0 0 var(--e4); max-width: 62ch; }
 h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
@@ -100,18 +116,16 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
   font-size: 21px;
   line-height: 1.55;
   color: var(--tinta-suave);
-  font-variation-settings: 'opsz' 20;
   max-width: 54ch;
 }
 
 /* El micro rotulo es el unico lugar con caja alta y la unica sans del sistema. */
 .rotulo {
   font-family: var(--dato);
-  font-size: 11px;
-  font-variation-settings: 'wdth' 87.5;
+  font-size: 13px;
+  font-variant: small-caps;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.22em;
   color: var(--brasa);
   margin: 0 0 var(--e3);
 }
@@ -119,7 +133,6 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
 
 .cifra {
   font-family: var(--display);
-  font-variation-settings: 'opsz' 144;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.03em;
@@ -140,21 +153,133 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
 .oscuro .rotulo { color: #d98a5a; }
 .oscuro .bajada { color: #b3aa96; }
 
-/* ------------------------------------------------------------------- hero */
-.hero { position: relative; }
-.hero-foto {
-  width: 100%;
-  height: clamp(360px, 58vh, 620px);
-  object-fit: cover;
-  /* El recorte favorece la parte alta: el encuadre es apaisado y el contenedor mucho
-     mas ancho que alto, asi que centrar le corta la cabeza al avatar. */
-  object-position: 50% 22%;
-  display: block;
-  filter: saturate(0.92);
+/* --------------------------------------------------------------- el pase 3D
+
+   El hero es un plato de verdad en tres dimensiones que se levanta de la mesa a
+   medida que se baja. El bloque mide varias pantallas de alto y adentro todo esta
+   pinneado: el canvas, el texto y los tiempos. Eso es el recorrido.
+
+   NUNCA poner overflow-x en html por esto: cualquier valor no-visible en la raiz
+   mata el position:sticky en Chromium y el pin se rompe sin aviso.
+   ------------------------------------------------------------------------- */
+.pase {
+  position: relative;
+  background: var(--pizarra);
+  color: var(--tiza);
+  /* El recorrido del pin. Tres pantallas alcanzan para los tres tiempos sin que
+     se haga largo: mas que esto y el lector cree que la pagina no avanza. */
+  height: 320vh;
 }
-.hero-texto { padding: var(--e6) 0 var(--e7); }
-.hero-texto h1 { max-width: 17ch; }
-.hero-texto .bajada { margin-top: var(--e4); }
+.pase-marco { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+
+.pase-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* El respaldo: sin JavaScript y sin WebGL el hero es una tira de fotografia de
+   producto, legible y completa. No es un placeholder, es la version sin motor. */
+.pase-respaldo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--e5);
+  padding: var(--e6) var(--borde);
+  overflow-x: auto;
+}
+.pase-lamina { flex: none; width: min(38vw, 340px); margin: 0; }
+.pase-lamina img { width: 100%; height: auto; }
+.pase-lamina figcaption {
+  margin-top: var(--e3);
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--papel-2);
+  max-width: 30ch;
+}
+.pase-vivo .pase-respaldo { display: none; }
+
+.pase-encima {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: clamp(28px, 6vh, 72px);
+  pointer-events: none;
+}
+.pase-encima .inner { width: 100%; }
+.pase-encima .inner > * { max-width: 46ch; }
+.pase-encima a { pointer-events: auto; }
+/* El texto va sobre el canvas y tiene que leerse encima de la ceramica clara del
+   plato cuando este pasa por detras. El velo es de la pizarra, no negro puro:
+   negro sobre una pagina calida se ve como un agujero. */
+.pase-encima::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+    rgba(28, 30, 23, 0.94) 0%,
+    rgba(28, 30, 23, 0.86) 34%,
+    rgba(28, 30, 23, 0.30) 56%,
+    rgba(28, 30, 23, 0) 72%);
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  /* En vertical no hay columna libre a la derecha: el velo vuelve a ser de abajo
+     hacia arriba y el plato queda arriba del texto. */
+  .pase-encima::before {
+    background: linear-gradient(to top,
+      rgba(28, 30, 23, 0.96) 0%,
+      rgba(28, 30, 23, 0.88) 40%,
+      rgba(28, 30, 23, 0) 78%);
+  }
+}
+.pase-encima .inner > * { position: relative; }
+.pase-encima .rotulo { color: #d98a5a; }
+.pase-encima h1 { max-width: 17ch; color: var(--tiza); }
+.pase-encima .precio-linea { color: var(--papel-2); }
+
+/* Los tres tiempos: solo uno visible por tramo del recorrido. */
+.pase-tiempos { position: relative; margin-top: var(--e4); min-height: 8.5em; }
+.pase-tiempo {
+  position: absolute;
+  inset: 0 auto auto 0;
+  max-width: 46ch;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.pase-tiempo.activo { opacity: 1; transform: none; }
+.pase-tiempo h2 {
+  font-size: clamp(20px, 2.4vw, 30px);
+  line-height: 1.2;
+  color: var(--tiza);
+  margin: 0 0 var(--e3);
+}
+.pase-tiempo p { color: var(--papel-2); margin: 0; }
+
+/* Sin JavaScript no hay tramo activo, asi que se muestran los tres apilados y la
+   caja deja de ser de altura fija. Nada queda invisible. */
+html:not(.js) .pase { height: auto; }
+html:not(.js) .pase-marco { position: static; height: auto; }
+html:not(.js) .pase-respaldo { position: static; }
+html:not(.js) .pase-encima { position: static; padding-top: var(--e6); }
+html:not(.js) .pase-encima::before { display: none; }
+html:not(.js) .pase-tiempos { min-height: 0; }
+html:not(.js) .pase-tiempo {
+  position: static;
+  opacity: 1;
+  transform: none;
+  margin-bottom: var(--e4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pase-tiempo { transition: none; }
+}
 
 .acciones {
   display: flex;
@@ -171,7 +296,6 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
   color: var(--papel);
   font-family: var(--dato);
   font-size: 12px;
-  font-variation-settings: 'wdth' 87.5;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -190,7 +314,6 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
   min-height: 44px;
   font-family: var(--dato);
   font-size: 11px;
-  font-variation-settings: 'wdth' 87.5;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--tinta);
@@ -205,7 +328,6 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
 .precio-linea {
   font-family: var(--dato);
   font-size: 12px;
-  font-variation-settings: 'wdth' 87.5;
   color: var(--tinta-suave);
   margin-top: var(--e3);
 }
@@ -218,10 +340,16 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
   display: flex;
   align-items: baseline;
   gap: var(--e3);
-  padding: var(--e3) 0;
+  /* La descripcion baja a su propio renglon. Como item de la misma fila competia por
+     el ancho y estrangulaba el nombre: "Tu base de datos, ordenada" salia partido en
+     tres renglones de dos palabras. Ademas es como se lee una carta de verdad: el
+     plato y el precio arriba con los puntos entre medio, y la descripcion debajo. */
+  flex-wrap: wrap;
+  padding: var(--e4) 0;
   border-bottom: 1px solid rgba(36, 31, 22, 0.12);
 }
 .carta .nombre { font-size: 18px; }
+.carta .detalle { width: 100%; margin: var(--e2) 0 0; max-width: 56ch; }
 .carta .puntos {
   flex: 1;
   border-bottom: 1px dotted rgba(36, 31, 22, 0.35);
@@ -231,7 +359,6 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
 .carta .valor {
   font-family: var(--dato);
   font-size: 13px;
-  font-variation-settings: 'wdth' 87.5;
   font-variant-numeric: tabular-nums;
   color: var(--tinta-suave);
   white-space: nowrap;
@@ -271,7 +398,6 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
 .comanda h3 {
   font-family: var(--dato);
   font-size: 12px;
-  font-variation-settings: 'wdth' 87.5;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -282,7 +408,6 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
 .comanda li {
   font-family: var(--dato);
   font-size: 12.5px;
-  font-variation-settings: 'wdth' 87.5;
   line-height: 1.5;
   padding: var(--e2) 0;
   display: flex;
@@ -306,7 +431,6 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
 .mapa th, .mapa td {
   font-family: var(--dato);
   font-size: 11px;
-  font-variation-settings: 'wdth' 87.5;
   font-variant-numeric: tabular-nums;
   text-align: center;
   padding: var(--e3) var(--e1);
@@ -341,18 +465,11 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
 }
 
 /* ------------------------------------------------------- cuatro tiempos */
-.tiempos { list-style: none; margin: var(--e6) 0 0; padding: 0; }
-.tiempos li {
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: var(--e5);
-  align-items: start;
-  padding: var(--e5) 0;
-  border-top: 1px solid rgba(36, 31, 22, 0.14);
-}
-.tiempos li:last-child { border-bottom: 1px solid rgba(36, 31, 22, 0.14); }
-.tiempos .cifra { font-size: 52px; color: var(--brasa); }
-.tiempos p { margin: var(--e2) 0 0; }
+/* El bloque de `.tiempos li` que estaba aca quedo muerto cuando el metodo paso de
+   ser una lista de cuatro renglones a cuatro bandas con fotografia. Se borro y no se
+   dejo comentado porque estaba haciendo dano: `.tiempos li` tiene mas especificidad
+   que `.tiempo`, asi que su columna fija de 96px le ganaba a la nueva plantilla y la
+   foto del paso salia como una tira de 96 pixeles de ancho. */
 
 /* -------------------------------------------------------- prep list (FAQ) */
 .prep { list-style: none; margin: var(--e6) 0 0; padding: 0; max-width: 74ch; }
@@ -415,7 +532,6 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
   padding: var(--e6) 0;
   font-family: var(--dato);
   font-size: 11px;
-  font-variation-settings: 'wdth' 87.5;
   color: var(--tinta-suave);
 }
 /* Area tactil de 44px sin engordar el renglon: el padding lo da via min-height y
@@ -449,8 +565,6 @@ figcaption {
 
 @media (max-width: 640px) {
   body { font-size: 16px; }
-  .tiempos li { grid-template-columns: 64px 1fr; gap: var(--e4); }
-  .tiempos .cifra { font-size: 36px; }
   .respiro { padding: var(--e7) 0; }
   .servicio { padding: var(--e6) 0; }
 }
@@ -468,3 +582,1174 @@ figcaption {
   .dos-columnas { grid-template-columns: 1fr; gap: var(--e5); }
   .columna-foto { max-width: 420px; }
 }
+
+/* ---------------------------------------------------------- la trastienda
+
+   Las piezas no se centran ni se encajan en una grilla pareja: se cuelgan de una
+   columna y el epigrafe las acompana por el costado. El desfase vertical entre
+   columnas es lo que separa una pagina compuesta de una pila de bloques, y es lo
+   que hacen las referencias del rubro que se midieron antes de escribir esto.
+   ------------------------------------------------------------------------- */
+.oficio { padding: var(--e8) 0 var(--e7); }
+.piezas {
+  margin-top: var(--e6);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--e7) var(--e6);
+  align-items: start;
+}
+.pieza { margin: 0; }
+/* El desfase. La columna de la derecha baja media pieza, asi el ojo nunca
+   encuentra dos fotos alineadas y la lectura deja de ser una escalera. */
+.pieza--baja { margin-top: clamp(40px, 9vw, 130px); }
+.pieza img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: saturate(0.94);
+}
+.pieza figcaption {
+  /* La familia va declarada a proposito: hay un `figcaption` global en mono para
+     rotulos y pies de dato, y esta regla viene despues pero sin familia, asi que
+     ganaba el mono y los epigrafes editoriales salian monoespaciados. Un pie de
+     foto de dos renglones se lee, no se consulta: va en la serif del cuerpo. */
+  font-family: var(--texto);
+  margin-top: var(--e4);
+  max-width: 34ch;
+  color: var(--tinta-suave);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.pieza-rotulo {
+  display: block;
+  font-family: var(--dato);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  color: var(--brasa);
+  margin-bottom: var(--e2);
+}
+
+/* ------------------------------------------------------------- producto */
+.producto { padding: var(--e6) 0 var(--e7); }
+.tira-producto {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--e5);
+}
+.tira-producto figure { margin: 0; }
+.tira-producto img { width: 100%; height: auto; display: block; }
+.tira-producto figcaption {
+  margin-top: var(--e3);
+  font-family: var(--dato);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  color: var(--tinta-suave);
+}
+
+/* -------------------------------------------------------------- libreta */
+.libreta { padding: var(--e7) 0; background: var(--papel-2); }
+.libreta-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: var(--e7);
+  align-items: center;
+}
+.libreta-foto { margin: 0; }
+.libreta-foto img { width: 100%; height: auto; display: block; }
+.libreta-foto figcaption {
+  font-family: var(--texto);
+  margin-top: var(--e3);
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--tinta-suave);
+}
+.perdidas { list-style: none; margin: var(--e5) 0 0; padding: 0; }
+.perdidas li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--e3);
+  padding: var(--e3) 0;
+  border-bottom: 1px solid rgba(36, 31, 22, 0.16);
+}
+.perdidas span { font-weight: 500; }
+.perdidas em {
+  font-style: normal;
+  color: var(--tinta-suave);
+  font-family: var(--dato);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* ----------------------------------------------------------- panoramica */
+.panoramica { position: relative; }
+.panoramica img {
+  width: 100%;
+  height: clamp(260px, 44vh, 520px);
+  object-fit: cover;
+  display: block;
+}
+.pie-sangre {
+  position: absolute;
+  left: var(--borde);
+  bottom: var(--e4);
+  max-width: 34ch;
+  color: var(--tiza);
+  font-family: var(--dato);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  /* Fondo propio, no text-shadow. La panoramica tiene ventanales quemados y zonas
+     oscuras: la sombra alcanzaba en unas partes y en otras no, y el contraste
+     quedaba a merced de donde cayera el texto. Una placa opaca lo vuelve medible,
+     y ademas es como se pie una foto en una revista. */
+  background: rgba(28, 30, 23, 0.9);
+  padding: var(--e3) var(--e4);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------- revelado */
+[data-revela] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-revela].visible { opacity: 1; transform: none; }
+html:not(.js) [data-revela] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-revela] { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 820px) {
+  .piezas { grid-template-columns: 1fr; gap: var(--e6); }
+  .pieza--baja { margin-top: 0; }
+  .tira-producto { grid-template-columns: 1fr; }
+  .libreta-grid { grid-template-columns: 1fr; gap: var(--e5); }
+  .pase { height: 280vh; }
+}
+
+/* ============================================================== mitad de abajo
+
+   Seis secciones seguidas no tenian una sola imagen: la comanda, el metodo, la
+   frutilla, el precio, las preguntas y el cierre. Eran unos 5600 caracteres de
+   bloques de texto uno abajo del otro, o sea exactamente la pagina que el founder
+   habia rechazado, sobreviviendo debajo del pliegue.
+   ========================================================================= */
+
+/* ---------------------------------------------------------- la comanda */
+.comanda-seccion { padding: var(--e7) 0; }
+/* Papel de comanda de verdad detras del bloque que habla de comandas. Va en un
+   pseudoelemento y no en la seccion: ver la nota de "el fondo baja". */
+.comanda-seccion::before {
+  background-color: var(--papel-2);
+  background-image: url('assets/gas-textura-papel.webp');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.comanda-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--e7);
+  align-items: start;
+}
+/* La introduccion se queda quieta mientras se leen las dos comandas. Es la unica
+   otra capa fija de la pagina ademas del hero, y es donde tiene sentido: el titulo
+   de la seccion es el encabezado de lo que se esta leyendo a la derecha. */
+.comanda-intro { position: sticky; top: var(--e6); }
+.comanda-foto { margin: var(--e5) 0 0; }
+.comanda-foto img { width: 100%; height: auto; display: block; }
+
+/* --------------------------------------------------------- cuatro tiempos */
+.metodo { padding: var(--e8) 0; }
+.tiempos {
+  list-style: none;
+  margin: var(--e7) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e7);
+}
+.tiempo {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+  gap: var(--e6);
+  align-items: center;
+}
+/* Los pares se dan vuelta. Cuatro bandas identicas leen como formulario; alternar
+   el lado obliga al ojo a recorrer y convierte la lista en una secuencia.
+   Se invierte la PLANTILLA, no el orden de los hijos. Con `order` el elemento
+   cambia de lugar pero las columnas no: en los pasos pares la foto caia en la
+   columna ancha y el texto quedaba estrangulado en la angosta, partido en dos
+   palabras por renglon. */
+.tiempo:nth-child(even) {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.72fr);
+}
+.tiempo:nth-child(even) > figure { order: 2; }
+.tiempo figure { margin: 0; }
+.tiempo figure img {
+  width: 100%;
+  /* Las fotos del metodo son 4:5. Sin tope, una vertical de 1280 px empuja la
+     banda a mas de una pantalla y el paso deja de leerse de un vistazo. */
+  max-height: 56vh;
+  object-fit: cover;
+  display: block;
+}
+.tiempo-texto { max-width: 44ch; }
+.tiempo-texto .cifra {
+  display: block;
+  font-size: clamp(44px, 6vw, 88px);
+  color: var(--brasa);
+  opacity: 0.9;
+  margin-bottom: var(--e3);
+}
+.tiempo-texto h3 { margin-bottom: var(--e3); }
+.tiempo-texto p { margin: 0; color: var(--tinta-suave); }
+
+/* -------------------------------------------------------------- frutilla */
+.frutilla {
+  padding: var(--e8) 0;
+  background-color: var(--pizarra);
+  color: var(--tiza);
+  position: relative;
+  overflow: hidden;
+}
+/* La brasa como textura de fondo, no como foto: va oscurecida y en modo pantalla,
+   asi aporta calor y grano sin competir con el texto. */
+.frutilla::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/gas-brasa.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.28;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.frutilla > * { position: relative; }
+.frutilla .rotulo { color: #d98a5a; }
+.frutilla .bajada { color: #c3bba7; }
+.frutilla h2 { color: var(--tiza); }
+.frutilla .items h3 { color: var(--tiza); }
+.frutilla .items p { color: #b3aa96; }
+
+/* ----------------------------------------------------------- el precio */
+.precio-seccion { padding: var(--e8) 0; }
+.precio-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
+  gap: var(--e7);
+  align-items: center;
+}
+.precio-foto { margin: 0; }
+.precio-foto img { width: 100%; height: auto; display: block; }
+.comanda--precio { max-width: 340px; margin-top: var(--e5); }
+.precio-monto {
+  font-size: 20px;
+  color: var(--brasa);
+  font-variant-numeric: tabular-nums;
+}
+
+/* -------------------------------------------------------- las preguntas */
+.prep-seccion { padding: var(--e8) 0; }
+.prep-seccion::before { background: var(--papel-2); }
+
+/* ------------------------------------------------------------- el cierre */
+.cierre {
+  position: relative;
+  padding: var(--e8) 0;
+  background: var(--pizarra);
+  color: var(--tiza);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+}
+/* La pizarra del menu escrita a mano, de fondo. Va como <img> y no como
+   background-image para que el navegador la cargue diferida como cualquier otra
+   foto pesada de la pagina. */
+.cierre-fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.22;
+  /* Desenfoque a proposito, no por estetica. El modelo escribio la pizarra con
+     caligrafia que se lee como ingles, y una pagina en espaniol con texto en otro
+     idioma de fondo lee como plantilla ajena. Aca la pizarra es MATERIAL: importa
+     la trama de la tiza y el polvo, no lo que dice. Desenfocada cumple esa funcion
+     y deja de afirmar nada. */
+  filter: grayscale(0.5) blur(3px);
+  transform: scale(1.04);
+}
+.cierre .pizarra-bloque {
+  position: relative;
+  text-align: center;
+  padding: 0 var(--borde);
+  max-width: 640px;
+}
+.cierre .rotulo { color: #d98a5a; }
+.cierre h2 { color: var(--tiza); }
+.cierre .bajada { color: #c3bba7; margin: var(--e4) auto 0; max-width: 46ch; }
+.cierre .acciones { justify-content: center; }
+
+.panoramica--barra img { height: clamp(240px, 40vh, 460px); }
+.panoramica--vitrina img { height: clamp(240px, 42vh, 480px); }
+
+@media (max-width: 900px) {
+  .comanda-grid { grid-template-columns: 1fr; gap: var(--e6); }
+  .comanda-intro { position: static; }
+  .tiempo { grid-template-columns: 1fr; gap: var(--e4); }
+  .tiempo:nth-child(even) > figure { order: 0; }
+  .precio-grid { grid-template-columns: 1fr; gap: var(--e5); }
+  .comanda--precio { max-width: none; }
+}
+
+/* La base: la lista de lo que va siempre, con la foto de mise en place al lado. La
+   foto vive aca y no en la galeria de trastienda porque esta seccion se llama MISE
+   EN PLACE: que la imagen y el titulo digan lo mismo es la mitad del trabajo. */
+.base-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+  gap: var(--e7);
+  align-items: start;
+  margin-top: var(--e5);
+}
+.base-foto { margin: 0; position: sticky; top: var(--e6); }
+.base-foto img { width: 100%; height: auto; display: block; }
+.base-foto figcaption { font-family: var(--texto); font-size: 15px; max-width: 30ch; }
+@media (max-width: 900px) {
+  .base-grid { grid-template-columns: 1fr; gap: var(--e5); }
+  .base-foto { position: static; }
+}
+
+/* ------------------------------------------------------- el mapa de servicio
+
+   Era el ultimo bloque que quedaba del sistema anterior: una tabla chica sobre
+   fondo plano, en el medio de la pagina. Pasa a superficie oscura porque es el
+   momento en que el dueno mira sus numeros a solas, despues de cerrar, y porque la
+   pagina necesitaba otro tiempo oscuro entre dos claros.
+
+   Las celdas son marcas de tiza sobre pizarra. La densidad de la trama dice la
+   carga: mas puntos, mas gente. No hay leyenda de colores porque no hace falta,
+   y no hay un solo relleno solido en toda la tabla.
+   ------------------------------------------------------------------------- */
+.mapa-seccion {
+  padding: var(--e8) 0;
+  background: var(--pizarra);
+  color: var(--tiza);
+}
+.mapa-seccion .rotulo { color: #d98a5a; }
+.mapa-seccion h2 { color: var(--tiza); }
+.mapa-seccion .bajada { color: #b3aa96; }
+
+.mapa-seccion .mapa { margin-top: var(--e7); }
+.mapa-seccion .mapa table { min-width: 680px; }
+.mapa-seccion .mapa th,
+.mapa-seccion .mapa td {
+  border-color: rgba(237, 230, 214, 0.16);
+  font-size: 11.5px;
+  padding: var(--e4) var(--e2);
+}
+.mapa-seccion .mapa th,
+.mapa-seccion .mapa td.franja { color: #b3aa96; }
+/* Celdas mas altas: la tabla tiene que ocupar la pantalla como una pieza, no
+   pasar como una nota al pie. */
+.mapa-seccion .mapa td[data-carga] { height: 58px; }
+.mapa-seccion .mapa td[data-carga]::after {
+  background-image: radial-gradient(var(--tiza) 1.2px, transparent 1.2px);
+  background-size: 7px 7px;
+}
+.mapa-seccion .mapa td[data-carga='1']::after { opacity: 0.14; }
+.mapa-seccion .mapa td[data-carga='2']::after { opacity: 0.38; }
+.mapa-seccion .mapa td[data-carga='3']::after { opacity: 0.72; }
+/* La franja floja se marca con la brasa, que es el unico acento de la pagina, y
+   se le pone un filete a la izquierda para que se encuentre sin leer. */
+.mapa-seccion .mapa tr.bajo td { background: rgba(160, 60, 14, 0.16); }
+.mapa-seccion .mapa tr.bajo td.franja {
+  color: #e08b52;
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--brasa);
+}
+.mapa-seccion .mapa .pie { color: #9c937f; margin-top: var(--e4); }
+
+/* --------------------------------------------------------- el reloj de servicio
+
+   La tabla de franjas era un dato, no una pieza: una planilla en el medio de una
+   pagina que se ordena por el reloj del local. Ahora es ese reloj. Veinticuatro
+   horas alrededor, siete anillos hacia adentro (el lunes afuera, que es como se
+   lee una semana) y el grosor del arco dice la carga.
+
+   Lo que se ve sin leer nada es el hueco: el cuarto de arriba vacio son las horas
+   cerradas, y la muesca que atraviesa los siete anillos es la franja de las cuatro
+   de la tarde. El argumento de la seccion, dibujado en vez de explicado.
+   ------------------------------------------------------------------------- */
+.mapa-seccion .mapa { margin-top: var(--e6); overflow: visible; }
+.reloj {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  height: auto;
+  overflow: visible;
+}
+
+.reloj-marcas line { stroke: rgba(237, 230, 214, 0.45); }
+.reloj-horas text,
+.reloj-dias text {
+  fill: #9c937f;
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+.reloj-dias text { font-size: 9.5px; fill: #7f7767; }
+
+/* El riel es el anillo completo, tenue: sin el, el tramo cerrado se leeria como
+   final del dato y no como local cerrado. */
+.reloj .riel { stroke: rgba(237, 230, 214, 0.07); }
+.reloj .arco { stroke: none; }
+.reloj .arco.c1 { fill: rgba(237, 230, 214, 0.22); }
+.reloj .arco.c2 { fill: rgba(237, 230, 214, 0.46); }
+.reloj .arco.c3 { fill: rgba(237, 230, 214, 0.82); }
+/* La franja floja es el unico lugar con el acento, y va llena: en una pagina donde
+   nada mas lleva relleno solido, eso la vuelve el primer punto de mirada. */
+.reloj .arco.bajo { fill: var(--brasa); }
+
+.reloj-muesca line {
+  stroke: var(--brasa);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+  opacity: 0.75;
+}
+.reloj-etiqueta {
+  fill: #e08b52;
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+.reloj-centro {
+  fill: var(--tiza);
+  font-family: var(--display);
+  font-size: 54px;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+.reloj-centro-pie {
+  fill: #9c937f;
+  font-family: var(--dato);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+@media (max-width: 640px) {
+  .reloj-dias text { display: none; }
+  .reloj-etiqueta { font-size: 13px; }
+}
+
+/* ================================================================ la enredadera
+
+   Fotorrealista y por detras de todo.
+
+   La version anterior era dibujo vectorial y estaba bien dibujada, pero no era lo
+   pedido. Estas son fotografias de render: luz de estudio, dispersion subsuperficial en
+   las hojas finas, especular sobre la piel de la fruta. Se integran al papel con
+   `mix-blend-mode: multiply`, y por eso se pidieron sobre blanco puro y SIN sombra
+   proyectada: una sombra se convertiria en una mancha gris flotando sobre la hoja.
+
+   Y van DETRAS. Eso resuelve solo el problema que costo mas trabajo en la version
+   anterior: como hacer que la planta se lea cuando cruza una foto oscura. Si va detras
+   no cruza ninguna, y se puede tirar toda la maquinaria de deteccion de bandas, de
+   inversion de color y el `data-oscura` que calculaba el build. La respuesta al problema
+   era no tenerlo.
+   ========================================================================= */
+.cuerpo-claro { position: relative; }
+
+.enredadera {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  /* Ancho de la banda. A 380 las hojas salian del tamanio de un plato y competian
+     con el contenido: una enredadera trepa por el margen, no ocupa la pagina. */
+  width: clamp(150px, 17vw, 268px);
+  pointer-events: none;
+  overflow: hidden;
+  /* Sin z-index: un elemento posicionado con z-index numerico crea contexto de apilado
+     y adentro de uno propio el multiply se mezcla contra transparente en vez de contra
+     el papel. Que quede por detras se consigue elevando el contenido, que ya esta en 1. */
+}
+/* EL FONDO BAJA, LA PLANTA QUEDA EN EL MEDIO.
+
+   La enredadera estaba por debajo de las secciones ENTERAS, asi que las tres que tienen
+   fondo propio la tapaban y desaparecia en esos tramos.
+
+   No se puede arreglar subiendole el z-index: cualquier z-index numerico sobre un
+   elemento posicionado crea contexto de apilado, y adentro de un contexto propio el
+   `mix-blend-mode: multiply` se mezcla contra transparente en vez de contra el papel.
+   Ya rompio esta misma mezcla dos veces en esta pagina.
+
+   La solucion es al reves: el fondo de esas secciones baja a un pseudoelemento en
+   z-index -1. Con las secciones sin contexto propio, el orden de pintado lo decide el
+   DOM, y queda: fondo de seccion (-1), enredadera (primera en el DOM), contenido de la
+   seccion (viene despues). La planta sobre el fondo y debajo de las fotos, que es
+   exactamente lo pedido. */
+.cuerpo-claro > section { position: relative; }
+.cuerpo-claro > section > * { position: relative; z-index: 1; }
+.comanda-seccion::before,
+.prep-seccion::before,
+.como::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --- el tallo: una cadena que fluye ---
+
+   Cada tramo entra por arriba y sale por abajo en el centro del encuadre, asi que
+   apilados forman un tallo continuo. Van en una columna con solape negativo y no
+   posicionados uno por uno: la primera version los repartia con `top` en porcentaje del
+   bloque y seis tramos de seiscientos setenta pixeles sobre doce mil quedaron como seis
+   islas sueltas. Un tallo no se distribuye, se encadena. */
+.planta-cadena {
+  position: absolute;
+  top: -3%;
+  /* Centrado con `left` y no con `transform: translateX(-50%)`. UN TRANSFORM CREA
+     CONTEXTO DE APILADO, y adentro de un contexto propio el `mix-blend-mode: multiply`
+     de los tramos se mezcla contra un fondo transparente en vez de contra el papel: el
+     blanco del render deja de desaparecer y queda una banda casi blanca por todo el
+     margen. Medido: el papel es (242,233,221) y ahi salia (251,249,247).
+
+     Es la segunda vez que el mismo mecanismo rompe esta misma mezcla en esta pagina; la
+     primera fue un `z-index: 0`. Cualquier cosa que aisle rompe el multiply. */
+  left: -2%;
+  width: 104%;
+  display: flex;
+  flex-direction: column;
+}
+.planta-tramo {
+  width: 100%;
+  height: auto;
+  margin-top: -5.5%;
+  transform: translateX(var(--corr, 0px));
+  mix-blend-mode: multiply;
+  /* Un punto por debajo del negro para que la planta se lea como fondo y el texto
+     siga ganando la primera mirada. */
+  opacity: 0.82;
+}
+.planta-tramo:first-child { margin-top: 0; }
+.planta-espejo { transform: translateX(var(--corr, 0px)) scaleX(-1); }
+
+/* --- las plantas que nacen --- */
+.planta {
+  position: absolute;
+  width: calc(clamp(120px, 14vw, 215px) * var(--esc, 1));
+  height: auto;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  /* El anclaje va del lado del tallo: una rama crece HACIA afuera desde donde nace, no
+     se infla desde su propio centro. */
+  transform: scale(0.55) rotate(var(--giro, 0deg));
+  transition: opacity 1.2s ease, transform 1.6s cubic-bezier(.22,.9,.28,1);
+}
+.planta--der { right: 4%; transform-origin: 18% 82%; }
+.planta--izq { left: -8%; transform-origin: 82% 82%; }
+.planta.visible { opacity: 0.95; transform: scale(1) rotate(var(--giro, 0deg)); }
+
+html:not(.js) .planta { opacity: 0.95; transform: scale(1) rotate(var(--giro, 0deg)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .planta { transition: none; opacity: 0.95; transform: scale(1) rotate(var(--giro, 0deg)); }
+}
+
+@media (max-width: 900px) {
+  .enredadera { width: 150px; opacity: 0.8; }
+  .planta { width: calc(110px * var(--esc, 1)); }
+  .planta--izq { left: auto; right: 42%; }
+}
+
+/* ================================================================== El Tío
+
+   El Tío en chico, contestando las mismas objeciones que ya estan en la prep list.
+   No es un chat con inteligencia artificial: no hay modelo detras y simular uno en
+   una pagina que vende honestidad sobre lo que la tecnologia puede hacer seria
+   exactamente el error que la pagina denuncia. Son cuatro respuestas escritas por
+   una persona, que se abren de a una.
+   ========================================================================= */
+.tio {
+  position: fixed;
+  right: clamp(16px, 3vw, 34px);
+  bottom: clamp(16px, 3vw, 34px);
+  z-index: 40;
+  font-family: var(--texto);
+  /* El boton abajo y el panel encima. En el DOM el boton va primero, porque es lo que
+     recibe el foco y lo que abre; column-reverse lo deja abajo sin tocar ese orden.
+     Anclado al pie, un panel que se abre hacia abajo se sale de la pantalla. */
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+.tio[hidden] { display: none; }
+
+.tio-boton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px 8px 8px;
+  border: 1px solid rgba(36, 31, 22, 0.18);
+  border-radius: 999px;
+  background: var(--tiza);
+  color: var(--tinta);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(36, 31, 22, 0.14);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tio-boton:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(36, 31, 22, 0.2); }
+.tio-boton:focus-visible { outline: 2px solid var(--brasa); outline-offset: 3px; }
+.tio-boton img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+.tio-boton-texto {
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tio-panel {
+  width: min(92vw, 360px);
+  background: var(--tiza);
+  border: 1px solid rgba(36, 31, 22, 0.18);
+  box-shadow: 0 22px 60px rgba(36, 31, 22, 0.26);
+  padding: 18px;
+  margin-bottom: 12px;
+}
+.tio-panel[hidden] { display: none; }
+
+.tio-cabeza {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(36, 31, 22, 0.16);
+}
+.tio-cabeza img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+.tio-nombre { font-family: var(--display); font-size: 18px; margin: 0; }
+.tio-oficio {
+  font-family: var(--dato);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin: 2px 0 0;
+}
+.tio-cerrar {
+  margin-left: auto;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--tinta-suave);
+  cursor: pointer;
+  /* Area tactil de 44px sin engordar la cabecera: el alto lo da min-height y el
+     margen negativo lo devuelve. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin-block: -14px;
+}
+.tio-cerrar:focus-visible { outline: 2px solid var(--brasa); outline-offset: 2px; }
+
+.tio-lista { list-style: none; margin: 0; padding: 0; }
+.tio-lista li { border-bottom: 1px solid rgba(36, 31, 22, 0.12); }
+.tio-lista button {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: none;
+  font-family: var(--texto);
+  font-size: 15px;
+  color: var(--tinta);
+  padding: 14px 0;
+  min-height: 44px;
+  cursor: pointer;
+}
+.tio-lista button:hover { color: var(--brasa); }
+.tio-lista button:focus-visible { outline: 2px solid var(--brasa); outline-offset: -2px; }
+.tio-lista button[aria-expanded='true'] { color: var(--brasa); }
+.tio-respuesta p {
+  margin: 0 0 14px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--tinta-suave);
+  max-width: none;
+}
+
+.tio-cta {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  background: var(--brasa);
+  color: var(--tiza);
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px;
+}
+.tio-cta:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }
+
+@media (max-width: 640px) {
+  .tio-boton-texto { display: none; }
+  .tio-boton { padding: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tio-boton { transition: none; }
+}
+
+/* Las tres escenas del problema. Numeradas como los renglones de una comanda: el
+   folio chico a la izquierda y el texto corrido al lado. */
+.escena {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: var(--e3);
+  align-items: baseline;
+  margin: 0 0 var(--e4);
+  max-width: 56ch;
+  font-size: 19px;
+  line-height: 1.55;
+}
+.escena-num {
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--brasa);
+}
+
+/* ============================================================ lo que se implementa
+
+   Reemplaza a dos secciones que hacian el trabajo a medias: "la trastienda", que eran
+   cuatro fotos lindas del oficio sin decir que se entrega, y "mise en place", que era
+   la lista sin fotografia. Aca va la lista CON la fotografia, que es lo que hay que
+   mostrar en la mitad alta de una pagina que vende una implementacion.
+
+   Sin capturas de pantalla inventadas: no hay software propio en este vertical, y una
+   interfaz dibujada seria la clase de promesa que el proyecto prohibe. La foto es
+   siempre del objeto que la pieza reemplaza.
+   ========================================================================= */
+.entrega { padding: var(--e8) 0 var(--e7); }
+.entrega > .inner { max-width: var(--ancho-ancho); }
+
+/* MOSAICO, no lista de filas.
+
+   Antes cada pieza era una fila: foto vertical de cuatrocientos pixeles al lado de dos
+   renglones de texto. Aunque el texto se centrara, quedaban ciento sesenta pixeles de
+   blanco arriba y otros tantos abajo, ocho veces seguidas. El problema no era la
+   alineacion: era que una foto alta y un texto corto no pueden compartir una fila.
+
+   Con la foto arriba y el texto pegado debajo, el bloque no tiene hueco posible. Las
+   columnas de CSS reparten las ocho piezas por altura, asi que las filas no se alinean
+   y el conjunto se lee corrido en vez de tabulado. Cada pieza declara ademas su propia
+   proporcion: con todas iguales las columnas vuelven a formar bandas. */
+.entregables {
+  list-style: none;
+  margin: var(--e6) 0 0;
+  padding: 0;
+  columns: 3;
+  column-gap: var(--e5);
+}
+.ent {
+  break-inside: avoid;
+  margin: 0 0 var(--e5);
+  display: inline-block;
+  width: 100%;
+}
+.ent-foto { margin: 0 0 var(--e3); }
+.ent-foto img {
+  width: 100%;
+  aspect-ratio: var(--prop, 4 / 5);
+  object-fit: cover;
+  display: block;
+}
+.ent-texto h3 {
+  margin: 0 0 var(--e2);
+  font-size: 23px;
+  line-height: 1.12;
+  display: flex;
+  align-items: baseline;
+  gap: var(--e3);
+}
+.ent-num {
+  font-family: var(--dato);
+  font-size: 11px;
+  color: var(--brasa);
+  flex: none;
+}
+.ent-texto p {
+  margin: 0;
+  color: var(--tinta-suave);
+  font-size: 16.5px;
+  line-height: 1.5;
+  max-width: none;
+}
+
+@media (max-width: 1100px) { .entregables { columns: 2; } }
+@media (max-width: 640px) { .entregables { columns: 1; } }
+
+/* ------------------------------------------------------------- la auditoria */
+.como { padding: var(--e8) 0; }
+.como::before { background: var(--papel-2); }
+.como-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.46fr);
+  gap: var(--e7);
+  align-items: start;
+}
+.pasos { list-style: none; margin: var(--e6) 0 0; padding: 0; }
+.pasos li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: var(--e4);
+  align-items: baseline;
+  padding: var(--e4) 0;
+  border-bottom: 1px solid rgba(36, 31, 22, 0.14);
+}
+.paso-num {
+  font-family: var(--dato);
+  font-size: 12px;
+  color: var(--brasa);
+}
+.pasos h3 { margin: 0 0 var(--e2); font-size: 21px; }
+.pasos p { margin: 0; color: var(--tinta-suave); max-width: 48ch; }
+
+/* El retrato de El Tio, a tamanio de verdad. Estaba solo en el boton flotante de
+   cuarenta pixeles, que para una marca que se llama por una persona es poco. */
+.como-tio { margin: 0; position: sticky; top: var(--e6); }
+.como-tio img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.94);
+}
+.como-tio figcaption {
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--tinta-suave);
+  margin-top: var(--e3);
+}
+
+@media (max-width: 900px) {
+  .ent, .ent--sola { grid-template-columns: 40px 1fr; gap: var(--e4); }
+  .ent-foto { grid-column: 2; margin-top: var(--e4); }
+  .como-grid { grid-template-columns: 1fr; gap: var(--e5); }
+  .como-tio { position: static; max-width: 320px; }
+}
+
+
+/* ------------------------------------------------- densidad de la composicion
+
+   Medido antes de tocar nada: las secciones estaban llenas entre 16 y 33 por ciento
+   y TODAS usaban los mismos 1052 pixeles de ancho sobre 1440 disponibles. Un margen
+   se lee aleatorio cuando no hay otro contra el cual compararlo; con un solo ancho
+   repetido nueve veces, todo el aire sobrante parece sobra.
+   ------------------------------------------------------------------------- */
+
+/* El problema: la foto crece y las escenas se van a dos columnas. Era la seccion mas
+   vacia de la pagina, al 16,6 por ciento. */
+.dos-columnas { grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr); gap: var(--e6); }
+.columna-foto img { aspect-ratio: 4 / 5; object-fit: cover; }
+#contenido .escenas { columns: 2; column-gap: var(--e6); }
+#contenido .escena { break-inside: avoid; max-width: none; }
+
+/* Las preguntas: estaban al 17,4 por ciento en una sola columna angosta. */
+.prep { columns: 2; column-gap: var(--e7); }
+.prep li { break-inside: avoid; }
+
+/* El metodo: cuatro bandas de una pantalla cada una. La foto crece y el bloque se
+   aprieta, asi la secuencia se recorre en vez de scrollearse. */
+.tiempos { gap: var(--e6); }
+.tiempo figure img { max-height: 68vh; }
+
+@media (max-width: 900px) {
+  #contenido .escenas, .prep { columns: 1; }
+}
+
+/* La auditoria y las preguntas eran las dos secciones mas vacias despues de tocar el
+   resto: 25 y 20 por ciento. Las dos por el mismo motivo, una columna de texto angosta
+   con mucho margen alrededor. */
+
+/* El retrato de El Tio pasa a ser la mitad del bloque, no una ilustracion al costado.
+   Es la cara de la marca y la seccion se llama "la auditoria": el que atiende importa
+   tanto como los cuatro pasos. */
+.como > .inner { max-width: var(--ancho-ancho); }
+.como-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr); gap: var(--e7); }
+.como-tio img { aspect-ratio: 4 / 5; }
+.como-texto h2 { font-size: clamp(30px, 3.8vw, 50px); }
+.pasos li { padding: var(--e5) 0; }
+.pasos h3 { font-size: 24px; }
+
+/* Las preguntas van a lo ancho y con la pregunta en display: es la ultima objecion
+   antes del cierre y estaba compuesta como una nota al pie. */
+.prep-seccion > .inner { max-width: var(--ancho-ancho); }
+/* Dos columnas y no tres: son cuatro preguntas, y en tres columnas la tercera queda
+   vacia. Una grilla que no se llena se lee como un error de maquetado, no como aire. */
+.prep {
+  columns: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--e6) var(--e7);
+}
+.prep li { padding: 0 0 var(--e5); }
+.prep h3 {
+  font-family: var(--display);
+  font-size: 22px;
+  line-height: 1.15;
+  margin: 0 0 var(--e3);
+}
+.prep p { color: var(--tinta-suave); max-width: none; }
+
+@media (max-width: 760px) { .prep { grid-template-columns: 1fr; } }
+
+/* ------------------------------------------- el resto del blanco al costado
+
+   El mismo diagnostico que en los entregables, en las tres secciones que quedaban:
+   una foto vertical alta al lado de dos o tres renglones de texto deja el sobrante en
+   blanco arriba y abajo. Donde la fila tiene sentido (una secuencia se recorre de
+   izquierda a derecha), la foto pasa a apaisada y se le pone tope de alto para que
+   mida lo que mide el texto. Donde no, se apila.
+   ------------------------------------------------------------------------- */
+
+/* El metodo: cuatro pasos en banda. La foto era 4:5 con tope de 68vh, o sea el doble
+   de alto que sus tres renglones. Apaisada y con tope, la banda se recorre de un
+   vistazo y la secuencia deja de ser un scroll de cuatro pantallas. */
+.tiempos { gap: var(--e5); }
+.tiempo { padding: 0; align-items: center; }
+.tiempo figure img {
+  aspect-ratio: 3 / 2;
+  max-height: 300px;
+  object-fit: cover;
+}
+.tiempo-texto .cifra { font-size: clamp(38px, 4.6vw, 64px); margin-bottom: var(--e2); }
+.tiempo-texto h3 { font-size: 24px; }
+
+/* El problema: la foto acompana a tres escenas cortas en dos columnas. */
+.dos-columnas { align-items: center; }
+.columna-foto img { aspect-ratio: 1 / 1; max-height: 420px; }
+
+/* El precio: el ticket impreso es vertical de verdad (es un ticket) y ahi la altura
+   esta justificada, pero el bloque de al lado se centra para no dejar el hueco. */
+.precio-grid { align-items: center; }
+.precio-foto img { max-height: 460px; object-fit: contain; }
+
+/* Las preguntas: cuatro respuestas cortas. El aire se saca del interlineado del
+   bloque, no de la grilla, que ya esta en dos por dos. */
+.prep-seccion { padding: var(--e7) 0; }
+.prep { gap: var(--e5) var(--e6); }
+.prep li { padding: 0; }
+.prep p { font-size: 16.5px; line-height: 1.5; }
+
+/* Y el respiro entre secciones: 92 arriba y 92 abajo entre dos bloques consecutivos
+   siguen siendo 184 pixeles de nada. El de abajo se recorta a la mitad. */
+.entrega, .como, .metodo, .precio-seccion, .prep-seccion { padding-bottom: var(--e6); }
+
+/* Achicar la foto no llena la seccion: la vacia de otra forma. En una fila de dos
+   columnas la foto tiene que medir lo que mide el texto, ni mas ni menos, y eso se
+   consigue estirandola y recortando por cover, no eligiendo una proporcion a ojo. */
+.dos-columnas { align-items: stretch; }
+.columna-foto { height: 100%; }
+.columna-foto img {
+  height: 100%;
+  min-height: 320px;
+  /* `max-height` va a none a proposito: una regla anterior lo dejaba en 420 y la
+     columna de texto medía 955, o sea 535 pixeles de blanco al costado de la foto.
+     Ese era exactamente el caso que el founder describio. */
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+.precio-grid { align-items: stretch; }
+.precio-foto { height: 100%; }
+.precio-foto img {
+  height: 100%;
+  min-height: 300px;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+/* ================================================================== nada recto
+
+   "Un restaurante, nada es cuadrado. Evita las lineas rectas."
+
+   Tres decisiones, en orden de peso:
+
+   1. EL ARCO. Las fotos se cierran arriba en medio punto. No es un redondeo de
+      esquinas: es el arco romano, el motivo con el que estan construidos los
+      portales, las bodegas y los hornos de lena de media Italia. Da la forma organica
+      y ademas dice el rubro sin escribirlo.
+
+   2. LAS REGLAS DE UN PIXEL SE VAN. Cada `border-bottom: 1px solid` era una linea
+      recta perfecta, y habia una debajo de cada renglon de carta, de cada paso y de
+      cada pregunta. Se reemplazan por un filete dibujado a mano: una onda muy suave en
+      SVG que no repite dos veces el mismo tramo.
+
+   3. LOS BOTONES Y LAS PLACAS pierden el angulo recto.
+   ========================================================================= */
+
+/* --- 1. la forma la decide el contenido --- */
+
+/* La primera respuesta a "nada es cuadrado" fue ponerle el mismo arco de medio punto a
+   todas las fotos. Estaba mal: un arco repetido veinte veces no es una forma organica,
+   es una plantilla con otra silueta, y ademas le ponia un motivo arquitectonico a la
+   foto de un sobre.
+
+   Ahora la forma sale de que hay en la imagen, y ningun borde se repite:
+
+   PLATO. Circulo, porque un plato es un circulo. La unica forma perfecta de la pagina,
+   y se la gana por ser la unica cosa redonda que hay de verdad.
+
+   PAPEL. El sobre, las fichas de comentario y la lista impresa se recortan con un
+   borde de hoja cortada a mano: cuarenta y ocho puntos calculados con una semilla
+   propia, que se apartan del rectangulo entre cero y uno y medio por ciento, con el
+   temblor mas fuerte en el medio del lado que en las esquinas. Distinto en cada pieza.
+
+   ESCENA. Las fotos de reportaje se quedan enteras: recortar una escena con borde de
+   papel la vuelve un recorte de revista y le saca el aire de fotografia. Llevan el
+   corte solo en el canto de arriba, insinuado.
+
+   Y todas se apoyan con un grado y pico de giro propio, porque nada apoyado sobre una
+   mesa queda a escuadra. */
+.ent-foto img {
+  transform: rotate(var(--giro, 0deg));
+  transition: transform 0.6s cubic-bezier(.2,.7,.3,1);
+}
+.ent-foto--papel img,
+.ent-foto--escena img { clip-path: var(--recorte); }
+.ent-foto--plato img {
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+}
+/* El plato respira aparte: es el unico circulo y necesita aire alrededor para no
+   chocar contra los rectangulos vecinos. */
+.ent-foto--plato { padding: 0 6%; }
+
+.como-tio img,
+.columna-foto img,
+.tiempo figure img,
+.precio-foto img { border-radius: 2px; }
+
+/* --- 2. el filete dibujado --- */
+.carta li,
+.pasos li,
+.perdidas li,
+.ent-lista li {
+  border-bottom: 0;
+  position: relative;
+}
+.carta li::after,
+.pasos li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background-repeat: repeat-x;
+  background-size: 120px 5px;
+  opacity: 0.5;
+  /* Una onda muy baja, con los dos lomos distintos: dibujada con dos alturas
+     diferentes no se lee como un patron sino como un trazo. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='5' viewBox='0 0 120 5'%3E%3Cpath d='M0 3 C15 1 25 4 40 2.6 C55 1.2 68 4.2 84 2.4 C98 0.9 110 3.4 120 2.2' fill='none' stroke='%23241f16' stroke-width='0.9' stroke-linecap='round' opacity='0.55'/%3E%3C/svg%3E");
+}
+.ent { border: 0; }
+
+/* Las divisiones de seccion tambien. */
+.entregables { border: 0; }
+.grupo-linea {
+  height: 7px;
+  background-repeat: repeat-x;
+  background-size: 160px 7px;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='7' viewBox='0 0 160 7'%3E%3Cpath d='M0 4 C20 1.5 34 5.5 54 3.4 C74 1.3 90 5.8 112 3.2 C130 1 146 4.6 160 3' fill='none' stroke='%23241f16' stroke-width='1' stroke-linecap='round' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+/* --- 3. el resto de los angulos rectos --- */
+.btn {
+  border-radius: 999px;
+  padding: 16px 34px;
+}
+.comanda { border-radius: 3px 3px 14px 14px / 3px 3px 8px 8px; }
+.tio-panel { border-radius: 20px 20px 20px 4px; }
+.tio-cta { border-radius: 999px; }
+.pie-sangre, .cierre .pizarra-bloque { border-radius: 14px; }
+.panoramica img, .sangre img { border-radius: 0; }
+
+/* La trama de puntos del fondo de papel se mantiene: es grano, no una grilla. */
+
+/* Los numeros de cada pieza. En Goudy las cifras son de estilo antiguo: bajan por
+   debajo de la linea de base y tienen altura de minuscula, asi que a 11px quedaban
+   como una marca ilegible al lado del titulo. Suben de tamanio y se les pide alineadas
+   para que se lean como folio y no como mancha. */
+.ent-num, .paso-num, .escena-num {
+  font-family: var(--display);
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'lnum' 1;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+.escena-num { font-size: 14px; }
+.tiempo-texto .cifra { font-variant-numeric: lining-nums; }
+
+/* La sombra que apoya. Un giro sin sombra se lee como un error de maquetado; con una
+   sombra baja y muy abierta se lee como una foto puesta sobre la mesa. Va desplazada
+   en el sentido del giro de cada pieza, que es lo que hace que la luz sea una sola
+   para toda la seccion en vez de una por objeto. */
+.ent-foto img {
+  box-shadow:
+    0 1px 2px rgba(36, 31, 22, 0.10),
+    0 10px 26px -12px rgba(36, 31, 22, 0.30);
+}
+/* El plato no proyecta como una hoja: es ceramica sobre mantel, sombra mas corta y
+   mas cerrada. */
+.ent-foto--plato img {
+  box-shadow: 0 14px 30px -14px rgba(36, 31, 22, 0.45);
+}
+/* Al pasar por encima, la pieza se endereza. Es el gesto de acomodar una foto sobre la
+   mesa para mirarla mejor, y no cuesta nada. */
+.ent:hover .ent-foto img { transform: rotate(0deg) translateY(-3px); }
+@media (prefers-reduced-motion: reduce) {
+  .ent-foto img { transition: none; }
+  .ent:hover .ent-foto img { transform: rotate(var(--giro, 0deg)); }
+}
+
+/* NO va un halo con `filter`.
+
+   La idea era la de la cartografia: un casing del color del papel debajo del dibujo,
+   para que la planta se lea sobre cualquier fondo. Funciona, y cuesta carisimo: un
+   `drop-shadow` sobre un SVG de doce mil setecientos pixeles de alto obliga al
+   navegador a rasterizar la superficie entera en cada composicion. Medido con
+   veinticinco saltos de scroll: 18 segundos sin filtro, 91 con. Cinco veces mas lento,
+   y la captura de pantalla ni siquiera termino en treinta segundos.
+
+   Se resuelve de otra forma, sin costo en tiempo de ejecucion: el build mide el brillo
+   medio de cada foto con PIL y marca las oscuras, y el script suma esos rectangulos a
+   las bandas contra las que ya decide el color. El calculo pasa una vez, no en cada
+   cuadro. */

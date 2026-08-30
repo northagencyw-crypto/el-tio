@@ -72,7 +72,17 @@
 img { height: auto; }
 
 
-html { scroll-behavior: smooth; }
+/* Sin desplazamiento suave, a proposito.
+   En esta pagina el unico ancla interno es el enlace de salto, y un enlace de salto tiene
+   que aterrizar, no viajar: animarlo es exactamente lo contrario de lo que existe para
+   hacer. Y como el foco tambien desplaza, cada tabulacion entre los ocho elementos
+   enfocables se convertia en un vuelo animado de miles de pixeles, medido: al tabular
+   desde el boton del hero al siguiente, el elemento enfocado quedaba fuera de pantalla
+   setecientos milisegundos despues.
+
+   Se deja la regla de movimiento reducido abajo por si manana aparece un menu con anclas
+   y alguien vuelve a poner `smooth`. */
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation: none !important; transition: none !important; }
@@ -1780,4 +1790,79 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
 .rotulo-lamina .valor a {
   display: inline-block;
   padding-block: 12px;
+}
+
+
+/* ------------------------------------------------- el grabado en alto contraste
+   En `forced-colors: active` el navegador fuerza los colores del HTML pero NO los
+   `fill` ni los `stroke` de un SVG: medido, el cuerpo pasaba a blanco con texto negro
+   mientras los filetes, las rosetas, la filigrana y las hornacinas seguian en laton, o
+   sea un ornamento de otra paleta flotando sobre una pagina que ya no existe. Y el fondo
+   de las hornacinas quedaba en crema sobre blanco puro.
+
+   Quien enciende alto contraste pidio maximo contraste, no nuestra paleta. Todo el
+   grabado pasa a `CanvasText`, que es el color de texto que eligio esa persona, y las
+   superficies a `Canvas`. El dibujo se mantiene entero: lo que cambia es de que color
+   esta hecho. */
+@media (forced-colors: active) {
+  .filete-flor .fl-linea,
+  .filete-flor .fl-flor path,
+  .marg-hilo line,
+  .marg-roseta path,
+  .horn-filete,
+  .horn-roseta path,
+  .horn-clave path,
+  .filigrana .fg-tallo,
+  .filigrana .fg-voluta,
+  .filigrana .fg-hoja,
+  .filigrana .fg-roseta,
+  .filigrana .fg-nudo,
+  .esq .es-arco,
+  .esq .es-rulo,
+  .esq .es-punto,
+  .monograma .mo-guilloche,
+  .monograma .mo-ovalo,
+  .monograma .mo-hoja,
+  .sello .aro,
+  .sello .giro text,
+  .sello-marca,
+  .sello-pie,
+  .horn-num,
+  .monograma .mo-letras {
+    stroke: CanvasText;
+    fill: none;
+  }
+  /* Las que son macizas conservan el relleno, con el color del sistema. */
+  .filete-flor .fl-flor path,
+  .filigrana .fg-hoja,
+  .filigrana .fg-nudo,
+  .esq .es-punto,
+  .monograma .mo-hoja,
+  .monograma .mo-letras,
+  .horn-num,
+  .horn-clave path,
+  .sello-marca,
+  .sello-pie,
+  .sello .giro text {
+    fill: CanvasText;
+    stroke: none;
+  }
+  /* Las superficies, al fondo del sistema. */
+  .horn-fondo,
+  .ciudad .piso { fill: Canvas; }
+  .fg-cortina { background: Canvas; }
+  /* La opacidad baja se lee como "casi invisible" cuando el fondo dejo de ser marfil. */
+  .filigrana .fg-tallo,
+  .filigrana .fg-voluta,
+  .filigrana .fg-hoja,
+  .filigrana .fg-roseta,
+  .marg-roseta path,
+  .horn-roseta path,
+  .monograma .mo-guilloche { opacity: 1; }
+  /* El arco de las fotografias necesita su filete visible, y en alto contraste un borde
+     con alfa desaparece. */
+  .ent-foto--obra::after,
+  .emplaza-foto::after,
+  .como-tio::after,
+  .vista-marco::after { border-color: CanvasText; }
 }

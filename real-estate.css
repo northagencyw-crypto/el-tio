@@ -2209,6 +2209,24 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
 }
 
 
+/* La llave: el remate simbolico de la lamina del expediente. Va ancha y con el mismo
+   filete que las demas figuras, no a sangre: la lamina tiene margen y una foto que lo
+   pisa rompe la columna vertebral de la pagina. */
+.llave {
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  outline: 1px solid var(--filete);
+  outline-offset: 7px;
+}
+.llave img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+@media (max-width: 820px) { .llave { outline-offset: 4px; } }
+
+
 /* ==================================================================== el analisis
    Los dos instrumentos. Sin fotografia: la pagina ya tiene doce y lo que falta aca
    es lo contrario, algo dibujado con la misma pluma que los filetes.
@@ -2265,6 +2283,78 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
   .anl { grid-template-columns: 1fr; gap: var(--t4); }
 }
 
+/* --------------------------------------------------- los dos paneles del analisis
+
+   Van oscuros y no grabados sobre papel. El founder pidio que se vieran "super
+   tecnologicos, pro, y como una muestra real de la herramienta": el grabado los hacia
+   leer como el ornamento de la lamina, que es lo contrario de un instrumento de medicion.
+
+   Lo que NO son es una captura falsa. Dos secciones mas abajo la pagina afirma que sus
+   tres capturas son producto desplegado y no interfaces dibujadas, y una ventana de
+   mentira aca dejaria esa afirmacion sin valor. Por eso no hay cromo de ventana, ni
+   barra de titulo, ni botones: es un diagrama con la piel del producto, rotulado como
+   ejemplo. */
+
+.instrumento--panel {
+  background: var(--tinta);
+  border-color: rgba(201, 173, 120, 0.22);
+  padding: 0;
+  overflow: hidden;
+}
+.instrumento--panel svg { padding: 0 clamp(12px, 2vw, 20px); }
+
+.ins-cabeza {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--t2);
+  padding: 14px clamp(12px, 2vw, 20px);
+  border-bottom: 1px solid rgba(201, 173, 120, 0.16);
+}
+.ins-tit {
+  font-family: var(--texto);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--marfil-alto);
+}
+.ins-chip {
+  font-family: var(--dato);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--laton-claro);
+  border: 1px solid rgba(201, 173, 120, 0.34);
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+
+.ins-pie {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px clamp(14px, 2.5vw, 30px);
+  padding: 13px clamp(12px, 2vw, 20px);
+  border-top: 1px solid rgba(201, 173, 120, 0.16);
+  font-family: var(--dato);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: rgba(244, 239, 228, 0.56);
+}
+.ins-pie b { color: var(--laton-claro); font-weight: 500; }
+.ins-pie--leyenda span { display: inline-flex; align-items: center; gap: 8px; }
+/* La leyenda repite las tres formas del dibujo, no un cuadrado de color: el diagrama
+   distingue por forma y no por color, asi que la leyenda tiene que distinguir igual. */
+.lg { width: 9px; height: 9px; display: inline-block; }
+.lg--obra { border: 1px solid var(--laton-claro); }
+.lg--serv { border: 1px solid rgba(244, 239, 228, 0.66); border-radius: 50%; }
+.lg--acc {
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 9px solid rgba(244, 239, 228, 0.5);
+}
+
+.ins-rejilla { stroke: rgba(201, 173, 120, 0.10); stroke-width: 1; }
+
 /* ------------------------------------------------------- la carta de comparables */
 
 .cmp text {
@@ -2272,19 +2362,19 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
   font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.16em;
-  fill: var(--grafito-suave);
+  fill: rgba(244, 239, 228, 0.54);
 }
-.cmp-banda { fill: rgba(203, 188, 162, 0.24); stroke: var(--filete); stroke-width: 1; }
-.cmp-nota { fill: var(--laton-texto); }
-.cmp-eje { stroke: var(--tinta); stroke-width: 1.2; }
-.cmp-tick { stroke: var(--filete); stroke-width: 1; }
+.cmp-banda { fill: rgba(201, 173, 120, 0.10); stroke: rgba(201, 173, 120, 0.30); stroke-width: 1; }
+.cmp-nota { fill: var(--laton-claro); }
+.cmp-eje { stroke: rgba(244, 239, 228, 0.42); stroke-width: 1.2; }
 .cmp-eje-rot { font-size: 10px; }
-.cmp-eje-tit { fill: var(--tinta); }
-.cmp-marca path { fill: none; stroke: var(--tinta-suave); stroke-width: 1.1; }
-.cmp-marca line { stroke: var(--filete); stroke-width: 1; }
-.cmp-sujeto path { fill: var(--laton); stroke: var(--laton-texto); stroke-width: 1.2; }
-.cmp-sujeto line { stroke: var(--laton-texto); stroke-width: 1.2; stroke-dasharray: 3 3; }
-.cmp-yo { fill: var(--laton-texto); font-size: 11px; }
+.cmp-eje-tit { fill: rgba(244, 239, 228, 0.72); }
+.cmp-marca circle { fill: rgba(244, 239, 228, 0.62); }
+.cmp-marca line { stroke: rgba(244, 239, 228, 0.18); stroke-width: 1; }
+.cmp-sujeto circle { fill: var(--laton-claro); }
+.cmp-sujeto line { stroke: var(--laton-claro); stroke-width: 1.2; stroke-dasharray: 3 4; }
+.cmp-halo { fill: none; stroke: var(--laton-claro); stroke-width: 1; opacity: 0.45; }
+.cmp-yo { fill: var(--laton-claro); font-size: 11px; }
 
 /* La entrada: cada comparable sube hasta su sitio, escalonado por su indice, y la
    propiedad analizada entra ultima. El retraso sale de --i, que lo escribe el
@@ -2312,27 +2402,20 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
   font-family: var(--dato);
   font-size: 10px;
   letter-spacing: 0.12em;
-  fill: var(--grafito-suave);
+  fill: rgba(244, 239, 228, 0.5);
 }
-/* El rotulo de distancia se lee sobre el dibujo, no debajo. Sin el halo, el anillo
-   punteado y los rayos le cruzan las letras por el medio. */
-.zon-rot {
-  paint-order: stroke;
-  stroke: var(--marfil-alto);
-  stroke-width: 3.5px;
-  stroke-linejoin: round;
-}
-.zon-rayo { stroke: var(--filete); stroke-width: 0.6; }
+.zon-rayo { stroke: rgba(201, 173, 120, 0.13); stroke-width: 0.7; }
 .zon-anillo {
   fill: none;
-  stroke: var(--tinta-suave);
+  stroke: rgba(244, 239, 228, 0.34);
   stroke-width: 0.9;
   stroke-dasharray: 2 5;
 }
-.zon-centro { fill: var(--laton); stroke: var(--laton-texto); stroke-width: 1.2; }
-.zon-marca { fill: none; stroke: var(--tinta-suave); stroke-width: 1.1; }
-.zon-t1 { stroke: var(--laton-texto); }
-.zon-t2 { fill: var(--filete); stroke: var(--tinta-suave); }
+.zon-centro { fill: var(--laton-claro); }
+.zon-halo { fill: none; stroke: var(--laton-claro); stroke-width: 1; opacity: 0.4; }
+.zon-marca { fill: none; stroke: rgba(244, 239, 228, 0.66); stroke-width: 1.1; }
+.zon-t0 { stroke: var(--laton-claro); }
+.zon-t2 { fill: rgba(244, 239, 228, 0.5); stroke: none; }
 
 /* Los anillos se abren desde el centro y las marcas aparecen despues, para que se lea
    que el dibujo mide distancia desde un punto y no que es una diana decorativa. */
@@ -2367,12 +2450,14 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
 /* Alto contraste. Los `fill` y `stroke` de un SVG no los fuerza `forced-colors`, asi que
    sin esto los dos instrumentos desaparecen contra el fondo del sistema. */
 @media (forced-colors: active) {
-  .cmp-eje, .cmp-marca path, .cmp-marca line, .cmp-tick,
-  .zon-anillo, .zon-rayo, .zon-marca { stroke: CanvasText; }
+  .cmp-eje, .cmp-marca line, .cmp-sujeto line, .cmp-halo, .zon-halo,
+  .zon-anillo, .zon-rayo, .zon-marca, .ins-rejilla { stroke: CanvasText; }
   .cmp-banda { fill: Canvas; stroke: CanvasText; }
-  .cmp-sujeto path, .zon-centro { fill: CanvasText; stroke: CanvasText; }
+  .cmp-marca circle, .cmp-sujeto circle, .zon-centro, .zon-t2 { fill: CanvasText; }
   .cmp text, .zon text { fill: CanvasText; }
-  .pq-marco { border-color: CanvasText; }
+  .instrumento--panel, .pq-marco, .ins-cabeza, .ins-pie, .ins-chip { border-color: CanvasText; }
+  .lg--obra, .lg--serv { border-color: CanvasText; }
+  .lg--acc { border-bottom-color: CanvasText; }
 }
 
 

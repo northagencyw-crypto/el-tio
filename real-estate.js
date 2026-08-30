@@ -218,17 +218,49 @@
       return [isFinite(x) ? x : 0.5, isFinite(y) ? y : 0.5];
     });
 
-    laminas.forEach(function (el, i) {
+    // La variante que le toca a esta pantalla, elegida con la misma regla que usa el
+    // navegador para un `sizes` de 100vw. Asi la etiqueta del respaldo y el shader piden
+    // la misma URL y la foto se descarga una sola vez.
+    function url(el) {
+      var base = el.getAttribute('data-ambiente');
+      var lista = (el.getAttribute('data-anchos') || '').split(',').filter(Boolean);
+      if (!base) return el.getAttribute('src');
+      if (!lista.length) return base + '.webp';
+      var objetivo = window.innerWidth * (window.devicePixelRatio || 1);
+      for (var i = 0; i < lista.length; i++) {
+        if (+lista[i] >= objetivo) {
+          return base + (i === lista.length - 1 ? '' : '-' + lista[i]) + '.webp';
+        }
+      }
+      return base + '.webp';
+    }
+
+    // Las dos primeras de una y el resto en fila india.
+    //
+    // Antes salian las ocho a la vez: dos mil cuatrocientos kilobytes antes de que la
+    // pagina estuviera usable, medido, y en el telefono eso es la diferencia entre entrar
+    // y cerrar. En fila, la primera pantalla pide lo que necesita para empezar a volar y
+    // el resto va llegando mientras se lee, que es mucho antes de que se lo mire.
+    function cargar(i, luego) {
+      if (i >= laminas.length) return;
       var img = new Image();
       img.onload = function () {
         texturas[i] = textura(gl, img);
         relaciones[i] = [img.naturalWidth, img.naturalHeight];
-        // Alcanza con las dos primeras para empezar a volar: el resto entra mientras
-        // se baja. Esperar las ocho dejaba el hero en negro varios segundos.
         if (!arrancado && texturas[0] && texturas[1]) arrancar();
+        if (luego) luego();
       };
-      img.src = el.getAttribute('data-ambiente');
-    });
+      img.onerror = function () { if (luego) luego(); };
+      img.src = url(laminas[i]);
+    }
+
+    var siguiente = 2;
+    function enFila() {
+      if (siguiente >= laminas.length) return;
+      cargar(siguiente++, enFila);
+    }
+    cargar(0, null);
+    cargar(1, enFila);
 
     // Escalones de resolucion. Se arranca en 1.5 y no en 2 porque el barrido radial son
     // doce lecturas de textura por pixel (medido: cuesta 2,25 veces lo que cuesta sin

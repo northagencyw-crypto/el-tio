@@ -1770,3 +1770,14 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
   letter-spacing: 0.01em;
   font-family: var(--display);
 }
+
+
+/* El correo del cierre medido en telefono daba 81 por 20 pixeles de area tactil, contra
+   los 44 de minimo. Se agranda con padding y no cambiando el `display` a inline-block a
+   secas: ese cambio, hecho en la portada, descentro el texto del enlace porque
+   inline-block anula el `align-items` del contenedor. Aca el contexto es de bloque, asi
+   que el padding alcanza y no mueve nada. */
+.rotulo-lamina .valor a {
+  display: inline-block;
+  padding-block: 12px;
+}

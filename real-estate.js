@@ -395,88 +395,6 @@
     [].forEach.call(piezas, function (el) { obs.observe(el); });
   }
 
-  // ------------------------------------------------------- la ciudad que se enciende
-  //
-  // La capa animada del vertical. Reemplaza a la mensura, que era un eje acotado a lapiz
-  // con numeros de lamina: dibujo tecnico, o sea exactamente lo que habia que sacar.
-  //
-  // Al bajar, las ventanas se encienden de a una. Una ventana encendida es alguien que
-  // entro a vivir, que es donde termina la operacion de una inmobiliaria, y es el
-  // equivalente de las flores que nacian en la enredadera de gastronomia.
-  //
-  // Son setecientas quince ventanas. Tocarlas todas en cada cuadro seria mover
-  // setecientos quince nodos sesenta veces por segundo para cambiar dos o tres. Por eso
-  // se ordenan una sola vez al montar y despues se avanza y se retrocede un puntero:
-  // el trabajo por cuadro es la cantidad de ventanas que cambiaron, que al bajar normal
-  // son dos o tres.
-  function montarCiudad() {
-    var banda = document.querySelector('[data-ciudad]');
-    if (!banda) return;
-
-    var ventanas = [].slice.call(banda.querySelectorAll('.ven'));
-    if (!ventanas.length) return;
-    ventanas.sort(function (a, b) {
-      return (+a.getAttribute('data-o')) - (+b.getAttribute('data-o'));
-    });
-    var total = ventanas.length;
-    var capas = [].slice.call(banda.querySelectorAll('.capa'));
-
-    if (quieto.matches) {
-      for (var i = 0; i < total; i++) ventanas[i].classList.add('encendida');
-      return;
-    }
-
-    var puntero = 0;
-    var pedido = 0;
-
-    function avance() {
-      var r = banda.getBoundingClientRect();
-      // Cero cuando la banda asoma por abajo, uno bastante antes de que se vaya: la
-      // ciudad tiene que terminar de encenderse mientras se la esta mirando, no cuando
-      // ya paso de largo.
-      var p = (window.innerHeight - r.top) / (window.innerHeight + r.height * 0.30);
-      return Math.min(1, Math.max(0, p));
-    }
-
-    function pintar() {
-      pedido = 0;
-      var p = avance();
-      // Cuadratica: al principio se encienden pocas y despues muchas, que es como se
-      // llena un edificio al anochecer. Lineal se lee como una barra de progreso.
-      var meta = Math.round(p * p * total);
-
-      while (puntero < meta) ventanas[puntero++].classList.add('encendida');
-      while (puntero > meta) ventanas[--puntero].classList.remove('encendida');
-
-      // Paralaje: el fondo se corre menos que el frente, que es lo unico que le da
-      // profundidad a tres siluetas planas.
-      for (var k = 0; k < capas.length; k++) {
-        var f = (k === 0 ? -46 : k === 1 ? -22 : 0);
-        capas[k].style.transform = 'translate(' + (f * p).toFixed(1) + 'px, ' +
-          capas[k].getAttribute('data-dy') + 'px)';
-      }
-      banda.style.setProperty('--noche', p.toFixed(3));
-    }
-
-    function pedir() {
-      if (pedido) return;
-      pedido = requestAnimationFrame(pintar);
-    }
-
-    for (var k = 0; k < capas.length; k++) {
-      // El transform del atributo pasa a estilo: si se dejan los dos, el atributo gana
-      // en algunos motores y la capa no se mueve.
-      var t = capas[k].getAttribute('transform') || '';
-      var m = /translate\(0 (-?[\d.]+)\)/.exec(t);
-      capas[k].setAttribute('data-dy', m ? m[1] : '0');
-      capas[k].removeAttribute('transform');
-    }
-
-    pintar();
-    window.addEventListener('scroll', pedir, { passive: true });
-    window.addEventListener('resize', pedir, { passive: true });
-  }
-
   // Los cuatro tiempos: cada edificio se enciende cuando su tiempo entra en lectura.
   //
   // Se usa un observador y no el scroll: lo que decide cual esta vivo es cual renglon de
@@ -485,19 +403,15 @@
   function montarPasos() {
     var caja = document.querySelector('[data-pasos]');
     if (!caja) return;
-    var edificios = caja.querySelectorAll('[data-paso]');
-    var textos = caja.querySelectorAll('[data-paso-txt]');
-    if (!edificios.length) return;
+    var celdas = caja.querySelectorAll('[data-paso-txt]');
+    if (!celdas.length) return;
 
     function vivo(n) {
-      for (var i = 0; i < edificios.length; i++) {
-        edificios[i].classList.toggle('vivo', i <= n);
-        if (textos[i]) textos[i].classList.toggle('vivo', i <= n);
-      }
+      for (var i = 0; i < celdas.length; i++) celdas[i].classList.toggle('vivo', i <= n);
     }
 
     if (quieto.matches || !('IntersectionObserver' in window)) {
-      vivo(edificios.length - 1);
+      vivo(celdas.length - 1);
       return;
     }
 
@@ -506,19 +420,65 @@
         if (e.isIntersecting) vivo(+e.target.getAttribute('data-paso-txt'));
       });
     }, { rootMargin: '-45% 0px -45% 0px' });
-    [].forEach.call(textos, function (el) { obs.observe(el); });
+    [].forEach.call(celdas, function (el) { obs.observe(el); });
     // Si la caja entra entera en pantalla de una, el observador con margen del 45% no
     // dispara nunca y los cuatro quedarian apagados.
     new IntersectionObserver(function (e) {
-      if (e[0].intersectionRatio > 0.9) vivo(edificios.length - 1);
+      if (e[0].intersectionRatio > 0.9) vivo(celdas.length - 1);
     }, { threshold: [0, 0.9, 1] }).observe(caja);
+  }
+
+  // ---------------------------------------------------------------- la filigrana
+  //
+  // El grabado de los margenes se dibuja mientras se baja. Es la capa animada de la
+  // pagina y el reemplazo de la ciudad que se encendia.
+  //
+  // El crecimiento es una mascara que baja, no un stroke-dasharray. El ornamento es un
+  // `pattern` repetido, y un patron no tiene un trazo unico que recortar; ademas una
+  // mascara cuesta un atributo por cuadro en vez de recalcular longitudes.
+  function montarFiligrana() {
+    var bandas = [].slice.call(document.querySelectorAll('[data-filigrana]'));
+    if (!bandas.length) return;
+    var cuerpo = document.querySelector('.cuerpo-plano');
+    if (!cuerpo) return;
+
+    var revelas = bandas.map(function (b) { return b.querySelector('.fg-revela'); });
+
+    if (quieto.matches) {
+      revelas.forEach(function (r) { if (r) r.setAttribute('height', String(cuerpo.offsetHeight)); });
+      return;
+    }
+
+    var pedido = 0;
+    function pintar() {
+      pedido = 0;
+      var caja = cuerpo.getBoundingClientRect();
+      // La punta del lapiz va a dos tercios de la ventana, que es donde esta mirando
+      // quien baja. Si fuera el borde de abajo, el grabado siempre estaria terminado
+      // antes de que se lo vea.
+      var punta = (window.innerHeight * 0.68) - caja.top;
+      var p = Math.min(1, Math.max(0, punta / cuerpo.offsetHeight));
+      // Las bandas no tienen viewBox, asi que una unidad de usuario es un pixel y la
+      // altura de la mascara se expresa directamente en el alto del cuerpo.
+      var h = (p * cuerpo.offsetHeight).toFixed(0);
+      for (var i = 0; i < revelas.length; i++) {
+        if (revelas[i]) revelas[i].setAttribute('height', h);
+      }
+    }
+    function pedir() {
+      if (pedido) return;
+      pedido = requestAnimationFrame(pintar);
+    }
+    pintar();
+    window.addEventListener('scroll', pedir, { passive: true });
+    window.addEventListener('resize', pedir, { passive: true });
   }
 
   function arranque() {
     montarRecorrido();
     montarRevelados();
-    montarCiudad();
     montarPasos();
+    montarFiligrana();
   }
 
   if (document.readyState === 'loading') {

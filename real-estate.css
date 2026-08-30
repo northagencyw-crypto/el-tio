@@ -15,34 +15,49 @@
    ========================================================================= */
 
 :root {
-  --papel: #e7eae6;   /* papel de copia frio, gris levemente verde, sin grano */
-  --lamina: #ffffff;  /* blanco puro: es MATERIAL de montaje, no fondo */
-  --grafito: #15181a;
-  --grafito-suave: #565d58;
-  --lacre: #7a2436;   /* el rojo del sello notarial. Nunca rellena un boton. */
-  --linea: #808880;   /* regla de lapiz */
+  /* La paleta de una casa senorial, no la de un legajo. El gris frio de papel de copia
+     y la grotesca tecnica eran, juntos, lo que hacia que la pagina se leyera como un
+     estudio de arquitectura por mucho que se cambiaran las fotos. */
+  --marfil: #f4efe4;        /* papel de tina, calido, con grano */
+  --marfil-alto: #fbf8f2;   /* el mismo papel, un tono mas alto: material de montaje */
+  --tinta: #17211c;         /* verde tan oscuro que se lee negro, como la tinta de talla dulce */
+  --tinta-suave: #4c5a52;
+  --verde: #1f2f27;         /* el fondo de las secciones nocturnas */
+  --laton: #a8874f;         /* el metal de la placa de la puerta. Es el unico acento. */
+  /* El mismo metal, oscurecido, para cuando el laton es TEXTO y no ornamento.
+     Medido: #a8874f sobre el marfil da 2,93 a 1 y el minimo para texto chico es 4,5. El
+     trazo de un adorno puede ser claro porque no se lee; un rotulo de 10 pixeles no.
+     Este da 5,07 y sigue siendo laton. */
+  --laton-texto: #7d6128;
+  --laton-claro: #c9ad78;
+  --filete: #cbbca2;        /* el hairline grabado sobre marfil */
 
-  /* Chivo en los dos roles y IBM Plex Mono para el dato. Sale Bodoni Moda, que era
-     buena por su cuenta (Bodoni es la letra de las laminas de ingenieria neoclasicas) y
-     mala de conjunto: gastronomia quedo con Prata, otra didone, y dos verticales con
-     display didone se leen como parientes por mucho que el test verifique que los
-     nombres son distintos. La regla no es que no compartan archivo, es que no se
-     parezcan. Un legajo tecnico se compone en grotesca, y siendo todo grotesca esta
-     pagina queda en el extremo opuesto de la de gastronomia, que es toda romana. */
-  --display: 'Chivo', system-ui, sans-serif;
-  --texto: 'Chivo', system-ui, sans-serif;
-  --dato: 'IBM Plex Mono', ui-monospace, monospace;
-  /* Lapiz. Solo para las acotaciones a mano sobre el plano. */
-  --lapiz: 'Caveat', cursive;
+  /* Cormorant Garamond para el display y Jost para todo lo demas.
+     Una romana finisima de alto contraste con una geometrica silenciosa es la
+     combinacion del rubro de lujo de verdad, y no se parece a la de gastronomia, que es
+     romana con romana calida. La que salio de aca, Chivo, es una grotesca de legajo: es
+     de donde venia la mitad del problema. */
+  --display: 'Cormorant Garamond', 'Cormorant', Garamond, Georgia, serif;
+  --texto: 'Jost', 'Futura', 'Century Gothic', system-ui, sans-serif;
+  --dato: 'Jost', system-ui, sans-serif;
 
-  /* Base de 8px. Tres alturas de seccion distintas para que ninguna mida lo
-     mismo que la anterior. */
+  /* Compatibilidad con lo que ya estaba escrito en la hoja. Se dejan como alias para no
+     tocar seiscientas lineas de golpe; los nombres nuevos son los de arriba. */
+  --papel: var(--marfil);
+  --lamina: var(--marfil-alto);
+  --grafito: var(--tinta);
+  --grafito-suave: var(--tinta-suave);
+  --lacre: var(--laton);
+  --linea: var(--filete);
+
   --t1: 8px;  --t2: 16px; --t3: 24px; --t4: 32px;
   --alto-datos: 56px; --alto-dibujo: 96px; --alto-foto: 144px;
 
   --ancho: 1280px;
   --margen: clamp(20px, 5vw, 72px);
   --columna: 132px;
+  /* El canal de los margenes donde corre la filigrana. */
+  --canal: 74px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -726,16 +741,21 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
    Se rellena con el blanco de lamina, que en esta hoja es material de montaje. NO
    con lacre: el rojo del sello notarial no rellena un boton, esa regla es del
    sistema y vale mas que la comodidad de este caso. */
+/* Sobre el hero oscuro el boton era blanco lleno con texto oscuro. Con la paleta nueva
+   `--lamina` paso de blanco puro a marfil y el texto quedo marfil sobre marfil: un
+   rectangulo vacio. Aca va la placa de laton, que es la version nocturna de la misma
+   idea: filete doble, versalitas y el metal como unico color. */
 .recorrido .btn {
-  background: var(--lamina);
-  border-color: var(--lamina);
-  color: var(--grafito);
+  border-color: var(--laton);
+  outline-color: rgba(168, 135, 79, 0.45);
+  background: transparent;
+  color: var(--marfil-alto);
 }
 .recorrido .btn:hover,
 .recorrido .btn:focus-visible {
-  background: transparent;
-  color: var(--lamina);
-  border-color: var(--lamina);
+  background: var(--laton);
+  color: var(--verde);
+  outline-color: var(--laton);
 }
 
 /* ============================================================ lo que se implementa
@@ -880,133 +900,6 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
   .ent:nth-child(even) > .ent-foto { order: 0; }
   .como-grid { grid-template-columns: 1fr; gap: 32px; }
   .como-tio { position: static; max-width: 340px; }
-}
-
-
-/* ============================================================ la ciudad que se enciende
-   La capa animada del vertical. Es la banda con la que la pagina baja a la noche, justo
-   antes del cierre, y lo unico que se mueve fuera del hero.
-
-   El cielo del SVG arranca en el color exacto del papel de la pagina, asi que la banda no
-   tiene borde de arriba: la hoja se convierte en cielo y despues en noche, y el cierre
-   oscuro que sigue deja de ser un cambio de color y pasa a ser la hora que siguio. */
-.ciudad {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background: var(--papel);
-  --noche: 0;
-}
-.ciudad-svg {
-  width: 100%;
-  /* El dibujo se lleva lo que quede despues del texto, con un piso para que en pantalla
-     angosta no se convierta en una linea. */
-  height: clamp(280px, 40vh, 396px);
-  display: block;
-}
-
-/* Perspectiva atmosferica: lo que esta lejos es mas claro y mas azul, porque tiene mas
-   aire adelante. Tres siluetas del mismo color se leen como una calcomania. */
-.ciudad .capa--0 .masa { fill: #79879a; }
-.ciudad .capa--1 .masa { fill: #4d5966; }
-.ciudad .capa--2 .masa { fill: #262d36; }
-.ciudad .tierra { fill: #1b2027; }
-.ciudad .luna { fill: #f2ece1; opacity: 0.85; }
-
-.ciudad .capa--0 .arbol { fill: #6b798c; }
-.ciudad .capa--1 .arbol { fill: #414d59; }
-.ciudad .capa--2 .arbol { fill: #1f262e; }
-.ciudad .tronco { fill: #1f262e; }
-
-.ciudad .balcon { stroke: rgba(255, 255, 255, 0.09); stroke-width: 1.4; }
-.ciudad .antena { stroke: #4d5966; stroke-width: 1.2; }
-.ciudad .baliza { fill: var(--lacre); opacity: 0.9; }
-.ciudad .capa--2 .baliza { animation: baliza 2.6s ease-in-out infinite; }
-@keyframes baliza { 0%, 62%, 100% { opacity: 0.25; } 78% { opacity: 1; } }
-
-/* La ventana apagada es apenas mas clara que su masa: de dia un vidrio no es un agujero
-   negro, refleja el cielo. Encendida es la luz calida de adentro. */
-.ciudad .ven { fill: rgba(255, 255, 255, 0.07); transition: fill 620ms ease; }
-.ciudad .capa--0 .ven.encendida { fill: #f3d6a8; }
-.ciudad .capa--1 .ven.encendida { fill: #ffcf92; }
-.ciudad .capa--2 .ven.encendida { fill: #ffc177; }
-
-.ciudad .pileta { opacity: 0.55; }
-
-/* El texto va ARRIBA del dibujo y no encima. Sobre el cielo solo hay franja legible en
-   los primeros cien pixeles, y ahi no entra un titulo de cuatro renglones con su bajada:
-   la bajada caia sobre las torres. Como el cielo del SVG arranca exactamente en el color
-   del papel, ponerlo arriba no deja ninguna costura. */
-.ciudad-texto {
-  padding: clamp(48px, 8vh, 96px) var(--margen) clamp(20px, 3vh, 40px);
-  max-width: 62ch;
-  color: var(--grafito);
-}
-.ciudad-texto h2 { font-size: clamp(28px, 3.4vw, 50px); line-height: 1.04; }
-.ciudad-texto .rotulo { margin: 0 0 var(--t1); }
-.ciudad-texto h2 { margin: 0 0 var(--t2); }
-.ciudad-texto .bajada { margin: 0; max-width: 34ch; }
-
-@media (max-width: 860px) {
-  .ciudad-svg { height: clamp(220px, 34vh, 320px); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ciudad .ven { transition: none; }
-  .ciudad .capa--2 .baliza { animation: none; opacity: 0.9; }
-}
-
-
-/* --------------------------------------------------- los cuatro tiempos, en edificios
-   El mismo idioma que la banda del cierre, usado una segunda vez a proposito: una pagina
-   con dos ideas repetidas se lee disenada, y con ocho se lee armada.
-
-   Van de una casa a una torre, asi que la altura sola cuenta que cada tiempo se apoya en
-   el anterior. Eso lo decia el corte de obra que salio de aca, y lo dice igual sin
-   dibujar una obra. */
-.pasos-ciudad { margin-top: var(--t4); }
-.pasos-ciudad svg { display: block; width: 100%; height: auto; overflow: visible; }
-.pasos-ciudad .piso { stroke: var(--linea); stroke-width: 1.2; }
-.pasos-ciudad .masa { fill: #2b333c; }
-.pasos-ciudad .antena { stroke: #2b333c; stroke-width: 2; }
-.pasos-ciudad .baliza { fill: var(--lacre); }
-.pasos-ciudad .ven { fill: rgba(255, 255, 255, 0.10); transition: fill 520ms ease; }
-.pasos-ciudad .paso-ed.vivo .ven { fill: #ffc177; }
-/* El edificio del tiempo que se esta leyendo se despega apenas del resto. */
-.pasos-ciudad .paso-ed { transition: opacity 420ms ease; opacity: 0.55; }
-.pasos-ciudad .paso-ed.vivo { opacity: 1; }
-
-.pasos-lista {
-  list-style: none;
-  margin: var(--t3) 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--t3);
-}
-.pasos-lista li {
-  padding-top: var(--t2);
-  border-top: 1px solid var(--linea);
-  transition: opacity 420ms ease;
-  opacity: 0.5;
-}
-.pasos-lista li.vivo { opacity: 1; }
-.pasos-lista li.vivo { border-top-color: var(--grafito); }
-.pasos-lista .paso-num {
-  display: block;
-  font-family: var(--dato);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--lacre);
-  margin-bottom: var(--t1);
-}
-.pasos-lista h3 { margin: 0 0 6px; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.12; }
-.pasos-lista p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--grafito-suave); }
-
-@media (max-width: 860px) {
-  /* En el telefono cuatro columnas dejan ocho caracteres por renglon. La fila de
-     edificios se queda, porque es la que cuenta la progresion, y el texto baja a dos. */
-  .pasos-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--t3) var(--t2); }
 }
 
 
@@ -1295,3 +1188,376 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
   .emplaza-grid { grid-template-columns: 1fr; }
   .emplaza-foto img { aspect-ratio: 3 / 2; }
 }
+
+/* ============================================================== identidad senorial
+   El rediseno de fondo. El founder lo pidio en cinco frases: "tiene q ser una web de
+   real state de lujo", "tiene todas lineas rectas", "esto debe ser mas barroco", "super
+   detallista", "cada centimetro de la web tiene q tener detalles".
+
+   Las cinco se contestan con lo mismo, que ademas es de donde viene la grafica del rubro
+   de lujo: el grabado. Un titulo de propiedad, una escritura, un certificado y el
+   membrete de una casa de subastas estan grabados. Nada de eso es una linea recta.
+
+   Lo que cambia aca: la tipografia, el arco en todas las fotografias, el filete con
+   losange en lugar del `border-bottom: 1px`, el grano del papel, las capitulares, el
+   monograma y la filigrana de los margenes. */
+
+/* ------------------------------------------------------------- el papel y la tinta
+   El grano es una turbulencia de SVG en linea, no una imagen: un JPG de grano son
+   trescientos kilobytes por una textura que nadie mira de cerca, y ademas se repite
+   visiblemente. Va en el `body` y no en un pseudoelemento para que no cree contexto de
+   apilado, que es la trampa que ya costo tres veces en gastronomia. */
+body {
+  font-family: var(--texto);
+  font-weight: 300;
+  font-size: 16.5px;
+  line-height: 1.72;
+  letter-spacing: 0.005em;
+  background-color: var(--marfil);
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'>\
+<filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/>\
+<feColorMatrix type='saturate' values='0'/></filter>\
+<rect width='180' height='180' filter='url(%23g)' opacity='0.055'/></svg>");
+}
+
+h1, h2, h3, .bajada, .fi-titulo, .pres-total, .rotulo-lamina .marca {
+  font-family: var(--display);
+  font-weight: 300;
+  letter-spacing: -0.005em;
+}
+
+/* Cormorant es finisima y crece bien: pide cuerpos grandes e interlineado corto. Puesta
+   al tamanio de una grotesca se ve debil, que es el error clasico al cambiar de
+   grotesca a romana de alto contraste. */
+h1 { font-weight: 300; line-height: 0.92; letter-spacing: -0.018em; }
+h2 {
+  font-size: clamp(32px, 4.6vw, 66px);
+  line-height: 1.0;
+  letter-spacing: -0.012em;
+  margin: 0 0 var(--t2);
+}
+h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
+
+/* La bajada en cursiva. Es lo que separa una pagina de lujo de una pagina prolija: la
+   cursiva de una romana fina dice "esto lo escribio alguien", y la version en redonda
+   dice "esto lo escribio un formulario". */
+.bajada {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(19px, 1.8vw, 26px);
+  line-height: 1.34;
+  letter-spacing: 0;
+  color: var(--tinta-suave);
+}
+
+/* Los rotulos en versalitas espaciadas de Jost, en laton. Es la placa de bronce de la
+   puerta, no una etiqueta de formulario. */
+.rotulo, .ficha-titulo, .fi-area, .fi-estado, .pres-obra, .recorrido-precio,
+.tira-obra figcaption, .ent-foto--producto figcaption, .figura figcaption,
+.ciudad-texto .rotulo, .paso-num, .ficha-lugar {
+  font-family: var(--dato);
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+.rotulo { font-size: 10.5px; color: var(--laton-texto); }
+
+/* --------------------------------------------------------------------- el arco
+   Ninguna fotografia de esta pagina vuelve a ser un rectangulo. El arco de medio punto
+   es la forma de una casa senorial y es, ademas, la respuesta literal a "tiene todas
+   lineas rectas": la primera curva que ve el ojo al bajar.
+
+   El radio va en porcentaje del alto y no en pixeles, asi que el arco sigue siendo un
+   arco cuando la imagen cambia de tamanio. */
+.ent-foto img, .emplaza-foto img, .como-tio img,
+.tira-obra img, .cel--retrato img, .lamina-tecnica img {
+  border-radius: 50% 50% 3px 3px / var(--arco, 26%) var(--arco, 26%) 0 0;
+}
+.tira-obra img { --arco: 30%; }
+.emplaza-foto img { --arco: 24%; }
+.cel--retrato img { --arco: 20%; }
+.ent-foto--producto img { border-radius: 3px; }   /* una captura de pantalla no lleva arco */
+
+/* El marco de laton que sigue al arco. Un filete de un pixel a media distancia del borde
+   es como se enmarca un grabado, y es la clase de detalle que se ve sin mirarlo. */
+.ent-foto--obra, .emplaza-foto, .como-tio {
+  position: relative;
+}
+.ent-foto--obra::after, .emplaza-foto::after, .como-tio::after {
+  content: '';
+  position: absolute;
+  inset: 7px 7px auto 7px;
+  height: calc(100% - 14px);
+  border: 1px solid rgba(168, 135, 79, 0.42);
+  border-radius: 50% 50% 3px 3px / var(--arco, 26%) var(--arco, 26%) 0 0;
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------------- los filetes
+   El `border-bottom: 1px solid` de toda la hoja pasa a filete grabado. Se resuelve con
+   un degradado repetido y un losange dibujado en el pseudoelemento, asi no hay que
+   meter un SVG en cada renglon de cada lista. */
+.libro li, .fi-lista li, .pasos-lista li, .ent, .notas li {
+  border-bottom: none;
+  position: relative;
+}
+.libro li::after, .fi-lista li::after, .notas li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background:
+    linear-gradient(to right, var(--filete), var(--filete)) top left / 100% 1px repeat-x,
+    linear-gradient(to right, rgba(203, 188, 162, 0.55), rgba(203, 188, 162, 0.55)) bottom left / 100% 1px repeat-x;
+  background-repeat: no-repeat;
+}
+.fi-lista li:last-child::after, .libro li:last-child::after { display: none; }
+
+/* El losange que parte un filete al medio: el adorno de imprenta. */
+.filete-flor {
+  display: block;
+  width: min(100%, 520px);
+  height: 22px;
+  margin: var(--t3) 0;
+  overflow: visible;
+}
+.filete-flor .fl-linea { stroke: var(--filete); stroke-width: 1; }
+.filete-flor .fl-flor path { fill: var(--laton); }
+
+/* ------------------------------------------------------------------ la capitular
+   La primera letra de la bajada de cada lamina, en grande y en laton. Es el detalle mas
+   viejo de la tipografia y el que mas rapido dice "esto esta compuesto, no maquetado". */
+.capitular::first-letter {
+  float: left;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding: 0.06em 0.1em 0 0;
+  color: var(--laton-texto);
+  font-style: normal;
+}
+
+/* --------------------------------------------------------------------- el boton
+   Doble filete con aire entre los dos, versalitas espaciadas y el laton adentro. Es la
+   placa de bronce, no un boton de aplicacion. */
+.btn {
+  font-family: var(--dato);
+  font-weight: 400;
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  padding: 17px 34px;
+  border: 1px solid var(--laton);
+  outline: 1px solid rgba(168, 135, 79, 0.34);
+  outline-offset: 4px;
+  color: var(--tinta);
+  background: transparent;
+  transition: background 260ms ease, color 260ms ease, outline-color 260ms ease;
+}
+.btn:hover, .btn:focus-visible {
+  background: var(--laton);
+  color: var(--marfil-alto);
+  outline-color: var(--laton);
+}
+.cierre-oscuro .btn, .recorrido .btn { color: var(--marfil-alto); }
+.cierre-oscuro .btn:hover, .recorrido .btn:hover { color: var(--verde); }
+
+/* ------------------------------------------------------------------ el monograma */
+.monograma { display: block; overflow: visible; }
+.monograma .mo-guilloche { fill: none; stroke: var(--laton); stroke-width: 0.5; opacity: 0.5; }
+.monograma .mo-ovalo { fill: none; stroke: var(--laton); stroke-width: 1.3; }
+.monograma .mo-ovalo--fino { stroke-width: 0.6; opacity: 0.7; }
+.monograma .mo-hoja { fill: var(--laton); opacity: 0.75; }
+.monograma .mo-letras {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 0.04em;
+  text-anchor: middle;
+  fill: var(--tinta);
+}
+.cierre-oscuro .monograma .mo-letras, .recorrido .monograma .mo-letras { fill: var(--marfil-alto); }
+
+/* ------------------------------------------------------------------- la filigrana
+   La capa animada, y el reemplazo de la ciudad que se encendia. Corre por los dos
+   canales que quedan entre el borde de la ventana y la caja de texto, que en la version
+   anterior eran margen muerto, y se va dibujando mientras se baja.
+
+   No lleva z-index: esta posicionada y las secciones no, asi que pinta encima de sus
+   fondos sin pedir permiso, y como todo cae en el canal no tapa una sola letra. */
+.cuerpo-plano { position: relative; }
+.filigrana {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--canal);
+  pointer-events: none;
+  opacity: 1;
+}
+.filigrana--izq { left: 0; }
+.filigrana--der { right: 0; }
+.filigrana .fg-tallo { fill: none; stroke: var(--laton); stroke-width: 1.6; opacity: 0.85; }
+.filigrana .fg-voluta { fill: none; stroke: var(--laton); stroke-width: 1.2; opacity: 0.78; }
+.filigrana .fg-hoja { fill: var(--laton); opacity: 0.5; }
+.filigrana .fg-hoja--chica { opacity: 0.68; }
+.filigrana .fg-roseta { fill: none; stroke: var(--laton); stroke-width: 1.4; opacity: 0.6; }
+.filigrana .fg-roseta--chica { opacity: 0.3; }
+.filigrana .fg-nudo { fill: var(--laton); opacity: 0.5; }
+
+/* Debajo de 1100px el canal se cierra y el grabado se montaria sobre el texto. */
+@media (max-width: 1099px) {
+  .filigrana { display: none; }
+}
+
+/* --------------------------------------------------------- las cajas, sin esquinas
+   Los dos paneles de la pagina (la ficha de la inmobiliaria y la hoja de presupuesto)
+   dejan de ser rectangulos con borde: llevan el filete doble y las esquinas grabadas. */
+.ficha-agencia, .presupuesto {
+  position: relative;
+  border: 1px solid var(--filete);
+  outline: 1px solid rgba(203, 188, 162, 0.5);
+  outline-offset: 5px;
+  background: var(--marfil-alto);
+}
+.esq {
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+}
+/* Se apoyan sobre el filete exterior, que corre a cinco pixeles del borde. */
+.esq--ai { top: -6px; left: -6px; }
+.esq--ad { top: -6px; right: -6px; }
+.esq--bi { bottom: -6px; left: -6px; }
+.esq--bd { bottom: -6px; right: -6px; }
+.esq .es-arco { fill: none; stroke: var(--laton); stroke-width: 1.3; }
+.esq .es-rulo { fill: none; stroke: var(--laton); stroke-width: 0.9; opacity: 0.8; }
+.esq .es-punto { fill: var(--laton); opacity: 0.9; }
+
+.fi-estado {
+  background: transparent;
+  color: var(--laton-texto);
+  border: 1px solid var(--laton);
+  font-size: 9.5px;
+  letter-spacing: 0.3em;
+}
+
+/* ------------------------------------------------------- las secciones nocturnas */
+.cierre-oscuro { background: var(--verde); color: var(--marfil); }
+.rotulo-lamina { background: rgba(168, 135, 79, 0.28); border-color: rgba(168, 135, 79, 0.28); }
+.rotulo-lamina .cel { background: var(--verde); }
+.cierre-oscuro .rotulo { color: var(--laton-claro); }
+.recorrido { background: var(--verde); }
+
+
+/* ------------------------------------------------------------- las hornacinas
+   Los cuatro tiempos. Arco de medio punto, filete doble de laton, clave con fleuron y
+   una roseta de guilloche al fondo como marca de agua. Se iluminan en orden mientras se
+   baja, que es lo que hacian los edificios que salieron de aca, pero en el idioma de la
+   pagina y no en el de una ilustracion. */
+.hornacinas {
+  list-style: none;
+  margin: var(--t4) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 38px);
+  align-items: start;
+}
+.hornacinas li { transition: opacity 520ms ease; opacity: 0.42; }
+.hornacinas li.vivo { opacity: 1; }
+
+.horn { display: block; width: 100%; height: auto; overflow: visible; }
+.horn-fondo { fill: var(--marfil-alto); }
+.horn-filete { fill: none; stroke: var(--laton); stroke-width: 1.4; }
+.horn-filete--fino { stroke-width: 0.7; opacity: 0.6; }
+.horn-roseta path { fill: none; stroke: var(--laton); stroke-width: 1.1; opacity: 0.20; }
+.hornacinas li.vivo .horn-roseta path { opacity: 0.42; }
+.horn-roseta path { transition: opacity 620ms ease; }
+.horn-clave path { fill: var(--laton); }
+.horn-num {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: 74px;
+  text-anchor: middle;
+  fill: var(--tinta);
+  letter-spacing: 0.04em;
+}
+
+.horn-texto { margin-top: var(--t2); }
+.horn-texto h3 {
+  margin: 0 0 6px;
+  font-size: clamp(19px, 1.7vw, 25px);
+  line-height: 1.1;
+}
+.horn-texto p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--tinta-suave);
+}
+
+/* --------------------------------------------------------------- la vista de noche
+   El cierre: una fotografia grande bajo arco, con su filete, como cuelga un cuadro una
+   casa de subastas. Reemplaza a la banda de la ciudad. */
+.vista { padding: clamp(48px, 8vh, 110px) var(--margen); background: var(--marfil); }
+.vista-marco {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1180px;
+}
+.vista-marco img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  border-radius: 50% 50% 3px 3px / 20% 20% 0 0;
+}
+.vista-marco::after {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(244, 239, 228, 0.5);
+  border-radius: 50% 50% 3px 3px / 20% 20% 0 0;
+  pointer-events: none;
+}
+.vista-marco figcaption {
+  margin-top: var(--t3);
+  text-align: center;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(19px, 2vw, 30px);
+  line-height: 1.3;
+  color: var(--tinta);
+}
+
+@media (max-width: 860px) {
+  .hornacinas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--t3) var(--t2); }
+  .vista-marco img { aspect-ratio: 4 / 3; }
+}
+
+
+/* Las listas de dos columnas. Un renglon de pregunta y respuesta ocupa media columna:
+   puesto a lo ancho deja cuatrocientos cuarenta pixeles muertos a la derecha, que es
+   parte del blanco que el founder marco. */
+.libro--par {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(28px, 4vw, 64px);
+}
+.libro--par li { align-content: start; }
+@media (max-width: 760px) {
+  .libro--par { grid-template-columns: 1fr; }
+}
+
+
+/* Los numeros y las medidas, que son texto y no adorno, en el laton oscuro. Sobre fondo
+   nocturno vuelven al claro, donde el contraste va al reves. */
+.ent-num, .paso-num, .fi-num, .libro .medida, .lam-num, .margen .num,
+.recorrido-precio, .pres-cifra { color: var(--laton-texto); }
+.cierre-oscuro .ent-num, .cierre-oscuro .rotulo, .recorrido .rotulo,
+.cierre-oscuro .fi-num, .recorrido-ficha .ficha-num { color: var(--laton-claro); }

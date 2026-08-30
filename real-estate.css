@@ -883,209 +883,217 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
 }
 
 
-/* ------------------------------------------------------------------ la mensura
-   La capa de detalle del vertical. Vive en el canal que queda entre el borde de la
-   ventana y la caja de texto, que en las otras paginas es margen muerto y aca es donde
-   va la acotacion, igual que en una lamina de obra.
+/* ============================================================ la ciudad que se enciende
+   La capa animada del vertical. Es la banda con la que la pagina baja a la noche, justo
+   antes del cierre, y lo unico que se mueve fuera del hero.
 
-   No lleva z-index a proposito. Un z-index numerico sobre un elemento posicionado crea
-   contexto de apilado, y la ultima vez que se puso uno "por las dudas" el resultado fue
-   media hora buscando por que una capa dejo de mezclarse. El orden de pintado ya alcanza:
-   .mensura esta posicionada y las secciones no, asi que pinta encima de sus fondos sin
-   pedir permiso, y como todo su dibujo cae en el canal, no tapa una sola letra. */
-.cuerpo-plano { position: relative; }
-
-.mensura {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+   El cielo del SVG arranca en el color exacto del papel de la pagina, asi que la banda no
+   tiene borde de arriba: la hoja se convierte en cielo y despues en noche, y el cierre
+   oscuro que sigue deja de ser un cambio de color y pasa a ser la hora que siguio. */
+.ciudad {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--papel);
+  --noche: 0;
+}
+.ciudad-svg {
+  width: 100%;
+  /* El dibujo se lleva lo que quede despues del texto, con un piso para que en pantalla
+     angosta no se convierta en una linea. */
+  height: clamp(280px, 40vh, 396px);
+  display: block;
 }
 
-.mensura-svg { display: block; }
+/* Perspectiva atmosferica: lo que esta lejos es mas claro y mas azul, porque tiene mas
+   aire adelante. Tres siluetas del mismo color se leen como una calcomania. */
+.ciudad .capa--0 .masa { fill: #79879a; }
+.ciudad .capa--1 .masa { fill: #4d5966; }
+.ciudad .capa--2 .masa { fill: #262d36; }
+.ciudad .tierra { fill: #1b2027; }
+.ciudad .luna { fill: #f2ece1; opacity: 0.85; }
 
-/* Grosores de lapiz de verdad: la linea de eje es la mas fina porque es referencia, la
-   cota es la que se lee, y el tope es el trazo corto y apretado que se hace al final. */
-.mensura .eje {
-  fill: none;
-  stroke: var(--linea);
-  stroke-width: 0.9;
-  opacity: 0.55;
-}
-.mensura .eje--claro { stroke: #b8c0b6; opacity: 0.75; }
+.ciudad .capa--0 .arbol { fill: #6b798c; }
+.ciudad .capa--1 .arbol { fill: #414d59; }
+.ciudad .capa--2 .arbol { fill: #1f262e; }
+.ciudad .tronco { fill: #1f262e; }
 
-.mensura .marca {
-  fill: none;
-  stroke: var(--linea);
-  stroke-width: 0.8;
-  opacity: 0;
-  transition: opacity 620ms ease;
-}
-.mensura .nodo {
-  fill: var(--lacre);
-  opacity: 0;
-  transition: opacity 420ms ease 90ms;
-}
-.mensura .cota, .mensura .tope {
-  fill: none;
-  stroke: var(--linea);
-  stroke-width: 0.9;
-  opacity: 0;
-  transition: opacity 700ms ease 140ms;
-}
+.ciudad .balcon { stroke: rgba(255, 255, 255, 0.09); stroke-width: 1.4; }
+.ciudad .antena { stroke: #4d5966; stroke-width: 1.2; }
+.ciudad .baliza { fill: var(--lacre); opacity: 0.9; }
+.ciudad .capa--2 .baliza { animation: baliza 2.6s ease-in-out infinite; }
+@keyframes baliza { 0%, 62%, 100% { opacity: 0.25; } 78% { opacity: 1; } }
 
-.mensura .num {
-  font: 500 10px/1 var(--dato);
-  letter-spacing: 0.14em;
-  fill: var(--grafito-suave);
-  text-anchor: end;
-  opacity: 0;
-  transition: opacity 520ms ease 120ms;
-}
-.mensura .medida {
-  font: 400 9px/1 var(--dato);
-  letter-spacing: 0.22em;
-  fill: var(--grafito-suave);
-  text-anchor: middle;
-  opacity: 0;
-  transition: opacity 760ms ease 220ms;
-}
-/* La nota a lapiz es lo unico manuscrito de la pagina entera. Si aparece en dos lugares
-   deja de ser una anotacion al costado y pasa a ser una tipografia mas. */
-.mensura .lapiz {
-  font: 400 19px/1 var(--lapiz);
-  fill: var(--lacre);
-  text-anchor: end;
-  opacity: 0;
-  transition: opacity 820ms ease 300ms;
-}
+/* La ventana apagada es apenas mas clara que su masa: de dia un vidrio no es un agujero
+   negro, refleja el cielo. Encendida es la luz calida de adentro. */
+.ciudad .ven { fill: rgba(255, 255, 255, 0.07); transition: fill 620ms ease; }
+.ciudad .capa--0 .ven.encendida { fill: #f3d6a8; }
+.ciudad .capa--1 .ven.encendida { fill: #ffcf92; }
+.ciudad .capa--2 .ven.encendida { fill: #ffc177; }
 
-.mensura .visto .marca { opacity: 0.5; }
-.mensura .visto .nodo { opacity: 0.85; }
-.mensura .visto .cota, .mensura .visto .tope { opacity: 0.62; }
-.mensura .visto .num, .mensura .visto .medida { opacity: 1; }
-.mensura .visto .lapiz { opacity: 0.9; }
+.ciudad .pileta { opacity: 0.55; }
 
-/* Sobre el tramo de fondo grafito todo se invierte al contraste mas fuerte. */
-.mensura .nivel--oscuro .marca,
-.mensura .nivel--oscuro .cota,
-.mensura .nivel--oscuro .tope { stroke: #b8c0b6; }
-.mensura .nivel--oscuro .num,
-.mensura .nivel--oscuro .medida { fill: #b8c0b6; }
-.mensura .nivel--oscuro .nodo { fill: #c9727f; }
-.mensura .nivel--oscuro .lapiz { fill: #c9727f; }
+/* El texto va ARRIBA del dibujo y no encima. Sobre el cielo solo hay franja legible en
+   los primeros cien pixeles, y ahi no entra un titulo de cuatro renglones con su bajada:
+   la bajada caia sobre las torres. Como el cielo del SVG arranca exactamente en el color
+   del papel, ponerlo arriba no deja ninguna costura. */
+.ciudad-texto {
+  padding: clamp(48px, 8vh, 96px) var(--margen) clamp(20px, 3vh, 40px);
+  max-width: 62ch;
+  color: var(--grafito);
+}
+.ciudad-texto h2 { font-size: clamp(28px, 3.4vw, 50px); line-height: 1.04; }
+.ciudad-texto .rotulo { margin: 0 0 var(--t1); }
+.ciudad-texto h2 { margin: 0 0 var(--t2); }
+.ciudad-texto .bajada { margin: 0; max-width: 34ch; }
+
+@media (max-width: 860px) {
+  .ciudad-svg { height: clamp(220px, 34vh, 320px); }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .mensura .marca, .mensura .cota, .mensura .tope,
-  .mensura .num, .mensura .medida, .mensura .lapiz, .mensura .nodo {
-    transition: none;
-  }
-}
-
-/* Debajo de 1100px el canal se cierra y no hay donde acotar. El JavaScript ni siquiera
-   dibuja; esto es el cinturon por si alguna vez se dibuja igual. */
-@media (max-width: 1099px) {
-  .mensura { display: none; }
+  .ciudad .ven { transition: none; }
+  .ciudad .capa--2 .baliza { animation: none; opacity: 0.9; }
 }
 
 
-/* ------------------------------------------------- la planta de la operacion
-   El dibujo que reemplaza a la lista de siete areas. Los ambientes son de superficies
-   distintas a proposito: siete cajas iguales serian la misma lista con bordes. */
-.planta { margin: var(--t4) 0 0; }
-.planta svg { display: block; width: 100%; height: auto; overflow: visible; }
+/* --------------------------------------------------- los cuatro tiempos, en edificios
+   El mismo idioma que la banda del cierre, usado una segunda vez a proposito: una pagina
+   con dos ideas repetidas se lee disenada, y con ocho se lee armada.
 
-.planta .piso { fill: var(--lamina); }
-.planta .pasillo { fill: #dcdfda; }
-.planta .pasillo-txt {
-  font: 400 10px/1 var(--dato);
-  letter-spacing: 0.3em;
-  fill: var(--grafito-suave);
-  text-anchor: end;
+   Van de una casa a una torre, asi que la altura sola cuenta que cada tiempo se apoya en
+   el anterior. Eso lo decia el corte de obra que salio de aca, y lo dice igual sin
+   dibujar una obra. */
+.pasos-ciudad { margin-top: var(--t4); }
+.pasos-ciudad svg { display: block; width: 100%; height: auto; overflow: visible; }
+.pasos-ciudad .piso { stroke: var(--linea); stroke-width: 1.2; }
+.pasos-ciudad .masa { fill: #2b333c; }
+.pasos-ciudad .antena { stroke: #2b333c; stroke-width: 2; }
+.pasos-ciudad .baliza { fill: var(--lacre); }
+.pasos-ciudad .ven { fill: rgba(255, 255, 255, 0.10); transition: fill 520ms ease; }
+.pasos-ciudad .paso-ed.vivo .ven { fill: #ffc177; }
+/* El edificio del tiempo que se esta leyendo se despega apenas del resto. */
+.pasos-ciudad .paso-ed { transition: opacity 420ms ease; opacity: 0.55; }
+.pasos-ciudad .paso-ed.vivo { opacity: 1; }
+
+.pasos-lista {
+  list-style: none;
+  margin: var(--t3) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--t3);
 }
-
-/* El muro grueso y el hueco de puerta en el color del piso son el mismo truco que usa un
-   plano de verdad: la abertura no se dibuja, se deja de dibujar el muro. */
-.planta .muro { fill: none; stroke: var(--grafito); stroke-width: 3.2; stroke-linecap: square; }
-.planta .hueco { stroke: var(--lamina); stroke-width: 5; }
-.planta .puerta { fill: none; stroke: var(--linea); stroke-width: 0.9; opacity: 0.7; }
-.planta .hoja { stroke: var(--grafito); stroke-width: 2; }
-
-.planta .amb-num {
-  font: 400 10px/1 var(--dato);
-  letter-spacing: 0.16em;
-  fill: var(--lacre);
+.pasos-lista li {
+  padding-top: var(--t2);
+  border-top: 1px solid var(--linea);
+  transition: opacity 420ms ease;
+  opacity: 0.5;
 }
-.planta .amb-nom {
-  font: 600 19px/1 var(--display);
-  letter-spacing: 0.02em;
-  fill: var(--grafito);
-}
-.planta .amb-txt { font: 400 13px/1 var(--texto); fill: var(--grafito-suave); }
-
-.planta .cota-l, .planta .cota-t {
-  fill: none;
-  stroke: var(--linea);
-  stroke-width: 0.9;
-  opacity: 0.8;
-}
-.planta .cota-txt {
-  font: 400 9px/1 var(--dato);
-  letter-spacing: 0.28em;
-  fill: var(--grafito-suave);
-  text-anchor: middle;
-}
-
-/* En pantalla angosta el plano se lee, pero el texto adentro de cada ambiente no: a 390px
-   de ancho el ambiente mas chico deja doce pixeles de altura de letra. Se agranda la
-   tipografia del dibujo, que al ser SVG escala con el viewBox y no rompe la maqueta. */
-@media (max-width: 860px) {
-  .planta .amb-nom { font-size: 30px; }
-  .planta .amb-txt { font-size: 21px; }
-  .planta .amb-num, .planta .pasillo-txt, .planta .cota-txt { font-size: 16px; }
-}
-
-
-/* ------------------------------------------------------------- el corte de obra
-   La pareja de la planta. Una mira desde arriba y el otro de costado; son el mismo
-   edificio, y por eso comparten grosores y lapiz en vez de tener cada uno su estilo. */
-.corte { margin: var(--t4) 0 0; }
-.corte svg { display: block; width: 100%; height: auto; overflow: visible; }
-
-.corte .local { fill: var(--lamina); }
-/* La losa es lo unico grueso del dibujo: si el rectangulo entero llevara el mismo trazo,
-   volveria a leerse como caja y no como estructura apoyada. */
-.corte .losa { fill: none; stroke: var(--grafito); stroke-width: 3.4; stroke-linecap: square; }
-.corte .tabique { fill: none; stroke: var(--grafito); stroke-width: 1.4; }
-.corte .suelo { fill: none; stroke: var(--grafito); stroke-width: 2.4; }
-.corte .achura { stroke: var(--linea); stroke-width: 0.8; opacity: 0.55; }
-
-.corte .marca-niv { fill: var(--grafito); }
-.corte .niv-cota {
-  font: 400 10px/1 var(--dato);
-  letter-spacing: 0.1em;
-  fill: var(--grafito-suave);
-  text-anchor: end;
-}
-.corte .niv-num {
-  font: 400 10px/1 var(--dato);
+.pasos-lista li.vivo { opacity: 1; }
+.pasos-lista li.vivo { border-top-color: var(--grafito); }
+.pasos-lista .paso-num {
+  display: block;
+  font-family: var(--dato);
+  font-size: 11px;
   letter-spacing: 0.18em;
-  fill: var(--lacre);
+  color: var(--lacre);
+  margin-bottom: var(--t1);
 }
-.corte .niv-nom { font: 600 25px/1 var(--display); fill: var(--grafito); }
-.corte .niv-txt { font: 400 14px/1 var(--texto); fill: var(--grafito-suave); }
-
-.corte .cota-l, .corte .cota-t { fill: none; stroke: var(--linea); stroke-width: 0.9; opacity: 0.8; }
-.corte .cota-txt {
-  font: 400 9px/1 var(--dato);
-  letter-spacing: 0.28em;
-  fill: var(--grafito-suave);
-  text-anchor: middle;
-}
+.pasos-lista h3 { margin: 0 0 6px; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.12; }
+.pasos-lista p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--grafito-suave); }
 
 @media (max-width: 860px) {
-  .corte .niv-nom { font-size: 34px; }
-  .corte .niv-txt { font-size: 20px; }
-  .corte .niv-num, .corte .niv-cota, .corte .cota-txt { font-size: 15px; }
+  /* En el telefono cuatro columnas dejan ocho caracteres por renglon. La fila de
+     edificios se queda, porque es la que cuenta la progresion, y el texto baja a dos. */
+  .pasos-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--t3) var(--t2); }
+}
+
+
+/* -------------------------------------------------- la ficha de la inmobiliaria
+   Rima con la ficha del hero, donde la de la propiedad se va completando mientras se
+   baja. Aca la propiedad es la inmobiliaria. Va sobre el blanco puro, que en esta paleta
+   es material de montaje y no fondo: es una hoja apoyada sobre el papel de la pagina. */
+.ficha-agencia {
+  margin-top: var(--t4);
+  background: var(--lamina);
+  border: 1px solid var(--linea);
+  padding: var(--t3) clamp(20px, 3vw, 40px) var(--t4);
+}
+.fi-cabeza {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--t3);
+  padding-bottom: var(--t2);
+  border-bottom: 1px solid var(--linea);
+}
+.fi-titulo {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(19px, 1.8vw, 25px);
+}
+/* La chapa de estado, como la que un portal le pone a una publicacion. */
+.fi-estado {
+  font-family: var(--dato);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--lamina);
+  background: var(--lacre);
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+
+.fi-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(24px, 4vw, 56px);
+}
+.fi-lista li {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  grid-template-areas: 'num area' 'num dato';
+  gap: 0 var(--t2);
+  padding: 15px 0;
+  border-bottom: 1px solid var(--linea);
+}
+/* La septima queda sola en la ultima fila: sin esto arrastra un filete a la nada. */
+.fi-lista li:last-child { grid-column: 1 / -1; border-bottom: none; }
+.fi-num {
+  grid-area: num;
+  font-family: var(--dato);
+  font-size: 10px;
+  color: var(--lacre);
+  align-self: center;
+}
+.fi-area {
+  grid-area: area;
+  font-family: var(--dato);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--grafito);
+}
+.fi-dato {
+  grid-area: dato;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--grafito-suave);
+  margin-top: 3px;
+}
+.fi-pie {
+  margin: var(--t3) 0 0;
+  font-family: var(--dato);
+  font-size: 11.5px;
+  color: var(--grafito-suave);
+}
+
+@media (max-width: 720px) {
+  .fi-lista { grid-template-columns: 1fr; }
+  .fi-lista li:last-child { border-bottom: none; }
 }
 
 

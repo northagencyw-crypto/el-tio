@@ -395,216 +395,130 @@
     [].forEach.call(piezas, function (el) { obs.observe(el); });
   }
 
-  // ------------------------------------------------------------------ la mensura
+  // ------------------------------------------------------- la ciudad que se enciende
   //
-  // La capa de detalle propia de este vertical. En gastronomía lo que crece por el
-  // margen es una enredadera porque el rubro es la comida; acá lo que aparece es la
-  // acotación de un plano porque el rubro es medir. Esa es la única forma de que dos
-  // páginas tengan capa de detalle sin terminar teniendo la misma idea con otro dibujo.
+  // La capa animada del vertical. Reemplaza a la mensura, que era un eje acotado a lapiz
+  // con numeros de lamina: dibujo tecnico, o sea exactamente lo que habia que sacar.
   //
-  // Se arma en JavaScript y no en el generador porque cada cota tiene que caer en el
-  // borde real de su sección, y esa altura no existe hasta que el navegador maquetó:
-  // depende del ancho de la ventana, de si la tipografía llegó a cargar y de cuánto
-  // texto entró en cada renglón. Calcularla en Python sería adivinarla.
+  // Al bajar, las ventanas se encienden de a una. Una ventana encendida es alguien que
+  // entro a vivir, que es donde termina la operacion de una inmobiliaria, y es el
+  // equivalente de las flores que nacian en la enredadera de gastronomia.
+  //
+  // Son setecientas quince ventanas. Tocarlas todas en cada cuadro seria mover
+  // setecientos quince nodos sesenta veces por segundo para cambiar dos o tres. Por eso
+  // se ordenan una sola vez al montar y despues se avanza y se retrocede un puntero:
+  // el trabajo por cuadro es la cantidad de ventanas que cambiaron, que al bajar normal
+  // son dos o tres.
+  function montarCiudad() {
+    var banda = document.querySelector('[data-ciudad]');
+    if (!banda) return;
 
-  function azar(s) {
-    // Hash de parte fraccionaria. Un sin() crudo muestreado a paso regular devuelve
-    // valores casi iguales cuando el paso por la constante cae cerca de un múltiplo de
-    // 2*PI, y el temblor sale alineado en vez de aleatorio. Ya pasó dos veces.
-    var x = Math.sin(s * 78.233 + 19.19) * 43758.5453;
-    return x - Math.floor(x);
-  }
+    var ventanas = [].slice.call(banda.querySelectorAll('.ven'));
+    if (!ventanas.length) return;
+    ventanas.sort(function (a, b) {
+      return (+a.getAttribute('data-o')) - (+b.getAttribute('data-o'));
+    });
+    var total = ventanas.length;
+    var capas = [].slice.call(banda.querySelectorAll('.capa'));
 
-  function pulso(x0, y0, x1, y1, semilla, temblor) {
-    // Una recta a mano: seis puntos que se apartan de la ideal, más en el medio que en
-    // las puntas, que es como tiembla una mano apoyada en dos extremos. Un <line> de SVG
-    // es exacto y por eso se lee impreso y no dibujado.
-    var N = 6, d = '', i, t, sep;
-    var largo = Math.hypot(x1 - x0, y1 - y0) || 1;
-    var nx = -(y1 - y0) / largo, ny = (x1 - x0) / largo;
-    for (i = 0; i <= N; i++) {
-      t = i / N;
-      sep = Math.sin(Math.PI * t) * temblor * (azar(semilla * 7 + i * 3) - 0.5) * 2;
-      d += (i ? ' L' : 'M') +
-        (x0 + (x1 - x0) * t + nx * sep).toFixed(1) + ' ' +
-        (y0 + (y1 - y0) * t + ny * sep).toFixed(1);
-    }
-    return d;
-  }
-
-  function svgEl(nombre, atributos) {
-    var el = document.createElementNS('http://www.w3.org/2000/svg', nombre), k;
-    for (k in atributos) if (atributos.hasOwnProperty(k)) el.setAttribute(k, atributos[k]);
-    return el;
-  }
-
-  // Las notas a lápiz son los datos de la propiedad de demostración que aparece en la
-  // captura del producto: Torre Vela, piso 12, 2 dormitorios, 2 baños, 84 metros.
-  // Inventar otras habría sido gratis y habría dejado dos juegos de números distintos
-  // para la misma propiedad en la misma página.
-  var NOTAS_LAPIZ = ['84 m2', '2 dorm', 'piso 12'];
-
-  function montarMensura() {
-    var cuerpo = document.querySelector('.cuerpo-plano');
-    if (!cuerpo) return;
-
-    var capa = document.createElement('div');
-    capa.className = 'mensura';
-    capa.setAttribute('aria-hidden', 'true');
-    cuerpo.appendChild(capa);
-
-    var svg = null, eje = null, ejeClaro = null, niveles = [], largoEje = 0;
-
-    function dibujar() {
-      // Debajo de 1100px no hay margen donde dibujar: la cota se montaría encima del
-      // texto y dejaría de ser una anotación al costado para ser ruido arriba.
-      // El canal se mide contra el contenido de verdad y no contra un contenedor por
-      // nombre de clase: buscar '.inner' devolvia null porque esta hoja nunca uso esa
-      // clase, y la capa entera se apagaba sin decir nada. Los titulos siempre estan y
-      // siempre arrancan en el borde de la caja de texto, asi que el borde izquierdo mas
-      // chico de todos ellos es exactamente donde termina el margen disponible.
-      var canal = Infinity;
-      var titulos = cuerpo.querySelectorAll('h2, h3, .rotulo');
-      for (var q = 0; q < titulos.length; q++) {
-        var izq = titulos[q].getBoundingClientRect().left;
-        if (izq > 0) canal = Math.min(canal, izq);
-      }
-      canal = isFinite(canal) ? Math.round(canal) : 0;
-      while (capa.firstChild) capa.removeChild(capa.firstChild);
-      svg = null; niveles = [];
-      if (window.innerWidth < 1100 || canal < 56) return;
-
-      var W = canal, H = cuerpo.offsetHeight;
-      var x = Math.round(W * 0.52);   // el eje, ni pegado al borde ni contra el texto
-      svg = svgEl('svg', { width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, 'class': 'mensura-svg' });
-
-      var secciones = [].slice.call(cuerpo.children).filter(function (s) {
-        return s.tagName === 'SECTION' && s.offsetHeight > 120;
-      });
-
-      // El eje: una sola línea de punta a punta, que es lo que ordena una lámina. Se
-      // dibuja sola al bajar, con stroke-dashoffset, y ese es el equivalente exacto de
-      // la enredadera que crece: la página se va midiendo mientras se recorre.
-      var trazo = pulso(x, 24, x, H - 24, 3, 2.6);
-      eje = svgEl('path', { d: trazo, 'class': 'eje' });
-      svg.appendChild(eje);
-
-      // El mismo eje otra vez, en claro, recortado a los tramos de fondo oscuro. Es la
-      // forma de que la linea cambie al contraste mas fuerte donde el papel se vuelve
-      // grafito sin recurrir a mix-blend-mode, que se apaga en silencio en cuanto
-      // cualquier ancestro crea contexto de apilado. Ya se rompio tres veces por eso en
-      // la pagina de gastronomia; aca el recorte es explicito y no depende del entorno.
-      var oscuros = cuerpo.querySelectorAll('.sangre-noche, .cierre-oscuro');
-      if (oscuros.length) {
-        var clip = svgEl('clipPath', { id: 'mensura-oscuro' });
-        for (var k = 0; k < oscuros.length; k++) {
-          clip.appendChild(svgEl('rect', {
-            x: 0, y: oscuros[k].offsetTop - cuerpo.offsetTop,
-            width: W, height: oscuros[k].offsetHeight }));
-        }
-        svg.appendChild(clip);
-        ejeClaro = svgEl('path', { d: trazo, 'class': 'eje eje--claro',
-          'clip-path': 'url(#mensura-oscuro)' });
-        svg.appendChild(ejeClaro);
-      } else {
-        ejeClaro = null;
-      }
-
-      var i, s, y, g, nivel, medida, alto;
-      for (i = 0; i < secciones.length; i++) {
-        s = secciones[i];
-        y = s.offsetTop - cuerpo.offsetTop;
-        nivel = s.getAttribute('data-lamina') || '';
-        medida = s.getAttribute('data-cota') || '';
-        g = svgEl('g', { 'class': 'nivel' });
-        // La marca de nivel: el tick que sale del eje hacia el contenido, como el que
-        // señala una altura en un corte de arquitectura.
-        g.appendChild(svgEl('path', { d: pulso(x - 9, y, W - 4, y, i * 5 + 11, 1.1), 'class': 'marca' }));
-        g.appendChild(svgEl('circle', { cx: x, cy: y, r: 2.6, 'class': 'nodo' }));
-        if (nivel) {
-          var t = svgEl('text', { x: x - 8, y: y - 7, 'class': 'num' });
-          t.textContent = nivel;
-          g.appendChild(t);
-        }
-        // La cota entre esta marca y la siguiente, con sus topes a 45 grados y el
-        // nombre de la lámina escrito de costado sobre la línea.
-        if (i < secciones.length - 1) {
-          alto = (secciones[i + 1].offsetTop - cuerpo.offsetTop) - y;
-          if (alto > 220 && medida) {
-            var xc = x - 22;
-            g.appendChild(svgEl('path', { d: pulso(xc, y + 16, xc, y + alto - 16, i * 9 + 4, 1.6), 'class': 'cota' }));
-            g.appendChild(svgEl('path', { d: 'M' + (xc - 4) + ' ' + (y + 22) + ' L' + (xc + 4) + ' ' + (y + 10), 'class': 'tope' }));
-            g.appendChild(svgEl('path', { d: 'M' + (xc - 4) + ' ' + (y + alto - 10) + ' L' + (xc + 4) + ' ' + (y + alto - 22), 'class': 'tope' }));
-            var m = svgEl('text', { x: xc - 7, y: y + alto / 2, 'class': 'medida',
-              transform: 'rotate(-90 ' + (xc - 7) + ' ' + (y + alto / 2) + ')' });
-            m.textContent = medida;
-            g.appendChild(m);
-          }
-          // Cada tanto, una nota a lápiz de la propiedad de demostración.
-          if (i % 3 === 1 && alto > 300) {
-            var n = svgEl('text', { x: W - 10, y: y + 46, 'class': 'lapiz',
-              transform: 'rotate(-4 ' + (W - 10) + ' ' + (y + 46) + ')' });
-            n.textContent = NOTAS_LAPIZ[Math.floor((i - 1) / 3) % NOTAS_LAPIZ.length];
-            g.appendChild(n);
-          }
-        }
-        g.dataset.y = y;
-        if (s.className.indexOf('oscuro') >= 0 || s.className.indexOf('sangre') >= 0) {
-          g.setAttribute('class', 'nivel nivel--oscuro');
-        }
-        svg.appendChild(g);
-        niveles.push(g);
-      }
-
-      capa.appendChild(svg);
-      largoEje = eje.getTotalLength();
-      if (quieto.matches) {
-        eje.style.strokeDasharray = 'none';
-        if (ejeClaro) ejeClaro.style.strokeDasharray = 'none';
-        for (i = 0; i < niveles.length; i++) niveles[i].classList.add('visto');
-      } else {
-        eje.style.strokeDasharray = largoEje;
-        eje.style.strokeDashoffset = largoEje;
-        if (ejeClaro) {
-          ejeClaro.style.strokeDasharray = largoEje;
-          ejeClaro.style.strokeDashoffset = largoEje;
-        }
-        avanzar();
-      }
+    if (quieto.matches) {
+      for (var i = 0; i < total; i++) ventanas[i].classList.add('encendida');
+      return;
     }
 
-    function avanzar() {
-      if (!svg || quieto.matches) return;
-      // El trazo llega hasta donde llegó la lectura: se toma el medio de la ventana como
-      // punta del lápiz, que es donde está mirando quien baja.
-      var caja = cuerpo.getBoundingClientRect();
-      var punta = (window.innerHeight * 0.62) - caja.top;
-      var p = Math.min(1, Math.max(0, punta / cuerpo.offsetHeight));
-      var resto = (largoEje * (1 - p)).toFixed(1);
-      eje.style.strokeDashoffset = resto;
-      if (ejeClaro) ejeClaro.style.strokeDashoffset = resto;
-      for (var i = 0; i < niveles.length; i++) {
-        if (punta > +niveles[i].dataset.y) niveles[i].classList.add('visto');
-      }
-    }
-
-    dibujar();
+    var puntero = 0;
     var pedido = 0;
-    window.addEventListener('scroll', function () {
+
+    function avance() {
+      var r = banda.getBoundingClientRect();
+      // Cero cuando la banda asoma por abajo, uno bastante antes de que se vaya: la
+      // ciudad tiene que terminar de encenderse mientras se la esta mirando, no cuando
+      // ya paso de largo.
+      var p = (window.innerHeight - r.top) / (window.innerHeight + r.height * 0.30);
+      return Math.min(1, Math.max(0, p));
+    }
+
+    function pintar() {
+      pedido = 0;
+      var p = avance();
+      // Cuadratica: al principio se encienden pocas y despues muchas, que es como se
+      // llena un edificio al anochecer. Lineal se lee como una barra de progreso.
+      var meta = Math.round(p * p * total);
+
+      while (puntero < meta) ventanas[puntero++].classList.add('encendida');
+      while (puntero > meta) ventanas[--puntero].classList.remove('encendida');
+
+      // Paralaje: el fondo se corre menos que el frente, que es lo unico que le da
+      // profundidad a tres siluetas planas.
+      for (var k = 0; k < capas.length; k++) {
+        var f = (k === 0 ? -46 : k === 1 ? -22 : 0);
+        capas[k].style.transform = 'translate(' + (f * p).toFixed(1) + 'px, ' +
+          capas[k].getAttribute('data-dy') + 'px)';
+      }
+      banda.style.setProperty('--noche', p.toFixed(3));
+    }
+
+    function pedir() {
       if (pedido) return;
-      pedido = requestAnimationFrame(function () { pedido = 0; avanzar(); });
-    }, { passive: true });
-    var redibujo;
-    window.addEventListener('resize', function () {
-      clearTimeout(redibujo);
-      redibujo = setTimeout(dibujar, 180);
-    }, { passive: true });
+      pedido = requestAnimationFrame(pintar);
+    }
+
+    for (var k = 0; k < capas.length; k++) {
+      // El transform del atributo pasa a estilo: si se dejan los dos, el atributo gana
+      // en algunos motores y la capa no se mueve.
+      var t = capas[k].getAttribute('transform') || '';
+      var m = /translate\(0 (-?[\d.]+)\)/.exec(t);
+      capas[k].setAttribute('data-dy', m ? m[1] : '0');
+      capas[k].removeAttribute('transform');
+    }
+
+    pintar();
+    window.addEventListener('scroll', pedir, { passive: true });
+    window.addEventListener('resize', pedir, { passive: true });
+  }
+
+  // Los cuatro tiempos: cada edificio se enciende cuando su tiempo entra en lectura.
+  //
+  // Se usa un observador y no el scroll: lo que decide cual esta vivo es cual renglon de
+  // texto esta a la altura de los ojos, y eso un IntersectionObserver lo contesta sin
+  // hacer cuentas en cada cuadro.
+  function montarPasos() {
+    var caja = document.querySelector('[data-pasos]');
+    if (!caja) return;
+    var edificios = caja.querySelectorAll('[data-paso]');
+    var textos = caja.querySelectorAll('[data-paso-txt]');
+    if (!edificios.length) return;
+
+    function vivo(n) {
+      for (var i = 0; i < edificios.length; i++) {
+        edificios[i].classList.toggle('vivo', i <= n);
+        if (textos[i]) textos[i].classList.toggle('vivo', i <= n);
+      }
+    }
+
+    if (quieto.matches || !('IntersectionObserver' in window)) {
+      vivo(edificios.length - 1);
+      return;
+    }
+
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting) vivo(+e.target.getAttribute('data-paso-txt'));
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    [].forEach.call(textos, function (el) { obs.observe(el); });
+    // Si la caja entra entera en pantalla de una, el observador con margen del 45% no
+    // dispara nunca y los cuatro quedarian apagados.
+    new IntersectionObserver(function (e) {
+      if (e[0].intersectionRatio > 0.9) vivo(edificios.length - 1);
+    }, { threshold: [0, 0.9, 1] }).observe(caja);
   }
 
   function arranque() {
     montarRecorrido();
     montarRevelados();
-    montarMensura();
+    montarCiudad();
+    montarPasos();
   }
 
   if (document.readyState === 'loading') {

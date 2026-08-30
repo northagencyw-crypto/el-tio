@@ -341,22 +341,22 @@ p { margin: 0 0 var(--t3); max-width: 58ch; }
   color: var(--papel);
 }
 .cajetin > div {
-  border: 1px solid rgba(231, 234, 230, 0.28);
+  border: 1px solid rgba(244, 239, 228, 0.28);
   margin: -1px 0 0 -1px;
   padding: var(--t3);
 }
-.cajetin .rotulo { color: rgba(231, 234, 230, 0.62); margin-bottom: var(--t1); }
+.cajetin .rotulo { color: rgba(244, 239, 228, 0.62); margin-bottom: var(--t1); }
 .cajetin .valor { font-family: var(--dato); font-size: 13px; font-variant-numeric: tabular-nums; }
 
 /* En las superficies oscuras el gris de lapiz no alcanza: sobre grafito mide 2,63 a 1
    y el minimo es 4,5. Se redefine el token en la propia superficie en vez de enumerar
    una por una las piezas que lo usan, asi cualquier pieza nueva queda bien sola. */
-.cierre-oscuro, .cajetin { --grafito-suave: #a6ada8; }
+.cierre-oscuro, .cajetin { --grafito-suave: #bdb5a2; }
 .cierre-oscuro { background: var(--grafito); color: var(--papel); }
 .cierre-oscuro h2 { color: var(--papel); }
-.cierre-oscuro .bajada { color: rgba(231, 234, 230, 0.72); }
+.cierre-oscuro .bajada { color: rgba(244, 239, 228, 0.72); }
 .cierre-oscuro .btn { border-color: var(--papel); color: var(--papel); }
-.cierre-oscuro .btn:hover { border-color: #c98494; color: #c98494; }
+.cierre-oscuro .btn:hover { border-color: var(--laton-claro); color: var(--laton-claro); }
 
 /* ------------------------------------------------------------------ figuras
    3:2 en absolutamente todo. La unica excepcion de la pagina es el retrato del
@@ -505,20 +505,20 @@ figcaption {
      que le toque a la foto abajo. */
   background:
     linear-gradient(to right,
-      rgba(21, 24, 26, 0.82) 0%,
-      rgba(21, 24, 26, 0.50) 30%,
-      rgba(21, 24, 26, 0) 58%),
+      rgba(23, 33, 28, 0.82) 0%,
+      rgba(23, 33, 28, 0.50) 30%,
+      rgba(23, 33, 28, 0) 58%),
     linear-gradient(to top,
-      rgba(21, 24, 26, 0.93) 0%,
-      rgba(21, 24, 26, 0.72) 34%,
-      rgba(21, 24, 26, 0.10) 62%,
-      rgba(21, 24, 26, 0) 84%);
+      rgba(23, 33, 28, 0.93) 0%,
+      rgba(23, 33, 28, 0.72) 34%,
+      rgba(23, 33, 28, 0.10) 62%,
+      rgba(23, 33, 28, 0) 84%);
   pointer-events: none;
 }
 .recorrido-placa, .recorrido-ficha { position: relative; }
 .recorrido-placa { max-width: 42ch; }
 .recorrido-placa a { pointer-events: auto; }
-.recorrido-placa .rotulo { color: #c98a92; }
+.recorrido-placa .rotulo { color: var(--laton-claro); }
 .recorrido-placa h1 {
   color: var(--lamina);
   /* Las referencias del rubro llegan a 216 px de display. La nuestra tenia 36 en
@@ -528,7 +528,7 @@ figcaption {
   margin: 12px 0 0;
 }
 .recorrido-bajada {
-  color: #b9c0bd;
+  color: #cdc4b1;
   font-size: clamp(15px, 1.35vw, 18px);
   max-width: 46ch;
   margin: 20px 0 28px;
@@ -538,7 +538,7 @@ figcaption {
   font-family: var(--dato);
   font-size: 11px;
   letter-spacing: 0.06em;
-  color: #9aa29e;
+  color: #b5ad9a;
 }
 
 /* La ficha: el dato de cada ambiente se anota al pasar y se queda anotado. Al
@@ -549,23 +549,23 @@ figcaption {
   inset: 0 0 0 auto;
   width: min(52%, 700px);
   background: linear-gradient(to left,
-    rgba(21, 24, 26, 0.86) 0%,
-    rgba(21, 24, 26, 0.66) 38%,
-    rgba(21, 24, 26, 0.22) 72%,
-    rgba(21, 24, 26, 0) 100%);
+    rgba(23, 33, 28, 0.86) 0%,
+    rgba(23, 33, 28, 0.66) 38%,
+    rgba(23, 33, 28, 0.22) 72%,
+    rgba(23, 33, 28, 0) 100%);
   pointer-events: none;
 }
 
 .recorrido-ficha {
   position: relative;   /* por encima de los dos velos, que estan posicionados */
-  border-top: 1px solid rgba(231, 234, 230, 0.42);
+  border-top: 1px solid rgba(244, 239, 228, 0.42);
   padding-top: 14px;
 }
 .ficha-titulo {
   font-family: var(--dato);
   font-size: 10px;
   letter-spacing: 0.22em;
-  color: rgba(231, 234, 230, 0.74);
+  color: rgba(244, 239, 228, 0.74);
   margin: 0 0 12px;
 }
 .recorrido-ficha ul { list-style: none; margin: 0; padding: 0; }
@@ -575,7 +575,7 @@ figcaption {
   grid-template-areas: 'num lugar' 'num dato';
   gap: 0 12px;
   padding: 9px 0;
-  border-bottom: 1px solid rgba(231, 234, 230, 0.14);
+  border-bottom: 1px solid rgba(244, 239, 228, 0.14);
   opacity: 0.3;
   transition: opacity 0.45s ease;
 }
@@ -594,7 +594,7 @@ figcaption {
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #9aa29e;
+  color: #b5ad9a;
 }
 .ficha-dato { grid-area: dato; color: var(--lamina); font-size: 15px; }
 
@@ -685,7 +685,7 @@ html:not(.js) .recorrido-ficha li { opacity: 1; }
   font-size: 10px;
   letter-spacing: 0.2em;
   color: var(--lamina);
-  background: rgba(21, 24, 26, 0.82);
+  background: rgba(23, 33, 28, 0.82);
   padding: 6px 10px;
 }
 
@@ -707,7 +707,7 @@ html:not(.js) .recorrido-ficha li { opacity: 1; }
   font-size: 11.5px;
   letter-spacing: 0.04em;
   color: var(--lamina);
-  background: rgba(21, 24, 26, 0.86);
+  background: rgba(23, 33, 28, 0.86);
   padding: 10px 14px;
 }
 
@@ -1001,8 +1001,8 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1px;
-  background: #2e3438;
-  border: 1px solid #2e3438;
+  background: #33403a;
+  border: 1px solid #33403a;
 }
 .rotulo-lamina .cel {
   background: var(--grafito);

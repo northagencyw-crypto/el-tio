@@ -419,7 +419,11 @@ figcaption {
    ========================================================================= */
 .recorrido {
   position: relative;
-  height: 480vh;      /* seis tramos: menos que esto y los ambientes se atropellan */
+  /* Ocho tomas, siete tramos. A 100vh por tramo el vuelo pasa demasiado rapido para
+     que se lea cada lugar; a 90 queda corto en pantallas bajas. 660 son 94 por tramo
+     mas el alto del propio hero, y con el suavizado de la camara encima eso da un
+     descenso que se puede mirar sin que se atropelle ni se haga largo. */
+  height: 660vh;
   background: var(--grafito);
 }
 .recorrido-marco {
@@ -476,11 +480,24 @@ figcaption {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-    rgba(21, 24, 26, 0.93) 0%,
-    rgba(21, 24, 26, 0.72) 34%,
-    rgba(21, 24, 26, 0.10) 62%,
-    rgba(21, 24, 26, 0) 84%);
+  /* Dos velos en el mismo pseudoelemento: uno por abajo, para el bloque de texto, y otro
+     por la izquierda, para la columna entera.
+
+     El de la izquierda no estaba y la medicion lo delato: el rotulo de marca daba 152 de
+     luminancia sobre un fondo de 161 en la toma del acceso, o sea nueve puntos de
+     diferencia. A ojo parecia "un poco flojo"; medido, era invisible. El texto del hero
+     va sobre una fotografia que cambia ocho veces, asi que no puede depender del color
+     que le toque a la foto abajo. */
+  background:
+    linear-gradient(to right,
+      rgba(21, 24, 26, 0.82) 0%,
+      rgba(21, 24, 26, 0.50) 30%,
+      rgba(21, 24, 26, 0) 58%),
+    linear-gradient(to top,
+      rgba(21, 24, 26, 0.93) 0%,
+      rgba(21, 24, 26, 0.72) 34%,
+      rgba(21, 24, 26, 0.10) 62%,
+      rgba(21, 24, 26, 0) 84%);
   pointer-events: none;
 }
 .recorrido-placa, .recorrido-ficha { position: relative; }
@@ -511,15 +528,29 @@ figcaption {
 
 /* La ficha: el dato de cada ambiente se anota al pasar y se queda anotado. Al
    final del recorrido estan los seis, que es lo que la seccion afirma. */
+.recorrido-encima::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(52%, 700px);
+  background: linear-gradient(to left,
+    rgba(21, 24, 26, 0.86) 0%,
+    rgba(21, 24, 26, 0.66) 38%,
+    rgba(21, 24, 26, 0.22) 72%,
+    rgba(21, 24, 26, 0) 100%);
+  pointer-events: none;
+}
+
 .recorrido-ficha {
-  border-top: 1px solid rgba(231, 234, 230, 0.3);
+  position: relative;   /* por encima de los dos velos, que estan posicionados */
+  border-top: 1px solid rgba(231, 234, 230, 0.42);
   padding-top: 14px;
 }
 .ficha-titulo {
   font-family: var(--dato);
   font-size: 10px;
   letter-spacing: 0.22em;
-  color: #9aa29e;
+  color: rgba(231, 234, 230, 0.74);
   margin: 0 0 12px;
 }
 .recorrido-ficha ul { list-style: none; margin: 0; padding: 0; }

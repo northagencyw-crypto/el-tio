@@ -49,39 +49,61 @@
     'precision highp float;',
     'varying vec2 uv;',
     'uniform vec2 tamano;',
-    'uniform vec2 relacionA;',   // relacion de aspecto de cada textura, para
-    'uniform vec2 relacionB;',   // recortar sin deformar
-    'uniform float avance;',     // 0 a 1 dentro del tramo: la camara empuja
-    'uniform float mezcla;',     // cruce entre ambiente A y ambiente B
+    'uniform vec2 relacionA;',   // relacion de aspecto de cada toma, para recortar
+    'uniform vec2 relacionB;',   // sin deformar
+    'uniform float escalaA;',    // cuanto se acerco la toma de adelante (1 -> K)
+    'uniform float escalaB;',    // cuanto se acerco la de atras       (1/K -> 1)
+    'uniform float salida;',     // cuanto se desvanecio la de adelante
+    'uniform float borron;',     // desenfoque radial, atado a la velocidad de scroll
+    'uniform vec2 centroA;',   // hacia donde empuja la camara, en la toma de adelante
+    'uniform vec2 anclaB;',    // donde en la pantalla nace la toma de atras
+    'uniform vec2 derivaA;',
+    'uniform vec2 derivaB;',
     'uniform sampler2D ambienteA;',
     'uniform sampler2D ambienteB;',
     '',
-    // Recorte tipo `object-fit: cover`, hecho en el shader. Sin esto la foto se
-    // estira al ancho del canvas y en arquitectura una vertical torcida se ve
-    // enseguida: es justo lo que este rubro no perdona.
-    'vec2 cubrir(vec2 c, vec2 rel, float empuje){',
+    // Recorte tipo `object-fit: cover`, hecho en el shader. Sin esto la foto se estira
+    // al ancho del canvas y en arquitectura una vertical torcida se ve enseguida.
+    //
+    // `ancla` es el punto de la PANTALLA desde el que se abre la toma, y `centro` el
+    // punto de la IMAGEN hacia el que se cierra. Para la toma de adelante el ancla es el
+    // centro de la pantalla y el centro corre hacia el punto de fuga; para la de atras es
+    // al reves. Sin esto la camara empuja siempre al centro geometrico, y cuando el
+    // sujeto de la toma siguiente no cayo exactamente ahi, el empalme se nota.
+    'vec2 cubrir(vec2 c, vec2 rel, float escala, vec2 ancla, vec2 centro, vec2 deriva){',
     '  vec2 escalaLienzo = vec2(tamano.x / tamano.y, 1.0);',
     '  vec2 escalaImagen = vec2(rel.x / rel.y, 1.0);',
     '  float f = max(escalaLienzo.x / escalaImagen.x, escalaLienzo.y / escalaImagen.y);',
     '  vec2 tam = escalaImagen * f;',
-    '  vec2 p = (c - 0.5) * escalaLienzo / tam;',
-    // El empuje es un zoom hacia el centro: es lo que convierte un cruce de fotos
-    // en la sensacion de estar caminando hacia adentro.
-    '  return p / (1.0 + empuje) + 0.5;',
+    '  vec2 p = (c - ancla) * escalaLienzo / tam;',
+    '  return p / escala + centro + deriva;',
+    '}',
+    '',
+    // Desenfoque radial: cuatro muestras a lo largo del rayo que sale del centro, con
+    // la separacion atada a la velocidad. Es lo unico que distingue un empuje de camara
+    // de un zoom de visor: cuando una camara avanza rapido, lo que esta cerca del borde
+    // se estira hacia afuera y el centro se queda quieto.
+    'vec3 rayo(sampler2D t, vec2 rel, float escala, vec2 ancla, vec2 centro, vec2 deriva){',
+    '  vec3 s = vec3(0.0);',
+    '  for (int k = 0; k < 6; k++){',
+    '    float w = (float(k) / 5.0 - 0.5) * borron;',
+    '    vec2 c = (uv - ancla) * (1.0 + w) + ancla;',
+    '    s += texture2D(t, cubrir(c, rel, escala, ancla, centro, deriva)).rgb;',
+    '  }',
+    '  return s * 0.16666667;',
     '}',
     '',
     'void main(){',
-    '  float empujeA = mix(0.0, 0.16, avance);',
-    // El ambiente que entra arranca un poco mas cerrado y se abre: los dos se
-    // mueven en la misma direccion, asi el corte no frena la marcha.
-    '  float empujeB = mix(-0.10, 0.06, avance);',
+    '  vec3 a = rayo(ambienteA, relacionA, escalaA, vec2(0.5), centroA, derivaA);',
+    '  vec3 b = rayo(ambienteB, relacionB, escalaB, anclaB, vec2(0.5), derivaB);',
+    // La de adelante se abre y se va; la de atras venia creciendo desde el centro y
+    // queda. Las dos escalas son la misma exponencial corrida un tramo, asi que en el
+    // momento del cruce la de atras esta exactamente donde estaba la de adelante al
+    // empezar: por eso el cambio de toma no se ve.
+    '  vec3 color = mix(a, b, salida);',
     '',
-    '  vec3 a = texture2D(ambienteA, cubrir(uv, relacionA, empujeA)).rgb;',
-    '  vec3 b = texture2D(ambienteB, cubrir(uv, relacionB, empujeB)).rgb;',
-    '  vec3 color = mix(a, b, mezcla);',
-    '',
-    // Vinieta fria y muy contenida. La pagina es un legajo tecnico: la foto se
-    // apoya en el borde, no se dramatiza.
+    // Vinieta fria y muy contenida. La pagina es un legajo tecnico: la foto se apoya en
+    // el borde, no se dramatiza.
     '  vec2 d = (uv - 0.5) * vec2(tamano.x / tamano.y, 1.0);',
     '  float vin = smoothstep(0.95, 0.30, length(d));',
     '  color *= 0.80 + 0.20 * vin;',
@@ -123,6 +145,14 @@
     return t;
   }
 
+  // El vuelo del hero: de la orbita a la villa sin un solo corte.
+  //
+  // No es un cruce de fotos con un zoom encima, que es lo que habia antes y se leia
+  // como ocho postales encadenadas. Es un empuje continuo: cada toma esta compuesta
+  // para que el sujeto de la siguiente quede chico y centrado, y las dos escalas del
+  // shader son la misma exponencial corrida un tramo. Cuando la toma de adelante llego
+  // a K, la de atras llego a 1 y esta encuadrada exactamente donde arranco la anterior.
+  // De ahi que el pasaje no se vea: geometricamente, no hay pasaje.
   function montarRecorrido() {
     var escenario = document.querySelector('[data-recorrido]');
     if (!escenario) return;
@@ -160,28 +190,59 @@
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
 
     var u = {};
-    ['tamano', 'relacionA', 'relacionB', 'avance', 'mezcla', 'ambienteA', 'ambienteB']
+    ['tamano', 'relacionA', 'relacionB', 'escalaA', 'escalaB', 'salida', 'borron',
+     'centroA', 'anclaB', 'derivaA', 'derivaB', 'ambienteA', 'ambienteB']
       .forEach(function (n) { u[n] = gl.getUniformLocation(prog, n); });
 
     var texturas = [];
     var relaciones = [];
-    var listas = 0;
     var corriendo = false;
+    var arrancado = false;
+
+    // Cuanto se acerca la camara a lo largo de un tramo. Es la razon de la progresion
+    // geometrica del vuelo: el plano de atras arranca en 1/K y termina en 1, el de
+    // adelante arranca en 1 y termina en K, y en el empalme los dos valen lo mismo. De
+    // ahi que no haya corte visible entre toma y toma.
+    var K = 2.4;
+
+    // Una deriva lateral chica y propia de cada toma, para que el empuje no sea un zoom
+    // perfectamente centrado, que se lee mecanico. Va multiplicada por (escala - 1), asi
+    // que vale cero justo en el empalme y no rompe el encastre.
+    function deriva(i) {
+      return [Math.sin(i * 12.9898) * 0.030, Math.cos(i * 78.233) * 0.024];
+    }
+
+    var focos = laminas.map(function (el) {
+      var f = (el.getAttribute('data-foco') || '').split(',');
+      var x = parseFloat(f[0]), y = parseFloat(f[1]);
+      return [isFinite(x) ? x : 0.5, isFinite(y) ? y : 0.5];
+    });
 
     laminas.forEach(function (el, i) {
       var img = new Image();
       img.onload = function () {
         texturas[i] = textura(gl, img);
         relaciones[i] = [img.naturalWidth, img.naturalHeight];
-        listas += 1;
-        if (listas === 2) arrancar();
+        // Alcanza con las dos primeras para empezar a volar: el resto entra mientras
+        // se baja. Esperar las ocho dejaba el hero en negro varios segundos.
+        if (!arrancado && texturas[0] && texturas[1]) arrancar();
       };
       img.src = el.getAttribute('data-ambiente');
     });
 
+    // Escalones de resolucion. Se arranca en 1.5 y no en 2 porque el barrido radial son
+    // doce lecturas de textura por pixel (medido: cuesta 2,25 veces lo que cuesta sin
+    // barrido) y a 2x en una pantalla grande eso es el doble del trabajo que hace falta
+    // para una fotografia en movimiento, donde la nitidez extrema no se ve. Si aun asi
+    // el equipo no llega, se baja solo: mas vale un vuelo fluido y algo mas blando que
+    // uno nitido a tirones, que es exactamente lo contrario de lo que la pieza promete.
+    var ESCALONES = [1.5, 1.15, 0.9];
+    var escalon = 0;
+    var muestras = [];
+
     function medir() {
       var caja = canvas.getBoundingClientRect();
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var dpr = Math.min(window.devicePixelRatio || 1, ESCALONES[escalon]);
       canvas.width = Math.max(1, Math.round(caja.width * dpr));
       canvas.height = Math.max(1, Math.round(caja.height * dpr));
       gl.viewport(0, 0, canvas.width, canvas.height);
@@ -194,7 +255,7 @@
       return Math.min(1, Math.max(0, -caja.top / total));
     }
 
-    // Las fichas de dato: una por ambiente, se anotan a medida que se pasa.
+    // Las fichas de dato: una por toma, se anotan a medida que se desciende.
     var fichas = escenario.querySelectorAll('[data-ficha]');
     var tramoActual = -1;
 
@@ -202,29 +263,54 @@
       if (i === tramoActual) return;
       tramoActual = i;
       [].forEach.call(fichas, function (el, j) {
-        // Se anotan y se quedan anotadas: al final del recorrido estan las seis,
-        // que es justo lo que la seccion afirma.
+        // Se anotan y se quedan anotadas: al final del recorrido estan las ocho, que es
+        // justo lo que la seccion afirma.
         el.classList.toggle('anotada', j <= i);
         el.classList.toggle('activa', j === i);
       });
     }
 
-    function pintar() {
-      var p = progreso();
+    // El avance suavizado. La rueda del mouse no entrega un movimiento continuo sino
+    // saltos de cien pixeles, y atar la camara directo a esos saltos da un vuelo a
+    // tirones. Se persigue el objetivo con un seguimiento exponencial: la camara llega
+    // siempre, pero con la demora que tiene una camara de verdad.
+    var suave = -1;
+    var previo = 0;
+    var antes = 0;
+
+    function pintar(ahora) {
+      var dt = antes ? Math.min(0.1, (ahora - antes) / 1000) : 0.016;
+      antes = ahora;
+
+      var objetivo = progreso();
+      if (suave < 0) suave = objetivo;
+      // Constante de tiempo de 0.34 s: la camara cubre el 95% de lo que le falta en ese
+      // lapso, corra a sesenta cuadros o a diez.
+      suave += (objetivo - suave) * (1.0 - Math.pow(0.05, dt / 0.34));
+
+      // La velocidad tambien se normaliza a un cuadro de 60, o el desenfoque dependeria
+      // de los cuadros por segundo en vez de la velocidad de lectura.
+      var vel = Math.abs(suave - previo) * (0.016 / Math.max(0.004, dt));
+      previo = suave;
+
+      // Cada 45 cuadros se mira la mediana. Mediana y no promedio: un solo cuadro largo
+      // por una recoleccion de basura no tiene que bajar la resolucion de toda la pieza.
+      if (escalon < ESCALONES.length - 1) {
+        muestras.push(dt);
+        if (muestras.length === 45) {
+          muestras.sort(function (x, y) { return x - y; });
+          if (muestras[22] > 0.026) { escalon += 1; medir(); }
+          muestras = [];
+        }
+      }
+
       var tramos = texturas.length - 1;
-      var escala = p * tramos;
-      var i = Math.min(tramos - 1, Math.floor(escala));
-      var f = escala - i;
+      if (tramos < 1) { if (corriendo) requestAnimationFrame(pintar); return; }
+      var d = suave * tramos;
+      var i = Math.min(tramos - 1, Math.floor(d));
+      var f = d - i;
 
-      marcarTramo(Math.min(texturas.length - 1, Math.round(escala)));
-
-      gl.uniform1f(u.avance, f);
-      // El cruce se concentra en el ultimo tramo del recorrido de cada ambiente.
-      // Con un smoothstep sobre el segmento entero se pasaba la mitad del tiempo en
-      // doble exposicion, y eso no se lee como avanzar: se lee como una foto mal
-      // cargada encima de otra. Asi cada ambiente se sostiene y despues se cruza.
-      var c = Math.min(1, Math.max(0, (f - 0.58) / 0.42));
-      gl.uniform1f(u.mezcla, c * c * (3.0 - 2.0 * c));
+      marcarTramo(Math.min(texturas.length - 1, Math.floor(d + 0.5)));
 
       var a = i;
       var b = Math.min(texturas.length - 1, i + 1);
@@ -232,6 +318,31 @@
         if (corriendo) requestAnimationFrame(pintar);
         return;
       }
+
+      var escalaA = Math.pow(K, f);
+      var escalaB = Math.pow(K, f - 1.0);
+      // La disolvencia ocupa casi todo el tramo. Con las dos tomas encastradas por
+      // escala se pueden cruzar largo sin que se lea como doble exposicion, y cruzarlas
+      // largo es lo que borra el limite entre una y la siguiente.
+      var s = Math.min(1, Math.max(0, (f - 0.22) / 0.72));
+      var da = deriva(a), db = deriva(b);
+
+      // El punto de fuga de la toma de adelante: donde adentro de ella vive el sujeto de
+      // la siguiente. Se declara en el HTML porque lo decide la fotografia, no el codigo.
+      var foco = focos[a] || [0.5, 0.5];
+      // El centro recorre el camino que recorre de verdad una camara que avanza hacia un
+      // punto fuera de eje: se corre como la reciproca de la escala, no linealmente.
+      var ta = (1.0 - 1.0 / escalaA) / (1.0 - 1.0 / K);
+      var tb = (1.0 / escalaB - 1.0) / (K - 1.0);
+      gl.uniform2f(u.centroA, 0.5 + (foco[0] - 0.5) * ta, 0.5 + (foco[1] - 0.5) * ta);
+      gl.uniform2f(u.anclaB, 0.5 + (foco[0] - 0.5) * tb, 0.5 + (foco[1] - 0.5) * tb);
+
+      gl.uniform1f(u.escalaA, escalaA);
+      gl.uniform1f(u.escalaB, escalaB);
+      gl.uniform1f(u.salida, s * s * (3.0 - 2.0 * s));
+      gl.uniform1f(u.borron, Math.min(0.05, vel * 5.0));
+      gl.uniform2f(u.derivaA, da[0] * (escalaA - 1.0), da[1] * (escalaA - 1.0));
+      gl.uniform2f(u.derivaB, db[0] * (escalaB - 1.0), db[1] * (escalaB - 1.0));
       gl.uniform2f(u.relacionA, relaciones[a][0], relaciones[a][1]);
       gl.uniform2f(u.relacionB, relaciones[b][0], relaciones[b][1]);
 
@@ -247,6 +358,8 @@
     }
 
     function arrancar() {
+      if (arrancado) return;
+      arrancado = true;
       escenario.classList.add('recorrido-vivo');
       marco.insertBefore(canvas, marco.firstChild);
       medir();

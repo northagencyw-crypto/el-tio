@@ -424,20 +424,47 @@
   }
 
   function montarRevelados() {
-    var piezas = document.querySelectorAll('[data-revela]');
+    var piezas = [].slice.call(document.querySelectorAll('[data-revela]'));
     if (!piezas.length) return;
-    if (quieto.matches || !('IntersectionObserver' in window)) {
-      [].forEach.call(piezas, function (el) { el.classList.add('visible'); });
+    if (quieto.matches) {
+      piezas.forEach(function (el) { el.classList.add('visible'); });
       return;
     }
-    var obs = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      });
-    }, { rootMargin: '0px 0px -12% 0px' });
-    [].forEach.call(piezas, function (el) { obs.observe(el); });
+
+    // Por posicion y no con un IntersectionObserver.
+    //
+    // El observador avisa de lo que ESTA cruzando el borde. Si el scroll salta por encima
+    // de un elemento (el navegador restaurando la posicion al recargar, un enlace con
+    // ancla, la rueda a fondo, o el "ir al final" del teclado), ese elemento pasa de estar
+    // abajo a estar arriba sin cruzar nada, y se queda en opacidad cero para siempre.
+    //
+    // Aca son once bloques, y adentro estan las tres capturas del producto, que son la
+    // unica prueba dura que tiene el proyecto. Una comprobacion por posicion no se saltea
+    // nada: se pregunta donde esta cada uno, no si acaba de cruzar.
+    var faltan = piezas.slice();
+    var pedido = 0;
+
+    function revisar() {
+      pedido = 0;
+      var linea = window.innerHeight * 0.88;
+      for (var i = faltan.length - 1; i >= 0; i--) {
+        if (faltan[i].getBoundingClientRect().top < linea) {
+          faltan[i].classList.add('visible');
+          faltan.splice(i, 1);
+        }
+      }
+      if (!faltan.length) {
+        window.removeEventListener('scroll', pedir);
+        window.removeEventListener('resize', pedir);
+      }
+    }
+    function pedir() {
+      if (pedido) return;
+      pedido = requestAnimationFrame(revisar);
+    }
+    revisar();
+    window.addEventListener('scroll', pedir, { passive: true });
+    window.addEventListener('resize', pedir, { passive: true });
   }
 
   // Los cuatro tiempos: cada edificio se enciende cuando su tiempo entra en lectura.
@@ -460,12 +487,26 @@
       return;
     }
 
-    var obs = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (e) {
-        if (e.isIntersecting) vivo(+e.target.getAttribute('data-paso-txt'));
-      });
-    }, { rootMargin: '-45% 0px -45% 0px' });
-    [].forEach.call(celdas, function (el) { obs.observe(el); });
+    // Tambien por posicion: la banda del observador era el diez por ciento del medio de
+    // la ventana, y saltando por encima no la cruza nadie. Vive el ultimo tiempo cuya
+    // celda ya paso la mitad de la pantalla.
+    var pedido2 = 0;
+    function revisarPasos() {
+      pedido2 = 0;
+      var medio = window.innerHeight * 0.5;
+      var n = -1;
+      for (var i = 0; i < celdas.length; i++) {
+        if (celdas[i].getBoundingClientRect().top < medio) n = i;
+      }
+      vivo(n);
+    }
+    function pedirPasos() {
+      if (pedido2) return;
+      pedido2 = requestAnimationFrame(revisarPasos);
+    }
+    revisarPasos();
+    window.addEventListener('scroll', pedirPasos, { passive: true });
+    window.addEventListener('resize', pedirPasos, { passive: true });
     // Si la caja entra entera en pantalla de una, el observador con margen del 45% no
     // dispara nunca y los cuatro quedarian apagados.
     new IntersectionObserver(function (e) {

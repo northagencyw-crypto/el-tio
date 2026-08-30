@@ -2241,7 +2241,7 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
 }
 .anl {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
   gap: clamp(24px, 4vw, 56px);
   align-items: center;
 }
@@ -2355,109 +2355,35 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
 
 .ins-rejilla { stroke: rgba(201, 173, 120, 0.10); stroke-width: 1; }
 
-/* ------------------------------------------------------- la carta de comparables */
-
-.cmp text {
-  font-family: var(--texto);
-  font-weight: 500;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  fill: rgba(244, 239, 228, 0.54);
+/* El mockup ocupa el marco entero.
+   Trae su propia cabecera dibujada adentro de la imagen, asi que la figura no pone otra:
+   la repetia y ademas empujaba el dibujo hacia abajo, dejando el mockup chico en el
+   medio de un campo de marfil. Queda el marco, la imagen a sangre y el pie. */
+.instrumento--mock {
+  padding: 0;
+  overflow: hidden;
+  background: var(--tinta);
 }
-.cmp-banda { fill: rgba(201, 173, 120, 0.10); stroke: rgba(201, 173, 120, 0.30); stroke-width: 1; }
-.cmp-nota { fill: var(--laton-claro); }
-.cmp-eje { stroke: rgba(244, 239, 228, 0.42); stroke-width: 1.2; }
-.cmp-eje-rot { font-size: 10px; }
-.cmp-eje-tit { fill: rgba(244, 239, 228, 0.72); }
-.cmp-marca circle { fill: rgba(244, 239, 228, 0.62); }
-.cmp-marca line { stroke: rgba(244, 239, 228, 0.18); stroke-width: 1; }
-.cmp-sujeto circle { fill: var(--laton-claro); }
-.cmp-sujeto line { stroke: var(--laton-claro); stroke-width: 1.2; stroke-dasharray: 3 4; }
-.cmp-halo { fill: none; stroke: var(--laton-claro); stroke-width: 1; opacity: 0.45; }
-.cmp-yo { fill: var(--laton-claro); font-size: 11px; }
-
-/* La entrada: cada comparable sube hasta su sitio, escalonado por su indice, y la
-   propiedad analizada entra ultima. El retraso sale de --i, que lo escribe el
-   generador: asi el escalonado no cuesta ni una linea de JavaScript. */
-.instrumento .cmp-marca,
-.instrumento .cmp-sujeto {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+/* Sin `aspect-ratio` ni `object-fit`. El generador devuelve 1536x1024 aunque el brief
+   pida 16:9, asi que recortar a 16:9 se comia la cabecera del mockup, que es justo la
+   linea que dice de que lugar es. La imagen manda su propia proporcion. */
+.instrumento--mock img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
-.instrumento.visible .cmp-marca {
-  opacity: 1;
-  transform: none;
-  transition-delay: calc(var(--i) * 55ms);
-}
-.instrumento.visible .cmp-sujeto {
-  opacity: 1;
-  transform: none;
-  transition-delay: 1.05s;
-}
-
-/* -------------------------------------------------------- los anillos de la zona */
-
-.zon text {
-  font-family: var(--dato);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  fill: rgba(244, 239, 228, 0.5);
-}
-.zon-rayo { stroke: rgba(201, 173, 120, 0.13); stroke-width: 0.7; }
-.zon-anillo {
-  fill: none;
-  stroke: rgba(244, 239, 228, 0.34);
-  stroke-width: 0.9;
-  stroke-dasharray: 2 5;
-}
-.zon-centro { fill: var(--laton-claro); }
-.zon-halo { fill: none; stroke: var(--laton-claro); stroke-width: 1; opacity: 0.4; }
-.zon-marca { fill: none; stroke: rgba(244, 239, 228, 0.66); stroke-width: 1.1; }
-.zon-t0 { stroke: var(--laton-claro); }
-.zon-t2 { fill: rgba(244, 239, 228, 0.5); stroke: none; }
-
-/* Los anillos se abren desde el centro y las marcas aparecen despues, para que se lea
-   que el dibujo mide distancia desde un punto y no que es una diana decorativa. */
-.instrumento .zon-anillo {
-  transform: scale(0.2);
-  opacity: 0;
-  transform-origin: center;
-  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.3, 1), opacity 0.6s ease;
-}
-.instrumento.visible .zon-anillo {
-  transform: none;
-  opacity: 1;
-  transition-delay: calc(var(--i) * 140ms);
-}
-.instrumento .zon-marca { opacity: 0; transition: opacity 0.5s ease; }
-.instrumento.visible .zon-marca {
-  opacity: 1;
-  transition-delay: calc(560ms + var(--i) * 45ms);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .instrumento .cmp-marca,
-  .instrumento .cmp-sujeto,
-  .instrumento .zon-anillo,
-  .instrumento .zon-marca {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+.instrumento--mock figcaption {
+  margin: 0;
+  padding: 11px clamp(12px, 2vw, 18px);
+  border-top: 1px solid rgba(201, 173, 120, 0.18);
+  color: rgba(244, 239, 228, 0.52);
 }
 
 /* Alto contraste. Los `fill` y `stroke` de un SVG no los fuerza `forced-colors`, asi que
    sin esto los dos instrumentos desaparecen contra el fondo del sistema. */
 @media (forced-colors: active) {
-  .cmp-eje, .cmp-marca line, .cmp-sujeto line, .cmp-halo, .zon-halo,
-  .zon-anillo, .zon-rayo, .zon-marca, .ins-rejilla { stroke: CanvasText; }
-  .cmp-banda { fill: Canvas; stroke: CanvasText; }
-  .cmp-marca circle, .cmp-sujeto circle, .zon-centro, .zon-t2 { fill: CanvasText; }
-  .cmp text, .zon text { fill: CanvasText; }
-  .instrumento--panel, .pq-marco, .ins-cabeza, .ins-pie, .ins-chip { border-color: CanvasText; }
-  .lg--obra, .lg--serv { border-color: CanvasText; }
-  .lg--acc { border-bottom-color: CanvasText; }
+  .instrumento--panel, .instrumento--mock,
+  .pq-marco, .ins-cabeza, .ins-pie, .ins-chip { border-color: CanvasText; }
 }
 
 

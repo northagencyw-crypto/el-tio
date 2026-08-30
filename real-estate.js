@@ -442,10 +442,10 @@
     var cuerpo = document.querySelector('.cuerpo-plano');
     if (!cuerpo) return;
 
-    var revelas = bandas.map(function (b) { return b.querySelector('.fg-revela'); });
+    var cortinas = bandas.map(function (b) { return b.querySelector('.fg-cortina'); });
 
     if (quieto.matches) {
-      revelas.forEach(function (r) { if (r) r.setAttribute('height', String(cuerpo.offsetHeight)); });
+      cortinas.forEach(function (c) { if (c) c.style.transform = 'translateY(100%)'; });
       return;
     }
 
@@ -454,15 +454,13 @@
       pedido = 0;
       var caja = cuerpo.getBoundingClientRect();
       // La punta del lapiz va a dos tercios de la ventana, que es donde esta mirando
-      // quien baja. Si fuera el borde de abajo, el grabado siempre estaria terminado
-      // antes de que se lo vea.
+      // quien baja. En el borde de abajo el grabado siempre estaria terminado antes de
+      // que se lo vea.
       var punta = (window.innerHeight * 0.68) - caja.top;
       var p = Math.min(1, Math.max(0, punta / cuerpo.offsetHeight));
-      // Las bandas no tienen viewBox, asi que una unidad de usuario es un pixel y la
-      // altura de la mascara se expresa directamente en el alto del cuerpo.
-      var h = (p * cuerpo.offsetHeight).toFixed(0);
-      for (var i = 0; i < revelas.length; i++) {
-        if (revelas[i]) revelas[i].setAttribute('height', h);
+      var y = (p * 100).toFixed(2) + '%';
+      for (var i = 0; i < cortinas.length; i++) {
+        if (cortinas[i]) cortinas[i].style.transform = 'translateY(' + y + ')';
       }
     }
     function pedir() {

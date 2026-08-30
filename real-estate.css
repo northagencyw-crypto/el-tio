@@ -1405,7 +1405,19 @@ h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0; }
   bottom: 0;
   width: var(--canal);
   pointer-events: none;
-  opacity: 1;
+  overflow: hidden;
+}
+.filigrana > svg { display: block; }
+/* La cortina que descubre el grabado al bajar. Es del color del papel y se mueve con
+   `transform`, que el compositor resuelve sin repintar: la version con mascara de SVG
+   cambiaba la geometria en cada cuadro y obligaba a rasterizar de nuevo un patron de
+   ocho mil seiscientos pixeles de alto. Medido, el peor cuadro pasaba de dos segundos. */
+.fg-cortina {
+  position: absolute;
+  inset: 0;
+  background: var(--marfil);
+  transform: translateY(0);
+  will-change: transform;
 }
 .filigrana--izq { left: 0; }
 .filigrana--der { right: 0; }

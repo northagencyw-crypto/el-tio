@@ -676,7 +676,8 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
 @media (max-width: 900px) {
   .con-lamina { grid-template-columns: 1fr; gap: 32px; }
   .lamina-tecnica { position: static; }
-  .tira-obra { grid-template-columns: 1fr; }
+  .tira-obra img { aspect-ratio: 3 / 4; }
+  .tira-obra figcaption { font-size: 9px; letter-spacing: 0.14em; padding: 6px 8px; }
 }
 
 /* El CTA sobre el recorrido va invertido.
@@ -719,16 +720,30 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
    salio pegado al borde izquierdo, sin ancho maximo. Es la segunda vez que me pasa entre
    estas dos hojas, y por eso ahora las secciones nuevas usan `.plancha`. */
 .entrega > .plancha { max-width: 1440px; }
-.entregables { list-style: none; margin: 44px 0 0; padding: 0; }
+/* La plancha de montaje. Antes era una lista de ocho filas, cada una con una foto de 578
+   pixeles de alto al lado de 131 de texto: 447 de vacio por fila, unos 3.500 en total, y
+   es literalmente lo que marco el founder en la pagina anterior ("imagenes verticales y
+   al lado tres renglones de texto y lleno de blanco arriba y abajo").
 
-.ent {
+   La correccion de fondo no es achicar la foto sino sacar el texto de al lado: debajo de
+   la imagen no puede sobrar altura, porque el bloque mide lo que mide su contenido. Y
+   sobre doce columnas cada pieza puede tener el ancho que le corresponde en vez del
+   mismo para las ocho, que es lo que hacia que ocho entregables se leyeran como una
+   tabla. */
+.entregables {
+  list-style: none;
+  margin: 52px 0 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
-  gap: 48px;
-  align-items: center;
-  padding: 30px 0;
-  border-top: 1px solid var(--linea);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 34px 30px;
+  align-items: start;
 }
+.ent {
+  grid-column: span var(--span, 6);
+  margin-top: var(--baja, 0px);
+}
+
 .ent:last-child { border-bottom: 1px solid var(--linea); }
 /* Las impares dan vuelta la plantilla, no el orden de los hijos: con `order` el
    elemento cambia de lugar pero las columnas no, y la captura terminaba en la columna
@@ -756,17 +771,30 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
   letter-spacing: 0.06em;
   color: var(--grafito-suave);
 }
-.ent-foto--obra img { aspect-ratio: 4 / 3; object-fit: cover; }
+.ent-foto--obra img { aspect-ratio: var(--forma, 4 / 3); object-fit: cover; }
 
-.ent-texto { max-width: 46ch; }
+/* Cada pieza con su proporcion. Ocho fotos con el mismo recorte vuelven a ser una tabla
+   por mucho que cambien de ancho. */
+.ent-texto { margin-top: 18px; }
 .ent-texto h3 {
-  margin: 0 0 12px;
-  font-size: clamp(24px, 2.6vw, 34px);
-  line-height: 1.08;
+  margin: 0 0 8px;
+  font-size: clamp(19px, 1.5vw, 23px);
+  line-height: 1.12;
   display: flex;
   align-items: baseline;
-  gap: 14px;
+  gap: 12px;
 }
+.ent-texto p { font-size: 15px; line-height: 1.55; }
+.ent-num { font-family: var(--dato); font-size: 11px; color: var(--lacre); }
+
+@media (max-width: 900px) {
+  .entregables { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 22px; }
+  .ent { grid-column: span 1; margin-top: 0; }
+}
+@media (max-width: 560px) {
+  .entregables { grid-template-columns: 1fr; }
+}
+
 .ent-num {
   font-family: var(--dato);
   font-size: 12px;
@@ -818,4 +846,410 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
   .ent:nth-child(even) > .ent-foto { order: 0; }
   .como-grid { grid-template-columns: 1fr; gap: 32px; }
   .como-tio { position: static; max-width: 340px; }
+}
+
+
+/* ------------------------------------------------------------------ la mensura
+   La capa de detalle del vertical. Vive en el canal que queda entre el borde de la
+   ventana y la caja de texto, que en las otras paginas es margen muerto y aca es donde
+   va la acotacion, igual que en una lamina de obra.
+
+   No lleva z-index a proposito. Un z-index numerico sobre un elemento posicionado crea
+   contexto de apilado, y la ultima vez que se puso uno "por las dudas" el resultado fue
+   media hora buscando por que una capa dejo de mezclarse. El orden de pintado ya alcanza:
+   .mensura esta posicionada y las secciones no, asi que pinta encima de sus fondos sin
+   pedir permiso, y como todo su dibujo cae en el canal, no tapa una sola letra. */
+.cuerpo-plano { position: relative; }
+
+.mensura {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.mensura-svg { display: block; }
+
+/* Grosores de lapiz de verdad: la linea de eje es la mas fina porque es referencia, la
+   cota es la que se lee, y el tope es el trazo corto y apretado que se hace al final. */
+.mensura .eje {
+  fill: none;
+  stroke: var(--linea);
+  stroke-width: 0.9;
+  opacity: 0.55;
+}
+.mensura .eje--claro { stroke: #b8c0b6; opacity: 0.75; }
+
+.mensura .marca {
+  fill: none;
+  stroke: var(--linea);
+  stroke-width: 0.8;
+  opacity: 0;
+  transition: opacity 620ms ease;
+}
+.mensura .nodo {
+  fill: var(--lacre);
+  opacity: 0;
+  transition: opacity 420ms ease 90ms;
+}
+.mensura .cota, .mensura .tope {
+  fill: none;
+  stroke: var(--linea);
+  stroke-width: 0.9;
+  opacity: 0;
+  transition: opacity 700ms ease 140ms;
+}
+
+.mensura .num {
+  font: 500 10px/1 var(--dato);
+  letter-spacing: 0.14em;
+  fill: var(--grafito-suave);
+  text-anchor: end;
+  opacity: 0;
+  transition: opacity 520ms ease 120ms;
+}
+.mensura .medida {
+  font: 400 9px/1 var(--dato);
+  letter-spacing: 0.22em;
+  fill: var(--grafito-suave);
+  text-anchor: middle;
+  opacity: 0;
+  transition: opacity 760ms ease 220ms;
+}
+/* La nota a lapiz es lo unico manuscrito de la pagina entera. Si aparece en dos lugares
+   deja de ser una anotacion al costado y pasa a ser una tipografia mas. */
+.mensura .lapiz {
+  font: 400 19px/1 var(--lapiz);
+  fill: var(--lacre);
+  text-anchor: end;
+  opacity: 0;
+  transition: opacity 820ms ease 300ms;
+}
+
+.mensura .visto .marca { opacity: 0.5; }
+.mensura .visto .nodo { opacity: 0.85; }
+.mensura .visto .cota, .mensura .visto .tope { opacity: 0.62; }
+.mensura .visto .num, .mensura .visto .medida { opacity: 1; }
+.mensura .visto .lapiz { opacity: 0.9; }
+
+/* Sobre el tramo de fondo grafito todo se invierte al contraste mas fuerte. */
+.mensura .nivel--oscuro .marca,
+.mensura .nivel--oscuro .cota,
+.mensura .nivel--oscuro .tope { stroke: #b8c0b6; }
+.mensura .nivel--oscuro .num,
+.mensura .nivel--oscuro .medida { fill: #b8c0b6; }
+.mensura .nivel--oscuro .nodo { fill: #c9727f; }
+.mensura .nivel--oscuro .lapiz { fill: #c9727f; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mensura .marca, .mensura .cota, .mensura .tope,
+  .mensura .num, .mensura .medida, .mensura .lapiz, .mensura .nodo {
+    transition: none;
+  }
+}
+
+/* Debajo de 1100px el canal se cierra y no hay donde acotar. El JavaScript ni siquiera
+   dibuja; esto es el cinturon por si alguna vez se dibuja igual. */
+@media (max-width: 1099px) {
+  .mensura { display: none; }
+}
+
+
+/* ------------------------------------------------- la planta de la operacion
+   El dibujo que reemplaza a la lista de siete areas. Los ambientes son de superficies
+   distintas a proposito: siete cajas iguales serian la misma lista con bordes. */
+.planta { margin: var(--t4) 0 0; }
+.planta svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+.planta .piso { fill: var(--lamina); }
+.planta .pasillo { fill: #dcdfda; }
+.planta .pasillo-txt {
+  font: 400 10px/1 var(--dato);
+  letter-spacing: 0.3em;
+  fill: var(--grafito-suave);
+  text-anchor: end;
+}
+
+/* El muro grueso y el hueco de puerta en el color del piso son el mismo truco que usa un
+   plano de verdad: la abertura no se dibuja, se deja de dibujar el muro. */
+.planta .muro { fill: none; stroke: var(--grafito); stroke-width: 3.2; stroke-linecap: square; }
+.planta .hueco { stroke: var(--lamina); stroke-width: 5; }
+.planta .puerta { fill: none; stroke: var(--linea); stroke-width: 0.9; opacity: 0.7; }
+.planta .hoja { stroke: var(--grafito); stroke-width: 2; }
+
+.planta .amb-num {
+  font: 400 10px/1 var(--dato);
+  letter-spacing: 0.16em;
+  fill: var(--lacre);
+}
+.planta .amb-nom {
+  font: 600 19px/1 var(--display);
+  letter-spacing: 0.02em;
+  fill: var(--grafito);
+}
+.planta .amb-txt { font: 400 13px/1 var(--texto); fill: var(--grafito-suave); }
+
+.planta .cota-l, .planta .cota-t {
+  fill: none;
+  stroke: var(--linea);
+  stroke-width: 0.9;
+  opacity: 0.8;
+}
+.planta .cota-txt {
+  font: 400 9px/1 var(--dato);
+  letter-spacing: 0.28em;
+  fill: var(--grafito-suave);
+  text-anchor: middle;
+}
+
+/* En pantalla angosta el plano se lee, pero el texto adentro de cada ambiente no: a 390px
+   de ancho el ambiente mas chico deja doce pixeles de altura de letra. Se agranda la
+   tipografia del dibujo, que al ser SVG escala con el viewBox y no rompe la maqueta. */
+@media (max-width: 860px) {
+  .planta .amb-nom { font-size: 30px; }
+  .planta .amb-txt { font-size: 21px; }
+  .planta .amb-num, .planta .pasillo-txt, .planta .cota-txt { font-size: 16px; }
+}
+
+
+/* ------------------------------------------------------------- el corte de obra
+   La pareja de la planta. Una mira desde arriba y el otro de costado; son el mismo
+   edificio, y por eso comparten grosores y lapiz en vez de tener cada uno su estilo. */
+.corte { margin: var(--t4) 0 0; }
+.corte svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+.corte .local { fill: var(--lamina); }
+/* La losa es lo unico grueso del dibujo: si el rectangulo entero llevara el mismo trazo,
+   volveria a leerse como caja y no como estructura apoyada. */
+.corte .losa { fill: none; stroke: var(--grafito); stroke-width: 3.4; stroke-linecap: square; }
+.corte .tabique { fill: none; stroke: var(--grafito); stroke-width: 1.4; }
+.corte .suelo { fill: none; stroke: var(--grafito); stroke-width: 2.4; }
+.corte .achura { stroke: var(--linea); stroke-width: 0.8; opacity: 0.55; }
+
+.corte .marca-niv { fill: var(--grafito); }
+.corte .niv-cota {
+  font: 400 10px/1 var(--dato);
+  letter-spacing: 0.1em;
+  fill: var(--grafito-suave);
+  text-anchor: end;
+}
+.corte .niv-num {
+  font: 400 10px/1 var(--dato);
+  letter-spacing: 0.18em;
+  fill: var(--lacre);
+}
+.corte .niv-nom { font: 600 25px/1 var(--display); fill: var(--grafito); }
+.corte .niv-txt { font: 400 14px/1 var(--texto); fill: var(--grafito-suave); }
+
+.corte .cota-l, .corte .cota-t { fill: none; stroke: var(--linea); stroke-width: 0.9; opacity: 0.8; }
+.corte .cota-txt {
+  font: 400 9px/1 var(--dato);
+  letter-spacing: 0.28em;
+  fill: var(--grafito-suave);
+  text-anchor: middle;
+}
+
+@media (max-width: 860px) {
+  .corte .niv-nom { font-size: 34px; }
+  .corte .niv-txt { font-size: 20px; }
+  .corte .niv-num, .corte .niv-cota, .corte .cota-txt { font-size: 15px; }
+}
+
+
+/* ----------------------------------------------------------------- el cajetin
+   El rotulo de la lamina, que en un plano va en el angulo inferior derecho y ordena
+   todos los datos de la hoja en celdas con su titulo. Aca ordena el cierre entero.
+
+   El borde se arma con un solo filete y `gap: 1px` sobre fondo de linea: asi las celdas
+   comparten borde en vez de duplicarlo, que es como se dibuja una grilla de verdad y no
+   como se ve una tabla de HTML con dos pixeles en cada junta. */
+.rotulo-lamina {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1px;
+  background: #2e3438;
+  border: 1px solid #2e3438;
+}
+.rotulo-lamina .cel {
+  background: var(--grafito);
+  padding: var(--t3);
+  min-width: 0;
+}
+/* Las celdas de dato ocupan un cuarto de fila; las que llevan contenido, lo que
+   necesitan. Esta regla va antes que las especificas a proposito. */
+.rotulo-lamina .cel { grid-column: span 3; }
+.rotulo-lamina .cel--retrato { grid-column: span 3; padding: 0; }
+.rotulo-lamina .cel--retrato img {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  object-fit: cover;
+  display: block;
+}
+.rotulo-lamina .cel--titulo { grid-column: span 6; display: flex; flex-direction: column; justify-content: center; }
+.rotulo-lamina .cel--accion { grid-column: span 3; display: flex; flex-direction: column; justify-content: center; gap: var(--t2); }
+.rotulo-lamina .cel--correo { grid-column: span 6; }
+.rotulo-lamina .cel--firma { grid-column: span 6; display: flex; flex-direction: column; justify-content: space-between; }
+
+.rotulo-lamina .rotulo { margin: 0 0 var(--t1); }
+.rotulo-lamina h2 { margin: 0 0 var(--t2); }
+.rotulo-lamina .bajada { margin: 0; }
+.rotulo-lamina .valor { margin: 0; font-family: var(--dato); font-size: 14px; }
+.rotulo-lamina .valor a { color: inherit; }
+.rotulo-lamina .pie-cel {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--grafito-suave);
+}
+.rotulo-lamina .marca {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(30px, 4vw, 54px);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--papel);
+}
+
+@media (max-width: 900px) {
+  .rotulo-lamina { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .rotulo-lamina .cel { grid-column: span 3; }
+  .rotulo-lamina .cel--retrato { grid-column: span 6; }
+  .rotulo-lamina .cel--retrato img { min-height: 260px; max-height: 380px; }
+  .rotulo-lamina .cel--titulo,
+  .rotulo-lamina .cel--accion,
+  .rotulo-lamina .cel--correo,
+  .rotulo-lamina .cel--firma { grid-column: span 6; }
+}
+
+
+/* ------------------------------------------------------- el computo y presupuesto
+   La hoja de presupuesto, sobre la hoja de verdad. El blanco puro es material de montaje
+   en esta paleta, no fondo: aca es la unica vez que aparece como superficie completa, y
+   por eso el bloque se despega del papel de copia sin necesitar sombra. */
+.honorarios-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 780px) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 62px);
+  align-items: end;
+}
+.pres-lado { display: flex; flex-direction: column; gap: var(--t3); padding-bottom: var(--t3); }
+.pres-lado .btn { align-self: start; }
+.pres-plazo { margin: 0; font-family: var(--dato); font-size: 11.5px; color: var(--grafito-suave); }
+
+@media (max-width: 900px) {
+  .honorarios-grid { grid-template-columns: 1fr; }
+  .pres-lado { padding-bottom: 0; }
+}
+
+.presupuesto {
+  position: relative;
+  background: var(--lamina);
+  border: 1px solid var(--linea);
+  padding: var(--t4) clamp(24px, 4vw, 56px) var(--t4);
+  margin-top: var(--t4);
+  max-width: 780px;
+}
+.pres-membrete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--t3);
+  padding-bottom: var(--t2);
+  border-bottom: 1px solid var(--linea);
+}
+.pres-membrete .rotulo { margin: 0; }
+.pres-obra { margin: 0; font-family: var(--dato); font-size: 12.5px; color: var(--grafito-suave); }
+
+.pres-items { margin: var(--t2) 0 0; }
+.pres-items li { padding: 13px 0; }
+.pres-items li:last-child { border-block-end: none; }
+.pres-items .concepto { font-size: 15.5px; }
+
+/* El total lleva doble filete arriba, que es la convencion del cierre de una planilla y
+   la unica razon por la que se lee como total y no como un renglon mas. */
+.pres-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--t3);
+  margin: var(--t2) 0 0;
+  padding-top: var(--t2);
+  border-top: 3px double var(--grafito);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(20px, 2vw, 26px);
+}
+.pres-cifra { font-family: var(--dato); letter-spacing: 0.04em; }
+.pres-nota {
+  margin: var(--t1) 0 0;
+  font-family: var(--dato);
+  font-size: 11.5px;
+  color: var(--grafito-suave);
+}
+.pres-pie { margin: 0; max-width: 44ch; }
+
+/* El sello pisa el angulo de la hoja y se sale un poco, como un sello de goma de verdad.
+   No lleva z-index: al estar posicionado ya pinta sobre el contenido en flujo, y un
+   z-index numerico aca crearia contexto de apilado sin ninguna necesidad. */
+.sello {
+  position: absolute;
+  left: -38px;
+  bottom: -44px;
+  width: clamp(118px, 13vw, 156px);
+  height: auto;
+  opacity: 0.82;
+  transform: rotate(-13deg);
+  pointer-events: none;
+}
+.sello .aro { fill: none; stroke: var(--lacre); stroke-width: 4; }
+.sello .aro--fino { stroke-width: 1.4; }
+.sello .giro text {
+  font: 700 13px/1 var(--dato);
+  fill: var(--lacre);
+  text-anchor: middle;
+}
+.sello-marca {
+  font: 700 25px/1 var(--display);
+  fill: var(--lacre);
+  text-anchor: middle;
+  letter-spacing: 0.04em;
+}
+.sello-pie {
+  font: 400 10px/1 var(--dato);
+  fill: var(--lacre);
+  text-anchor: middle;
+  letter-spacing: 0.24em;
+}
+
+@media (max-width: 620px) {
+  .sello { width: 104px; left: -14px; bottom: -30px; }
+}
+
+/* El boton del cajetin ocupa su celda: recortado al ancho del texto quedaba partido en
+   dos renglones adentro de una celda mucho mas ancha. */
+.rotulo-lamina .cel--accion .btn { display: block; text-align: center; }
+
+
+/* La primera lamina: la lista manda la altura y la foto la acompania al costado, en vez
+   de apilarse una sobre la otra dejando el ancho libre a los dos lados. */
+.emplaza-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
+  gap: clamp(28px, 4vw, 58px);
+  align-items: start;
+  margin-top: var(--t4);
+}
+.emplaza-grid .libro { margin-top: 0; }
+.emplaza-foto { margin: 0; }
+.emplaza-foto img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+@media (max-width: 860px) {
+  .emplaza-grid { grid-template-columns: 1fr; }
+  .emplaza-foto img { aspect-ratio: 3 / 2; }
 }

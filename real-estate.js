@@ -165,7 +165,20 @@
 
     var canvas = document.createElement('canvas');
     canvas.className = 'recorrido-canvas';
-    canvas.setAttribute('aria-hidden', 'true');
+    // El canvas NO es decorativo: es el hero entero.
+    //
+    // Estaba con aria-hidden, y cuando el vuelo arranca la tira de respaldo se oculta con
+    // display:none. Medido, el hero quedaba exponiendo cero textos alternativos: un lector
+    // de pantalla se llevaba el titulo, la bajada y el boton, y nada del recorrido, que es
+    // la pieza central de la pagina. Una descripcion buena vale mas que las ocho de las
+    // fotos sueltas, porque lo que hay que contar es el descenso, no cada toma.
+    canvas.setAttribute('role', 'img');
+    canvas.setAttribute(
+      'aria-label',
+      'Recorrido continuo desde la órbita hasta una villa en Tulum: la Tierra con la ' +
+      'península de Yucatán, la costa, la selva, el techo de la villa con su pileta, el ' +
+      'acceso, el living de doble altura y la terraza sobre el Caribe al atardecer.'
+    );
 
     var gl = canvas.getContext('webgl', { antialias: true, alpha: false })
       || canvas.getContext('experimental-webgl', { antialias: true, alpha: false });

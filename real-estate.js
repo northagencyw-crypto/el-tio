@@ -195,6 +195,19 @@
     if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
     gl.useProgram(prog);
 
+    // Desde aca el modulo se hace cargo del hero, aunque las fotografias todavia no esten.
+    //
+    // La tira de respaldo es el plan para cuando no hay JavaScript o no hay WebGL, y se
+    // ocultaba recien al montar el canvas, o sea recien cuando las dos primeras texturas
+    // habian cargado. Si las imagenes no llegan, ese momento no existe nunca: la tira se
+    // quedaba visible con sus ocho figuras de alto cero y la capa del hero encima, y los
+    // pies de foto salian pisando la bajada y la ficha. Medido con las imagenes
+    // bloqueadas: tres textos encimados en escritorio y dos en telefono.
+    //
+    // Si el programa compilo, hay WebGL y el modulo va a dibujar. Con las fotografias o
+    // sin ellas, el hero queda como texto sobre el fondo verde, que se lee.
+    escenario.classList.add('recorrido-vivo');
+
     var buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
@@ -405,7 +418,6 @@
     function arrancar() {
       if (arrancado) return;
       arrancado = true;
-      escenario.classList.add('recorrido-vivo');
       marco.insertBefore(canvas, marco.firstChild);
       medir();
       marcarTramo(0);

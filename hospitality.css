@@ -285,3 +285,101 @@ figcaption {
   .umbral { padding: var(--n5) 0; }
   .aplique { padding: var(--n3); }
 }
+
+
+/* ==================================================================== la recorrida
+   El hero. El pasillo de la propia casa, de noche, recorrido puerta por puerta.
+
+   El hero anterior era un titular al lado de una foto. Las tres hermanas rehechas
+   tienen cada una un mecanismo de verdad, y el eje de este rubro ya estaba
+   escrito: el itinerario del huesped, umbral por umbral. Un pasillo con apliques
+   que se encienden al avanzar es ese eje hecho imagen.
+
+   Y es lo contrario de lo que hace la categoria, que abre siempre con el frente de
+   casa en su mejor momento. Aca el trabajo pasa cuando no hay nadie mirando. */
+
+.recorrida {
+  position: relative;
+  min-height: 215vh;
+  background: var(--vestibulo);
+  /* contain:paint en vez de overflow-x en la raiz, que mata el sticky en Chromium. */
+  contain: paint;
+}
+.recorrida-fija {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 70px);
+  padding: clamp(42px, 8vh, 84px) var(--margen, clamp(20px, 5vw, 60px));
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.recorrida-texto { max-width: 44ch; }
+.recorrida-texto h1 { margin-top: var(--n4); }
+.recorrida-texto .bajada { margin-top: var(--n3); }
+.recorrida-texto .campanilla { margin-top: var(--n4); display: inline-flex; }
+.recorrida-texto .hora { margin-top: var(--n2); }
+
+.recorrida-pasillo { position: relative; }
+.pasillo-lienzo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 78vh;
+}
+.pasillo-lienzo canvas { width: 100%; height: 100%; display: block; }
+
+/* La placa de laton con el numero de puerta. La jerarquia la gana LA CIFRA, no el
+   titular: es la inversion de escala que separa a esta pagina de gastronomia, que
+   manda con el titular. */
+.pasillo-placa {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 62%;
+  padding: var(--n3) var(--n4) var(--n3) 0;
+  /* El nombre corre sobre el dibujo, asi que necesita su propio piso para leerse. */
+  background: linear-gradient(to top, rgba(11, 26, 20, 0.92), rgba(11, 26, 20, 0));
+}
+.placa-nombre {
+  font-family: var(--grabado);
+  font-size: 19px;
+  color: var(--cal);
+  margin: var(--n1) 0 0;
+}
+
+/* La lista de umbrales es el respaldo: sin JavaScript el pasillo no se dibuja, y lo
+   que el pasillo dice tiene que quedar escrito igual. Con JavaScript se esconde,
+   porque repetirla seria decir dos veces lo mismo. */
+.umbrales-lista {
+  list-style: none;
+  margin: 0;
+  padding: var(--n5) var(--margen, 24px);
+  max-width: 1240px;
+  margin-inline: auto;
+  display: grid;
+  gap: var(--n3);
+}
+.umbrales-lista li { display: grid; grid-template-columns: 3.5ch 1fr; gap: var(--n1) var(--n3); }
+.um-n { font-family: var(--dato); color: var(--laton); font-size: 13px; }
+.umbrales-lista b { font-family: var(--grabado); font-weight: 400; font-size: 19px; }
+.um-d { grid-column: 2; color: var(--cal-suave); font-size: 15px; }
+.js .umbrales-lista { display: none; }
+
+@media (max-width: 940px) {
+  .recorrida { min-height: auto; }
+  .recorrida-fija {
+    position: static;
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .pasillo-lienzo { aspect-ratio: 3 / 4; max-height: 62vh; }
+  .pasillo-placa { position: static; padding: var(--n3) 0 0; }
+}
+
+@media (forced-colors: active) {
+  .pasillo-lienzo { border: 1px solid CanvasText; }
+}

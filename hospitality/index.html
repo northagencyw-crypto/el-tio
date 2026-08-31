@@ -18,27 +18,40 @@
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../hospitality.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "El Tío AI Audit para hoteles", "serviceType": "Auditoría de inteligencia artificial para hoteles y alquileres", "provider": {"@type": "Organization", "name": "El Tío", "url": "https://eltio.net"}, "areaServed": "Latinoamérica", "offers": {"@type": "Offer", "price": "99", "priceCurrency": "USD", "url": "https://app.eltio.net/auditoria/hospitality"}}</script>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 <a class="saltar" href="#directorio">Saltar al contenido</a>
 
-<header class="umbral">
-  <div class="planta">
-    <p class="rotulo">EL TÍO AI AUDIT</p>
-    <p class="ubicacion">HOTELES, VILLAS Y ALQUILERES</p>
-    <div class="desigual" style="margin-top:var(--n5)">
-      <div>
-        <h1>Tu propiedad sigue trabajando cuando ya te fuiste.</h1>
-        <p class="bajada" style="margin-top:var(--n3)">La base es saber quiénes son los huéspedes que ya pasaron, tener sus datos en un lugar que sea tuyo, y aparecer cuando alguien busca dónde quedarse en tu zona.</p>
-        <p style="margin-top:var(--n4)"><a class="campanilla" data-cta="audit" href="https://app.eltio.net/auditoria/hospitality">Tocar el timbre</a></p>
-        <p class="hora" style="margin-top:var(--n2)">Cuestionario de 15 a 25 minutos · Llamada de media hora · USD 99</p>
+<header class="recorrida" data-recorrida>
+  <div class="recorrida-fija">
+    <div class="recorrida-texto">
+      <p class="rotulo">EL TÍO AI AUDIT</p>
+      <p class="ubicacion">HOTELES, VILLAS Y ALQUILERES</p>
+      <h1>Tu propiedad sigue trabajando cuando ya te fuiste.</h1>
+      <p class="bajada">La base es saber quiénes son los huéspedes que ya pasaron, tener
+      sus datos en un lugar que sea tuyo, y aparecer cuando alguien busca dónde quedarse
+      en tu zona.</p>
+      <p><a class="campanilla" data-cta="audit" href="https://app.eltio.net/auditoria/hospitality">Tocar el timbre</a></p>
+      <p class="hora">Cuestionario de 15 a 25 minutos · Llamada de media hora · USD 99</p>
+    </div>
+    <div class="recorrida-pasillo">
+      <div class="pasillo-lienzo" aria-hidden="true"></div>
+      <div class="pasillo-placa">
+        <p class="cifra-puerta" data-puerta-num>01</p>
+        <p class="placa-nombre" data-puerta-nom>Antes de llegar</p>
       </div>
-      <figure class="montada">
-        <img src="../assets/ho-llegada-noche.webp" alt="Mostrador de recepción de un hotel de noche, con el tablero de llaves detrás y la calle vacía tras la puerta" width="1536" height="1024" fetchpriority="high">
-        <figcaption>23:40 · Todavía hay alguien por llegar</figcaption>
-      </figure>
     </div>
   </div>
+  <ol class="umbrales-lista">
+        <li data-umbral data-numero="01"><span class="um-n">01</span><b>Antes de llegar</b><span class="um-d">Que te encuentren cuando alguien busca dónde quedarse en tu zona.</span></li>
+        <li data-umbral data-numero="02"><span class="um-n">02</span><b>La consulta</b><span class="um-d">El mensaje de las once de la noche, contestado.</span></li>
+        <li data-umbral data-numero="03"><span class="um-n">03</span><b>El mostrador</b><span class="um-d">El registro, y los datos del huésped en un lugar que sea tuyo.</span></li>
+        <li data-umbral data-numero="04"><span class="um-n">04</span><b>La habitación</b><span class="um-d">La estadía, y lo que se puede ofrecer sin que nadie lo pida.</span></li>
+        <li data-umbral data-numero="05"><span class="um-n">05</span><b>La salida</b><span class="um-d">El cierre, la factura y lo que queda registrado.</span></li>
+        <li data-umbral data-numero="06"><span class="um-n">06</span><b>Después</b><span class="um-d">El que ya se fue, que es el que más barato vuelve.</span></li>
+        <li data-umbral data-numero="07"><span class="um-n">07</span><b>Recepción</b><span class="um-d">El Audit: qué se mide, qué se ordena y en qué orden.</span></li>
+  </ol>
 </header>
 
 <section class="umbral iluminado" id="directorio">
@@ -191,5 +204,6 @@
     </nav>
   </div>
 </footer>
+<script src="../hospitality.js" defer></script>
 </body>
 </html>

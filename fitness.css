@@ -455,3 +455,36 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   [data-revela] { opacity: 1; transform: none; transition: none; }
 }
+
+
+/* -------------------------------------------------------------- el renglon con foto
+   La fotografia entra como renglon, que es la unidad de esta hoja: folio, cuerpo y,
+   en el lugar donde va la tira de casillas, la foto.
+
+   Hospitality resolvio lo suyo con una banda de cuatro piezas. Repetir ese
+   componente aca convertiria dos verticales en la misma pagina con otro color, que
+   es el problema entero que este rediseno vino a resolver. El renglon con foto no
+   es posible en ninguna otra hoja: solo esta tiene renglones. */
+
+.renglon-foto { align-items: start; }
+.renglon-img { margin: 0; }
+.renglon-img img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid var(--filete);
+  filter: saturate(0.82) contrast(1.04);
+}
+/* El folio de estos renglones no es un numero de socio sino una hora, asi que se
+   alinea como dato y no como identificador. */
+.renglon-foto .folio-socio {
+  font-variant-numeric: tabular-nums;
+  /* Arriba, a la altura del titulo. Centrada quedaba flotando a media altura del
+     renglon, sin nada al lado con que alinearse. */
+  align-self: start;
+}
+
+@media (max-width: 760px) {
+  .renglon-img { grid-column: 1 / -1; margin-top: var(--c2); }
+}

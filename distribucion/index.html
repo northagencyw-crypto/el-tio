@@ -20,9 +20,10 @@
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-<a class="saltar" href="#base">Saltar al contenido</a>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<main id="contenido">
 
-<header class="hoja">
+<section class="hoja">
   <div class="talonario">
     <p class="dato">EL TÍO AI AUDIT · DISTRIBUIDORAS Y MAYORISTAS · FOLIO 001</p>
     <div class="partido" style="margin-top:var(--u4)">
@@ -44,7 +45,7 @@ y que alguien le manda el precio.</div>
       </div>
     </div>
   </div>
-</header>
+</section>
 
 <section class="hoja" id="problema">
   <div class="talonario">
@@ -303,8 +304,8 @@ cantidad | detalle | cod
       </div>
     </div>
     <p style="margin-top:var(--u4);display:flex;gap:var(--u2);flex-wrap:wrap">
-      <a class="boton" data-cta="audit" href="https://app.eltio.net/auditoria/distribucion">Pedir el Audit<span class="monto-chico">USD 99</span></a>
-      <a class="boton" style="background:transparent;color:var(--sello);border:1px solid var(--sello)" href="#auditamos">Ver las siete áreas</a>
+      <a class="boton" data-cta="audit" href="https://app.eltio.net/auditoria/distribucion">Traer un pedido de verdad<span class="monto-chico">USD 99</span></a>
+      <a class="boton" style="background:transparent;color:var(--sello);border:1px solid var(--sello)" href="#pedido">Volver a los ocho renglones</a>
     </p>
     <figure class="evidencia" style="margin-top:var(--u5)">
       <img src="../assets/di-bultos-y-unidades.webp" srcset="../assets/di-bultos-y-unidades-480.webp 480w, ../assets/di-bultos-y-unidades-768.webp 768w, ../assets/di-bultos-y-unidades-1200.webp 1200w, ../assets/di-bultos-y-unidades.webp 1536w" alt="Bultos cerrados y unidades sueltas del mismo producto, sobre un pallet" width="1536" height="1024" loading="lazy">
@@ -312,6 +313,7 @@ cantidad | detalle | cod
     </figure>
   </div>
 </section>
+</main>
 <footer class="pie-pagina">
   <div class="talonario">
     <p>El Tío · Inteligencia artificial aplicada a empresas · hola@eltio.net · FOLIO 009</p>

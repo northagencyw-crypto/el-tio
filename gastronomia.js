@@ -213,9 +213,29 @@
       .map(function (el) { return el.getAttribute('data-plato'); });
     if (fuentes.length < 2) return;
 
+    // Los pies de cada plato, para poder describir lo que el canvas dibuja de verdad.
+    var nombres = [].slice
+      .call(escenario.querySelectorAll('[data-plato]'))
+      .map(function (el) { return (el.getAttribute('alt') || '').trim(); })
+      .filter(Boolean);
+
     var canvas = document.createElement('canvas');
     canvas.className = 'pase-canvas';
-    canvas.setAttribute('aria-hidden', 'true');
+    // El canvas NO es decorativo: es el hero entero.
+    //
+    // Estaba con `aria-hidden`, y en cuanto el pase arranca la tira de fotografias de
+    // respaldo se oculta. Medido: cuarenta de las sesenta imagenes de la pagina quedaban
+    // fuera del arbol de accesibilidad, y quien no ve la pantalla se llevaba el titular y
+    // nada del pase de platos, que es la pieza central.
+    //
+    // Una descripcion del PASE vale mas que cuatro alt sueltos: lo que hay que contar es
+    // que los platos se turnan mientras se baja, no cada plato por separado.
+    canvas.setAttribute('role', 'img');
+    canvas.setAttribute(
+      'aria-label',
+      'El pase del servicio: los platos se turnan y se cruzan uno sobre otro mientras se '
+      + 'baja por la página' + (nombres.length ? '. ' + nombres.join('. ') + '.' : '.')
+    );
 
     var gl = canvas.getContext('webgl', { antialias: true, alpha: false })
       || canvas.getContext('experimental-webgl', { antialias: true, alpha: false });

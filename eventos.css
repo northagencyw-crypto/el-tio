@@ -537,7 +537,19 @@ p { margin: 0 0 var(--e3); max-width: 62ch; }
   margin-top: var(--e2);
   text-shadow: none;
 }
-.salida-pct { font-size: 15px; color: var(--cal-2); margin: var(--e3) 0 0; }
+/* Dos renglones y no una sola linea con un `b` adentro. En telefono y con el zoom al
+   cuatrocientos por ciento la cifra y el juicio quedaban como dos cajas en linea que se
+   solapan al envolver el renglon. Es el mismo defecto que ya habia corregido en la lectura
+   de fitness, y aca no lo vi porque mi medicion de esta pagina no incluia `b` en el
+   selector: el barrido de las ocho, que si lo incluye, lo encontro en dos anchos. */
+.salida-pct {
+  font-size: 15px;
+  color: var(--cal-2);
+  margin: var(--e3) 0 0;
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+}
 .salida-pct b { color: var(--gel); font-weight: 500; }
 
 .salida-barra {

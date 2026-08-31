@@ -244,10 +244,20 @@ h2 + .bajada, h1 + .bajada { margin-top: var(--e4); }
 .pase-encima .precio-linea { color: var(--papel-2); }
 
 /* Los tres tiempos: solo uno visible por tramo del recorrido. */
-.pase-tiempos { position: relative; margin-top: var(--e4); min-height: 8.5em; }
+/* Los tres tiempos se apilan en la MISMA celda de grilla, no con posicion absoluta.
+   Apilados con `position:absolute` el contenedor no tiene alto propio, asi que necesitaba
+   un `min-height` fijo de 8,5 em; con el espaciado de texto forzado (interlineado 1,5,
+   tracking de un doceavo de eme y dos emes entre parrafos) el texto crece por encima de
+   esa altura y se metia sobre el boton de abajo. Medido: un encimado entre "El Audit entra
+   por la trastienda" y "Auditar mi local", con el zoom al cuatrocientos por ciento.
+   En la misma celda de grilla el contenedor mide lo que mide el tiempo mas alto y crece
+   solo, sin ningun numero fijo, y el cruce por opacidad sigue igual. */
+.pase-tiempos {
+  display: grid;
+  margin-top: var(--e4);
+}
 .pase-tiempo {
-  position: absolute;
-  inset: 0 auto auto 0;
+  grid-area: 1 / 1;
   max-width: 46ch;
   opacity: 0;
   transform: translateY(14px);
@@ -269,7 +279,8 @@ html:not(.js) .pase-marco { position: static; height: auto; }
 html:not(.js) .pase-respaldo { position: static; }
 html:not(.js) .pase-encima { position: static; padding-top: var(--e6); }
 html:not(.js) .pase-encima::before { display: none; }
-html:not(.js) .pase-tiempos { min-height: 0; }
+/* Sin JavaScript los tres se ven a la vez, asi que dejan de apilarse. */
+html:not(.js) .pase-tiempo { grid-area: auto; }
 html:not(.js) .pase-tiempo {
   position: static;
   opacity: 1;
@@ -1082,6 +1093,11 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
   width: clamp(150px, 17vw, 268px);
   pointer-events: none;
   overflow: hidden;
+  /* `overflow:hidden` recorta lo que se ve pero los tramos igual estiraban el ancho
+     scrolleable del documento: con el zoom al cuatrocientos por ciento la pagina
+     desbordaba veinte pixeles y aparecia la barra horizontal. `contain:paint` saca a los
+     descendientes del calculo de desborde, que es lo que hace falta. */
+  contain: paint;
   /* Sin z-index: un elemento posicionado con z-index numerico crea contexto de apilado
      y adentro de uno propio el multiply se mezcla contra transparente en vez de contra
      el papel. Que quede por detras se consigue elevando el contenido, que ya esta en 1. */
@@ -1473,8 +1489,21 @@ html:not(.js) .planta { opacity: 0.95; transform: scale(1) rotate(var(--giro, 0d
    ------------------------------------------------------------------------- */
 
 /* El problema: la foto crece y las escenas se van a dos columnas. Era la seccion mas
-   vacia de la pagina, al 16,6 por ciento. */
-.dos-columnas { grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr); gap: var(--e6); }
+   vacia de la pagina, al 16,6 por ciento.
+
+   VA EN UN `min-width` Y NO SUELTA. Escrita suelta, esta regla queda DESPUES del
+   `@media (max-width: 860px)` que colapsa el bloque a una columna, con la misma
+   especificidad, asi que lo pisaba: con el zoom al cuatrocientos por ciento la pantalla
+   mide 320 pixeles CSS y el bloque seguia partido en dos columnas de 127 y 109. De ahi
+   salian los veinte pixeles de desborde horizontal que la pagina arrastraba, y que no era
+   la enredadera como parecia a simple vista.
+
+   Es la segunda vez que una regla escrita al final pisa a una anterior mas especifica en
+   intencion pero igual en especificidad. Cuando una regla nueva contradice a una media
+   query anterior, la regla nueva es la que tiene que llevar su propia condicion. */
+@media (min-width: 861px) {
+  .dos-columnas { grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr); gap: var(--e6); }
+}
 .columna-foto img { aspect-ratio: 4 / 5; object-fit: cover; }
 #contenido .escenas { columns: 2; column-gap: var(--e6); }
 #contenido .escena { break-inside: avoid; max-width: none; }
@@ -1485,7 +1514,15 @@ html:not(.js) .planta { opacity: 0.95; transform: scale(1) rotate(var(--giro, 0d
 
 /* El metodo: cuatro bandas de una pantalla cada una. La foto crece y el bloque se
    aprieta, asi la secuencia se recorre en vez de scrollearse. */
-.tiempos { gap: var(--e6); }
+.tiempos {
+  gap: var(--e6);
+  /* Contenido aca y no en la raiz. Con el zoom al cuatrocientos por ciento este bloque
+     mide 280 de ancho util y 320 de ancho scrolleable: cuarenta pixeles que no salen de
+     ningun hijo medible, y que llegaban hasta el documento como una barra horizontal.
+     `overflow-x: clip` no crea contenedor de scroll, asi que no toca al `position:sticky`
+     del pase del hero, que es lo que se rompe si uno pone `overflow` en `html`. */
+  overflow-x: clip;
+}
 .tiempo figure img { max-height: 68vh; }
 
 @media (max-width: 900px) {

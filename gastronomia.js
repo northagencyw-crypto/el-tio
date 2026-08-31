@@ -377,21 +377,53 @@
      Revelados: la pagina se arma a medida que se lee
      --------------------------------------------------------------------- */
 
+  /**
+   * Por posicion y no con un IntersectionObserver.
+   *
+   * El observador avisa de lo que ESTA cruzando el borde. Si el scroll salta por encima de
+   * un elemento (el navegador restaurando la posicion al recargar, un enlace con ancla, la
+   * rueda a fondo, o el "ir al final" del teclado), ese elemento pasa de estar abajo a
+   * estar arriba sin cruzar nada, y se queda en opacidad cero para siempre.
+   *
+   * No es teorico: el barrido de las ocho paginas encontro OCHO bloques invisibles en
+   * escritorio, cuatro en telefono y dos con el zoom al cuatrocientos por ciento, en esta
+   * misma pagina. Ya habia pasado igual en real estate, donde se comio la seccion con la
+   * unica prueba dura del proyecto.
+   *
+   * Una comprobacion por posicion no se saltea nada: se pregunta donde esta cada uno, no
+   * si acaba de cruzar.
+   */
   function montarRevelados() {
-    var piezas = document.querySelectorAll('[data-revela]');
+    var piezas = [].slice.call(document.querySelectorAll('[data-revela]'));
     if (!piezas.length) return;
-    if (quieto.matches || !('IntersectionObserver' in window)) {
-      [].forEach.call(piezas, function (el) { el.classList.add('visible'); });
+    if (quieto.matches) {
+      piezas.forEach(function (el) { el.classList.add('visible'); });
       return;
     }
-    var obs = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      });
-    }, { rootMargin: '0px 0px -12% 0px' });
-    [].forEach.call(piezas, function (el) { obs.observe(el); });
+    var faltan = piezas.slice();
+    var pedido = 0;
+
+    function revisar() {
+      pedido = 0;
+      var linea = window.innerHeight * 0.88;
+      for (var i = faltan.length - 1; i >= 0; i--) {
+        if (faltan[i].getBoundingClientRect().top < linea) {
+          faltan[i].classList.add('visible');
+          faltan.splice(i, 1);
+        }
+      }
+      if (!faltan.length) {
+        window.removeEventListener('scroll', pedir);
+        window.removeEventListener('resize', pedir);
+      }
+    }
+    function pedir() {
+      if (pedido) return;
+      pedido = requestAnimationFrame(revisar);
+    }
+    revisar();
+    window.addEventListener('scroll', pedir, { passive: true });
+    window.addEventListener('resize', pedir, { passive: true });
   }
 
   /* ---------------------------------------------------------------------

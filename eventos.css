@@ -593,6 +593,135 @@ p { margin: 0 0 var(--e3); max-width: 62ch; }
 .herr-cuerpo { font-size: 13.5px; line-height: 1.66; color: var(--cal-3); margin: 0; }
 
 
+
+
+/* --------------------------------------------------------------------- D-75 la base
+   El posicionamiento del founder: la base lidera. En la version anterior era una lista
+   plana sin borde ni fondo, con cero inversion visual, mientras el diferencial se
+   llevaba el unico diagrama de la pagina. */
+
+.base { list-style: none; margin: var(--e5) 0 0; padding: 0; display: grid; gap: 0; }
+.base li { border-top: 1px solid var(--linea); padding: var(--e3) 0; }
+.base li:last-child { border-bottom: 1px solid var(--linea); }
+.base-cab {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--e2) var(--e4);
+}
+.base-medida {
+  font-family: var(--voz);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  color: var(--gel);
+  white-space: nowrap;
+}
+.base p { margin: var(--e2) 0 0; font-size: 14.5px; color: var(--cal-2); max-width: 68ch; }
+
+.con-foto {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+  gap: var(--e4);
+  align-items: end;
+  margin-top: var(--e5);
+}
+.con-foto .figura { margin: 0; }
+.con-foto .figura img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; filter: saturate(0.72) contrast(1.05); }
+.con-foto .figura figcaption {
+  font-family: var(--voz);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--cal-3);
+  margin-top: var(--e2);
+  padding-top: var(--e2);
+  border-top: 1px solid var(--linea);
+}
+@media (max-width: 900px) { .con-foto { grid-template-columns: 1fr; } }
+
+
+/* ------------------------------------------------------------------ D-21 el escenario
+   El unico bloque que habla del negocio del lector con numeros concretos. Estaba escrito
+   en los datos del vertical y la pagina anterior lo enterraba en la seccion nueve. */
+
+.escenario { margin: var(--e5) 0 0; display: grid; gap: 0; }
+.esc-fila {
+  display: grid;
+  grid-template-columns: minmax(120px, 176px) minmax(0, 1fr);
+  gap: var(--e4);
+  border-top: 1px solid var(--linea-fuerte);
+  padding: var(--e3) 0;
+}
+.esc-fila dt {
+  font-family: var(--voz);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  color: var(--gel);
+}
+.esc-fila dd { margin: 0; font-size: 15px; color: var(--cal-2); max-width: 62ch; }
+@media (max-width: 640px) { .esc-fila { grid-template-columns: 1fr; gap: var(--e1); } }
+
+
+/* ==================================================================== la hoja de ruta
+   El componente de firma (c) hecho explicito: los mismos desfases que enhebran la pagina,
+   puestos como lo que son, un run of show. El orden rector de las mejores referencias del
+   rubro es la grilla de horarios, no una secuencia de modulos de marketing. */
+
+.ruta {
+  background: var(--n3);
+  padding: var(--e6) var(--margen);
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+}
+.ruta-marco { max-width: var(--ancho); margin: 0 auto; }
+.ruta-lista { list-style: none; margin: var(--e5) 0 0; padding: 0; }
+.ruta-lista li {
+  display: grid;
+  grid-template-columns: 72px minmax(150px, 0.6fr) minmax(0, 1fr);
+  gap: var(--e3) var(--e4);
+  align-items: baseline;
+  border-top: 1px solid var(--linea);
+  padding: var(--e3) 0;
+}
+.ruta-lista li:last-child { border-bottom: 1px solid var(--linea); }
+.ruta-d {
+  font-family: var(--voz);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--cal-3);
+  font-variant-numeric: tabular-nums;
+}
+.ruta-que { font-family: var(--voz); font-size: 15.5px; color: var(--cal); letter-spacing: -0.01em; }
+.ruta-det { font-size: 14px; color: var(--cal-2); }
+
+/* El cero es el unico quiebre de la lista, igual que PUERTAS es el unico quiebre de la
+   pagina. Es el tercero y ultimo de los focos. */
+.ruta-cero { border-top-color: var(--gel-linea); }
+.ruta-cero .ruta-d { color: var(--gel); }
+.ruta-cero .ruta-que { color: var(--foco); text-shadow: 0 0 26px rgba(255, 255, 255, 0.18); }
+
+@media (max-width: 760px) {
+  .ruta-lista li { grid-template-columns: 62px minmax(0, 1fr); }
+  .ruta-det { grid-column: 2; }
+}
+
+
+/* ---------------------------------------------------- la fotografia de las herramientas
+   Cada herramienta lleva la suya, y cada una tiene referencia directa con lo que dice su
+   parrafo: el contrato sobre el case, los afiches uno al lado del otro, la boleteria, el
+   case del advancing, las pulseras de los que ya fueron. */
+
+.herramientas .herr-foto { margin: 0 0 var(--e3); }
+.herramientas .herr-foto img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: saturate(0.7) contrast(1.06);
+}
+
+
 /* ----------------------------------------------------------------- D-30 el producto
    Las capturas van a tamano real y apoyadas en la retícula, sin marco de
    dispositivo, sin perspectiva, sin sombra y sin esquinas redondeadas. Un

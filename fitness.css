@@ -355,3 +355,103 @@ figure { margin: 0; }
   .renglon-marca { grid-template-columns: 44px minmax(0, 1fr); gap: 0 var(--c2); }
   .casilla-precio { padding: var(--c3); }
 }
+
+
+/* ================================================================== el molinete
+   El mecanismo. La tira ya estaba dibujada pero quieta, que es exactamente la
+   critica que el analisis de campo le hace a la competencia: la senal de la baja
+   YA esta en sus heros, pero como adorno. Una senal que no se mueve no es una
+   senal.
+
+   El alto de mas es el recorrido: el mes se pasa mientras se baja por delante. */
+
+.molinete { position: relative; }
+.js .molinete { min-height: 205vh; contain: paint; }
+.js .molinete-fijo { position: sticky; top: 0; min-height: 100svh; display: flex; align-items: center; }
+
+/* Los tres estados de una casilla. El hueco es el unico que se dibuja distinto:
+   lo que se lee en una planilla no son las marcas, son los huecos que dejan. */
+.tira i.porvenir { background: transparent; opacity: 0.35; }
+.tira i.hueco { background: transparent; }
+.tira i.hueco::before {
+  content: "";
+  position: absolute;
+  inset: 30% 34%;
+  background: var(--tiza);
+  opacity: 0.16;
+}
+.franja-hueco .tira i { position: relative; }
+
+/* La regla con los dos hitos. La distancia entre los dos es el producto, asi que la
+   regla es literalmente eso: una medida. */
+/* Dos renglones, no uno. Los dos hitos caen a mitad y a 87 por ciento de la tira, y
+   con rotulos de ese largo se pisan: "Dejó de venir" y "Acá recién se entera el
+   sistema" se dibujaban uno encima del otro. Y separarlos no es solo prolijidad:
+   la distancia entre los dos es el argumento de la pagina, asi que tienen que
+   poder leerse los dos a la vez. */
+.regla {
+  position: relative;
+  height: 62px;
+  margin-top: var(--c1);
+}
+.hito {
+  position: absolute;
+  top: 0;
+  font-family: var(--dato);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  color: var(--polvo);
+  white-space: nowrap;
+  padding-left: 8px;
+  opacity: 0.4;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.hito i {
+  position: absolute;
+  left: 0;
+  top: -10px;
+  width: 1px;
+  height: 26px;
+  background: currentColor;
+}
+.hito.activo { opacity: 1; }
+.hito--pago.activo { color: var(--marcador-claro); }
+/* El segundo hito se ancla por la derecha: pegado al final de la tira, alineado a la
+   izquierda se sale de la caja y en 320px se lleva la pagina con el. */
+.hito--pago { top: 24px; transform: translateX(-100%); padding: 0 8px 0 0; }
+.hito--pago i { left: auto; right: 0; top: -34px; height: 50px; }
+
+/* Dos renglones y no una sola linea con un `b` adentro. En telefono la cifra y el
+   estado quedaban como dos cajas en linea que se solapan al envolver el renglon, y
+   ademas se leen mejor separados: uno es el numero y el otro es lo que significa. */
+.lectura {
+  margin-top: var(--c3);
+  font-size: 16px;
+  color: var(--polvo);
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+}
+.lectura b {
+  font-family: var(--dato);
+  font-variant-numeric: tabular-nums;
+  font-size: 22px;
+  color: var(--tiza);
+}
+.molinete.avisado .lectura b { color: var(--marcador-claro); }
+
+@media (max-width: 860px) {
+  .js .molinete { min-height: auto; }
+  .js .molinete-fijo { position: static; min-height: auto; }
+  .hito { font-size: 10.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hito { transition: none; }
+}
+
+[data-revela] { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
+[data-revela].visible { opacity: 1; transform: none; }
+html:not(.js) [data-revela] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-revela] { opacity: 1; transform: none; transition: none; }
+}

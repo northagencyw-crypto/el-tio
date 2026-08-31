@@ -1,337 +1,816 @@
 /* ============================================================================
    EL TIO EVENTOS
-   Concepto: cuenta regresiva a puertas. La sala se va encendiendo a medida que
-   se acerca la fecha, y lo que decide el resultado ya estaba escrito cuando
-   todavia no habia nadie adentro.
+   Concepto: la cuenta regresiva a puertas. En una sala lo unico que se ve es lo
+   que esta encendido.
 
-   Hoja propia. Cero cruce con gastronomia.css ni real-estate.css: hay un test
-   que falla si comparten hoja, tipografia, color o componentes.
+   Hoja propia. No comparte NADA con vertical.css, ni con gastronomia.css, ni con
+   real-estate.css. Las siete landings compartian 428 lineas con un solo radio y
+   una escala de dos escalones, y por eso se leian como la misma pagina con otro
+   color. Eventos comparte 149 de 162 clases con distribucion: era la mas
+   plantilla de las siete.
 
-   La categoria entera es negro RETROILUMINADO con neon y degradados. El
-   discriminante duro no es huir del negro sino cambiarle la naturaleza: aca es
-   tinta plana mate. Cero gradientes en toda la hoja, cero sombra decorativa,
-   radio 0 en absolutamente todo salvo el unico boton.
+   Oposiciones deliberadas contra las dos hermanas ya rehechas:
+
+   - Material. Gastronomia es papel de estraza calido y real estate papel de tina
+     frio: las dos son materia REFLECTANTE. Esta es la unica de las siete cuyo
+     material no es papel. Es luz EMITIDA sobre carbon apagado, y por eso tiene
+     una escalera de luminancia en vez de un solo fondo: la pagina se aclara
+     tramo a tramo hasta PUERTAS y vuelve a oscurecerse en el settlement.
+   - Letra. Alla la mono es el micro rotulo o el dato. Aca la mono es LA VOZ: los
+     titulos van en Spline Sans Mono de caja mixta. El riesgo obvio del rubro era
+     la gotica condensada en caja alta del flyer de fiesta, que es lo que la
+     pagina tenia antes y lo que hace la categoria entera.
+   - Dos familias, no tres.
+   - Acento. Un gel frio de sala en hue 172. Los cuatro azules del sistema estan
+     entre 205 y 220 y el ambar, el brasa, el lacre y el rosa estan del lado
+     calido: este hue esta libre en las siete.
+   - El segundo foco no es un segundo color. Es blanco abierto a plena intensidad,
+     tres veces en toda la pagina, y es lo unico que lleva halo.
    ========================================================================= */
 
 :root {
-  /* Escalera de luminancia: la pagina se aclara hacia PUERTAS. Un tramo por
-     seccion, no un fondo unico. */
-  --l0: #0b0d0e;
-  --l1: #14171a;
-  --l2: #1a1e21;
-  --l3: #212529;
+  /* La pagina es oscura y no tiene version clara. Declararlo evita que Chrome en
+     Android aplique su oscurecido automatico encima y que el navegador dibuje sus
+     propios controles con la preferencia del sistema. */
+  color-scheme: dark;
 
-  --cal: #f2f4f3;      /* cal de afiche, no blanco puro: ese lo tomo real estate */
-  --cal-suave: #9aa3a1;
-  --gel: #2e9e8b;      /* gel frio de sala, matiz 170. Libre en todo el sistema. */
-  --linea: #3a4245;
+  /* La escalera de luminancia. Un escalon por tramo de la cuenta regresiva: la
+     sala se va encendiendo a medida que se acerca la hora. No son grises neutros
+     sino carbon frio, que es el color de una sala apagada de verdad. */
+  --n0: #0C0F10;
+  --n1: #101618;
+  --n2: #151E21;
+  --n3: #1B272B;
+  --n4: #223338;
 
-  --cartel: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
-  --texto: 'Schibsted Grotesk', system-ui, sans-serif;
-  --dato: 'Spline Sans Mono', ui-monospace, monospace;
+  --cal: #EDF2F1;          /* el texto principal */
+  --cal-2: #9FAEAC;        /* el secundario */
+  /* El terciario. Estaba en #6E7D7B con el comentario "el minimo que pasa contraste", que
+     era una suposicion y no una medicion: daba 4,47 contra el fondo mas oscuro y 3,94
+     contra los tramos encendidos, y el minimo es 4,5. La escalera de luminancia agrava
+     esto, porque el mismo color rinde distinto en cada tramo: el terciario tiene que pasar
+     contra el tramo MAS CLARO donde se lo use, no contra el mas oscuro. Veintidos textos
+     quedaban por debajo, casi todos de doce y trece pixeles, que es justo el tamano donde
+     mas se nota. */
+  --cal-3: #8A9795;
+  --linea: rgba(237, 242, 241, 0.10);
+  --linea-fuerte: rgba(237, 242, 241, 0.22);
 
-  /* Base de 6px. Distinta de la de 4 de gastronomia y la de 8 de real estate. */
-  --p1: 6px;  --p2: 12px; --p3: 18px; --p4: 30px;
-  --p5: 48px; --p6: 78px; --p7: 126px;
+  /* El gel. Uno solo, y siempre emitido: nunca relleno de area grande. */
+  --gel: #23D6C0;
+  --gel-tenue: rgba(35, 214, 192, 0.14);
+  --gel-linea: rgba(35, 214, 192, 0.38);
 
-  /* No hay contenedor centrado ni ancho maximo: todo se alinea a la izquierda
-     contra un margen duro y las bandas van a sangre. Las dos hermanas tienen
-     contenedor de 1180 y 1280; esta no tiene ninguno. */
-  --margen: clamp(18px, 4.2vw, 56px);
+  /* El foco. Blanco abierto, con halo, tres veces en toda la pagina. */
+  --foco: #FFFFFF;
+
+  --voz: 'Spline Sans Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --cuerpo: 'Schibsted Grotesk', system-ui, -apple-system, sans-serif;
+
+  /* Escala de espacio de base 6, distinta de la base 4 de gastronomia y de la
+     base 8 de real estate. */
+  --e1: 6px; --e2: 12px; --e3: 18px; --e4: 30px; --e5: 48px; --e6: 78px;
+
+  --ancho: 1220px;
+  --margen: clamp(18px, 4.5vw, 64px);
+  /* La columna del eje, donde vive el desfase. No existe en ninguna hermana. */
+  --eje: clamp(58px, 8vw, 108px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-/* El atributo height del HTML entra como hint de presentacion y GANA sobre aspect-ratio,
-   porque aspect-ratio solo aplica cuando una de las dos medidas queda en auto. Sin esta
-   linea cada imagen se pintaba con la altura de su atributo (1024 o 1536 px) en vez de la
-   proporcion que declara esta hoja: en un telefono eso es una pantalla entera de foto
-   recortada entre parrafo y parrafo, y la portada de real estate no mostraba una sola
-   palabra hasta el segundo scroll.
-   Va antes que cualquier regla de imagen: las que necesitan alto fijo la pisan por
-   especificidad. */
-img { height: auto; }
-
 
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
+/* JAMAS overflow-x en html. Cualquier valor no visible en la raiz mata el
+   position:sticky del hero en Chromium: el pin se rompe y el scrub pasa de largo.
+   El desborde se controla en la fuente. */
+
 body {
   margin: 0;
-  background: var(--l0);
+  background: var(--n0);
   color: var(--cal);
-  font-family: var(--texto);
-  font-size: 17px;
-  line-height: 1.55;
+  font-family: var(--cuerpo);
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ------------------------------------------------------------------ escala
-   El acantilado. Entre 28px y 132px no existe ningun tamano intermedio: el
-   salto es de 4,7 veces. El cartel aparece UNA sola vez en toda la pagina.
-   El 78 por ciento del texto vive en dos escalones, 17px y 13px. */
-.cartel {
-  font-family: var(--cartel);
-  font-weight: 800;
-  font-size: clamp(66px, 12.2vw, 132px);
-  line-height: 0.84;
-  letter-spacing: -0.015em;
-  text-transform: uppercase;
+img { max-width: 100%; display: block; }
+
+.saltar {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--gel);
+  color: var(--n0);
+  padding: 10px 16px;
+  font-family: var(--voz);
+  font-size: 13px;
+  z-index: 50;
+}
+.saltar:focus { left: 8px; top: 8px; }
+
+:where(a, button, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--gel);
+  outline-offset: 3px;
+}
+
+::selection { background: rgba(35, 214, 192, 0.30); color: var(--cal); }
+
+
+/* ------------------------------------------------------------------ la escala
+   Un unico momento tipografico grande y despues un acantilado, nunca una rampa.
+   Es como componen las referencias del rubro que no son SaaS: Berghain topea en
+   26px, Coachella en 27, Primavera en 56, y DICE pone su H1 a 100 con el escalon
+   siguiente cayendo de golpe a 44. */
+
+h1 {
+  font-family: var(--voz);
+  font-weight: 500;
+  font-size: clamp(30px, 4.6vw, 58px);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
   margin: 0;
-  max-width: 14ch;
 }
 h2 {
-  font-family: var(--cartel);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 1.05;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  font-family: var(--voz);
+  font-weight: 500;
+  font-size: clamp(23px, 2.7vw, 34px);
+  line-height: 1.18;
+  letter-spacing: -0.028em;
   margin: 0;
+  max-width: 24ch;
+  text-wrap: balance;
 }
 h3 {
-  font-family: var(--texto);
-  font-weight: 600;
+  font-family: var(--voz);
+  font-weight: 500;
   font-size: 17px;
   line-height: 1.35;
+  letter-spacing: -0.02em;
   margin: 0;
 }
-p { margin: 0 0 var(--p3); max-width: 64ch; }
-.fino { font-size: 14px; color: var(--cal-suave); }
+p { margin: 0 0 var(--e3); max-width: 62ch; }
 
 .rotulo {
-  font-family: var(--dato);
-  font-size: 13px;
+  font-family: var(--voz);
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gel);
-  margin: 0 0 var(--p2);
+  margin: 0 0 var(--e3);
 }
-.rotulo.apagado { color: var(--cal-suave); }
-
-.dato {
-  font-family: var(--dato);
-  font-size: 13px;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.06em;
-  color: var(--cal-suave);
-}
-
-/* --------------------------------------------------- escalera de luz (firma)
-   Cada seccion declara data-luz de 0 a 3 y la hoja redefine el fondo en ese
-   unico selector. PUERTAS invierte a sangre. Cortes duros, sin transicion. */
-.tramo {
-  padding: var(--p6) var(--margen);
-  border-block-start: 1px solid var(--linea);
-}
-.tramo[data-luz='0'] { background: var(--l0); }
-.tramo[data-luz='1'] { background: var(--l1); }
-.tramo[data-luz='2'] { background: var(--l2); }
-.tramo[data-luz='3'] { background: var(--l3); }
-.tramo[data-luz='puertas'] {
-  background: var(--gel);
-  color: var(--l0);
-  border-block-start: 0;
-}
-.tramo[data-luz='puertas'] .rotulo,
-.tramo[data-luz='puertas'] .dato { color: var(--l0); }
-.tramo[data-luz='puertas'] p { color: rgba(11, 13, 14, 0.82); }
-
-/* ------------------------------------------- filete de cuenta regresiva (firma)
-   Una sola regla vertical de 1px que corre sin cortarse de D-90 a D+1, con el
-   desfase en mono a la izquierda. Es el espinazo de toda la pagina. */
-.regresiva {
-  display: grid;
-  grid-template-columns: 86px 1fr;
-  gap: var(--p4);
-  align-items: start;
-}
-.regresiva > .marca {
-  font-family: var(--dato);
-  font-size: 13px;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.06em;
-  color: var(--gel);
-  position: relative;
-  padding-block-start: 3px;
-}
-.regresiva > .marca::after {
-  content: '';
-  position: absolute;
-  inset-block-start: 28px;
-  inset-block-end: calc(var(--p6) * -1 - 30px);
-  inset-inline-start: 4px;
-  width: 1px;
-  background: var(--linea);
-}
-.tramo:last-of-type .regresiva > .marca::after { display: none; }
-.tramo[data-luz='puertas'] .regresiva > .marca { color: var(--l0); }
-.tramo[data-luz='puertas'] .regresiva > .marca::after { background: rgba(11, 13, 14, 0.35); }
-
-@media (max-width: 720px) {
-  .regresiva { grid-template-columns: 1fr; gap: var(--p2); }
-  .regresiva > .marca::after { display: none; }
-}
-
-/* ------------------------------------------------- line-up agrupado (firma)
-   Etiqueta minuscula arriba de cada grupo y los nombres apilados uno por
-   linea, TODOS al mismo cuerpo. El peso plano hace que la lista se lea entera
-   en vez de que el ojo salte al nombre mas grande y abandone. La jerarquia se
-   lee por posicion y por cantidad de renglones, nunca por tamano. */
-.lineup { margin: var(--p5) 0 0; }
-.lineup .grupo + .grupo { margin-block-start: var(--p5); }
-.lineup .etiqueta {
-  font-family: var(--dato);
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gel);
-  padding-block-end: var(--p2);
-  border-block-end: 1px solid var(--linea);
-  margin: 0 0 var(--p3);
-}
-.lineup ul { list-style: none; margin: 0; padding: 0; }
-.lineup li {
-  font-family: var(--cartel);
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  padding-block: var(--p1);
-}
-.lineup li span {
-  display: block;
-  font-family: var(--texto);
-  font-weight: 400;
+.bajada {
   font-size: 17px;
-  line-height: 1.5;
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--cal-suave);
-  max-width: 64ch;
-  margin-block-start: var(--p1);
+  line-height: 1.62;
+  color: var(--cal-2);
+  max-width: 54ch;
+  margin-top: var(--e3);
 }
-/* La frutilla se lee mas chica sin necesidad de explicar por que. */
-.lineup.postre li { font-size: 17px; font-family: var(--texto); font-weight: 600; text-transform: none; letter-spacing: 0; }
-
-/* ---------------------------------------------- running order (firma)
-   Regla de tiempo a la izquierda y bloques cuya ALTURA sale de la duracion
-   real. Convierte una pagina de marketing en algo que se parece a una
-   herramienta de trabajo, que es lo que hay que vender. */
-.running { margin: var(--p5) 0 0; }
-.running .fila {
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: var(--p4);
-  border-block-start: 1px solid var(--linea);
-  padding-block: var(--p2);
-}
-.running .hora {
-  font-family: var(--dato);
+.dato {
+  font-family: var(--voz);
   font-size: 13px;
-  font-variant-numeric: tabular-nums;
-  color: var(--cal-suave);
-  white-space: nowrap;
+  line-height: 1.7;
+  color: var(--cal-3);
 }
-.running .bloque {
-  border-inline-start: 2px solid var(--gel);
-  padding: var(--p2) 0 var(--p2) var(--p3);
-  /* La altura es proporcional a la duracion, no decorativa. */
-  min-height: calc(var(--min, 15) * 1.6px);
-}
-.running .bloque h3 { text-transform: uppercase; font-family: var(--cartel); font-weight: 600; font-size: 21px; letter-spacing: 0.02em; }
-.running .bloque p { margin: var(--p1) 0 0; font-size: 15px; color: var(--cal-suave); }
+.dato a { color: var(--gel); text-underline-offset: 3px; }
 
-@media (max-width: 720px) {
-  .running .fila { grid-template-columns: 1fr; gap: var(--p1); }
-  .running .bloque { min-height: 0; }
+/* Lo que no se puede afirmar. Va en el gel y con filete al costado, porque en esta
+   marca la frase que limita la promesa es tan importante como la promesa. */
+.honesto {
+  font-family: var(--voz);
+  font-size: 13.5px;
+  line-height: 1.72;
+  color: var(--cal-2);
+  border-left: 1px solid var(--gel-linea);
+  padding-left: var(--e3);
+  max-width: 60ch;
+  margin-top: var(--e4);
 }
 
-/* ------------------------------------------------------------------- ficha
-   Dato duro con barras verticales y caja alta. Es la sintaxis nativa del
-   rubro: se reconoce antes de leerla, como un compas. */
-.ficha {
-  font-family: var(--dato);
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--cal-suave);
-  margin: var(--p4) 0 0;
-}
-.ficha b { color: var(--cal); font-weight: 500; }
-
-/* El unico elemento con radio de toda la hoja, y a proposito. */
 .btn {
-  display: inline-block;
-  background: var(--gel);
-  color: var(--l0);
-  font-family: var(--dato);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 17px 34px;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: background-color 180ms ease;
-}
-.btn:hover { background: #3fb9a3; }
-.btn:focus-visible { outline: 2px solid var(--cal); outline-offset: 3px; }
-.tramo[data-luz='puertas'] .btn { background: var(--l0); color: var(--gel); }
-.tramo[data-luz='puertas'] .btn:hover { background: #1a1e21; }
-
-/* --------------------------------------------------------------- imagenes */
-figure { margin: 0; }
-.banda img { width: 100%; display: block; object-fit: cover; filter: saturate(0.55) contrast(1.05); }
-.banda.ancha img { aspect-ratio: 2.39 / 1; }
-.banda.media img { aspect-ratio: 5 / 4; }
-.banda.alta img { aspect-ratio: 3 / 4; }
-.banda.cuadro img { aspect-ratio: 1 / 1; }
-figcaption {
-  font-family: var(--dato);
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--cal-suave);
-  padding: var(--p2) var(--margen) 0;
-}
-
-.dos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--p5);
-  align-items: start;
-}
-@media (max-width: 860px) { .dos { grid-template-columns: 1fr; gap: var(--p4); } }
-
-.saltar { position: absolute; left: -9999px; background: var(--gel); color: var(--l0); padding: var(--p2) var(--p3); }
-.saltar:focus { left: var(--p3); top: var(--p3); position: fixed; z-index: 10; }
-
-.pie-pagina {
-  padding: var(--p5) var(--margen);
-  border-block-start: 1px solid var(--linea);
-  font-family: var(--dato);
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--cal-suave);
-}
-/* Area tactil de 44px sin engordar el renglon: el padding lo da via min-height y
-   el margen negativo lo devuelve, asi el pie se sigue leyendo como una linea. */
-.pie-pagina a {
-  color: var(--cal);;
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  margin-block: -14px;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 26px;
+  font-family: var(--voz);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--gel);
+  color: var(--n0);
+  /* Radio cero. Toda la categoria usa la pastilla de radio total rellena con el
+     acento, repetida cuatro o cinco veces por pagina. Es el objeto mas repetido
+     del rubro y por eso el que mas conviene no usar. */
+  border: 1px solid var(--gel);
+  transition: background 0.2s ease, color 0.2s ease;
 }
-.pie-pagina nav { display: flex; gap: var(--p3); flex-wrap: wrap; margin-block-start: var(--p1); }
+.btn:hover { background: transparent; color: var(--gel); }
+.btn--linea { background: transparent; color: var(--cal); border-color: var(--linea-fuerte); }
+.btn--linea:hover { background: transparent; color: var(--gel); border-color: var(--gel); }
 
-@media (max-width: 640px) {
-  body { font-size: 16px; }
-  .tramo { padding-block: var(--p5); }
-  .lineup li { font-size: 24px; }
-  h2 { font-size: 24px; }
+
+/* ============================================================ (a) la reticula de aforo
+   El hero. La sala vacia que se llena, con la regla del umbral cortandola.
+
+   La categoria entera abre con la sala LLENA: multitud con humo, bajada de
+   opacidad, y un mockup de dispositivo flotando encima. Ensenar la sala llena es
+   ensenar el momento en que ya no se puede decidir nada.
+
+   El primer intento puso el canvas a `inset:0` detras de todo, y la reticula pasaba
+   por debajo del titular: ochocientas marcas de contraste alto detras de texto
+   blanco no es un fondo, es ruido. El dibujo va en SU columna. */
+
+.sala {
+  position: relative;
+  /* El alto de mas es el recorrido: la sala se llena mientras se pasa por delante.
+     Sin este alto, el hero mide una pantalla, no hay scroll que consumir y la
+     reticula aparece ya llena. */
+  min-height: 210vh;
+  background: var(--n0);
+  contain: paint;
+}
+.sala-fijo {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 72px);
+  padding: clamp(56px, 9vh, 104px) var(--margen);
+}
+
+.sala-texto { max-width: 44ch; }
+
+.marca {
+  font-family: var(--voz);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  color: var(--cal-3);
+  margin: 0 0 var(--e4);
+}
+.marca span { color: var(--gel); }
+
+/* El primero de los tres focos: el titular del hero es blanco abierto con halo. */
+.sala h1 {
+  margin-bottom: var(--e3);
+  color: var(--foco);
+  text-shadow: 0 0 42px rgba(255, 255, 255, 0.14);
+}
+
+.sala-cta { display: flex; flex-wrap: wrap; gap: var(--e2); margin-top: var(--e4); }
+.sala-precio {
+  font-family: var(--voz);
+  font-size: 12px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--cal-3);
+  margin: var(--e3) 0 0;
+}
+
+.sala-plano { display: grid; gap: var(--e4); align-content: center; }
+.sala-lienzo { position: relative; width: 100%; aspect-ratio: 5 / 4; }
+.sala-lienzo canvas { width: 100%; height: 100%; display: block; }
+
+/* La lectura es un instrumento, no una tarjeta: sin fondo, sin radio y sin sombra,
+   apoyada sobre una regla. */
+.sala-lectura {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--e3) var(--e4);
+  border-top: 1px solid var(--linea-fuerte);
+  padding-top: var(--e3);
+}
+.lect-col .rotulo { margin-bottom: var(--e1); }
+.lect-cifra {
+  font-family: var(--voz);
+  font-size: clamp(34px, 4.4vw, 54px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--gel);
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.lect-de { color: var(--cal-3); font-size: 0.36em; letter-spacing: 0.02em; margin-left: 0.4em; }
+.lect-estado {
+  font-family: var(--voz);
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  color: var(--cal-2);
+  margin: var(--e2) 0 0;
+  min-height: 2.6em;
+}
+.lect-eq {
+  font-family: var(--voz);
+  font-size: 19px;
+  color: var(--cal);
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.lect-eq span {
+  display: block;
+  font-size: 12px;
+  color: var(--cal-3);
+  letter-spacing: 0.03em;
+  margin-top: 5px;
+}
+.sala-respaldo { max-width: 60ch; color: var(--cal-2); padding: 0 var(--margen) var(--e5); }
+
+@media (max-width: 940px) {
+  .sala { min-height: auto; }
+  .sala-fijo {
+    position: static;
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: clamp(40px, 7vh, 72px);
+  }
+  .sala-lienzo { aspect-ratio: 4 / 3; }
+}
+
+
+/* ================================================================= (c) la hoja de ruta
+   El eje de la pagina: cada tramo lleva su desfase a puertas en el margen y una
+   linea vertical los enhebra. Gastronomia se ordena por el reloj del local y real
+   estate por laminas de un legajo; este rubro solo piensa en cuanto falta. */
+
+.tramo {
+  display: grid;
+  grid-template-columns: var(--eje) minmax(0, 1fr);
+  gap: 0 var(--e4);
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: var(--e6) var(--margen);
+  background: var(--n0);
+}
+/* La escalera de luminancia: cada tramo un escalon mas encendido que el anterior. */
+.tramo:nth-of-type(1) { background: var(--n0); }
+.tramo:nth-of-type(2) { background: var(--n1); }
+.tramo:nth-of-type(3) { background: var(--n1); }
+.tramo:nth-of-type(4) { background: var(--n2); }
+.tramo:nth-of-type(5) { background: var(--n2); }
+.tramo:nth-of-type(6) { background: var(--n3); }
+/* Y despues de PUERTAS vuelve a bajar. */
+.tramo--cierra { background: var(--n1); }
+
+/* El fondo tiene que llegar de borde a borde aunque el contenido este acotado. */
+.tramo { max-width: none; }
+.tramo > * { max-width: none; }
+.tramo-cuerpo { max-width: calc(var(--ancho) - var(--eje)); }
+
+.tramo-eje {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.eje-marca {
+  font-family: var(--voz);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--gel);
+  font-variant-numeric: tabular-nums;
+}
+.eje-linea {
+  flex: 1;
+  width: 1px;
+  background: var(--linea);
+  margin: var(--e2) 0 0 0.5ch;
+}
+
+@media (max-width: 760px) {
+  .tramo { grid-template-columns: 1fr; gap: var(--e3); padding-block: var(--e5); }
+  .tramo-eje { flex-direction: row; align-items: center; gap: var(--e2); }
+  .eje-linea { flex: 1; width: auto; height: 1px; margin: 0; }
+}
+
+
+/* ------------------------------------------------------------------ D-90 la decision */
+
+.decision {
+  list-style: none;
+  margin: var(--e5) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--e4);
+  counter-reset: dec;
+}
+.decision li {
+  border-top: 1px solid var(--linea-fuerte);
+  padding-top: var(--e3);
+  counter-increment: dec;
+}
+.decision h3::before {
+  content: counter(dec, decimal-leading-zero);
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--gel);
+  margin-bottom: var(--e1);
+}
+.decision p { font-size: 14.5px; color: var(--cal-2); margin: var(--e2) 0 0; }
+
+.banda { margin: var(--e6) 0 0; }
+.banda img { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; filter: saturate(0.8) contrast(1.06); }
+.banda figcaption,
+.pantalla figcaption {
+  font-family: var(--voz);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--cal-3);
+  margin-top: var(--e2);
+  padding-top: var(--e2);
+  border-top: 1px solid var(--linea);
+}
+
+
+/* =========================================================== (b) el fader del riesgo
+   D-60. La categoria dibuja el riesgo como barra de progreso rellena, que es
+   vocabulario de software. En una sala el objeto que gradua algo es un fader de
+   consola: recorrido, marcas de escala y cursor. Y ademas funciona. */
+
+.tramo--luz { position: relative; }
+
+.consola {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: var(--e5);
+  margin: var(--e5) 0 0;
+  align-items: start;
+}
+.consola-faders { display: grid; gap: var(--e4); }
+
+.fader { display: grid; grid-template-columns: 1fr auto; gap: var(--e1) var(--e3); align-items: center; }
+.fader-rot {
+  font-family: var(--voz);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--cal-3);
+}
+.fader-val {
+  font-family: var(--voz);
+  font-size: 15px;
+  color: var(--gel);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.fader-ayuda {
+  grid-column: 1 / -1;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--cal-3);
+  margin: 0;
+  max-width: 46ch;
+  order: 3;
+}
+.fader-pista {
+  grid-column: 1 / -1;
+  order: 2;
+  appearance: none;
+  width: 100%;
+  height: 26px;
+  background: transparent;
+  margin: 0;
+  cursor: pointer;
+}
+/* El recorrido lleva las marcas de escala grabadas encima, que es lo que lo hace
+   un fader y no una barra. */
+.fader-pista::-webkit-slider-runnable-track {
+  height: 3px;
+  background:
+    repeating-linear-gradient(to right, var(--linea-fuerte) 0 1px, transparent 1px 10%),
+    var(--linea);
+}
+.fader-pista::-moz-range-track {
+  height: 3px;
+  background:
+    repeating-linear-gradient(to right, var(--linea-fuerte) 0 1px, transparent 1px 10%),
+    var(--linea);
+}
+.fader-pista::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 24px;
+  margin-top: -10px;
+  background: var(--gel);
+  border: 0;
+  box-shadow: 0 0 14px rgba(35, 214, 192, 0.5);
+}
+.fader-pista::-moz-range-thumb {
+  width: 10px;
+  height: 24px;
+  border-radius: 0;
+  background: var(--gel);
+  border: 0;
+  box-shadow: 0 0 14px rgba(35, 214, 192, 0.5);
+}
+
+.consola-salida {
+  border-left: 1px solid var(--linea-fuerte);
+  padding-left: var(--e4);
+}
+.salida-cifra {
+  font-family: var(--voz);
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: var(--foco);
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  /* El segundo de los tres focos. */
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.16);
+}
+.salida-un {
+  display: block;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: var(--cal-3);
+  margin-top: var(--e2);
+  text-shadow: none;
+}
+.salida-pct { font-size: 15px; color: var(--cal-2); margin: var(--e3) 0 0; }
+.salida-pct b { color: var(--gel); font-weight: 500; }
+
+.salida-barra {
+  position: relative;
+  height: 8px;
+  background: var(--linea);
+  margin: var(--e4) 0 var(--e4);
+}
+.barra-lleno { position: absolute; inset: 0 auto 0 0; background: var(--gel-linea); }
+
+.salida-detalle { display: grid; gap: var(--e2); margin: 0; }
+.salida-detalle > div { display: flex; justify-content: space-between; gap: var(--e3); border-top: 1px solid var(--linea); padding-top: var(--e2); }
+.salida-detalle dt { font-size: 13px; color: var(--cal-3); }
+.salida-detalle dd {
+  margin: 0;
+  font-family: var(--voz);
+  font-size: 13.5px;
+  color: var(--cal);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+  .consola { grid-template-columns: 1fr; gap: var(--e5); }
+  .consola-salida { border-left: 0; border-top: 1px solid var(--linea-fuerte); padding: var(--e4) 0 0; }
+}
+
+
+/* ------------------------------------------------------------ D-45 las herramientas */
+
+.herramientas {
+  list-style: none;
+  margin: var(--e5) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--e5) var(--e4);
+  counter-reset: her;
+}
+.herramientas li {
+  counter-increment: her;
+  border-top: 1px solid var(--linea-fuerte);
+  padding-top: var(--e3);
+}
+.herramientas h3::before {
+  content: counter(her, decimal-leading-zero);
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--gel);
+  margin-bottom: var(--e2);
+}
+.herr-frase { color: var(--cal-2); font-size: 15px; margin: var(--e2) 0 var(--e2); }
+.herr-cuerpo { font-size: 13.5px; line-height: 1.66; color: var(--cal-3); margin: 0; }
+
+
+/* ----------------------------------------------------------------- D-30 el producto
+   Las capturas van a tamano real y apoyadas en la retícula, sin marco de
+   dispositivo, sin perspectiva, sin sombra y sin esquinas redondeadas. Un
+   documento apoyado plano se lee como evidencia; el mismo documento adentro de un
+   telefono flotando se lee como aviso, que es lo que hace toda la categoria. */
+
+.pantallas { display: grid; gap: var(--e5); margin: var(--e5) 0 0; }
+.pantalla { margin: 0; }
+.pantalla img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--linea-fuerte);
+}
+.pantalla figcaption b { color: var(--cal); font-weight: 500; }
+
+
+/* ---------------------------------------------------------------- D-14 la auditoria */
+
+.areas { list-style: none; margin: var(--e5) 0 0; padding: 0; display: grid; gap: 0; }
+.areas li {
+  display: grid;
+  grid-template-columns: minmax(120px, 168px) minmax(0, 1fr);
+  gap: var(--e4);
+  border-top: 1px solid var(--linea);
+  padding: var(--e3) 0;
+}
+.areas li:last-child { border-bottom: 1px solid var(--linea); }
+.area {
+  font-family: var(--voz);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  color: var(--gel);
+}
+.areas p { margin: 0; font-size: 14.5px; color: var(--cal-2); }
+@media (max-width: 640px) { .areas li { grid-template-columns: 1fr; gap: var(--e1); } }
+
+
+/* -------------------------------------------------------------------- D-3 el metodo */
+
+.metodo {
+  list-style: none;
+  margin: var(--e5) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--e4);
+}
+.metodo li { border-top: 1px solid var(--linea-fuerte); padding-top: var(--e3); }
+.paso-num {
+  display: block;
+  font-family: var(--voz);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--gel);
+  margin-bottom: var(--e2);
+}
+.metodo p { font-size: 13.5px; line-height: 1.62; color: var(--cal-3); margin: var(--e2) 0 0; }
+
+
+/* ========================================================================= D-0 puertas
+   El unico quiebre grafico de la pagina y el tercero de los focos. La escalera de
+   luminancia llega aca arriba y despues vuelve a bajar. */
+
+.puertas {
+  position: relative;
+  background: var(--n4);
+  padding: var(--e6) var(--margen) 0;
+  text-align: center;
+  contain: paint;
+}
+.puertas-marco { max-width: 46ch; margin: 0 auto; }
+.puertas-hora {
+  font-family: var(--voz);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--gel);
+  margin: 0 0 var(--e3);
+}
+.puertas-titulo {
+  font-family: var(--voz);
+  font-weight: 500;
+  font-size: clamp(48px, 11vw, 132px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  color: var(--foco);
+  margin: 0;
+  max-width: none;
+  text-shadow: 0 0 70px rgba(255, 255, 255, 0.22);
+}
+.puertas-texto {
+  color: var(--cal-2);
+  margin: var(--e4) auto var(--e6);
+  max-width: 44ch;
+}
+.puertas-foto { margin: 0; }
+.puertas-foto img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  filter: saturate(0.78) contrast(1.05);
+}
+
+
+/* ------------------------------------------------------------- D+1 el settlement */
+
+.liquidacion {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+  gap: var(--e5);
+  margin-top: var(--e5);
+  align-items: start;
+}
+.liq-lista { list-style: none; margin: 0; padding: 0; }
+.liq-lista li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--e3);
+  border-top: 1px solid var(--linea);
+  padding: var(--e2) 0;
+  font-size: 14.5px;
+}
+.liq-lista li:last-child { border-bottom: 1px solid var(--linea); }
+.liq-lista b {
+  font-family: var(--voz);
+  font-weight: 400;
+  font-size: 12.5px;
+  color: var(--cal-3);
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+.liq-total { border-left: 1px solid var(--linea-fuerte); padding-left: var(--e4); }
+.liq-cifra {
+  font-family: var(--voz);
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--gel);
+  margin: 0 0 var(--e3);
+  font-variant-numeric: tabular-nums;
+}
+.liq-nota { font-size: 13.5px; color: var(--cal-3); margin-bottom: var(--e4); }
+.liq-entrega {
+  font-family: var(--voz);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--cal-3);
+  margin: var(--e3) 0 0;
+}
+@media (max-width: 860px) {
+  .liquidacion { grid-template-columns: 1fr; }
+  .liq-total { border-left: 0; border-top: 1px solid var(--linea-fuerte); padding: var(--e4) 0 0; }
+}
+
+.preguntas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--e4);
+  margin-top: var(--e5);
+}
+.preg { border-top: 1px solid var(--linea-fuerte); padding-top: var(--e3); }
+.preg p { font-size: 14px; color: var(--cal-2); margin: var(--e2) 0 0; }
+
+
+/* ------------------------------------------------------------------------- el pie */
+
+.pie { background: var(--n0); border-top: 1px solid var(--linea); padding: var(--e6) var(--margen); }
+.pie-marco { max-width: var(--ancho); margin: 0 auto; }
+.pie-marca {
+  font-family: var(--voz);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--cal);
+  margin: 0 0 var(--e3);
+}
+.pie-marca span { color: var(--gel); }
+.pie-linea { color: var(--cal-3); font-size: 14px; max-width: 52ch; }
+.pie-nav { display: flex; flex-wrap: wrap; gap: var(--e2) var(--e4); margin: var(--e4) 0; }
+.pie-nav a {
+  font-family: var(--voz);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--cal-2);
+  text-decoration: none;
+  padding: 6px 0;
+}
+.pie-nav a:hover { color: var(--gel); }
+.pie-contacto a { color: var(--gel); font-family: var(--voz); font-size: 13px; }
+
+
+/* ------------------------------------------------------------------- las entradas */
+
+[data-revela] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+[data-revela].visible { opacity: 1; transform: none; }
+html:not(.js) [data-revela] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-revela] { opacity: 1; transform: none; transition: none; }
+  .fader-pista::-webkit-slider-thumb { box-shadow: none; }
+  h1, .salida-cifra, .puertas-titulo { text-shadow: none; }
+}
+
+
+/* ------------------------------------------------------------------ alto contraste
+   forced-colors fuerza los colores del HTML pero no los de un canvas ni los de un
+   SVG, y ademas apaga las sombras. Lo que se pierde ahi es el gel entero, que es
+   la unica jerarquia cromatica de la pagina: hay que devolverla con borde. */
+
+@media (forced-colors: active) {
+  .btn { border: 1px solid ButtonText; }
+  .consola-salida, .sala-lectura, .liq-total { border-left-color: CanvasText; }
+  .fader-pista::-webkit-slider-thumb { background: Highlight; }
+  .pantalla img, .puertas-foto img, .banda img { border: 1px solid CanvasText; }
+  .salida-barra { border: 1px solid CanvasText; }
+  .barra-lleno { background: Highlight; }
 }

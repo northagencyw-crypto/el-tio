@@ -1,302 +1,628 @@
 /* ============================================================================
    EL TIO ARTISTAS
-   Concepto: tu carrera es un catalogo, no un feed.
+   Concepto: el disco. El productor mira un reloj; el artista mira una pila.
 
-   El caso dificil del proyecto. Eventos ya estaba hecha y son rubros vecinos:
-   los dos son musica en vivo. La diferencia que las separa no es estetica sino
-   semantica, y la encontro la auditoria del campo:
+   Hoja propia. No comparte NADA con vertical.css, ni con gastronomia.css, ni con
+   real-estate.css, ni con eventos.css.
 
-     el productor cuenta hacia atras hasta una noche y despues tira la pagina;
-     el artista apila hacia adelante y no tira nada, porque el catalogo viejo
-     es el activo que sigue cobrando.
+   Antes de esto, artistas no tenia hoja: su identidad entera eran catorce
+   variables en un bloque <style> del head. Y esas catorce eran, punto por punto,
+   las de eventos: fondo #0B0B0E contra #0b0d0e, superficie #15151A contra
+   #14171a, texto #F5F3F1 contra #f2f4f3. Hasta el color de la barra del navegador
+   era el mismo. Las dos abrian con display en caja alta, las dos ponian al avatar
+   en un recinto vacio y las dos bautizaban sus productos en ingles.
 
-   Por eso aca no hay ninguna cuenta regresiva, ninguna barra de progreso hacia
-   una fecha y ningun rotulo de cupo. La pagina se lee como una edicion con
-   Lado A y Lado B, y todo lo que entro sigue estando.
+   La diferencia que ordena todo lo demas: el mundo del productor tiene como
+   unidad LA FECHA, una noche con un instante irreversible al que todo converge, y
+   por eso eventos es una cuenta regresiva que termina. El mundo del artista tiene
+   como unidad LA OBRA: su economia es un catalogo que ACUMULA, su tiempo no es
+   regresivo sino cumulativo, su documento es la ficha de creditos y su riesgo no
+   es binario sino lento.
 
-   Prohibido cruzarse con las otras tres: hay un test que lo verifica.
+   Oposiciones deliberadas contra las tres hermanas:
+
+   - Superficie. Papel de funda interior con matiz rosado, no el papel de estraza
+     calido de gastronomia ni el papel de tina frio de real estate ni el carbon de
+     eventos.
+   - Tinta. Una sola, azufre, que es el amarillo de etiqueta de sello, y que NUNCA
+     hace de fondo.
+   - Letra. Sin monoespaciada y sin caja alta en titulares. Las tres hermanas usan
+     una mono como registro de utilidad y en eventos la mono es directamente el
+     espinazo. Aca no hay ninguna: Syne para el nombre e Instrument Sans para el
+     texto.
+   - Forma. El circulo perfecto. Las tres hojas declaran radio cero en todo, asi
+     que el circulo es territorio libre y es ademas el objeto mas reconocible del
+     rubro.
+   - Direccion. El riel de caja se recorre EN HORIZONTAL. Las tres hermanas son
+     documentos estrictamente verticales.
+   - Grilla de 5px, que no es la de 4 de gastronomia ni la de 8 de real estate ni
+     la de 6 de eventos. Contenedor 1040px, que no es 1180 ni 1280.
    ========================================================================= */
 
 :root {
-  /* Cuarto material del sistema. Gastronomia y real estate son papel claro,
-     eventos es negro; este es un gris calido de funda gastada. */
-  --funda: #cfc5c0;
-  --papel: #f8efec;
-  --tinta: #33262a;
-  --tinta-suave: #544548;
-  --azufre: #d8c81f;
-  --linea: #8c7b76;
+  color-scheme: light;
 
-  --display: 'Syne', system-ui, sans-serif;
-  --texto: 'Instrument Sans', system-ui, sans-serif;
+  --funda: #EFE8E6;        /* el papel de la funda interior, gris con sesgo rosado */
+  --liner: #FBF8F5;        /* el inserto: casi blanco, pero no #FFFFFF */
+  --surco: #1A1516;        /* la tinta, negro calido */
+  --surco-2: #4F4547;      /* el secundario */
+  /* El terciario. Lo puse en #7A6D70 a ojo y daba 4,08 sobre el papel, con el minimo en
+     4,5: quince textos por debajo, casi todos de once a trece pixeles. Este es el valor
+     que el analisis de campo ya proponia, y da 5,05. Es la segunda vez en dos paginas que
+     escribo un terciario suponiendo que pasa en vez de medirlo. */
+  --surco-3: #6B5F62;
+  --azufre: #D8C81F;       /* la etiqueta del sello. Nunca es fondo de texto. */
+  /* El azufre sobre papel da 1,7 a 1: sirve para un trazo, jamas para una letra.
+     Este es el mismo amarillo llevado a tinta, que da 4,9 y sigue siendo azufre. */
+  --azufre-texto: #6E6408;
+  --regla: #C4B9B6;
 
-  /* Base de 5px. Las hermanas usan 4, 6 y 8. */
-  --e1: 5px; --e2: 10px; --e3: 15px; --e4: 25px;
-  --e5: 40px; --e6: 65px; --e7: 105px;
+  --nombre: 'Syne', 'Bricolage Grotesque', system-ui, sans-serif;
+  --texto: 'Instrument Sans', system-ui, -apple-system, sans-serif;
 
-  --ancho: 1120px;
+  /* Base de cinco. */
+  --e1: 5px; --e2: 10px; --e3: 20px; --e4: 35px; --e5: 55px; --e6: 90px;
+
+  --ancho: 1040px;
+  --margen: clamp(20px, 5vw, 60px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-/* El atributo height del HTML entra como hint de presentacion y GANA sobre aspect-ratio,
-   porque aspect-ratio solo aplica cuando una de las dos medidas queda en auto. Sin esta
-   linea cada imagen se pintaba con la altura de su atributo (1024 o 1536 px) en vez de la
-   proporcion que declara esta hoja: en un telefono eso es una pantalla entera de foto
-   recortada entre parrafo y parrafo, y la portada de real estate no mostraba una sola
-   palabra hasta el segundo scroll.
-   Va antes que cualquier regla de imagen: las que necesitan alto fijo la pisan por
-   especificidad. */
-img { height: auto; }
 
 html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
   margin: 0;
   background: var(--funda);
-  color: var(--tinta);
+  color: var(--surco);
   font-family: var(--texto);
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: 16.5px;
+  line-height: 1.62;
   -webkit-font-smoothing: antialiased;
 }
 
-.hoja { max-width: var(--ancho); margin: 0 auto; padding: 0 clamp(20px, 5vw, 60px); }
+img { max-width: 100%; display: block; }
 
-/* ------------------------------------------------------------------ escala
-   Rampa densa de seis escalones con techo duro en 31px. Nada puede alcanzarlo:
-   ni un numero, ni un precio, ni una cifra. Es lo contrario del acantilado de
-   eventos, que salta de 132 a 28 sin nada en el medio. */
+.saltar {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--surco);
+  color: var(--liner);
+  padding: 10px 16px;
+  font-size: 14px;
+  z-index: 50;
+}
+.saltar:focus { left: 8px; top: 8px; }
+
+:where(a, button, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--surco);
+  outline-offset: 3px;
+}
+
+::selection { background: rgba(216, 200, 31, 0.42); color: var(--surco); }
+
+
+/* ------------------------------------------------------------------- la escala
+   Sin acantilado y sin caja alta. La categoria entera infla el titular y lo pone
+   en mayusculas; el rubro de verdad, los sellos, compone en caja mixta y deja que
+   el nombre propio sea lo grande. */
+
 h1 {
-  font-family: var(--display);
+  font-family: var(--nombre);
   font-weight: 700;
-  font-size: 31px;
-  line-height: 1.18;
-  letter-spacing: -0.01em;
+  font-size: clamp(30px, 4.4vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   margin: 0;
-  max-width: 22ch;
 }
-h2 {
-  font-family: var(--display);
+.lado-titulo {
+  font-family: var(--nombre);
   font-weight: 600;
-  font-size: 21px;
-  line-height: 1.25;
+  font-size: clamp(26px, 3.6vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.028em;
   margin: 0;
 }
-h3 { font-family: var(--texto); font-weight: 600; font-size: 17px; line-height: 1.35; margin: 0; }
-p { margin: 0 0 var(--e3); max-width: 60ch; }
-.nota { font-size: 15px; color: var(--tinta-suave); }
-
-/* La unica etiqueta en caja alta, y siempre chica. */
-.ref {
-  font-family: var(--texto);
-  font-weight: 500;
-  font-size: 11.5px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  font-variant-numeric: tabular-nums lining-nums;
-  color: var(--tinta-suave);
-  margin: 0;
-}
-.ref.acento { color: var(--tinta); background: var(--azufre); display: inline-block; padding: 2px var(--e2); }
-
-.lado { padding: var(--e7) 0; border-block-start: 1px solid var(--linea); }
-.lado:first-of-type { border-block-start: 0; }
-.lado.claro { background: var(--papel); }
-
-/* ------------------------------------------------- renglon de catalogo (firma)
-   Reemplaza a la tarjeta en TODA la pagina: no existe una sola card en la hoja,
-   contra las grillas de tarjetas de las hermanas. Numero de serie, concepto,
-   una sola frase de contratapa, y el estado a la derecha. */
-.catalogo { list-style: none; margin: var(--e5) 0 0; padding: 0; }
-.catalogo li {
-  display: grid;
-  grid-template-columns: 72px 1fr auto;
-  gap: var(--e2) var(--e4);
-  align-items: baseline;
-  padding: var(--e3) 0;
-  border-block-end: 1px solid var(--linea);
-}
-.catalogo .serie {
-  font-family: var(--texto);
-  font-weight: 500;
-  font-size: 11.5px;
-  letter-spacing: 0.07em;
-  font-variant-numeric: tabular-nums lining-nums;
-  color: var(--tinta-suave);
-}
-.catalogo .titulo { font-size: 17px; font-weight: 600; }
-.catalogo .estado {
-  font-size: 11.5px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--tinta-suave);
-  white-space: nowrap;
-}
-/* Una sola frase por item, nunca una lista: es la nota de contratapa del rubro. */
-.catalogo .contratapa {
-  grid-column: 2 / -1;
-  font-size: 15px;
-  color: var(--tinta-suave);
-  margin: 0;
-  max-width: 64ch;
-}
-@media (max-width: 620px) {
-  .catalogo li { grid-template-columns: 60px 1fr; }
-  .catalogo .estado { grid-column: 2; }
-  .catalogo .contratapa { grid-column: 1 / -1; }
-}
-
-/* Lo descatalogado: lo que El Tio explicitamente NO hace. Sustituye a las
-   promesas de resultado, que estan prohibidas, por una declaracion de limites. */
-.catalogo.descatalogado .titulo { text-decoration: line-through; text-decoration-thickness: 1px; color: var(--tinta-suave); }
-
-/* ------------------------------------------------------ riel de lomos (firma)
-   Se recorre en horizontal, cuando las tres hermanas son documentos
-   estrictamente verticales. Cada lomo es un ano del catalogo. */
-.riel {
-  display: flex;
-  gap: var(--e1);
-  overflow-x: auto;
-  padding: var(--e4) 0 var(--e3);
-  scrollbar-width: thin;
-}
-.lomo {
-  flex: 0 0 auto;
-  width: 46px;
-  min-height: 150px;
-  border: 1px solid var(--linea);
-  background: var(--papel);
-  padding: var(--e2) var(--e1);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-.lomo span {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-size: 11.5px;
-  letter-spacing: 0.07em;
-  font-variant-numeric: tabular-nums lining-nums;
-  color: var(--tinta-suave);
-  white-space: nowrap;
-}
-.lomo.vigente { background: var(--azufre); border-color: var(--tinta); }
-.lomo.vigente span { color: var(--tinta); font-weight: 600; }
-
-/* ------------------------------------------------------------- el sello (firma)
-   El unico border-radius del sistema entero: tres hojas declaran radio 0 en
-   absolutamente todo, y aca hay un disco. */
-.sello {
-  width: 132px;
-  height: 132px;
-  border-radius: 50%;
-  background: var(--azufre);
-  border: 1px solid var(--tinta);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: var(--e3);
-  position: relative;
-}
-.sello::after {
-  content: '';
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--funda);
-  border: 1px solid var(--tinta);
-}
-.sello p {
-  margin: 0;
-  font-size: 11.5px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
+.tit {
+  font-family: var(--nombre);
   font-weight: 600;
-  max-width: none;
+  font-size: clamp(21px, 2.4vw, 29px);
+  line-height: 1.22;
+  letter-spacing: -0.022em;
+  margin: 0 0 var(--e3);
+  max-width: 26ch;
+  text-wrap: balance;
 }
+h4 {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 16.5px;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+  margin: 0;
+}
+p { margin: 0 0 var(--e3); max-width: 66ch; }
 
-/* --------------------------------------------- funda cuadrada con reverso (firma)
-   Toda imagen lleva 1:1 sin una sola excepcion, contra la mezcla de eventos.
-   Al pasar el cursor gira y muestra la ficha tecnica del dato. */
-.funda { perspective: 900px; }
-.funda .cara {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  transform-style: preserve-3d;
-  transition: transform 420ms ease;
+.bajada { font-size: 17.5px; line-height: 1.6; color: var(--surco-2); max-width: 56ch; }
+.rotulo {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--azufre-texto);
+  margin: 0 0 var(--e3);
 }
-.funda:hover .cara, .funda:focus-within .cara { transform: rotateY(180deg); }
-.funda .frente, .funda .reverso {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  border: 1px solid var(--linea);
-}
-.funda .frente img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.funda .reverso {
-  transform: rotateY(180deg);
-  background: var(--papel);
-  padding: var(--e4);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--e2);
-}
-.funda .reverso p { margin: 0; font-size: 15px; }
-@media (prefers-reduced-motion: reduce) {
-  .funda .cara { transform: none !important; }
-  .funda .reverso { display: none; }
-}
+.dato { font-size: 13.5px; color: var(--surco-3); }
 
-.fundas { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--e4); margin-top: var(--e5); }
+/* La nota de contratapa: una frase densa que limita lo que se promete. La unidad
+   de copy del rubro es exactamente esta, no la lista de vinetas. */
+.honesto {
+  font-size: 14.5px;
+  line-height: 1.66;
+  color: var(--surco-2);
+  border-left: 2px solid var(--azufre);
+  padding-left: var(--e3);
+  max-width: 62ch;
+  margin-top: var(--e4);
+}
 
 .btn {
-  display: inline-block;
-  background: var(--tinta);
-  color: var(--papel);
-  font-family: var(--texto);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 15px 30px;
-  cursor: pointer;
-  transition: background-color 200ms ease;
-}
-.btn:hover { background: #4a373c; }
-.btn:focus-visible { outline: 2px solid var(--azufre); outline-offset: 3px; }
-
-.dos { display: grid; grid-template-columns: 1fr 300px; gap: var(--e6); align-items: start; }
-@media (max-width: 880px) { .dos { grid-template-columns: 1fr; gap: var(--e5); } }
-
-.saltar { position: absolute; left: -9999px; background: var(--tinta); color: var(--papel); padding: var(--e2) var(--e3); }
-.saltar:focus { left: var(--e3); top: var(--e3); position: fixed; z-index: 10; }
-
-.pie-pagina {
-  border-block-start: 1px solid var(--linea);
-  padding: var(--e5) 0;
-  font-size: 11.5px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--tinta-suave);
-}
-/* Area tactil de 44px sin engordar el renglon: el padding lo da via min-height y
-   el margen negativo lo devuelve, asi el pie se sigue leyendo como una linea. */
-.pie-pagina a {
-  color: var(--tinta);;
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  margin-block: -14px;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 26px;
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  background: var(--surco);
+  color: var(--liner);
+  /* Radio total, y es el UNICO radio total de la pagina. La categoria usa la
+     pastilla en todos lados; aca el circulo es el concepto, asi que el boton toma
+     la forma del objeto en vez de la del formulario. */
+  border-radius: 999px;
+  border: 1px solid var(--surco);
+  transition: background 0.2s ease, color 0.2s ease;
 }
-.pie-pagina nav { display: flex; gap: var(--e3); flex-wrap: wrap; margin-top: var(--e1); }
+.btn:hover { background: transparent; color: var(--surco); }
+.btn--linea { background: transparent; color: var(--surco); border-color: var(--regla); }
+.btn--linea:hover { background: var(--surco); color: var(--liner); border-color: var(--surco); }
 
-@media (max-width: 640px) {
-  body { font-size: 16px; }
-  h1 { font-size: 27px; }
-  .lado { padding: var(--e6) 0; }
-  .sello { width: 108px; height: 108px; }
+
+/* ================================================================= (a) el sello
+   El hero. Un circulo perfecto con agujero central, las ciudades por angulo y dos
+   radios por ciudad: lo prestado y lo propio.
+
+   La categoria dibuja siempre lo mismo, una captura de tablero con porcentajes
+   flotando sin denominador: Feature.fm reparte 46, 31, 18, 52, 35 y 20 sobre
+   visualizaciones sin decir de que ni contra que linea base. Este dibujo no
+   afirma ninguna cifra. Muestra una PROPORCION, que es el argumento entero del
+   vertical: el anillo de afuera es grande y no es tuyo. */
+
+.disco { padding: clamp(48px, 8vh, 96px) var(--margen) var(--e6); }
+.disco-marco {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.94fr);
+  gap: clamp(28px, 5vw, 70px);
+  align-items: center;
+}
+.disco-texto { max-width: 46ch; }
+.marca {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--surco-3);
+  margin: 0 0 var(--e4);
+}
+.marca span { color: var(--azufre-texto); }
+.disco h1 { margin-bottom: var(--e3); }
+.disco-cta { display: flex; flex-wrap: wrap; gap: var(--e2); margin-top: var(--e4); }
+.disco-precio { font-size: 13.5px; color: var(--surco-3); margin: var(--e3) 0 0; }
+
+.disco-plato { display: grid; gap: var(--e4); }
+.sello { display: block; width: 100%; height: auto; overflow: visible; }
+.sel-surco { fill: none; stroke: var(--regla); stroke-width: 0.7; opacity: 0.6; }
+.sel-borde { fill: none; stroke: var(--surco); stroke-width: 1.1; }
+.sel-centro { fill: var(--funda); stroke: var(--surco); stroke-width: 1.1; }
+.sel-agujero { fill: var(--surco); }
+.sel-prestada { stroke: var(--surco); stroke-width: 5.5; opacity: 0.20; }
+.sel-propia { stroke: var(--azufre); stroke-width: 5.5; }
+.sel-ciudad {
+  font-family: var(--texto);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  fill: var(--surco-2);
+}
+
+/* La entrada: los trazos crecen desde el centro, escalonados por su indice, y el
+   disco entero se asienta una sola vez. Nada mas se mueve en toda la pagina. */
+.js .sel-prestada, .js .sel-propia {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.js .sel-prestada { transition-delay: calc(var(--i) * 32ms); }
+.js .sel-propia { transition-delay: calc(700ms + var(--i) * 32ms); }
+.js .disco.visible .sel-prestada { opacity: 0.20; }
+.js .disco.visible .sel-propia { opacity: 1; }
+
+.disco-leyenda { margin: 0; display: grid; gap: var(--e2); }
+.disco-leyenda > div { display: grid; grid-template-columns: auto 1fr; gap: var(--e1) var(--e3); }
+.disco-leyenda dt {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.disco-leyenda dd { margin: 0; font-size: 13.5px; color: var(--surco-2); }
+.lg { width: 14px; height: 5px; display: inline-block; }
+.lg--prestada { background: var(--regla); }
+.lg--propia { background: var(--azufre); }
+.disco-pie { font-size: 12.5px; color: var(--surco-3); margin: 0; max-width: 52ch; }
+
+@media (max-width: 900px) {
+  .disco-marco { grid-template-columns: 1fr; }
+  .disco-plato { order: 2; }
+}
+
+
+/* ==================================================================== los cortes
+   Cada seccion es un corte del disco. En vez del numero de lamina de real estate
+   o del desfase de eventos, aca el codigo dice de que lado esta y en que orden va,
+   que es como se numera un disco y como nadie numera un evento. */
+
+.corte { padding: var(--e6) var(--margen); }
+.corte--liner { background: var(--liner); }
+.corte-marco { max-width: var(--ancho); margin: 0 auto; }
+.corte-codigo {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--surco-3);
+  margin: 0 0 var(--e4);
+  display: flex;
+  align-items: center;
+  gap: var(--e3);
+}
+.corte-codigo span {
+  color: var(--surco);
+  border: 1px solid var(--regla);
+  border-radius: 999px;
+  padding: 5px 11px;
+  letter-spacing: 0.1em;
+}
+
+/* La banda de lado. Se anuncia una sola vez por lado y es lo unico de la pagina
+   que invierte el color. */
+.lado { background: var(--surco); color: var(--funda); padding: var(--e6) var(--margen); }
+.lado-marco { max-width: var(--ancho); margin: 0 auto; }
+.lado-letra {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: var(--azufre);
+  margin: 0 0 var(--e3);
+}
+.lado-titulo { color: var(--funda); max-width: 20ch; }
+.lado-nota { color: rgba(239, 232, 230, 0.72); margin: var(--e3) 0 0; max-width: 54ch; }
+
+
+/* ------------------------------------------------------------------ (d) la funda
+   Toda imagen de la pagina es 1:1. Sin una sola excepcion, y ese es el punto: una
+   pagina donde cada imagen es un cuadrado perfecto es un disco antes de que se lea
+   una palabra. */
+
+.funda { margin: 0; }
+.funda img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid var(--regla);
+}
+.funda figcaption {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--surco-3);
+  margin-top: var(--e2);
+}
+
+.tres { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--e4); margin-top: var(--e5); }
+.par-funda { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--e4); margin-top: var(--e5); }
+@media (max-width: 720px) {
+  .tres, .par-funda { grid-template-columns: 1fr; gap: var(--e4); }
+}
+
+
+/* ------------------------------------------------------------------- A2 el mapa */
+
+.mapa-par {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  margin-top: var(--e5);
+  align-items: start;
+}
+.mapa-texto p { font-size: 16.5px; }
+@media (max-width: 820px) { .mapa-par { grid-template-columns: 1fr; } }
+
+
+/* --------------------------------------------------------------- A3 la captacion */
+
+.captacion {
+  list-style: none;
+  margin: var(--e5) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--e4);
+  counter-reset: cap;
+}
+.captacion li { counter-increment: cap; border-top: 1px solid var(--regla); padding-top: var(--e3); }
+.captacion h4::before {
+  content: counter(cap, decimal-leading-zero);
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--azufre-texto);
+  margin-bottom: var(--e2);
+}
+.captacion p { font-size: 14.5px; color: var(--surco-2); margin: var(--e2) 0 0; }
+
+
+/* ------------------------------------------------------------------- A4 el caso */
+
+.caso { margin: var(--e5) 0 0; display: grid; gap: 0; }
+.caso > div {
+  display: grid;
+  grid-template-columns: minmax(130px, 190px) minmax(0, 1fr);
+  gap: var(--e4);
+  border-top: 1px solid var(--regla);
+  padding: var(--e3) 0;
+}
+.caso dt {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  color: var(--azufre-texto);
+}
+.caso dd { margin: 0; color: var(--surco-2); max-width: 62ch; }
+@media (max-width: 640px) { .caso > div { grid-template-columns: 1fr; gap: var(--e1); } }
+
+
+/* ============================================================ (b) el riel de caja
+   El unico bloque de la pagina que se recorre en horizontal, y el unico de las
+   cuatro hojas rehechas. Las tres hermanas son documentos estrictamente
+   verticales; un catalogo no se lee asi, se lee pasando lomos con los dedos.
+
+   El borde de corte a la derecha es literal: un degradado que dice que la fila
+   sigue. Sin eso, un carrusel sin flechas parece una fila que termina. */
+
+.riel {
+  position: relative;
+  margin: var(--e5) 0 var(--e3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  padding-bottom: var(--e3);
+  /* El corte: la fila se desvanece contra el borde derecho. */
+  -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 56px), transparent 100%);
+          mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 56px), transparent 100%);
+}
+.riel:focus-visible { outline: 2px solid var(--surco); outline-offset: 4px; }
+.riel-lomos { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--e2); }
+
+.lomo {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 78px;
+  min-height: 330px;
+  background: var(--liner);
+  border: 1px solid var(--regla);
+  border-left-width: 4px;
+  padding: var(--e3) var(--e2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e3);
+  transition: width 0.32s ease, background 0.2s ease;
+}
+.lomo--eje { border-left-color: var(--azufre); }
+.lomo-num {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--surco-3);
+}
+/* El nombre va rotado, que es como se lee un lomo de verdad. `100% 0` manda la
+   caja hacia arriba y la saca de la tarjeta: el origen tiene que ser `0 0`. Ya
+   paso en la marginalia de real estate, en las cinco laminas a la vez. */
+.lomo-nombre {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 15.5px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-top: auto;
+}
+.lomo-nota {
+  display: none;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--surco-2);
+  margin: 0;
+  max-width: 30ch;
+}
+/* Al pasar el mouse o al enfocar con teclado, el lomo se saca y se lee. Es el
+   gesto de la caja: uno no lee un disco de canto, lo levanta. */
+.lomo:hover, .lomo:focus-within, .lomo.abierto {
+  width: 290px;
+  background: var(--funda);
+}
+.lomo:hover .lomo-nombre,
+.lomo:focus-within .lomo-nombre,
+.lomo.abierto .lomo-nombre {
+  writing-mode: horizontal-tb;
+  transform: none;
+  margin-top: 0;
+}
+.lomo:hover .lomo-nota,
+.lomo:focus-within .lomo-nota,
+.lomo.abierto .lomo-nota { display: block; }
+
+/* En telefono no hay mouse y el lomo de canto no se puede leer: la caja se
+   despliega y pasa a ser una lista. */
+@media (max-width: 720px) {
+  .riel { -webkit-mask-image: none; mask-image: none; overflow-x: visible; }
+  .riel-lomos { flex-direction: column; }
+  .lomo { width: auto; min-height: 0; border-left-width: 4px; }
+  .lomo-nombre { writing-mode: horizontal-tb; transform: none; margin-top: 0; }
+  .lomo-nota { display: block; max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { .lomo { transition: none; } }
+
+
+/* ------------------------------------------------------------------ B2 el audit */
+
+.areas { list-style: none; margin: var(--e5) 0 0; padding: 0; }
+.areas li {
+  display: grid;
+  grid-template-columns: minmax(110px, 160px) minmax(0, 1fr);
+  gap: var(--e4);
+  border-top: 1px solid var(--regla);
+  padding: var(--e3) 0;
+}
+.areas li:last-child { border-bottom: 1px solid var(--regla); }
+.area {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  color: var(--azufre-texto);
+}
+.areas p { margin: 0; font-size: 15px; color: var(--surco-2); }
+@media (max-width: 640px) { .areas li { grid-template-columns: 1fr; gap: var(--e1); } }
+
+.precio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+  gap: clamp(24px, 4vw, 56px);
+  margin-top: var(--e6);
+  align-items: center;
+}
+.precio-monto {
+  font-family: var(--nombre);
+  font-weight: 700;
+  font-size: clamp(40px, 5.4vw, 62px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0 0 var(--e3);
+}
+.precio-nota { font-size: 14.5px; color: var(--surco-2); margin-bottom: var(--e4); }
+.precio-entrega { font-size: 13px; color: var(--surco-3); margin: var(--e3) 0 0; }
+@media (max-width: 820px) { .precio { grid-template-columns: 1fr; } }
+
+
+/* ---------------------------------------------------------------- B3 las preguntas */
+
+.preguntas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: var(--e4);
+  margin-top: var(--e5);
+}
+.preg { border-top: 1px solid var(--regla); padding-top: var(--e3); }
+.preg p { font-size: 14.5px; color: var(--surco-2); margin: var(--e2) 0 0; }
+
+
+/* ======================================================= (c) el pliego de creditos
+   El cierre, y la forma del documento propio del rubro: el label copy de una
+   edicion. Dos columnas de texto chico con etiquetas colgadas.
+
+   Las tres hermanas cierran en columna unica a 62, 58 y 64 caracteres. Y lo que
+   dice es lo que ninguna pagina de la categoria dice en ningun lado: quien lo
+   hace, sobre que corre, de quien queda y que NO promete. */
+
+.pliego { background: var(--surco); color: var(--funda); padding: var(--e6) var(--margen); }
+.pliego-marco { max-width: var(--ancho); margin: 0 auto; }
+.pliego-rotulo {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: var(--azufre);
+  margin: 0 0 var(--e4);
+}
+.pliego-lista {
+  margin: 0;
+  columns: 2;
+  column-gap: clamp(28px, 5vw, 64px);
+}
+.cred { break-inside: avoid; margin-bottom: var(--e4); }
+.cred dt {
+  font-family: var(--nombre);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azufre);
+  margin-bottom: var(--e1);
+}
+.cred dd { margin: 0; font-size: 14.5px; line-height: 1.6; color: rgba(239, 232, 230, 0.82); }
+@media (max-width: 720px) { .pliego-lista { columns: 1; } }
+
+.pliego-pie {
+  margin-top: var(--e5);
+  padding-top: var(--e4);
+  border-top: 1px solid rgba(239, 232, 230, 0.18);
+}
+.pliego-marca {
+  font-family: var(--nombre);
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.04em;
+  margin: 0 0 var(--e3);
+}
+.pliego-marca span { color: var(--azufre); }
+.pliego-nav { display: flex; flex-wrap: wrap; gap: var(--e2) var(--e4); margin-bottom: var(--e3); }
+.pliego-nav a {
+  font-size: 14px;
+  color: rgba(239, 232, 230, 0.8);
+  text-decoration: none;
+  padding: 6px 0;
+}
+.pliego-nav a:hover { color: var(--azufre); }
+.pliego-contacto a { color: var(--azufre); font-size: 14px; }
+
+
+/* ------------------------------------------------------------------ alto contraste
+   forced-colors fuerza los colores del HTML pero no los `stroke` ni los `fill` de
+   un SVG, asi que sin esto el sello desaparece entero contra el fondo del sistema,
+   y con el se va el unico grafico de la pagina. */
+
+@media (forced-colors: active) {
+  .sel-borde, .sel-centro, .sel-surco { stroke: CanvasText; }
+  .sel-prestada { stroke: GrayText; opacity: 1; }
+  .sel-propia, .sel-agujero { stroke: Highlight; fill: Highlight; }
+  .sel-ciudad { fill: CanvasText; }
+  .funda img, .lomo, .corte-codigo span { border-color: CanvasText; }
+  .lg--prestada { background: GrayText; }
+  .lg--propia { background: Highlight; }
+  .honesto { border-left-color: CanvasText; }
 }

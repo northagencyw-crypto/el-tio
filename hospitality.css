@@ -383,3 +383,55 @@ figcaption {
 @media (forced-colors: active) {
   .pasillo-lienzo { border: 1px solid CanvasText; }
 }
+
+
+/* ------------------------------------------------------------------- la trastienda
+   La banda del trabajo que no se ve. Cuatro piezas con su hora: el turno noche, la
+   lista del dia, el office y el cierre. Van con la hora porque en este rubro el
+   trabajo se ordena por turno, y porque la hora es lo que prueba que eso pasa
+   cuando el dueno no esta. */
+
+/* El resto de la pagina separa a mano con `style="margin-top"`, asi que una seccion
+   nueva sin esos atributos sale con el titulo pegado a la bajada. Se resuelve en la hoja,
+   que es donde deberia haber estado siempre. */
+.trastienda h2 { margin-top: var(--n2); }
+.trastienda .bajada { margin-top: var(--n3); }
+
+.tras-tira {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--n3);
+  margin-top: var(--n5);
+}
+.tras-pieza { margin: 0; }
+.tras-pieza img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--linea);
+}
+.tras-pieza figcaption {
+  font-family: var(--texto);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--cal-suave);
+  margin-top: var(--n2);
+}
+.tras-hora {
+  display: block;
+  font-family: var(--dato);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--laton);
+  margin-bottom: 4px;
+}
+@media (max-width: 980px) { .tras-tira { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .tras-tira { grid-template-columns: 1fr; } }
+
+[data-revela] { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
+[data-revela].visible { opacity: 1; transform: none; }
+html:not(.js) [data-revela] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-revela] { opacity: 1; transform: none; transition: none; }
+}

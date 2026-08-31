@@ -413,3 +413,107 @@ figure { margin: 0; }
      el de 58ch simplemente deja de atar en una pantalla angosta mientras los de 34ch
      y 22ch siguen atando. La diferencia sobrevive sola. */
 }
+
+
+/* ===================================================================== el pedido
+   Ocho renglones que entran en el idioma del cliente y se traducen de a uno.
+
+   Es la respuesta a lo unico que el analisis de campo dejo abierto: los trece
+   competidores nombran el margen y ninguno explica donde se pierde. Se pierde en
+   los dos renglones que no salen solos.
+
+   La columna de la izquierda esta desde el principio, porque el pedido ya llego.
+   Lo que aparece es la de la derecha, que es la que hoy vive dentro de la cabeza
+   de una persona. */
+
+.pedido {
+  list-style: none;
+  margin: var(--u4) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--filete);
+}
+.ren {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1.25fr);
+  align-items: baseline;
+  gap: var(--u2);
+  padding: var(--u2) 0;
+  border-bottom: 1px solid var(--filete);
+}
+.ren-entra {
+  font-family: var(--dato);
+  font-size: 14.5px;
+  color: var(--gastada);
+}
+/* La flecha es el filete de conversion de la pagina, del ancho de una columna. */
+.ren-flecha {
+  height: 1px;
+  background: var(--gastada);
+  opacity: 0.4;
+  align-self: center;
+}
+.ren-sale {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: var(--u1) var(--u2);
+  align-items: baseline;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.ren.leido .ren-sale { opacity: 1; transform: none; }
+html:not(.js) .ren-sale { opacity: 1; transform: none; }
+
+.ren-codigo {
+  font-family: var(--dato);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--sello);
+  letter-spacing: 0.04em;
+}
+.ren-desc { font-size: 15px; }
+.ren-cant {
+  font-family: var(--dato);
+  font-size: 13px;
+  color: var(--gastada);
+  white-space: nowrap;
+}
+
+/* Los dos que no salen. Se marcan con el sello, que es el color de la goma, y no
+   con rojo: no esta mal, esta sin resolver, y la diferencia importa. */
+.ren--no .ren-codigo { color: var(--gastada); }
+.ren--no .ren-falta { text-decoration: line-through; }
+.ren--no .ren-cant { color: var(--sello); }
+.ren--no .ren-flecha { background: var(--sello); opacity: 1; }
+
+.pedido-lectura {
+  margin-top: var(--u3);
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+  font-size: 15px;
+  color: var(--gastada);
+}
+.pedido-lectura b {
+  font-family: var(--dato);
+  font-variant-numeric: tabular-nums;
+  font-size: 21px;
+  color: var(--tinta);
+}
+
+@media (max-width: 720px) {
+  .ren { grid-template-columns: 1fr; gap: 6px; }
+  .ren-flecha { width: 28px; height: 1px; }
+  .ren-sale { grid-template-columns: auto minmax(0, 1fr); }
+  .ren-cant { grid-column: 2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ren-sale { opacity: 1; transform: none; transition: none; }
+}
+
+[data-revela] { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
+[data-revela].visible { opacity: 1; transform: none; }
+html:not(.js) [data-revela] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-revela] { opacity: 1; transform: none; transition: none; }
+}

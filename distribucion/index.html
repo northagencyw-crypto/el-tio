@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../distribucion.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "El Tío AI Audit para distribuidoras", "serviceType": "Auditoría de inteligencia artificial para distribuidoras mayoristas", "provider": {"@type": "Organization", "name": "El Tío", "url": "https://eltio.net"}, "areaServed": "Latinoamérica", "offers": {"@type": "Offer", "price": "99", "priceCurrency": "USD", "url": "https://app.eltio.net/auditoria/distribucion"}}</script>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 <a class="saltar" href="#base">Saltar al contenido</a>
@@ -103,6 +104,30 @@ cantidad | detalle | cod
         <p>Cada cliente arma su planilla como quiere, y ninguna coincide con la anterior.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="hoja" id="pedido">
+  <div class="talonario">
+    <p class="rotulo">UN PEDIDO, RENGLÓN POR RENGLÓN</p>
+    <h2 style="margin-top:var(--u2)">El margen no se pierde en el precio. Se pierde en estos dos renglones.</h2>
+    <p style="margin-top:var(--u2)">Ocho renglones de un pedido de verdad. Seis se traducen
+    solos. Los otros dos vuelven al vendedor, y ahí está la media hora de teléfono que hace
+    que el precio salga mañana.</p>
+    <ol class="pedido" data-pedido>
+      <li class="ren ren--si" data-ren="0"><span class="ren-entra">2 cj coca 1.5</span><span class="ren-flecha" aria-hidden="true"></span><span class="ren-sale"><b class="ren-codigo">40218</b><span class="ren-desc">Gaseosa cola 1,5 litros</span><span class="ren-cant">2 bultos por 6</span></span></li>
+      <li class="ren ren--si" data-ren="1"><span class="ren-entra">media docena birra ipa</span><span class="ren-flecha" aria-hidden="true"></span><span class="ren-sale"><b class="ren-codigo">51134</b><span class="ren-desc">Cerveza IPA 473 ml</span><span class="ren-cant">6 unidades</span></span></li>
+      <li class="ren ren--no" data-ren="2"><span class="ren-entra">el fernet de siempre</span><span class="ren-flecha" aria-hidden="true"></span><span class="ren-sale"><b class="ren-codigo ren-falta">sin código</b><span class="ren-desc">De siempre son tres códigos distintos</span><span class="ren-cant">Vuelve al vendedor</span></span></li>
+      <li class="ren ren--si" data-ren="3"><span class="ren-entra">1 pack agua sin gas grande</span><span class="ren-flecha" aria-hidden="true"></span><span class="ren-sale"><b class="ren-codigo">40771</b><span class="ren-desc">Agua sin gas 2 litros</span><span class="ren-cant">1 bulto por 6</span></span></li>
+      <li class="ren ren--si" data-ren="4"><span class="ren-entra">vino tinto x12</span><span class="ren-flecha" aria-hidden="true"></span><span class="ren-sale"><b class="ren-codigo">62905</b><span class="ren-desc">Vino tinto 750 ml</span><span class="ren-cant">1 bulto por 12</span></span></li>
+      <li class="ren ren--no" data-ren="5"><span class="ren-entra">lo mismo de galletitas que la vez pasada</span><span class="ren-flecha" aria-hidden="true"></span><span class="ren-sale"><b class="ren-codigo ren-falta">sin código</b><span class="ren-desc">Hay que abrir el pedido anterior</span><span class="ren-cant">Vuelve al vendedor</span></span></li>
+      <li class="ren ren--si" data-ren="6"><span class="ren-entra">3 cajas de papel</span><span class="ren-flecha" aria-hidden="true"></span><span class="ren-sale"><b class="ren-codigo">71440</b><span class="ren-desc">Papel higiénico doble hoja</span><span class="ren-cant">3 bultos por 12</span></span></li>
+      <li class="ren ren--si" data-ren="7"><span class="ren-entra">aceite girasol 900 x6</span><span class="ren-flecha" aria-hidden="true"></span><span class="ren-sale"><b class="ren-codigo">33018</b><span class="ren-desc">Aceite de girasol 900 ml</span><span class="ren-cant">6 unidades</span></span></li>
+    </ol>
+    <p class="pedido-lectura" data-pedido-lectura>
+      <b data-resueltas>0</b> de 8 traducidas.
+      <span data-pendientes>Todavía sin leer.</span>
+    </p>
   </div>
 </section>
 
@@ -280,5 +305,6 @@ cantidad | detalle | cod
     </nav>
   </div>
 </footer>
+<script src="../distribucion.js" defer></script>
 </body>
 </html>

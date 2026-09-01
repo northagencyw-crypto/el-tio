@@ -82,9 +82,20 @@
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-/* JAMAS overflow-x en html. Cualquier valor no visible en la raiz mata el
-   position:sticky del hero en Chromium: el pin se rompe y el scrub pasa de largo.
-   El desborde se controla en la fuente. */
+/* EL DESBORDE Y EL PIN. Esta nota decia "jamas overflow-x en html, cualquier valor no
+   visible en la raiz mata el position:sticky", y eso es falso y ademas peligroso, porque
+   empuja a mover el overflow de html a body, que es justo lo que si lo rompe.
+
+   Medido en Chromium 149 con un sticky dentro de un contenedor de 210vh.
+   PINEA: html{overflow-x:hidden}, html{overflow-x:clip}, body{overflow-x:hidden} sola,
+   contain:paint, contain:strict, transform y filter en el contenedor.
+   NO PINEA: cualquier ancestro NO raiz con overflow-x hidden o auto, y html mas body no
+   visibles A LA VEZ.
+
+   La raiz propaga su overflow al viewport y ella misma queda visible, por eso html sola es
+   inofensiva. Lo que hay que no hacer es ponerle overflow a un envoltorio intermedio, ni
+   dejar html y body los dos no visibles. Para acotar el desborde de una seccion, lo seguro
+   es contain:paint o overflow-x:clip sobre esa seccion. */
 
 body {
   margin: 0;
@@ -215,125 +226,396 @@ p { margin: 0 0 var(--e3); max-width: 62ch; }
 .btn--linea:hover { background: transparent; color: var(--gel); border-color: var(--gel); }
 
 
-/* ============================================================ (a) la reticula de aforo
-   El hero. La sala vacia que se llena, con la regla del umbral cortandola.
+/* ================================================================== (a) el vuelo de sala
 
-   La categoria entera abre con la sala LLENA: multitud con humo, bajada de
-   opacidad, y un mockup de dispositivo flotando encima. Ensenar la sala llena es
-   ensenar el momento en que ya no se puede decidir nada.
+   El hero es un empuje de camara continuo desde el aire sobre la ciudad hasta la cabina,
+   nueve laminas encastradas por escala y dibujadas en WebGL. El modulo esta en eventos.js.
 
-   El primer intento puso el canvas a `inset:0` detras de todo, y la reticula pasaba
-   por debajo del titular: ochocientas marcas de contraste alto detras de texto
-   blanco no es un fondo, es ruido. El dibujo va en SU columna. */
+   LA GRAMATICA viene de hiibiza.com, que es la referencia que puso el founder, pero dada
+   vuelta. Alla el marco es claro y tornasolado y lo que flota encima son tarjetas oscuras
+   con fotografia adentro. Aca el marco es carbon y lo que flota son los instrumentos. Lo
+   que se conserva es lo que hace que ese sitio se vea caro, y no es el color: tipografia
+   enorme y muy ajustada, pastillas en vez de rectangulos, radios grandes, y mucho aire
+   alrededor de pocos elementos. Lo que se descarta es su fondo tornasolado, porque el
+   founder pidio oscuro y porque cuatro de las seis hermanas ya son claras.
 
-.sala {
-  position: relative;
-  /* El alto de mas es el recorrido: la sala se llena mientras se pasa por delante.
-     Sin este alto, el hero mide una pantalla, no hay scroll que consumir y la
-     reticula aparece ya llena. */
-  min-height: 210vh;
-  background: var(--n0);
-  contain: paint;
-}
-.sala-fijo {
-  position: sticky;
-  top: 0;
-  min-height: 100svh;
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+   El h1 es el elemento LCP a proposito. Texto como LCP es gratis y es la unica forma
+   honesta de entrar en presupuesto en un telefono: la primera lamina pesa 25 KB a 480px y
+   llega despues, sin que eso demore lo que se mide. */
+
+/* La pastilla. Flota separada del borde y no pegada a top:0 left:0 right:0, porque pegada
+   lee como barra de aplicacion y separada lee como objeto. Es la firma mas barata y mas
+   reconocible de la referencia. */
+.pastilla {
+  position: fixed;
+  z-index: 30;
+  top: var(--e2);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
   align-items: center;
-  gap: clamp(24px, 5vw, 72px);
-  padding: clamp(56px, 9vh, 104px) var(--margen);
+  gap: var(--e3);
+  padding-block: var(--e1);
+  padding-inline: var(--e3) var(--e1);
+  border-radius: 999px;
+  border: 1px solid var(--linea-fuerte);
+  background: rgba(12, 15, 16, 0.66);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  max-width: calc(100vw - var(--margen));
 }
 
-.sala-texto { max-width: 44ch; }
-
-.marca {
+.pastilla-marca {
   font-family: var(--voz);
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  color: var(--cal-3);
-  margin: 0 0 var(--e4);
-}
-.marca span { color: var(--gel); }
-
-/* El primero de los tres focos: el titular del hero es blanco abierto con halo. */
-.sala h1 {
-  margin-bottom: var(--e3);
-  color: var(--foco);
-  text-shadow: 0 0 42px rgba(255, 255, 255, 0.14);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--cal);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.sala-cta { display: flex; flex-wrap: wrap; gap: var(--e2); margin-top: var(--e4); }
-.sala-precio {
+.pastilla-marca span {
+  color: var(--gel);
+  margin-left: 0.55em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.pastilla-btn {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--e3);
+  border-radius: 999px;
+  background: var(--gel);
+  color: var(--n0);
   font-family: var(--voz);
+  font-weight: 700;
   font-size: 12px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--cal-3);
-  margin: var(--e3) 0 0;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 180ms ease, color 180ms ease;
 }
 
-.sala-plano { display: grid; gap: var(--e4); align-content: center; }
-.sala-lienzo { position: relative; width: 100%; aspect-ratio: 5 / 4; }
-.sala-lienzo canvas { width: 100%; height: 100%; display: block; }
+.pastilla-btn:hover { background: var(--foco); color: var(--n0); }
 
-/* La lectura es un instrumento, no una tarjeta: sin fondo, sin radio y sin sombra,
-   apoyada sobre una regla. */
-.sala-lectura {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: var(--e3) var(--e4);
-  border-top: 1px solid var(--linea-fuerte);
-  padding-top: var(--e3);
+@media (max-width: 700px) {
+  /* En telefono el boton de la pastilla se va: la misma llamada esta en el hero a dos
+     dedos de distancia, y dos botones identicos a diez centimetros uno del otro no suman.
+     Se queda la marca sola, que es lo que orienta. */
+  .pastilla-btn { display: none; }
+  .pastilla { padding-inline: var(--e3); }
 }
-.lect-col .rotulo { margin-bottom: var(--e1); }
-.lect-cifra {
-  font-family: var(--voz);
-  font-size: clamp(34px, 4.4vw, 54px);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.05em;
-  color: var(--gel);
-  margin: 0;
-  font-variant-numeric: tabular-nums;
+
+/* El contenedor alto: es la pista de scroll del vuelo. Ocho tramos a unos 40vh cada uno,
+   mas la pantalla que queda pinneada. `contain: paint` acota el desborde de las laminas
+   SIN tocar el overflow de ningun ancestro, que es lo unico que romperia el pin. */
+.vuelo {
+  position: relative;
+  height: 420vh;
+  contain: paint;
+  background: var(--n0);
 }
-.lect-de { color: var(--cal-3); font-size: 0.36em; letter-spacing: 0.02em; margin-left: 0.4em; }
-.lect-estado {
-  font-family: var(--voz);
-  font-size: 12.5px;
-  letter-spacing: 0.05em;
-  color: var(--cal-2);
-  margin: var(--e2) 0 0;
-  min-height: 2.6em;
+
+.vuelo-marco {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--n0);
 }
-.lect-eq {
-  font-family: var(--voz);
-  font-size: 19px;
-  color: var(--cal);
-  margin: 0;
-  font-variant-numeric: tabular-nums;
-}
-.lect-eq span {
+
+.vuelo-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   display: block;
-  font-size: 12px;
-  color: var(--cal-3);
-  letter-spacing: 0.03em;
-  margin-top: 5px;
 }
-.sala-respaldo { max-width: 60ch; color: var(--cal-2); padding: 0 var(--margen) var(--e5); }
+
+/* La tira de respaldo. Es el plan para cuando no hay JavaScript o no hay WebGL: las nueve
+   laminas como galeria, con su pie, que es una pieza que se lee sola. Cuando el modulo se
+   hace cargo, se va. */
+.vuelo-respaldo {
+  display: flex;
+  gap: var(--e2);
+  overflow-x: auto;
+  height: 100%;
+  align-items: center;
+  padding: var(--e4) var(--margen);
+  scroll-snap-type: x mandatory;
+}
+
+.vuelo-lamina {
+  margin: 0;
+  flex: 0 0 min(78vw, 620px);
+  scroll-snap-align: center;
+}
+
+.vuelo-lamina img {
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  border: 1px solid var(--linea);
+}
+
+.vuelo-lamina figcaption {
+  display: flex;
+  gap: var(--e2);
+  margin-top: var(--e2);
+  font-family: var(--voz);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cal-2);
+}
+
+.vuelo-num { color: var(--gel); }
+
+.vuelo-vivo .vuelo-respaldo { display: none; }
+
+/* El velo. Sin esto el titular cae encima de una fotografia que cambia todo el tiempo, y
+   hay tramos del vuelo donde el fondo detras de la primera linea se vuelve casi blanco.
+   Es un degradado y no un color plano porque un plano apaga la foto entera y la foto es
+   la mitad del argumento. */
+.vuelo-velo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, rgba(12, 15, 16, 0.88) 0%, rgba(12, 15, 16, 0.55) 38%, rgba(12, 15, 16, 0) 68%),
+    linear-gradient(to top, rgba(12, 15, 16, 0.82) 0%, rgba(12, 15, 16, 0) 42%);
+}
+
+.vuelo-vivo .vuelo-velo { z-index: 1; }
+
+/* El titular. Enorme y muy ajustado, que es la mitad de por que la referencia se ve cara.
+   El peso 800 existe: la Schibsted es variable de 400 a 800. */
+.vuelo-texto {
+  position: absolute;
+  z-index: 2;
+  left: var(--margen);
+  right: var(--margen);
+  top: clamp(96px, 14vh, 150px);
+  bottom: clamp(var(--e5), 12vh, 148px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* En `ch` no: esa unidad se mide contra el font-size de ESTE elemento, que es el del
+     cuerpo, no el del titular. `max-width: 20ch` daban unos ciento setenta pixeles, y con
+     eso el h1 de 112px desbordaba la pantalla por arriba y la bajada caia en una columna
+     de catorce caracteres. Con `top` ademas el bloque no puede crecer hacia arriba. */
+  max-width: min(46rem, 58vw);
+  pointer-events: none;
+}
+
+.vuelo-texto > * { pointer-events: auto; }
+
+.vuelo h1 {
+  margin: 0;
+  font-family: var(--cuerpo);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 8.4vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--foco);
+}
+
+/* La linea liviana. El contraste de peso dentro del mismo titular es lo que evita que un
+   bloque de ocho palabras en 800 se lea como un grito. */
+.h1-fino {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--cal-2);
+  text-transform: none;
+}
+
+.vuelo .bajada {
+  margin-top: var(--e3);
+  max-width: 46ch;
+  color: var(--cal);
+}
+
+.vuelo-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e2);
+  margin-top: var(--e4);
+}
+
+.vuelo-precio {
+  margin: var(--e2) 0 0;
+  font-family: var(--voz);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--cal-3);
+}
+
+/* La lectura de aforo. Es la unica tarjeta de la pagina, y es tarjeta porque es un
+   instrumento apoyado sobre la escena, no parte de ella: flota, tiene radio grande y
+   tiene su propio vidrio. Es la traduccion directa de la tarjeta redondeada de la
+   referencia, con un dato adentro en vez de una fotografia. */
+.vuelo-lectura {
+  position: absolute;
+  z-index: 2;
+  right: var(--margen);
+  bottom: clamp(var(--e5), 12vh, 148px);
+  width: min(300px, calc(100vw - var(--margen) * 2));
+  padding: var(--e3);
+  border-radius: 20px;
+  border: 1px solid var(--linea-fuerte);
+  background: rgba(12, 15, 16, 0.62);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+.lect-cab { display: flex; align-items: baseline; justify-content: space-between; gap: var(--e2); }
+
+.lect-cifra {
+  margin: 0;
+  font-family: var(--voz);
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--foco);
+  font-variant-numeric: tabular-nums;
+}
+
+.lect-de { color: var(--cal-3); font-size: 0.4em; letter-spacing: 0.02em; margin-left: 0.4em; }
+
+/* El riel. La barra se mueve con transform y no con width, para que el navegador no
+   rehaga el layout en cada cuadro del vuelo. */
+.lect-riel {
+  position: relative;
+  height: 4px;
+  margin: var(--e2) 0;
+  border-radius: 2px;
+  background: rgba(237, 242, 241, 0.12);
+  overflow: hidden;
+}
+
+.lect-barra {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: var(--gel);
+}
+
+.lect-umbral {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 2px;
+  background: var(--foco);
+}
+
+.lect-estado {
+  margin: 0;
+  font-family: var(--voz);
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--cal-2);
+}
+
+/* Cuando la sala pasa el umbral, el instrumento cambia de estado. Es el unico momento de
+   la pagina en que algo se pone en el foco blanco por si solo. */
+.vuelo-lectura.cubierto .lect-estado { color: var(--foco); }
+.vuelo-lectura.cubierto .lect-barra { background: var(--foco); }
+
+.lect-pie {
+  margin: var(--e2) 0 0;
+  padding-top: var(--e2);
+  border-top: 1px solid var(--linea);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--cal-3);
+}
+
+/* El riel de tramos: donde va la camara. Nueve marcas al costado, que se anotan al pasar. */
+.vuelo-fichas {
+  position: absolute;
+  z-index: 2;
+  /* A la derecha y arriba, no a la izquierda: en el borde izquierdo se encimaba con la
+     bajada, que ocupa el mismo margen. Arriba y no centrado porque abajo a la derecha vive
+     la lectura de aforo, y dos instrumentos en la misma esquina compiten. */
+  right: var(--margen);
+  top: clamp(96px, 14vh, 150px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: right;
+  display: grid;
+  gap: var(--e1);
+}
+
+.vuelo-ficha {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--e2);
+  font-family: var(--voz);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cal-3);
+  opacity: 0.35;
+  transition: opacity 260ms ease, color 260ms ease;
+}
+
+.vuelo-ficha.anotada { opacity: 0.7; }
+.vuelo-ficha.activa { opacity: 1; color: var(--gel); }
+
+.vf-num { color: inherit; }
+.vf-rot { color: inherit; }
+
+.vuelo-nota {
+  max-width: 60ch;
+  color: var(--cal-2);
+  padding: 0 var(--margen) var(--e5);
+}
 
 @media (max-width: 940px) {
-  .sala { min-height: auto; }
-  .sala-fijo {
-    position: static;
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding-top: clamp(40px, 7vh, 72px);
+  /* En telefono el riel de tramos se va y la lectura pasa debajo del titular. Nueve
+     marcas al costado en una pantalla de 390 se comen el ancho del titular, que es lo
+     unico que tiene que ser grande. */
+  .vuelo-fichas { display: none; }
+  .vuelo { height: 320vh; }
+  .vuelo-texto {
+    left: var(--margen);
+    right: var(--margen);
+    bottom: auto;
+    top: clamp(88px, 14vh, 132px);
+    max-width: none;
   }
-  .sala-lienzo { aspect-ratio: 4 / 3; }
+  .vuelo-lectura {
+    left: var(--margen);
+    right: var(--margen);
+    bottom: var(--e4);
+    width: auto;
+  }
+  .vuelo-velo {
+    background:
+      linear-gradient(to bottom, rgba(12, 15, 16, 0.9) 0%, rgba(12, 15, 16, 0.35) 46%, rgba(12, 15, 16, 0.92) 100%);
+  }
 }
 
+/* Con el movimiento reducido no hay vuelo: el modulo no monta el canvas y la tira de
+   respaldo se queda, que es una galeria navegable con el pulgar y sin nada que se mueva
+   solo. El contenedor deja de ser una pista de scroll de cuatro pantallas. */
+@media (prefers-reduced-motion: reduce) {
+  .vuelo { height: auto; }
+  .vuelo-marco { position: relative; height: auto; }
+  .vuelo-texto, .vuelo-lectura { position: static; width: auto; margin: var(--e4) var(--margen) 0; }
+  .vuelo-velo { display: none; }
+  .vuelo-fichas { display: none; }
+}
 
 /* ================================================================= (c) la hoja de ruta
    El eje de la pagina: cada tramo lleva su desfase a puertas en el margen y una
@@ -954,4 +1236,53 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
   .pantalla img, .puertas-foto img, .banda img { border: 1px solid CanvasText; }
   .salida-barra { border: 1px solid CanvasText; }
   .barra-lleno { background: Highlight; }
+}
+
+/* ============================================ (e) la gramatica de la referencia, fuera del hero
+
+   El founder pidio que el resto de la pagina estuviera al nivel del hero, y que todo
+   siguiera a hiibiza.com pero en oscuro. De esa referencia, lo que se puede traer abajo
+   del hero sin romper lo que ya funciona son tres cosas medidas, y ninguna es color:
+
+   1. RADIO GRANDE en todo lo que sea fotografia. Alla las fotos son tarjetas de veinte y
+      pico de pixeles de radio flotando sobre el fondo, nunca rectangulos a sangre. Es lo
+      que hace que una foto se lea como objeto apoyado y no como relleno.
+   2. AIRE. La referencia deja mucho espacio alrededor de pocos elementos.
+   3. ESCALA. El titular de seccion crece. La escala vieja topaba en 34px, que en una
+      pantalla grande al lado de un hero de 112px se lee como una nota al pie.
+
+   Lo que NO se trae: el fondo tornasolado claro, porque el pedido fue oscuro; y la
+   tipografia de titulares, que sigue siendo la mono de este vertical. El hero habla en
+   Schibsted 800 en caja alta porque es el momento de escala de la pagina; las secciones
+   siguen hablando en Spline Sans Mono de caja mixta, que es la voz que separa a eventos de
+   sus seis hermanas. Cambiar las dos habria dejado la pagina sin identidad propia. */
+
+.banda img,
+.figura img,
+.herr-foto img,
+.pantalla img,
+.puertas-foto img {
+  border-radius: 22px;
+  border: 1px solid var(--linea);
+}
+
+/* La banda a sangre es la excepcion: una foto que cruza la pantalla entera con radio se
+   lee como una tarjeta gigante y pierde la fuerza de la sangre. Se le deja el radio solo
+   del lado donde no toca el borde. */
+@media (min-width: 941px) {
+  .banda img { border-radius: 22px; }
+}
+@media (max-width: 940px) {
+  .banda img { border-radius: 16px; }
+}
+
+h2 {
+  font-size: clamp(26px, 3.4vw, 44px);
+  letter-spacing: -0.03em;
+}
+
+/* El aire. Los tramos respiran mas, y la diferencia se nota sobre todo en escritorio,
+   donde la pagina venia con la densidad de un documento. */
+@media (min-width: 941px) {
+  .tramo { padding-block: var(--e6); }
 }

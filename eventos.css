@@ -1286,3 +1286,108 @@ h2 {
 @media (min-width: 941px) {
   .tramo { padding-block: var(--e6); }
 }
+
+/* ------------------------------------------------------------------- D-50 el mapa 3D
+   Una fila por vista, con el texto al lado de la captura que lo explica. Se alterna el
+   lado en las pares para que la columna de texto no arme un borde recto de tres bloques,
+   que es lo que hace que una lista de features se lea como una lista de features. */
+
+.mapas { display: grid; gap: var(--e6); margin-top: var(--e5); }
+
+.mapa-fila {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: var(--e4);
+  align-items: center;
+}
+
+.mapa-fila:nth-child(even) .mapa-texto { order: 2; }
+
+.mapa-texto h3 { margin-bottom: var(--e2); }
+.mapa-texto p { color: var(--cal-2); margin: 0; }
+
+.mapa-vista { margin: 0; }
+
+.mapa-vista img {
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  border: 1px solid var(--linea-fuerte);
+}
+
+@media (max-width: 860px) {
+  .mapa-fila { grid-template-columns: 1fr; gap: var(--e3); }
+  .mapa-fila:nth-child(even) .mapa-texto { order: 0; }
+  .mapas { gap: var(--e5); }
+}
+
+/* --------------------------------------------------------------- el texto por partes
+   Mismo patron que las entradas de bloque: la ocultacion cuelga de `html.js`, asi que sin
+   script no se esconde nada y la pagina se lee entera. La primera linea del titular no
+   lleva `data-etapa` y por eso nunca se oculta: es el elemento LCP. */
+
+[data-etapa] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-etapa].puesto { opacity: 1; transform: none; }
+html:not(.js) [data-etapa] { opacity: 1; transform: none; }
+
+.h1-l { display: block; }
+
+/* La columna derecha: la linea de cue arriba y el instrumento abajo, como un solo objeto
+   apoyado en esa esquina. */
+.vuelo-derecha {
+  position: absolute;
+  z-index: 2;
+  right: var(--margen);
+  bottom: clamp(var(--e5), 12vh, 148px);
+  width: min(320px, calc(100vw - var(--margen) * 2));
+  display: grid;
+  gap: var(--e3);
+  justify-items: end;
+}
+
+.vuelo-derecha .vuelo-lectura {
+  position: static;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+}
+
+/* La cue. Cambia sola con la toma, asi que va en la voz de la pagina y no en el cuerpo:
+   es un rotulo de sala, no un parrafo. */
+.vuelo-cue {
+  margin: 0;
+  max-width: 34ch;
+  text-align: right;
+  font-family: var(--voz);
+  font-size: 13px;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: var(--cal);
+  text-shadow: 0 1px 14px rgba(12, 15, 16, 0.9);
+}
+
+/* El `display:block` del autor le gana al `[hidden]{display:none}` de la hoja del
+   navegador, que es de agente de usuario. Sin esta linea se ven las NUEVE cues apiladas a
+   la vez, que es exactamente lo que paso y se veia. */
+.cue-linea { display: block; }
+.cue-linea[hidden] { display: none; }
+
+@media (max-width: 940px) {
+  .vuelo-derecha {
+    left: var(--margen);
+    right: var(--margen);
+    bottom: var(--e4);
+    width: auto;
+    justify-items: stretch;
+  }
+  .vuelo-cue { text-align: left; max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-etapa] { opacity: 1; transform: none; transition: none; }
+  .vuelo-derecha { position: static; width: auto; margin: var(--e4) var(--margen) 0; }
+}

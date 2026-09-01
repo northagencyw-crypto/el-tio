@@ -551,6 +551,56 @@
     vuelo.alAvanzar(pintar);
   }
 
+  // --------------------------------------------------------------- el texto por partes
+  //
+  // El titular, la bajada, los botones y la linea de cue no aparecen todos juntos: van
+  // entrando a medida que la camara avanza, que es lo que pidio el founder ("que mientras
+  // van cambiando las imagenes vaya apareciendo el texto de a partes").
+  //
+  // La PRIMERA linea del titular no tiene etapa y esta siempre puesta, a proposito: es el
+  // elemento LCP de la pagina y esconderla hasta que carguen las texturas seria cambiar una
+  // pagina que abre rapido por una que abre en blanco. El boton principal tampoco queda
+  // fuera de alcance mientras tanto, porque la pastilla de arriba lo lleva desde el cuadro
+  // cero.
+  //
+  // Se ponen y se QUEDAN puestas. Un texto que se desarma al subir obliga a leer contra el
+  // scroll, y nadie hace eso: lee una vez, en un sentido.
+
+  function montarTextoPorPartes(vuelo) {
+    var partes = [].slice.call(document.querySelectorAll('[data-etapa]'));
+    var cue = document.querySelector('[data-cue]');
+    var lineas = cue ? [].slice.call(cue.querySelectorAll('[data-cue-i]')) : [];
+
+    function todoPuesto() {
+      partes.forEach(function (el) { el.classList.add('puesto'); });
+      // Sin vuelo la cue no puede ir cambiando, asi que se queda la primera, que es la que
+      // abre el argumento. Las otras ocho se ocultan.
+      lineas.forEach(function (el, i) { el.hidden = i !== 0; });
+    }
+
+    if (!vuelo || quieto.matches || (!partes.length && !lineas.length)) { todoPuesto(); return; }
+
+    var umbrales = partes.map(function (el) {
+      var n = parseFloat(el.getAttribute('data-etapa'));
+      return isFinite(n) ? n : 0;
+    });
+    var actual = -1;
+
+    vuelo.alAvanzar(function (p) {
+      for (var i = 0; i < partes.length; i++) {
+        if (p >= umbrales[i]) partes[i].classList.add('puesto');
+      }
+      if (!lineas.length) return;
+      // La cue que corresponde a la toma que se esta mirando. Se redondea igual que el
+      // rotulo del riel, para que la linea cambie en el mismo momento en que se enciende
+      // la marca de esa toma y no medio tramo despues.
+      var i2 = Math.round(p * (lineas.length - 1));
+      if (i2 === actual) return;
+      actual = i2;
+      for (var j = 0; j < lineas.length; j++) lineas[j].hidden = j !== i2;
+    });
+  }
+
   // ------------------------------------------------------------------- el fader
   //
   // La misma aritmetica que la herramienta publica, y a proposito: si la pagina dijera un
@@ -671,6 +721,7 @@
   function arrancar() {
     var vuelo = quieto.matches ? null : montarVuelo();
     montarAforo(vuelo);
+    montarTextoPorPartes(vuelo);
     montarConsola();
     montarEntradas();
   }

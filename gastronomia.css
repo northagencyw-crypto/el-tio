@@ -1188,9 +1188,43 @@ html:not(.js) .planta { opacity: 0.95; transform: scale(1) rotate(var(--giro, 0d
 }
 
 @media (max-width: 900px) {
-  .enredadera { width: 150px; opacity: 0.8; }
-  .planta { width: calc(110px * var(--esc, 1)); }
+  .enredadera { width: 116px; opacity: 0.72; }
+  .planta { width: calc(84px * var(--esc, 1)); }
   .planta--izq { left: auto; right: 42%; }
+}
+
+/* En un telefono la enredadera dejaba de ser un margen y pasaba a ser una columna:
+   156 pixeles de tallo sobre una pantalla de 390 son el cuarenta por ciento del ancho.
+   Una enredadera trepa por el borde; a ese tamanio competia con el texto.
+
+   Y el serpenteo. El desvio lateral de cada tramo es un valor fijo en pixeles que se
+   eligio contra un tallo ancho: sobre uno angosto el mismo desvio es proporcionalmente
+   el triple y el tallo se ve quebrado en vez de vivo. Se achica con el tallo. */
+@media (max-width: 640px) {
+  /* La enredadera se lleva su propio corredor.
+
+     En el monitor la banda cae sobre el margen y no molesta a nadie. En el telefono no
+     hay margen: el texto llega hasta el borde y las hojas le pasaban por encima renglon
+     por renglon. Va por detras, asi que se leia igual, pero se leia sucio.
+
+     La franja se reserva con un padding en el contenido y no achicando la enredadera:
+     una enredadera detras del texto es una mancha aunque sea finita. Son 42 pixeles de
+     los 358 utiles, y la linea baja de unos 52 caracteres a 46, que sigue estando en el
+     rango comodo de lectura. */
+  /* El ancho de la banda y el del corredor salen del mismo valor a proposito. La
+     primera version los puso a mano, 64 y 42, y el texto siguio pisando la enredadera
+     veintiun pixeles: dos numeros que tienen que coincidir y se escriben por separado
+     terminan sin coincidir. */
+  .cuerpo-claro { --banda: 56px; }
+  .cuerpo-claro > section > .inner { padding-right: calc(var(--banda) + 8px); }
+  .enredadera { width: var(--banda); opacity: 0.5; }
+  .planta-tramo { transform: translateX(calc(var(--corr, 0px) * 0.35)); }
+  .planta-espejo { transform: translateX(calc(var(--corr, 0px) * 0.35)) scaleX(-1); }
+  /* Las frutas median menos que el tallo del que cuelgan, que es al reves de como
+     crece una planta. Ahora nacen mas anchas que la banda y se leen como fruta. */
+  .planta { width: calc(96px * var(--esc, 1)); }
+  .planta--der { right: 12%; }
+  .planta--izq { right: 30%; }
 }
 
 /* ================================================================== El Tío
@@ -1790,3 +1824,76 @@ html:not(.js) .planta { opacity: 0.95; transform: scale(1) rotate(var(--giro, 0d
    medio de cada foto con PIL y marca las oscuras, y el script suma esos rectangulos a
    las bandas contra las que ya decide el color. El calculo pasa una vez, no en cada
    cuadro. */
+
+
+/* ================================================================ el telefono
+
+   La correccion del founder: "se ve mal en movil, tiene que ser mas compacta, todo debe
+   ser mas pequeno".
+
+   Medido antes de tocar nada, en una ventana de 390: la pagina media 17.901 pixeles.
+   No era culpa de la tipografia, que ya estaba en trece pixeles de cuerpo, sino del
+   tamano de los bloques. Dos cosas se llevaban la mitad de la pagina:
+
+   - `.entrega`, 4.883 pixeles. Ocho piezas de 559 cada una, porque al colapsar a una
+     columna cada foto cuatro-quintos pasa a medir 419 pixeles de alto: pantalla y media
+     por pieza.
+   - Los respiros entre secciones: 92 pixeles arriba y 44 abajo son razonables en un
+     monitor y son un tercio de la pantalla en un telefono.
+
+   Se corrigen las dos, y el resto se acompana bajando la escala de espaciado completa
+   en vez de rule por rule. */
+@media (max-width: 640px) {
+  /* La escala de espaciado entera, de una. Todo lo que la usa se compacta solo. */
+  :root {
+    --e4: 14px; --e5: 20px; --e6: 28px; --e7: 36px; --e8: 46px;
+    --borde: 16px;
+  }
+
+  /* Los titulares estaban dimensionados para una columna ancha. En 390 el mismo cuerpo
+     ocupa tres renglones donde deberia ocupar dos. */
+  h1 { font-size: 27px; line-height: 1.05; }
+  h2 { font-size: 22px; line-height: 1.1; }
+  h3 { font-size: 19px; line-height: 1.15; }
+  .bajada, .lede { font-size: 16px; line-height: 1.45; }
+  li { font-size: 14.5px; }
+  .ent-texto h3 { font-size: 17px; gap: var(--e2); }
+  .ent-texto p, .prep p { font-size: 14.5px; line-height: 1.45; }
+
+  /* LA PIEZA VUELVE A SER UNA FILA, y esta vez si entra.
+
+     El comentario de `.entregables` mas arriba cuenta por que en el escritorio se dejo
+     de usar filas: una foto alta al lado de dos renglones de texto deja ciento sesenta
+     pixeles de blanco arriba y abajo. Eso sigue siendo cierto, y por eso aca la foto no
+     es alta: es cuadrada y chica. Con la foto de 104 pixeles y el texto de unos 108, los
+     dos lados miden casi lo mismo y el hueco no existe.
+
+     La pieza pasa de 559 pixeles a unos 130. */
+  .entregables { columns: 1; column-gap: 0; margin-top: var(--e5); }
+  .ent {
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    gap: var(--e3);
+    align-items: start;
+    margin-bottom: var(--e4);
+  }
+  /* El bloque de 900 de mas arriba es de un layout anterior: mandaba la foto a la
+     columna 2 cuando la columna 1 media 40 pixeles y llevaba el numero. Con la grilla
+     nueva esa regla sigue viva y manda la foto a la columna ancha y el texto a la
+     angosta, que es justo al reves. Se fija el orden aca en vez de tocar aquel bloque,
+     que arriba de 640 sigue siendo el correcto. */
+  .ent-foto { grid-column: 1; margin: 0; }
+  .ent-texto { grid-column: 2; }
+  .ent-foto img { aspect-ratio: 1 / 1; }
+
+  /* La foto del precio se llevaba media pantalla sin decir nada nuevo. */
+  .precio-foto img { max-height: 220px; }
+}
+
+/* Pantallas angostas de verdad. El borde de 16 deja 358 de columna util en un 390, que
+   alcanza; abajo de 360 no, y el texto empieza a partirse raro. */
+@media (max-width: 360px) {
+  :root { --borde: 12px; }
+  .ent { grid-template-columns: 88px 1fr; }
+  h1 { font-size: 25px; }
+}

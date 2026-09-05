@@ -475,9 +475,50 @@
      La enredadera: cada planta crece cuando le toca
      --------------------------------------------------------------------- */
 
+  /* El tallo tiene que llegar hasta abajo.
+
+     El build emite una cantidad fija de tramos, pero no sabe cuanto va a medir la
+     pagina: eso depende del ancho de la ventana, y en un telefono el mismo contenido
+     se estira a mas del doble. Medido en un iPhone de 390: el cuerpo media 14.450
+     pixeles y la cadena llegaba a 5.870. El tallo se cortaba a los dos quintos y los
+     ultimos 8.580 pixeles quedaban sin enredadera, que era justo lo que se veia mal.
+
+     No se puede resolver desde el servidor. Se mide aca y se agregan los tramos que
+     falten, clonando los que ya estan para no inventar rutas de imagen. */
+  function completarTallo(env) {
+    var cadena = env.querySelector('.planta-cadena');
+    if (!cadena) return;
+    var tramos = [].slice.call(cadena.querySelectorAll('.planta-tramo'));
+    if (!tramos.length) return;
+
+    var necesario = env.getBoundingClientRect().height;
+    var unitario = tramos[0].getBoundingClientRect().height;
+    if (!unitario) return;                       // todavia sin cargar: no adivinar
+
+    // El solape negativo del CSS come parte de cada tramo salvo el primero.
+    var paso = unitario * 0.945;
+    var faltan = Math.ceil((necesario - cadena.getBoundingClientRect().height) / paso);
+    if (faltan <= 0) return;
+
+    // Un techo por las dudas: si algo mide mal, que no genere miles de nodos.
+    faltan = Math.min(faltan, 120);
+
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < faltan; i++) {
+      var copia = tramos[(tramos.length + i) % tramos.length].cloneNode(true);
+      copia.setAttribute('loading', 'lazy');
+      frag.appendChild(copia);
+    }
+    cadena.appendChild(frag);
+  }
+
   function montarEnredadera() {
     var planta = document.querySelector('.enredadera');
     if (!planta) return;
+
+    // Las imagenes del tallo pueden no estar medidas todavia en el primer cuadro.
+    if (document.readyState === 'complete') completarTallo(planta);
+    else window.addEventListener('load', function () { completarTallo(planta); });
 
     var plantas = [].slice.call(planta.querySelectorAll('.planta'));
     if (!plantas.length) return;

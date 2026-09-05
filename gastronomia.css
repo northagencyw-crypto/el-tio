@@ -1139,43 +1139,59 @@ html:not(.js) [data-revela] { opacity: 1; transform: none; }
 .planta-cadena {
   position: absolute;
   top: -3%;
-  /* Centrado con `left` y no con `transform: translateX(-50%)`. UN TRANSFORM CREA
-     CONTEXTO DE APILADO, y adentro de un contexto propio el `mix-blend-mode: multiply`
-     de los tramos se mezcla contra un fondo transparente en vez de contra el papel: el
-     blanco del render deja de desaparecer y queda una banda casi blanca por todo el
-     margen. Medido: el papel es (242,233,221) y ahi salia (251,249,247).
-
-     Es la segunda vez que el mismo mecanismo rompe esta misma mezcla en esta pagina; la
-     primera fue un `z-index: 0`. Cualquier cosa que aisle rompe el multiply. */
   left: -2%;
   width: 104%;
   display: flex;
   flex-direction: column;
 }
+
+/* Las plantas ahora tienen canal alfa de verdad (`tools/cortar-plantas.py`).
+
+   Antes venian sobre fondo casi blanco y se "recortaban" con `mix-blend-mode: multiply`.
+   Eso nunca fue un recorte: era un truco que solo cierra si el fondo del render es
+   blanco puro y el papel es mas oscuro, y ninguna de las dos cosas se cumplia. Quedaba
+   el rectangulo del fondo marcado, el verde se ensuciaba contra el beige y los
+   degradados suaves del render se veian como una nube gris.
+
+   Y el truco costaba caro: el multiply se rompe adentro de cualquier contexto de
+   apilado, asi que la pagina no podia usar `transform` ni `z-index` en ninguna parte de
+   la enredadera. Ya la habia roto dos veces. Con alfa real esa restriccion desaparece,
+   que es justamente lo que permite que el tallo crezca de verdad mas abajo. */
 .planta-tramo {
   width: 100%;
   height: auto;
   margin-top: -5.5%;
   transform: translateX(var(--corr, 0px));
-  mix-blend-mode: multiply;
-  /* Un punto por debajo del negro para que la planta se lea como fondo y el texto
-     siga ganando la primera mirada. */
-  opacity: 0.82;
+  opacity: 0.9;
+  /* El tallo CRECE: se revela de arriba hacia abajo, como crece una planta.
+
+     Con `clip-path` y no con `scaleY`. Un scaleY estira el dibujo mientras avanza y el
+     tallo se ve de goma; el clip descubre la imagen a su tamanio real, que es lo que
+     hace que se lea como crecimiento y no como deformacion. */
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.05s cubic-bezier(.33,.9,.4,1);
 }
+.planta-tramo.crecido { clip-path: inset(0 0 0 0); }
 .planta-tramo:first-child { margin-top: 0; }
 .planta-espejo { transform: translateX(var(--corr, 0px)) scaleX(-1); }
+
+/* Sin JavaScript el tallo tiene que estar entero: si no, no se ve nada. */
+html:not(.js) .planta-tramo { clip-path: none; transition: none; }
 
 /* --- las plantas que nacen --- */
 .planta {
   position: absolute;
   width: calc(clamp(120px, 14vw, 215px) * var(--esc, 1));
   height: auto;
-  mix-blend-mode: multiply;
   opacity: 0;
   /* El anclaje va del lado del tallo: una rama crece HACIA afuera desde donde nace, no
-     se infla desde su propio centro. */
-  transform: scale(0.55) rotate(var(--giro, 0deg));
-  transition: opacity 1.2s ease, transform 1.6s cubic-bezier(.22,.9,.28,1);
+     se infla desde su propio centro.
+
+     Brota desde casi nada y con el giro exagerado, que se acomoda al llegar: una rama
+     que sale no aparece derecha. La curva tiene un pico apenas arriba de 1 para que
+     asiente en vez de frenar en seco. */
+  transform: scale(0.2) rotate(calc(var(--giro, 0deg) * 3.5));
+  transition: opacity .9s ease, transform 1.7s cubic-bezier(.2,.9,.25,1.06);
 }
 .planta--der { right: 4%; transform-origin: 18% 82%; }
 .planta--izq { left: -8%; transform-origin: 82% 82%; }
@@ -1185,6 +1201,7 @@ html:not(.js) .planta { opacity: 0.95; transform: scale(1) rotate(var(--giro, 0d
 
 @media (prefers-reduced-motion: reduce) {
   .planta { transition: none; opacity: 0.95; transform: scale(1) rotate(var(--giro, 0deg)); }
+  .planta-tramo { transition: none; clip-path: none; }
 }
 
 @media (max-width: 900px) {
@@ -1888,6 +1905,32 @@ html:not(.js) .planta { opacity: 0.95; transform: scale(1) rotate(var(--giro, 0d
 
   /* La foto del precio se llevaba media pantalla sin decir nada nuevo. */
   .precio-foto img { max-height: 220px; }
+
+  /* PALABRAS CORTADAS. Medido: el h3 "Optimizamos" mide 149 pixeles y su columna 118,
+     asi que la palabra salia del bloque. Lo mismo en cuatro lugares mas.
+
+     La causa no era la tipografia sino que estas dos secciones seguian en dos columnas
+     en el telefono. Las dos YA tenian su regla de colapsar a una sola columna, y las dos
+     estaban muertas: mas abajo en la hoja hay reglas sin media query que redefinen las
+     mismas propiedades, y a igual especificidad gana la ultima, este dentro de un
+     `@media` o no. `.como-grid` se colapsaba en la linea 1529 y volvia a dos columnas en
+     la 1591.
+
+     Se fuerza aca, que es el final del archivo, en vez de mover aquellas reglas: son las
+     que valen de 640 para arriba y tocarlas cambiaria el escritorio.
+
+     Y hace falta nombrar `:nth-child(even)` aparte. Los pasos pares invierten la
+     plantilla para alternar el lado de la foto, con una regla de mas especificidad que
+     `.tiempo`, asi que colapsar `.tiempo` solo no los alcanzaba. Ese detalle explica por
+     que se cortaban justo "02 Optimizamos" y "04 Capacitamos" y no los impares. */
+  .tiempo, .tiempo:nth-child(even), .tiempos li, .como-grid { grid-template-columns: 1fr; }
+  .tiempo-texto { max-width: none; }
+  .tiempo:nth-child(even) > figure { order: 0; }
+
+  /* Y una red por si alguna palabra larga sigue sin entrar en el futuro: que parta con
+     guion segun las reglas del castellano en vez de desbordar. El `lang="es"` del
+     documento es lo que hace que el navegador sepa donde puede cortar. */
+  h1, h2, h3, .ent-texto h3, .pasos h3 { hyphens: auto; overflow-wrap: break-word; }
 }
 
 /* Pantallas angostas de verdad. El borde de 16 deja 358 de columna util en un 390, que

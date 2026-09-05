@@ -510,6 +510,71 @@
       frag.appendChild(copia);
     }
     cadena.appendChild(frag);
+
+    // Los clones nacen despues de que arranco el crecimiento. Se avisa para que el
+    // puntero los tome en cuenta; si no, el tallo se corta justo donde empiezan.
+    if (env._tallo) env._tallo.revisar();
+  }
+
+  function mostrarTalloEntero(env) {
+    var tramos = env.querySelectorAll('.planta-tramo');
+    for (var i = 0; i < tramos.length; i++) tramos[i].classList.add('crecido');
+  }
+
+  /* El tallo crece hasta donde llegaste leyendo.
+
+     La primera version usaba un IntersectionObserver por tramo. Se veia bien
+     scrolleando despacio y dejaba huecos en cuanto el scroll saltaba: el observador
+     muestrea por cuadro, y un tramo que pasa de abajo de la pantalla a arriba de la
+     pantalla dentro del mismo cuadro nunca llega a estar intersecando, asi que nunca
+     crecia. Medido despues de un scrollIntoView: 13 de 23 tramos ya pasados seguian sin
+     crecer, y el tallo quedaba cortado en pedazos.
+
+     Un anchor en la url, volver atras con el scroll restaurado o simplemente arrastrar
+     rapido la barra producen lo mismo. El observador es la herramienta equivocada para
+     esto: la pregunta no es "esta a la vista", es "ya lo pasaste", y eso es una
+     comparacion contra la posicion del scroll, no un evento.
+
+     Los tramos estan en orden en el DOM, asi que alcanza con un puntero que avanza y
+     nunca vuelve: cada cuadro cuesta una comparacion, no ciento veinte. */
+  function crecerTallo(env) {
+    var tramos = [].slice.call(env.querySelectorAll('.planta-tramo'));
+    if (!tramos.length) return null;
+
+    var i = 0;
+    var pedido = false;
+
+    function avanzar() {
+      pedido = false;
+      // El frente va un poco arriba del borde inferior: si creciera justo en el borde,
+      // el tramo terminaria de dibujarse cuando ya paso y no se veria crecer nunca.
+      var frente = window.scrollY + window.innerHeight * 0.92;
+      while (i < tramos.length) {
+        var t = tramos[i];
+        if (t.getBoundingClientRect().top + window.scrollY > frente) break;
+        t.classList.add('crecido');
+        i++;
+      }
+    }
+
+    function alScroll() {
+      if (pedido) return;
+      pedido = true;
+      window.requestAnimationFrame(avanzar);
+    }
+
+    window.addEventListener('scroll', alScroll, { passive: true });
+    window.addEventListener('resize', alScroll, { passive: true });
+    avanzar();
+
+    // El top-up agrega tramos al final DESPUES de esto, y no estaban en la lista que se
+    // tomo recien: hay que volver a leerla o los clones no crecen nunca.
+    return {
+      revisar: function () {
+        tramos = [].slice.call(env.querySelectorAll('.planta-tramo'));
+        avanzar();
+      }
+    };
   }
 
   function montarEnredadera() {
@@ -525,8 +590,11 @@
 
     if (quieto.matches || !('IntersectionObserver' in window)) {
       plantas.forEach(function (el) { el.classList.add('visible'); });
+      mostrarTalloEntero(planta);
       return;
     }
+
+    planta._tallo = crecerTallo(planta);
 
     // Se usa un observador y no el scroll: cada planta crece cuando entra en pantalla y
     // se queda crecida. Antes esto recalculaba el avance del bloque entero en cada

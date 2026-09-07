@@ -36,7 +36,12 @@
     pauseBtn.addEventListener('click', function () {
       var paused = marquee.classList.toggle('paused');
       pauseBtn.setAttribute('aria-pressed', String(paused));
-      pauseBtn.textContent = paused ? 'Reanudar' : 'Pausar';
+      /* El simbolo lo dibuja el CSS segun aria-pressed. Antes esto escribia
+         textContent y borraba el span que le da nombre al boton, dejandolo mudo
+         para un lector de pantalla justo despues del primer clic. */
+      pauseBtn.setAttribute('aria-label',
+        paused ? 'Reanudar el desplazamiento' : 'Pausar el desplazamiento');
+      pauseBtn.querySelector('.vo').textContent = paused ? 'Reanudar' : 'Pausar';
     });
   }
 

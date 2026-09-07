@@ -107,7 +107,7 @@ header.top::before{
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
 /* ---------- hero ---------- */
-.hero{position:relative;height:520vh}
+.hero{position:relative;height:420vh}
 .hero-stage{
   position:sticky;top:0;height:100vh;height:100svh;
   overflow:hidden;background:var(--void);
@@ -245,7 +245,7 @@ header.top::before{
 .cl-cat{font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.26em;opacity:.85}
 
 /* ---------- sections ---------- */
-section.block{position:relative;padding:clamp(96px,15vh,180px) var(--pad);scroll-margin-top:24px}
+section.block{position:relative;padding:clamp(64px,9vh,116px) var(--pad);scroll-margin-top:24px}
 .inner{max-width:var(--max);margin:0 auto;position:relative;z-index:2}
 .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .reveal.in{opacity:1;transform:none}
@@ -447,9 +447,29 @@ footer p{
 }
 @media(max-width:640px){
   :root{--pad:20px}
-  .hero{height:460vh}
-  section.block{padding:72px var(--pad)}
-  .beat{bottom:clamp(48px,9vh,90px)}
+  .hero{height:340vh}
+  section.block{padding:52px var(--pad)}
+  .beat{bottom:clamp(48px,9vh,90px);max-width:calc(100vw - var(--pad) * 2)}
+
+  /* AUTOMATIZO se cortaba en el telefono, y era por dos cosas a la vez: la letra
+     va expandida al 125% y el minimo del clamp era 46px. Diez caracteres anchos
+     a 46px miden mas que los 88vw del contenedor, asi que la palabra mas larga
+     de las tres se salia de la pantalla. Aca se vuelve al ancho normal y el
+     tamanio pasa a depender del viewport, con un minimo que si entra a 320px. */
+  .beat-word{
+    font-variation-settings:'wdth' 100;
+    font-size:clamp(32px,9.4vw,52px);
+    margin:10px 0 10px;
+    letter-spacing:-.02em;
+  }
+  .beat-line{font-size:clamp(15px,4.2vw,18px);max-width:none}
+  .eyebrow{font-size:11px;letter-spacing:.16em}
+
+  /* Los dos botones del hero, uno debajo del otro y a lo ancho: al costado
+     quedaban de 140px, por debajo del area tactil comoda. */
+  .hero-cta{flex-direction:column;align-items:stretch;gap:10px}
+  .hero-cta .btn{width:100%;justify-content:center}
+  .hero-sub{font-size:clamp(15px,4.1vw,18px)}
   h2.display{font-size:clamp(19px,6.2vw,34px)}
   .display.giant{font-size:clamp(30px,9vw,40px)}
   .cap-grid{grid-template-columns:1fr}

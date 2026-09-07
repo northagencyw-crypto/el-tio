@@ -142,8 +142,12 @@
       b.style.transform = 'translateY(' + ((1 - o) * 34).toFixed(1) + 'px)';
     });
 
-    /* final title */
-    var to = clamp01((p - 0.87) / 0.08);
+    /* final title.
+       Arrancaba en 0.87 y el ultimo beat (CAPACITO) termina de irse en 0.725:
+       quedaban 14,5 puntos de scroll con la pantalla vacia, que sobre la altura
+       del hero son casi tres cuartos de viewport en blanco. El titulo entra ahora
+       apenas se fue el ultimo beat. */
+    var to = clamp01((p - 0.745) / 0.075);
     title.style.opacity = to.toFixed(3);
     title.style.transform = 'translateY(' + ((1 - to) * 30).toFixed(1) + 'px)';
     title.classList.toggle('live', to > 0.6);

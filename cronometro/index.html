@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Cronómetro del Tío · Cuántos mensajes esperan en tu negocio</title>
+<meta name="description" content="Herramienta gratis. Con tus números, mira cuántos mensajes de clientes esperan más de una hora en tu negocio y cuánto dinero pasa por ellos. Todo se calcula en tu navegador.">
+<meta name="theme-color" content="#04070B">
+<link rel="canonical" href="https://eltio.net/cronometro/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eltio.net/cronometro/">
+<meta property="og:title" content="El Cronómetro del Tío">
+<meta property="og:description" content="¿Cuántos mensajes de clientes esperan más de una hora en tu negocio? Pon tus números y míralo en un minuto. Gratis, sin dejar datos.">
+<meta property="og:image" content="https://eltio.net/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/archivo-var.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/geist.woff2" crossorigin>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../vertical.css">
+<link rel="stylesheet" href="cronometro.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "El Cronómetro del Tío",
+  "url": "https://eltio.net/cronometro/",
+  "description": "Calculadora gratis que, con los números del propio negocio, estima cuántos mensajes de clientes esperan más de una hora al mes y cuántas ventas pasan por ellos.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "MXN"},
+  "provider": {"@type": "Organization", "name": "El Tío", "url": "https://eltio.net/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "El Tío", "item": "https://eltio.net/"},
+    {"@type": "ListItem", "position": 2, "name": "El Cronómetro del Tío", "item": "https://eltio.net/cronometro/"}
+  ]
+}
+</script>
+</head>
+<body class="vertical header-claro">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top">
+  <a class="wordmark" href="../">EL TIO<span class="dot">.</span></a>
+  <div class="status" aria-hidden="true"><span class="pulse"></span>EN LÍNEA</div>
+</header>
+
+<main id="contenido">
+
+<section class="bloque cr-hero">
+  <div class="inner cr-hero-grid">
+    <div>
+      <span class="tag">Herramienta gratis · un minuto</span>
+      <h1 class="display giant">El Cronómetro <span class="hl">del Tío</span></h1>
+      <p class="lead">A esta hora, alguien te está escribiendo. Pon tus números y mira cuántos mensajes de clientes esperan más de una hora en tu negocio, y cuánto dinero pasa por ellos.</p>
+      <p class="cr-privado">Todo se calcula en tu navegador. No se envía ni se guarda nada.</p>
+    </div>
+    <figure class="cr-retrato" aria-hidden="true">
+      <img src="../assets/gas-tio-avatar-768.webp" srcset="../assets/gas-tio-avatar-480.webp 480w, ../assets/gas-tio-avatar-768.webp 768w" sizes="(max-width:820px) 40vw, 360px" alt="" width="768" height="768" fetchpriority="high">
+      <figcaption>Hecho con IA</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="bloque apretado cr-herramienta" aria-labelledby="t-preguntas">
+  <div class="inner cr-grid">
+
+    <form class="cr-form" id="cr-form" novalidate>
+      <h2 class="cr-titulo" id="t-preguntas">Tus números</h2>
+
+      <div class="cr-campo">
+        <label for="rubro">1. Rubro</label>
+        <select id="rubro" name="rubro">
+          <option value="gastronomia">Gastronomía</option>
+          <option value="hospitality">Hospitality</option>
+          <option value="real-estate">Real Estate</option>
+          <option value="fitness">Fitness</option>
+          <option value="eventos">Eventos</option>
+          <option value="artistas">Artistas</option>
+          <option value="distribucion">Distribución</option>
+        </select>
+      </div>
+
+      <div class="cr-campo">
+        <label for="mensajes">2. ¿Cuántos mensajes de clientes te llegan por día?</label>
+        <p class="cr-ayuda">Suma WhatsApp, Instagram y Facebook. Un número aproximado sirve.</p>
+        <input id="mensajes" name="mensajes" type="number" inputmode="numeric" min="0" max="5000" step="1" value="20">
+      </div>
+
+      <fieldset class="cr-campo">
+        <legend>3. ¿Qué parte llega fuera de tu horario de atención?</legend>
+        <div class="cr-opciones">
+          <label><input type="radio" name="fuera" value="0.1"><span>1 de cada 10</span></label>
+          <label><input type="radio" name="fuera" value="0.25" checked><span>1 de cada 4</span></label>
+          <label><input type="radio" name="fuera" value="0.5"><span>La mitad</span></label>
+          <label><input type="radio" name="fuera" value="0.7"><span>7 de cada 10</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="cr-campo">
+        <legend>4. En horario, ¿cuánto tardas en contestar?</legend>
+        <div class="cr-opciones">
+          <label><input type="radio" name="horario" value="rapido" checked><span>Menos de 15 minutos</span></label>
+          <label><input type="radio" name="horario" value="hora"><span>Dentro de la hora</span></label>
+          <label><input type="radio" name="horario" value="mas"><span>Más de una hora</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="cr-campo">
+        <legend>5. De noche, ¿cuánto tardas en contestar?</legend>
+        <div class="cr-opciones">
+          <label><input type="radio" name="noche" value="rapido"><span>Menos de 15 minutos</span></label>
+          <label><input type="radio" name="noche" value="hora"><span>Dentro de la hora</span></label>
+          <label><input type="radio" name="noche" value="manana" checked><span>A la mañana siguiente</span></label>
+          <label><input type="radio" name="noche" value="nunca"><span>A veces no contesto</span></label>
+        </div>
+      </fieldset>
+
+      <div class="cr-campo">
+        <label for="compran">6. De cada 10 que preguntan, ¿cuántos terminan comprando o reservando?</label>
+        <div class="cr-rango">
+          <input id="compran" name="compran" type="range" min="0" max="10" step="1" value="3">
+          <output for="compran" id="compran-v">3 de 10</output>
+        </div>
+      </div>
+
+      <div class="cr-campo">
+        <label for="ticket">7. Ticket promedio en pesos <span class="cr-opcional">(opcional)</span></label>
+        <p class="cr-ayuda">Lo que deja en promedio una compra o una reserva.</p>
+        <input id="ticket" name="ticket" type="number" inputmode="decimal" min="0" step="1" placeholder="Por ejemplo, 450">
+      </div>
+    </form>
+
+    <div class="cr-resultado" aria-labelledby="t-resultado">
+      <div class="cr-panel" aria-live="polite">
+        <h2 class="cr-titulo" id="t-resultado">Tu resultado</h2>
+        <p class="cr-cifra"><span id="r-esperan">0</span></p>
+        <p class="cr-cifra-pie">mensajes al mes esperan más de una hora</p>
+
+        <dl class="cr-datos">
+          <div><dt>Ventas que pasan por esos mensajes</dt><dd id="r-ventas">0 al mes</dd></div>
+          <div><dt>Dinero en juego</dt><dd id="r-dinero">Pon tu ticket para verlo</dd></div>
+          <div><dt>Si se van <span id="r-sevan-t">2 de cada 10</span></dt><dd id="r-perdida">Pon tu ticket para verlo</dd></div>
+        </dl>
+        <p class="cr-estimacion">Estimación con tus números. No es una medición.</p>
+
+        <div class="cr-consejo">
+          <span class="tag">Para esta semana</span>
+          <p id="r-consejo"></p>
+        </div>
+
+        <a class="btn solid cr-cta" id="cta-audit" data-cta="audit" href="https://app.eltio.net/auditoria/gastronomia?utm_source=cronometro&amp;utm_medium=herramienta">Haz el Audit gratis de tu <span id="cta-rubro">local</span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="bloque elevado" aria-labelledby="t-calculo">
+  <div class="inner cr-calculo">
+    <span class="tag">Cómo se calcula</span>
+    <h2 class="display" id="t-calculo">La cuenta, a la vista</h2>
+    <p class="lead">Cada línea usa lo que escribiste arriba. Los dos supuestos de abajo son tuyos también: cámbialos y la cuenta se rehace.</p>
+
+    <ol class="cr-formulas" id="r-formulas"></ol>
+
+    <div class="cr-supuestos">
+      <div class="cr-campo">
+        <label for="dias">Días al mes que te escriben</label>
+        <p class="cr-ayuda">Partimos de 30 porque los clientes escriben también el día que cierras. Si quieres contar solo los días que abres, cámbialo.</p>
+        <input id="dias" name="dias" type="number" inputmode="numeric" min="1" max="31" step="1" value="30" form="cr-form">
+      </div>
+      <div class="cr-campo">
+        <label for="sevan">De cada 10 clientes que esperan más de una hora, ¿cuántos crees que compran en otro lado?</label>
+        <p class="cr-ayuda">Esto es un supuesto, no un dato. Partimos de 2 de 10 para tener una cifra, y lo correcto es que pongas el tuyo. No encontramos un estudio público que mida esa pérdida para WhatsApp en México. El precedente conocido de medir cuánto tardan las empresas en contestar es el de Oldroyd, McElheran y Elkington en <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" rel="noopener">Harvard Business Review (2011)</a>, hecho con formularios web en Estados Unidos; no usamos sus cifras aquí.</p>
+        <div class="cr-rango">
+          <input id="sevan" name="sevan" type="range" min="0" max="10" step="1" value="2" form="cr-form">
+          <output for="sevan" id="sevan-v">2 de 10</output>
+        </div>
+      </div>
+    </div>
+
+    <p class="cr-nota">Qué cuenta como «espera»: si en horario contestas en más de una hora, cuentan todos los mensajes de horario; si de noche contestas a la mañana siguiente o a veces no contestas, cuentan todos los de la noche. Si contestas dentro de la hora, no cuentan. Es una simplificación: un mensaje que esperó 59 minutos tampoco es una buena noticia.</p>
+  </div>
+</section>
+
+<section class="bloque" aria-labelledby="t-tarjeta">
+  <div class="inner cr-tarjeta-grid">
+    <div>
+      <span class="tag">Para tus historias</span>
+      <h2 class="display" id="t-tarjeta">Tu tarjeta</h2>
+      <p class="lead">Una imagen de 1080 × 1920 con tu resultado. Mándasela a tu socio o súbela a tus historias.</p>
+
+      <div class="cr-campo">
+        <label for="negocio">Nombre de tu negocio <span class="cr-opcional">(opcional, solo aparece en la tarjeta)</span></label>
+        <input id="negocio" name="negocio" type="text" maxlength="40" autocomplete="organization" form="cr-form">
+      </div>
+      <label class="cr-check"><input type="checkbox" id="con-dinero" form="cr-form"><span>Mostrar el dinero en juego en la tarjeta</span></label>
+
+      <div class="v-cta">
+        <button type="button" class="btn solid" id="descargar">Descargar tarjeta</button>
+        <button type="button" class="btn ghost" id="compartir" hidden>Compartir</button>
+      </div>
+      <p class="cr-privado">La imagen se arma en tu teléfono o tu computadora. No sale de ahí hasta que tú la compartes.</p>
+    </div>
+    <div class="cr-tarjeta-marco">
+      <canvas id="tarjeta" width="1080" height="1920" role="img" aria-label="Vista previa de la tarjeta para historias con tu resultado"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="bloque elevado cr-cierre" aria-labelledby="t-cierre">
+  <div class="inner">
+    <span class="tag">Primero miro. Después toco.</span>
+    <h2 class="display" id="t-cierre">El número dice cuánto. El Audit dice dónde.</h2>
+    <p class="lead">El Audit gratis revisa cómo atiendes hoy y te devuelve qué conviene arreglar primero en tu negocio.</p>
+    <div class="v-cta">
+      <a class="btn solid" id="cta-audit-2" data-cta="audit" href="https://app.eltio.net/auditoria/gastronomia?utm_source=cronometro&amp;utm_medium=herramienta">Haz el Audit gratis</a>
+      <a class="btn ghost" data-cta="whatsapp" href="https://wa.me/525568976898?text=Hola%2C%20us%C3%A9%20el%20Cron%C3%B3metro%20del%20T%C3%ADo%20y%20quiero%20hablar%20de%20mis%20mensajes.">Escríbele por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <p>El Tío · Inteligencia artificial aplicada a empresas · Hecho con IA</p>
+    <p><a class="foot-link" href="../">eltio.net</a></p>
+  </div>
+</footer>
+
+<script src="calculo.js" defer></script>
+<script src="cronometro.js" defer></script>
+</body>
+</html>

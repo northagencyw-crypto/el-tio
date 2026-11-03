@@ -8,4 +8,5 @@
   <url><loc>https://eltio.net/hospitality/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://eltio.net/fitness/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://eltio.net/distribucion/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/cronometro/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

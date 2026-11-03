@@ -142,3 +142,16 @@ td:first-child{color:var(--hueso);font-weight:500}
 .ref{font-size:.75em;vertical-align:super;text-decoration:none}
 h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
 .fuentes a{overflow-wrap:anywhere}
+
+/* Glosario */
+.letras{display:flex;flex-wrap:wrap;gap:4px 6px;padding-top:24px}
+.letras a{font-family:'Geist Mono',monospace;font-size:13px;color:var(--hueso);text-decoration:none;min-width:40px;min-height:40px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--linea);border-radius:8px}
+.letras a:hover{border-color:var(--acento);color:var(--acento)}
+.glosario{display:grid;gap:14px;max-width:var(--texto)}
+.termino{padding:18px 20px;border:1px solid var(--linea);border-radius:12px;scroll-margin-top:80px}
+.termino:target{border-color:var(--acento)}
+.termino dt{font-weight:600;color:var(--hueso);font-size:17px}
+.termino dd p{margin-top:6px}
+.termino .ver{font-size:14px;color:var(--ceniza)}
+.termino .ver a{color:var(--acento)}
+.franja[id^="letra-"]{padding-top:40px}

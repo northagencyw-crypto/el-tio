@@ -64,6 +64,15 @@ terceros (mensajes de plantilla de WhatsApp, linea telefonica) van aparte.
 - Preguntas frecuentes: https://eltio.net/preguntas-frecuentes/
 - Guias: https://eltio.net/guias/
   - Chatbot de WhatsApp para restaurantes en Ciudad de Mexico: https://eltio.net/guias/chatbot-whatsapp-restaurantes-ciudad-de-mexico/
+  - Reservas directas por WhatsApp para hoteles y rentas vacacionales: https://eltio.net/guias/reservas-directas-whatsapp-hoteles/
+  - CRM para inmobiliarias, seguimiento de leads de preventa y renta: https://eltio.net/guias/crm-inmobiliaria-seguimiento-leads/
+  - Retencion de socios en gimnasios y estudios, bajas y reservas de clase: https://eltio.net/guias/retencion-socios-gimnasio-reservas-clases/
+  - Pedidos por WhatsApp a cotizacion para distribuidoras y ferreterias: https://eltio.net/guias/pedidos-whatsapp-cotizaciones-distribuidoras/
+  - Chatbot de WhatsApp para tours en Tulum y la Riviera Maya, en ingles y espanol: https://eltio.net/guias/chatbot-whatsapp-tours-riviera-maya/
+  - Recordatorios de citas por WhatsApp para clinicas y consultorios: https://eltio.net/guias/recordatorios-citas-whatsapp-consultorios/
+- Glosario de IA para empresas (39 terminos): https://eltio.net/glosario/
+- Sobre El Tio: https://eltio.net/sobre-el-tio/
+- Contacto: https://eltio.net/contacto/
 
 ## Rubros
 
@@ -87,13 +96,13 @@ Un artista con carrera tiene números grandes en todos lados y no es dueño de n
 
 ### Gastronomía (https://eltio.net/gastronomia/)
 
-Para quien: Restaurantes, bares y cocinas.
+Para quien: Restaurantes, bares, cocinas, cafeterias y panaderias. En cafeterias y panaderias el foco son los pedidos y los mensajes.
 
 Alguien busca dónde comer a seis cuadras de tu local. Abre tu carta y es un PDF de hace dos años que hay que agrandar con dos dedos. El plato que mejor te sale no tiene foto. Cierra y abre el del lado.
 
 ### Hospitality (https://eltio.net/hospitality/)
 
-Para quien: Hoteles boutique, villas y alquileres vacacionales.
+Para quien: Hoteles boutique, villas, alquileres vacacionales y operadores de tours.
 
 Un hotel boutique o una villa vive con un socio silencioso. El intermediario se lleva su porcentaje de casi toda la ocupación y, lo que es peor, se queda con el contacto del huésped. Al año siguiente se vuelve a pagar por el mismo cliente.
 

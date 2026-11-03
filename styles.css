@@ -528,3 +528,18 @@ footer p{
   .marquee-group[aria-hidden]{display:none}
 }
 :focus-visible{outline:2px solid var(--celeste);outline-offset:3px}
+
+/* ---------- selector de idioma (8 idiomas) ---------- */
+header.top .nav{margin-left:auto;margin-right:clamp(10px,1.6vw,22px)}
+.idioma{position:relative;pointer-events:auto;margin-right:clamp(10px,1.6vw,22px)}
+.idioma summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;min-height:44px;min-width:44px;justify-content:center;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.22em;color:var(--ash)}
+.idioma summary::-webkit-details-marker{display:none}
+.idioma summary::after{content:"";width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.idioma[open] summary,.idioma summary:hover{color:var(--celeste)}
+.idioma ul{list-style:none;position:absolute;right:0;top:100%;margin:6px 0 0;padding:6px;min-width:160px;background:#0A1017;border:1px solid rgba(237,241,244,.12);border-radius:10px;z-index:60}
+.idioma li a{display:flex;align-items:center;min-height:44px;padding:0 12px;border-radius:6px;color:var(--ash);text-decoration:none;font-size:15px}
+.idioma li a:hover,.idioma li a[aria-current="true"]{color:var(--celeste)}
+:lang(zh-CN) body{font-family:'Geist',"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif}
+:lang(ja) body{font-family:'Geist',"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans JP",system-ui,sans-serif}
+:lang(zh-CN) h1,:lang(zh-CN) h2,:lang(zh-CN) h3,:lang(ja) h1,:lang(ja) h2,:lang(ja) h3{letter-spacing:0;line-break:strict}
+@media(max-width:640px){.idioma{margin-right:6px}header.top .nav{margin-right:6px}}

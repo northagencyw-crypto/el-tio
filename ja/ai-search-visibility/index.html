@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI検索対策：ChatGPT、Perplexity、Googleに出る · El Tío</title>
+<meta name="description" content="AI検索対策（GEOとAEO）とは何か。ChatGPT、Perplexity、Gemini、Googleがどうサイトを読むか、llms.txtと構造化データで何をするか、引用されているかをどう測るか。">
+<link rel="canonical" href="https://eltio.net/ja/ai-search-visibility/">
+<link rel="alternate" hreflang="es" href="https://eltio.net/posicionamiento-en-ia/">
+<link rel="alternate" hreflang="en" href="https://eltio.net/en/ai-search-visibility/">
+<link rel="alternate" hreflang="pt-BR" href="https://eltio.net/pt/posicionamento-em-ia/">
+<link rel="alternate" hreflang="fr" href="https://eltio.net/fr/referencement-ia/">
+<link rel="alternate" hreflang="de" href="https://eltio.net/de/ki-sichtbarkeit/">
+<link rel="alternate" hreflang="it" href="https://eltio.net/it/posizionamento-ia/">
+<link rel="alternate" hreflang="zh-CN" href="https://eltio.net/zh/ai-search-visibility/">
+<link rel="alternate" hreflang="ja" href="https://eltio.net/ja/ai-search-visibility/">
+<link rel="alternate" hreflang="x-default" href="https://eltio.net/posicionamiento-en-ia/">
+<meta name="theme-color" content="#04070B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="es_MX">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:site_name" content="El Tío">
+<meta property="og:url" content="https://eltio.net/ja/ai-search-visibility/">
+<meta property="og:title" content="AI検索対策：ChatGPT、Perplexity、Googleに出る">
+<meta property="og:description" content="AI検索対策（GEOとAEO）とは何か。ChatGPT、Perplexity、Gemini、Googleがどうサイトを読むか、llms.txtと構造化データで何をするか、引用されているかをどう測るか。">
+<meta property="og:image" content="https://eltio.net/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-var.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/paginas.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "AI検索エンジン対策",
+ "serviceType": "生成エンジン最適化（GEOとAEO）",
+ "description": "ChatGPT、Perplexity、Gemini、AIによる概要に出るための、サイトの準備、構造化データ、llms.txt、Google ビジネス プロフィール。毎月の効果測定つき。",
+ "url": "https://eltio.net/ja/ai-search-visibility/",
+ "provider": {
+  "@type": "Organization",
+  "name": "El Tío",
+  "url": "https://eltio.net/ja/",
+  "email": "hola@eltio.net"
+ },
+ "areaServed": "ラテンアメリカ",
+ "inLanguage": "ja"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "SEOと同じですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "土台は同じです。Googleによると、AIによる概要やAIモードに出るための追加要件はなく、ページがインデックスされ、通常の検索でスニペット付きで表示できればよいとされています。[1]変わるのは、何のために書くかです。人が検索する言葉に加えて、アシスタントに聞かれる質問にはっきり答えるページにする必要があります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "検索のためには読ませて、モデルの学習には使わせない、ということはできますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "できます。OpenAIは検索用のクローラー（OAI-SearchBot）と学習用のデータを集めるクローラー（GPTBot）を分けていて、robots.txtで別々に管理できます。[3]GoogleにはGeminiの学習用のGoogle-Extendedがあり、Google検索での表示には影響しません。[5]どうするかは一緒に決めます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ウェブサイトがなくても効果はありますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Google ビジネス プロフィールは役立ちますが、AIアシスタントは読めるページから答えを作ります。自分のサイトがなければ、ほかのサイトにどう書かれているかに頼ることになります。だから、ほとんどの場合はウェブサイトと一緒に進めます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ChatGPTにおすすめされると保証してもらえますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いいえ。Googleのトップを保証できる人がいないのと同じで、その答えは誰にもコントロールできません。[9]答えは質問、人、日によって変わります。だから毎月同じ質問で傾向を測ります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "料金はいくらですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "サイトのページ数、言語の数、ゼロから書く文章の量によります。Auditの後、始める前に、範囲と金額を書いた提案書をお送りします。見積もりは無料です。"
+   }
+  }
+ ],
+ "inLanguage": "ja"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "El Tío",
+   "item": "https://eltio.net/ja/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "AI検索対策",
+   "item": "https://eltio.net/ja/ai-search-visibility/"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="saltar" href="#contenido">本文へスキップ</a>
+<header class="cabecera">
+  <div class="inner">
+    <a class="marca" href="/ja/">EL TIO<span>.</span></a>
+    <nav class="menu" aria-label="メイン">
+      <a href="/ja/websites/">ウェブサイト</a>
+      <a href="/ja/ai-search-visibility/" aria-current="page">AI検索対策</a>
+      <a href="/ja/services/">サービス</a>
+      <a href="/ja/pricing/">パッケージ</a>
+      <a href="/guias/">ガイド</a>
+    </nav>
+    <details class="idioma">
+      <summary aria-label="言語: 日本語">JA</summary>
+      <ul>
+        <li><a href="/posicionamiento-en-ia/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="/en/ai-search-visibility/" hreflang="en" lang="en">English</a></li>
+        <li><a href="/pt/posicionamento-em-ia/" hreflang="pt-BR" lang="pt-BR">Português</a></li>
+        <li><a href="/fr/referencement-ia/" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="/de/ki-sichtbarkeit/" hreflang="de" lang="de">Deutsch</a></li>
+        <li><a href="/it/posizionamento-ia/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="/zh/ai-search-visibility/" hreflang="zh-CN" lang="zh-CN">中文</a></li>
+        <li><a href="/ja/ai-search-visibility/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+      </ul>
+    </details>
+    <a class="btn-chico" href="#audit" data-cta="audit">無料のAudit</a>
+  </div>
+</header>
+<main id="contenido">
+  <nav class="migas franja" aria-label="パンくずリスト" style="padding-bottom:0"><a href="/ja/">El Tío</a> / AI検索対策</nav>
+  <section class="franja" style="padding-top:8px">
+    <p class="ojo">主要サービス · AI検索対策</p>
+    <h1>AI検索対策：ChatGPT、Perplexity、Gemini、Googleに名前を挙げてもらう</h1>
+    <p class="bajada">どこで食べるか、どのホテルにするか、誰に電話するかを、AIアシスタントに聞く人が増えています。アシスタントはいくつかの名前を挙げ、多くの場合はリンクも付けて答えます。このページでは、その答えがどう作られるか、あなたのお店が情報源に入るために何をするか、そして実際にそうなっているかをどう測るかを説明します。</p>
+    <div class="acciones">
+      <a class="btn" data-cta="audit" href="#audit">無料のAuditを受ける</a>
+      <a class="enlace" data-cta="whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20que%20mi%20negocio%20aparezca%20en%20ChatGPT%20y%20en%20Google.">WhatsAppで連絡する</a>
+    </div>
+  </section>
+  <section class="franja">
+    <h2>かんたんに言うと</h2>
+    <p>誰かがChatGPTに「メキシコシティのローマ地区で、子ども連れで行けるシーフードレストラン」と書くと、アシスタントはネットを検索し、いくつかのページを読み、見つけた内容で答えを作ります。あなたのページが読めない、あるいは何を、どこで、誰のためにしているかがはっきり書かれていなければ、その読み込みに入りません。</p>
+    <p>こうした回答に出るための取り組みを<strong>GEO</strong>（generative engine optimization、生成エンジン最適化）、または<strong>AEO</strong>（answer engine optimization、回答エンジン最適化）と呼びます。GEOという言葉は、2024年に発表された学術研究から来ています。<a href="#f2" class="ref">[2]</a>土台は昔からのSEOと同じです。Googleは、AIによる概要やAIモードのために特別な最適化は必要なく、ページがインデックスされ、検索に表示できる状態であればよいとしています。<a href="#f1" class="ref">[1]</a></p>
+  </section>
+  <section class="franja">
+    <h2>各アシスタントがあなたのページにたどり着く方法</h2>
+    <p>それぞれが独自の検索エンジンを使っていて、どの検索エンジンもサイトに入れる必要があります。</p>
+    <div class="tabla">
+      <table>
+        <thead><tr><th>表示される場所</th><th>ページを読むもの</th><th>必要なこと</th></tr></thead>
+        <tbody>
+          <tr><td>Google：AIによる概要とAIモード</td><td>Googleのクローラー</td><td>ページがインデックスされ、スニペット付きで表示できること<a href="#f1" class="ref">[1]</a></td></tr>
+          <tr><td>検索機能付きのChatGPT</td><td>OAI-SearchBot</td><td>robots.txtで許可すること。ブロックしているサイトはChatGPTの検索回答に出ません<a href="#f3" class="ref">[3]</a></td></tr>
+          <tr><td>Perplexity</td><td>PerplexityBot</td><td>Perplexityの推奨どおり、robots.txtで許可すること<a href="#f4" class="ref">[4]</a></td></tr>
+          <tr><td>Gemini</td><td>Google</td><td>GeminiはGoogleのサービスです。Google-ExtendedはGeminiの学習への利用を管理するもので、Google検索での表示には影響しません<a href="#f5" class="ref">[5]</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="franja">
+    <h2>私たちがすること</h2>
+    <ol class="lista">
+      <li><strong>読めるようにする。</strong>AIの検索エンジンを通すrobots.txt、ページ上の本物のテキスト（写真やPDFだけにしない）、スマートフォンで速く開くサイト。</li>
+      <li><strong>理解してもらう。</strong>お店が何で、どこにあり、どんなサービスがあり、よくある質問は何かを伝える構造化データ。Googleはページの内容を理解するためにこれを使い<a href="#f6" class="ref">[6]</a>、画面に見える文章と一致させるよう求めています。<a href="#f1" class="ref">[1]</a></li>
+      <li><strong>llms.txtファイル。</strong>AIアシスタント向けにサイトをまとめた要約で、2024年に提案されました。<a href="#f7" class="ref">[7]</a>標準ではなく提案で、Googleは求めていません。手間が少なく、いちばん大事な情報を整理できるので入れています。</li>
+      <li><strong>Google ビジネス プロフィール。</strong>Googleはローカル検索の結果を関連性、距離、知名度で並べていて、プロフィールのオーナー確認、情報をすべて埋めること、クチコミへの返信、写真の追加を勧めています。<a href="#f8" class="ref">[8]</a></li>
+      <li><strong>データのある答え。</strong>お客様が実際にする質問に、価格、営業時間、具体的な情報で答えるページ。GEOの名前の由来になった研究では、引用元を加えること、原文の引用、統計を入れることが、文章の見え方を大きく高めた変更の一部で、その実験環境では30%から40%向上しました。キーワードを詰め込んでも効果はありませんでした。<a href="#f2" class="ref">[2]</a>これは実験室での結果で約束ではありませんが、常識と同じ方向を指しています。具体的なことを書く、ということです。</li>
+    </ol>
+  </section>
+  <section class="franja">
+    <h2>AIに引用されているかの測り方</h2>
+    <p>アシスタントの答えは、質問、人、日によって変わります。スクリーンショットだけでは何も証明できません。だから、こう測ります。</p>
+    <ol class="pasos">
+      <li><h3>決まった質問リスト</h3><p>お客様が使う言葉と言語で、お客様がしそうな質問。「朝食付きのトゥルムのブティックホテル」「モンテレイでプレセール物件を扱う不動産会社」など。</p></li>
+      <li><h3>毎月同じ質問</h3><p>ChatGPT、Perplexity、Gemini、Googleで。あなたが出てくるか、リンクされるか、何番目か、あなたについて話すのにどの情報源を使っているかを記録します。</p></li>
+      <li><h3>実際に来るアクセス</h3><p>Search Consoleでは、GoogleのAI機能からの訪問は通常のウェブ検索のアクセスに含めて数えられます。<a href="#f1" class="ref">[1]</a>Analyticsでは、chatgpt.comやperplexity.aiからの訪問が見えます。</p></li>
+      <li><h3>短いレポート</h3><p>何が変わったか、どのページを加えたか、どの質問からまだお客様が来ていないか。</p></li>
+    </ol>
+  </section>
+  <section class="franja">
+    <h2>誰にも約束できないこと</h2>
+    <p>AIアシスタントの答えは誰にもコントロールできません。Googleも、検索のトップを保証できる人はいないと言っています。<a href="#f9" class="ref">[9]</a>約束してくる相手は疑ってください。できるのは、Google、OpenAI、Perplexityが求めることを満たして、あなたのページが情報源になりうる状態にし、効果を正直に測ることです。</p>
+    <p>自分でやりたい場合は、ガイド<a href="/guias/como-aparecer-en-chatgpt-y-google-negocio-pequeno/">小さなお店がChatGPTとGoogleに出る方法</a>で手順を説明しています。</p>
+  </section>
+  <section class="franja">
+    <h2>料金</h2>
+    <p>サイトのページ数、言語の数、ゼロから書く文章の量によります。Auditの後、始める前に、範囲と金額を書いた提案書をお送りします。見積もりは無料です。</p>
+  </section>
+  <section class="franja" id="preguntas">
+    <h2>よくある質問</h2>
+    <div class="preguntas">
+      <details><summary>SEOと同じですか？</summary><div><p>土台は同じです。Googleによると、AIによる概要やAIモードに出るための追加要件はなく、ページがインデックスされ、通常の検索でスニペット付きで表示できればよいとされています。<a href="#f1" class="ref">[1]</a>変わるのは、何のために書くかです。人が検索する言葉に加えて、アシスタントに聞かれる質問にはっきり答えるページにする必要があります。</p></div></details>
+      <details><summary>検索のためには読ませて、モデルの学習には使わせない、ということはできますか？</summary><div><p>できます。OpenAIは検索用のクローラー（OAI-SearchBot）と学習用のデータを集めるクローラー（GPTBot）を分けていて、robots.txtで別々に管理できます。<a href="#f3" class="ref">[3]</a>GoogleにはGeminiの学習用のGoogle-Extendedがあり、Google検索での表示には影響しません。<a href="#f5" class="ref">[5]</a>どうするかは一緒に決めます。</p></div></details>
+      <details><summary>ウェブサイトがなくても効果はありますか？</summary><div><p>Google ビジネス プロフィールは役立ちますが、AIアシスタントは読めるページから答えを作ります。自分のサイトがなければ、ほかのサイトにどう書かれているかに頼ることになります。だから、ほとんどの場合は<a href="/ja/websites/">ウェブサイト</a>と一緒に進めます。</p></div></details>
+      <details><summary>ChatGPTにおすすめされると保証してもらえますか？</summary><div><p>いいえ。Googleのトップを保証できる人がいないのと同じで、その答えは誰にもコントロールできません。<a href="#f9" class="ref">[9]</a>答えは質問、人、日によって変わります。だから毎月同じ質問で傾向を測ります。</p></div></details>
+      <details><summary>料金はいくらですか？</summary><div><p>サイトのページ数、言語の数、ゼロから書く文章の量によります。Auditの後、始める前に、範囲と金額を書いた提案書をお送りします。見積もりは無料です。</p></div></details>
+    </div>
+  </section>
+  <section class="franja">
+    <div class="audit" id="audit">
+      <p class="ojo">無料のAudit</p>
+      <h2>まずは無料のAuditから</h2>
+      <p>今のお店の仕事の進め方について答える、15～25分のガイド付きアンケートです。人が内容を確認し、営業日ベースで24～48時間以内に、最初に何をするべきかを理由つきでまとめたマップが届きます。契約してもしなくても、マップはあなたのものです。</p>
+      <ul class="rubros">
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/gastronomia">飲食<span>レストラン、バー、カフェ、パン屋</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/hospitality">宿泊・観光<span>ブティックホテル、バケーションレンタル、ツアー</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">不動産<span>不動産会社、デベロッパー、ブローカー</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/fitness">フィットネス<span>ジムとスタジオ</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/eventos">イベント<span>制作会社、プロモーター、会場</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/artistas">アーティスト<span>アーティスト、DJ、マネージャー</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/distribucion">卸売・流通<span>卸売業者、金物店、輸入業者</span></a></li>
+      </ul>
+      <p class="nota">業種を選ぶとアンケートが開きます。先に話したいですか？<a href="https://wa.me/525568976898?text=Hola%21%20Quiero%20hablar%20con%20El%20T%C3%ADo%20sobre%20inteligencia%20artificial%20para%20mi%20empresa." data-cta="whatsapp">WhatsAppでご連絡ください</a>。</p>
+      <p class="nota nota-idioma">Auditは今のところスペイン語のみです。あなたの言語で話したい場合は、WhatsAppかhola@eltio.netへご連絡ください。</p>
+    </div>
+  </section>
+  <section class="franja fuentes">
+    <h2>出典</h2>
+    <ol>
+      <li id="f1">Google検索セントラル「AI features and your website」：AIによる概要とAIモードに表示されるための要件、構造化データ、Search Console。<a href="https://developers.google.com/search/docs/appearance/ai-features">developers.google.com/search/docs/appearance/ai-features</a></li>
+      <li id="f2">Pranjal Aggarwal、Vishvak Murahari、Tanmay Rajpurohit、Ashwin Kalyan、Karthik Narasimhan、Ameet Deshpande「GEO: Generative Engine Optimization」KDD 2024。<a href="https://arxiv.org/abs/2311.09735">arxiv.org/abs/2311.09735</a></li>
+      <li id="f3">OpenAI「Overview of OpenAI crawlers」：ChatGPTの検索用のOAI-SearchBotと、学習用のGPTBot。<a href="https://developers.openai.com/api/docs/bots">developers.openai.com/api/docs/bots</a></li>
+      <li id="f4">Perplexity「Perplexity Crawlers」：PerplexityBot。<a href="https://docs.perplexity.ai/guides/bots">docs.perplexity.ai/guides/bots</a></li>
+      <li id="f5">Google検索セントラル「List of Google's common crawlers」：Google-Extended。<a href="https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers">developers.google.com/search/docs/crawling-indexing/google-common-crawlers</a></li>
+      <li id="f6">Google検索セントラル「Introduction to structured data markup in Google Search」。<a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data">developers.google.com/search/docs/appearance/structured-data/intro-structured-data</a></li>
+      <li id="f7">Jeremy Howard「The /llms.txt file」、2024年9月3日に公開された提案。<a href="https://llmstxt.org/">llmstxt.org</a></li>
+      <li id="f8">Google ビジネス プロフィール ヘルプ「Tips to improve your local ranking on Google」：関連性、距離、知名度。<a href="https://support.google.com/business/answer/7091?hl=es">support.google.com/business/answer/7091</a></li>
+      <li id="f9">Google検索セントラル「Do you need an SEO?」。<a href="https://developers.google.com/search/docs/fundamentals/do-i-need-seo">developers.google.com/search/docs/fundamentals/do-i-need-seo</a></li>
+    </ol>
+  </section>
+</main>
+<footer class="pie">
+  <div class="inner">
+    <div class="pie-cols">
+      <div><p>サービス</p><ul>
+        <li><a href="/ja/websites/">8言語のウェブサイト</a></li>
+        <li><a href="/ja/ai-search-visibility/">AI検索対策</a></li>
+        <li><a href="/ja/prospecting-and-email/">新規開拓とメール</a></li>
+        <li><a href="/servicios/agente-whatsapp-instagram/">WhatsAppとInstagramのエージェント</a></li>
+        <li><a href="/servicios/agente-de-voz/">音声エージェント</a></li>
+        <li><a href="/servicios/crm-y-seguimiento/">CRMとフォローアップ</a></li>
+        <li><a href="/servicios/automatizaciones-y-reportes/">自動化とレポート</a></li>
+        <li><a href="/servicios/capacitacion/">研修</a></li>
+      </ul></div>
+      <div><p>都市</p><ul>
+        <li><a href="/ciudades/ciudad-de-mexico/">メキシコシティ</a></li>
+        <li><a href="/ciudades/monterrey/">モンテレイ</a></li>
+        <li><a href="/ciudades/guadalajara/">グアダラハラ</a></li>
+        <li><a href="/ciudades/tulum-riviera-maya/">トゥルムとリビエラ・マヤ</a></li>
+      </ul></div>
+      <div><p>業種</p><ul>
+        <li><a href="/gastronomia/">飲食</a></li>
+        <li><a href="/hospitality/">宿泊・観光</a></li>
+        <li><a href="/real-estate/">不動産</a></li>
+        <li><a href="/fitness/">フィットネス</a></li>
+        <li><a href="/eventos/">イベント</a></li>
+        <li><a href="/artistas/">アーティスト</a></li>
+        <li><a href="/distribucion/">卸売・流通</a></li>
+      </ul></div>
+      <div><p>El Tío</p><ul>
+        <li><a href="/ja/pricing/">パッケージと料金</a></li>
+        <li><a href="/como-trabajamos/">仕事の進め方</a></li>
+        <li><a href="/preguntas-frecuentes/">よくある質問</a></li>
+        <li><a href="/guias/">ガイド</a></li>
+        <li><a href="/glosario/">AI用語集</a></li>
+        <li><a href="/cronometro/">Cronómetro</a></li>
+        <li><a href="/ja/about/">El Tíoについて</a></li>
+        <li><a href="/ja/contact/">お問い合わせ</a></li>
+      </ul></div>
+    </div>
+    <div class="pie-base">
+      <p>El Tío · 企業のための実践AI</p>
+      <p><a href="mailto:hola@eltio.net">hola@eltio.net</a> · <a href="https://wa.me/525568976898?text=Hola%21%20Quiero%20hablar%20con%20El%20T%C3%ADo%20sobre%20inteligencia%20artificial%20para%20mi%20empresa." data-cta="whatsapp">WhatsApp +52 55 6897 6898</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

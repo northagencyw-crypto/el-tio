@@ -39,9 +39,20 @@
       /* El simbolo lo dibuja el CSS segun aria-pressed. Antes esto escribia
          textContent y borraba el span que le da nombre al boton, dejandolo mudo
          para un lector de pantalla justo despues del primer clic. */
-      pauseBtn.setAttribute('aria-label',
-        paused ? 'Reanudar el desplazamiento' : 'Pausar el desplazamiento');
-      pauseBtn.querySelector('.vo').textContent = paused ? 'Reanudar' : 'Pausar';
+      /* Textos del boton por idioma de la pagina (eltio.net en 8 idiomas). */
+      var T = {
+        es: ['Reanudar el desplazamiento', 'Pausar el desplazamiento', 'Reanudar', 'Pausar'],
+        en: ['Resume scrolling', 'Pause scrolling', 'Resume', 'Pause'],
+        pt: ['Retomar a rolagem', 'Pausar a rolagem', 'Retomar', 'Pausar'],
+        fr: ['Reprendre le défilement', 'Mettre le défilement en pause', 'Reprendre', 'Pause'],
+        de: ['Laufband fortsetzen', 'Laufband anhalten', 'Fortsetzen', 'Anhalten'],
+        it: ['Riprendi lo scorrimento', 'Metti in pausa lo scorrimento', 'Riprendi', 'Pausa'],
+        zh: ['继续滚动', '暂停滚动', '继续', '暂停'],
+        ja: ['スクロールを再開', 'スクロールを一時停止', '再開', '一時停止']
+      }[(document.documentElement.lang || 'es').slice(0, 2)] || null;
+      T = T || ['Reanudar el desplazamiento', 'Pausar el desplazamiento', 'Reanudar', 'Pausar'];
+      pauseBtn.setAttribute('aria-label', paused ? T[0] : T[1]);
+      pauseBtn.querySelector('.vo').textContent = paused ? T[2] : T[3];
     });
   }
 

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Référencement IA : apparaître dans ChatGPT, Perplexity et Google · El Tío</title>
+<meta name="description" content="Ce qu’est le référencement IA (GEO et AEO), comment ChatGPT, Perplexity, Gemini et Google vous lisent, ce que nous faisons avec llms.txt et les données structurées, et comment nous mesurons s’ils vous citent.">
+<link rel="canonical" href="https://eltio.net/fr/referencement-ia/">
+<link rel="alternate" hreflang="es" href="https://eltio.net/posicionamiento-en-ia/">
+<link rel="alternate" hreflang="en" href="https://eltio.net/en/ai-search-visibility/">
+<link rel="alternate" hreflang="pt-BR" href="https://eltio.net/pt/posicionamento-em-ia/">
+<link rel="alternate" hreflang="fr" href="https://eltio.net/fr/referencement-ia/">
+<link rel="alternate" hreflang="de" href="https://eltio.net/de/ki-sichtbarkeit/">
+<link rel="alternate" hreflang="it" href="https://eltio.net/it/posizionamento-ia/">
+<link rel="alternate" hreflang="zh-CN" href="https://eltio.net/zh/ai-search-visibility/">
+<link rel="alternate" hreflang="ja" href="https://eltio.net/ja/ai-search-visibility/">
+<link rel="alternate" hreflang="x-default" href="https://eltio.net/posicionamiento-en-ia/">
+<meta name="theme-color" content="#04070B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="es_MX">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:site_name" content="El Tío">
+<meta property="og:url" content="https://eltio.net/fr/referencement-ia/">
+<meta property="og:title" content="Référencement IA : apparaître dans ChatGPT, Perplexity et Google">
+<meta property="og:description" content="Ce qu’est le référencement IA (GEO et AEO), comment ChatGPT, Perplexity, Gemini et Google vous lisent, ce que nous faisons avec llms.txt et les données structurées, et comment nous mesurons s’ils vous citent.">
+<meta property="og:image" content="https://eltio.net/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-var.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/paginas.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Référencement dans les moteurs de recherche IA",
+ "serviceType": "Optimisation pour les moteurs génératifs (GEO et AEO)",
+ "description": "Préparation du site, données structurées, llms.txt et fiche d’établissement Google pour apparaître dans ChatGPT, Perplexity, Gemini et les Aperçus IA, avec un suivi mensuel.",
+ "url": "https://eltio.net/fr/referencement-ia/",
+ "provider": {
+  "@type": "Organization",
+  "name": "El Tío",
+  "url": "https://eltio.net/fr/",
+  "email": "hola@eltio.net"
+ },
+ "areaServed": "Amérique latine",
+ "inLanguage": "fr"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Est-ce la même chose que le SEO ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ça repose sur les mêmes bases. Google dit qu’il n’y a pas d’exigence supplémentaire pour apparaître dans les Aperçus IA et le Mode IA : la page doit être indexée et pouvoir s’afficher avec un extrait dans la recherche classique.[1] Ce qui change, c’est pour quoi on écrit : en plus des mots que les gens recherchent, la page doit répondre clairement aux questions qu’ils posent à un assistant."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Puis-je laisser les robots me lire pour la recherche, mais pas pour entraîner des modèles ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui. OpenAI sépare son robot de recherche (OAI-SearchBot) de celui qui collecte des données pour l’entraînement (GPTBot), et ils se règlent séparément dans le fichier robots.txt.[3] Google a Google-Extended pour l’entraînement de Gemini, qui ne change rien à votre présence dans la recherche Google.[5] Nous le décidons avec vous."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Est-ce utile si je n’ai pas de site web ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "La fiche d’établissement Google aide, mais les assistants IA construisent leurs réponses à partir de pages qu’ils peuvent lire. Sans site à vous, vous dépendez de ce que d’autres sites disent de vous. C’est pourquoi nous le faisons presque toujours avec le site web."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Pouvez-vous me garantir que ChatGPT me recommandera ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Non. Personne ne contrôle ces réponses, de même que personne ne peut garantir une première place sur Google.[9] Les réponses changent selon la question, la personne et le jour. C’est pourquoi nous suivons la tendance mois après mois avec les mêmes questions."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Combien ça coûte ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Cela dépend du nombre de pages de votre site, du nombre de langues et de la quantité de texte à écrire de zéro. Après l’Audit, nous vous envoyons la proposition par écrit, avec le périmètre et le prix, avant de commencer. Le devis est gratuit."
+   }
+  }
+ ],
+ "inLanguage": "fr"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "El Tío",
+   "item": "https://eltio.net/fr/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Référencement IA",
+   "item": "https://eltio.net/fr/referencement-ia/"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Aller au contenu</a>
+<header class="cabecera">
+  <div class="inner">
+    <a class="marca" href="/fr/">EL TIO<span>.</span></a>
+    <nav class="menu" aria-label="Principal">
+      <a href="/fr/sites-web/">Sites web</a>
+      <a href="/fr/referencement-ia/" aria-current="page">Référencement IA</a>
+      <a href="/fr/services/">Services</a>
+      <a href="/fr/offres-et-tarifs/">Offres</a>
+      <a href="/guias/">Guides</a>
+    </nav>
+    <details class="idioma">
+      <summary aria-label="Langue: Français">FR</summary>
+      <ul>
+        <li><a href="/posicionamiento-en-ia/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="/en/ai-search-visibility/" hreflang="en" lang="en">English</a></li>
+        <li><a href="/pt/posicionamento-em-ia/" hreflang="pt-BR" lang="pt-BR">Português</a></li>
+        <li><a href="/fr/referencement-ia/" hreflang="fr" lang="fr" aria-current="true">Français</a></li>
+        <li><a href="/de/ki-sichtbarkeit/" hreflang="de" lang="de">Deutsch</a></li>
+        <li><a href="/it/posizionamento-ia/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="/zh/ai-search-visibility/" hreflang="zh-CN" lang="zh-CN">中文</a></li>
+        <li><a href="/ja/ai-search-visibility/" hreflang="ja" lang="ja">日本語</a></li>
+      </ul>
+    </details>
+    <a class="btn-chico" href="#audit" data-cta="audit">Audit gratuit</a>
+  </div>
+</header>
+<main id="contenido">
+  <nav class="migas franja" aria-label="Fil d’Ariane" style="padding-bottom:0"><a href="/fr/">El Tío</a> / Référencement IA</nav>
+  <section class="franja" style="padding-top:8px">
+    <p class="ojo">Service principal · Référencement IA</p>
+    <h1>Référencement IA : que ChatGPT, Perplexity, Gemini et Google parlent de vous</h1>
+    <p class="bajada">De plus en plus de gens demandent à un assistant IA où manger, quel hôtel choisir ou qui appeler. L’assistant répond avec quelques noms et, souvent, un lien. Cette page explique comment se construit cette réponse, ce que nous faisons pour que votre entreprise fasse partie des sources et comment nous mesurons si c’est le cas.</p>
+    <div class="acciones">
+      <a class="btn" data-cta="audit" href="#audit">Faire l’Audit gratuit</a>
+      <a class="enlace" data-cta="whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20que%20mi%20negocio%20aparezca%20en%20ChatGPT%20y%20en%20Google.">Écrire sur WhatsApp</a>
+    </div>
+  </section>
+  <section class="franja">
+    <h2>Ce que c’est, en termes simples</h2>
+    <p>Quand quelqu’un écrit dans ChatGPT « un restaurant de fruits de mer dans le quartier Roma où aller avec des enfants », l’assistant cherche sur internet, lit quelques pages et construit une réponse avec ce qu’il a trouvé. Si votre site ne peut pas être lu, ou ne dit pas clairement ce que vous faites, où et pour qui, vous ne faites pas partie de cette lecture.</p>
+    <p>Le travail pour apparaître dans ces réponses s’appelle <strong>GEO</strong> (generative engine optimization, optimisation pour les moteurs génératifs) ou <strong>AEO</strong> (answer engine optimization, optimisation pour les moteurs de réponse). Le terme GEO vient d’une étude universitaire présentée en 2024.<a href="#f2" class="ref">[2]</a> La base reste celle du SEO classique : Google dit qu’aucune optimisation particulière n’est nécessaire pour les Aperçus IA ou le Mode IA, au-delà du fait que la page soit indexée et puisse s’afficher dans la recherche.<a href="#f1" class="ref">[1]</a></p>
+  </section>
+  <section class="franja">
+    <h2>Comment chaque assistant arrive jusqu’à votre site</h2>
+    <p>Chacun utilise son propre moteur de recherche, et chaque moteur doit pouvoir accéder à votre site :</p>
+    <div class="tabla">
+      <table>
+        <thead><tr><th>Où vous apparaissez</th><th>Qui lit votre site</th><th>Ce qu’il faut</th></tr></thead>
+        <tbody>
+          <tr><td>Google : Aperçus IA et Mode IA</td><td>Le robot d’exploration de Google</td><td>Que la page soit indexée et puisse s’afficher avec un extrait<a href="#f1" class="ref">[1]</a></td></tr>
+          <tr><td>ChatGPT avec la recherche</td><td>OAI-SearchBot</td><td>L’autoriser dans le robots.txt. Les sites qui le bloquent n’apparaissent pas dans les réponses de recherche de ChatGPT<a href="#f3" class="ref">[3]</a></td></tr>
+          <tr><td>Perplexity</td><td>PerplexityBot</td><td>L’autoriser dans le robots.txt, comme le recommande Perplexity<a href="#f4" class="ref">[4]</a></td></tr>
+          <tr><td>Gemini</td><td>Google</td><td>Gemini appartient à Google. Google-Extended contrôle l’utilisation pour entraîner Gemini et ne change rien à votre présence dans la recherche Google<a href="#f5" class="ref">[5]</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="franja">
+    <h2>Ce que nous faisons</h2>
+    <ol class="lista">
+      <li><strong>Qu’on puisse vous lire.</strong> Un robots.txt qui laisse entrer les moteurs de recherche IA, du vrai texte sur la page (pas seulement des photos ou des PDF) et un site qui se charge vite sur téléphone.</li>
+      <li><strong>Qu’on vous comprenne.</strong> Des données structurées qui disent ce qu’est votre entreprise, où elle se trouve, quels services vous proposez et quelles sont vos questions fréquentes. Google les utilise pour comprendre le contenu d’une page<a href="#f6" class="ref">[6]</a> et demande qu’elles correspondent au texte visible.<a href="#f1" class="ref">[1]</a></li>
+      <li><strong>Un fichier llms.txt.</strong> C’est un résumé de votre site pensé pour les assistants IA, proposé en 2024.<a href="#f7" class="ref">[7]</a> C’est une proposition, pas un standard, et Google ne le demande pas. Nous l’ajoutons parce qu’il coûte peu et qu’il met de l’ordre dans les informations les plus importantes.</li>
+      <li><strong>Votre fiche d’établissement Google.</strong> Google classe les résultats locaux selon la pertinence, la distance et la notoriété, et recommande de valider la fiche, d’avoir des informations complètes, de répondre aux avis et d’ajouter des photos.<a href="#f8" class="ref">[8]</a></li>
+      <li><strong>Des réponses chiffrées.</strong> Des pages qui répondent aux vraies questions de vos clients, avec des prix, des horaires et des informations concrètes. Dans l’étude qui a donné son nom au GEO, ajouter des sources citées, des citations textuelles et des statistiques fait partie des changements qui ont le plus augmenté la visibilité d’un texte, de 30 % à 40 % sur leur banc d’essai, et bourrer le texte de mots-clés n’a pas aidé.<a href="#f2" class="ref">[2]</a> C’est une expérience de laboratoire, pas une promesse, mais elle va dans le même sens que le bon sens : dire des choses concrètes.</li>
+    </ol>
+  </section>
+  <section class="franja">
+    <h2>Comment nous mesurons si l’IA vous cite</h2>
+    <p>Les réponses d’un assistant changent selon la question, la personne et le jour. Une capture d’écran ne prouve rien. C’est pourquoi nous mesurons ainsi :</p>
+    <ol class="pasos">
+      <li><h3>Une liste fixe de questions</h3><p>Celles que poserait votre client, avec ses mots et dans ses langues : « hôtel de charme à Tulum avec petit-déjeuner », « agence immobilière à Monterrey pour un achat sur plan ».</p></li>
+      <li><h3>Les mêmes questions chaque mois</h3><p>Dans ChatGPT, Perplexity, Gemini et Google. Nous notons si vous apparaissez, si on vous met un lien, à quelle place et quelles sources sont utilisées pour parler de vous.</p></li>
+      <li><h3>Le trafic qui arrive</h3><p>Dans Search Console, où Google compte les visites venant de ses fonctionnalités d’IA dans le trafic web normal,<a href="#f1" class="ref">[1]</a> et dans Analytics, où l’on voit les visites qui arrivent depuis chatgpt.com ou perplexity.ai.</p></li>
+      <li><h3>Un rapport court</h3><p>Ce qui a changé, quelles pages nous avons ajoutées et quelles questions ne vous amènent encore personne.</p></li>
+    </ol>
+  </section>
+  <section class="franja">
+    <h2>Ce que personne ne peut promettre</h2>
+    <p>Personne ne contrôle ce que répond un assistant IA, et Google dit que personne ne peut garantir une première place dans son moteur de recherche.<a href="#f9" class="ref">[9]</a> Méfiez-vous de ceux qui vous la promettent. Ce qu’on peut faire, c’est respecter ce que demandent Google, OpenAI et Perplexity pour que votre site soit une source possible, et mesurer honnêtement si ça fonctionne.</p>
+    <p>Si vous voulez le faire vous-même, nous l’expliquons pas à pas dans le guide <a href="/guias/como-aparecer-en-chatgpt-y-google-negocio-pequeno/">comment apparaître dans ChatGPT et sur Google quand on a une petite entreprise</a>.</p>
+  </section>
+  <section class="franja">
+    <h2>Combien ça coûte</h2>
+    <p>Cela dépend du nombre de pages de votre site, du nombre de langues et de la quantité de texte à écrire de zéro. Après l’Audit, nous vous envoyons la proposition par écrit, avec le périmètre et le prix, avant de commencer. Le devis est gratuit.</p>
+  </section>
+  <section class="franja" id="preguntas">
+    <h2>Questions fréquentes</h2>
+    <div class="preguntas">
+      <details><summary>Est-ce la même chose que le SEO ?</summary><div><p>Ça repose sur les mêmes bases. Google dit qu’il n’y a pas d’exigence supplémentaire pour apparaître dans les Aperçus IA et le Mode IA : la page doit être indexée et pouvoir s’afficher avec un extrait dans la recherche classique.<a href="#f1" class="ref">[1]</a> Ce qui change, c’est pour quoi on écrit : en plus des mots que les gens recherchent, la page doit répondre clairement aux questions qu’ils posent à un assistant.</p></div></details>
+      <details><summary>Puis-je laisser les robots me lire pour la recherche, mais pas pour entraîner des modèles ?</summary><div><p>Oui. OpenAI sépare son robot de recherche (OAI-SearchBot) de celui qui collecte des données pour l’entraînement (GPTBot), et ils se règlent séparément dans le fichier robots.txt.<a href="#f3" class="ref">[3]</a> Google a Google-Extended pour l’entraînement de Gemini, qui ne change rien à votre présence dans la recherche Google.<a href="#f5" class="ref">[5]</a> Nous le décidons avec vous.</p></div></details>
+      <details><summary>Est-ce utile si je n’ai pas de site web ?</summary><div><p>La fiche d’établissement Google aide, mais les assistants IA construisent leurs réponses à partir de pages qu’ils peuvent lire. Sans site à vous, vous dépendez de ce que d’autres sites disent de vous. C’est pourquoi nous le faisons presque toujours avec le <a href="/fr/sites-web/">site web</a>.</p></div></details>
+      <details><summary>Pouvez-vous me garantir que ChatGPT me recommandera ?</summary><div><p>Non. Personne ne contrôle ces réponses, de même que personne ne peut garantir une première place sur Google.<a href="#f9" class="ref">[9]</a> Les réponses changent selon la question, la personne et le jour. C’est pourquoi nous suivons la tendance mois après mois avec les mêmes questions.</p></div></details>
+      <details><summary>Combien ça coûte ?</summary><div><p>Cela dépend du nombre de pages de votre site, du nombre de langues et de la quantité de texte à écrire de zéro. Après l’Audit, nous vous envoyons la proposition par écrit, avec le périmètre et le prix, avant de commencer. Le devis est gratuit.</p></div></details>
+    </div>
+  </section>
+  <section class="franja">
+    <div class="audit" id="audit">
+      <p class="ojo">Audit gratuit</p>
+      <h2>Commencez par l’Audit gratuit</h2>
+      <p>Un questionnaire guidé de 15 à 25 minutes sur la façon dont votre entreprise fonctionne aujourd’hui. Une personne le relit et sous 24 à 48 heures ouvrées vous recevez la feuille de route de ce qu’il vaut mieux faire en premier, avec la raison de chaque point. La feuille de route est à vous, que vous signiez ou non.</p>
+      <ul class="rubros">
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/gastronomia">Restauration<span>Restaurants, bars, cafés et boulangeries</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/hospitality">Hôtellerie<span>Hôtels de charme, locations saisonnières et excursions</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">Immobilier<span>Agences immobilières, promoteurs et courtiers</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/fitness">Fitness<span>Salles de sport et studios</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/eventos">Événementiel<span>Sociétés de production, organisateurs et salles</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/artistas">Artistes<span>Artistes, DJ et managers</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/distribucion">Distribution<span>Grossistes, quincailleries et importateurs</span></a></li>
+      </ul>
+      <p class="nota">Choisissez votre secteur pour ouvrir son questionnaire. Vous préférez en parler d’abord ? <a href="https://wa.me/525568976898?text=Hola%21%20Quiero%20hablar%20con%20El%20T%C3%ADo%20sobre%20inteligencia%20artificial%20para%20mi%20empresa." data-cta="whatsapp">Écrivez-nous sur WhatsApp</a>.</p>
+      <p class="nota nota-idioma">Pour l’instant, l’Audit n’existe qu’en espagnol. Si vous préférez échanger dans votre langue, écrivez-nous sur WhatsApp ou à hola@eltio.net.</p>
+    </div>
+  </section>
+  <section class="franja fuentes">
+    <h2>Sources</h2>
+    <ol>
+      <li id="f1">Google Search Central, « AI features and your website » : conditions pour apparaître dans les Aperçus IA et le Mode IA, données structurées et Search Console. <a href="https://developers.google.com/search/docs/appearance/ai-features">developers.google.com/search/docs/appearance/ai-features</a></li>
+      <li id="f2">Pranjal Aggarwal, Vishvak Murahari, Tanmay Rajpurohit, Ashwin Kalyan, Karthik Narasimhan et Ameet Deshpande, « GEO: Generative Engine Optimization », KDD 2024. <a href="https://arxiv.org/abs/2311.09735">arxiv.org/abs/2311.09735</a></li>
+      <li id="f3">OpenAI, « Overview of OpenAI crawlers » : OAI-SearchBot pour la recherche de ChatGPT et GPTBot pour l’entraînement. <a href="https://developers.openai.com/api/docs/bots">developers.openai.com/api/docs/bots</a></li>
+      <li id="f4">Perplexity, « Perplexity Crawlers » : PerplexityBot. <a href="https://docs.perplexity.ai/guides/bots">docs.perplexity.ai/guides/bots</a></li>
+      <li id="f5">Google Search Central, « List of Google's common crawlers » : Google-Extended. <a href="https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers">developers.google.com/search/docs/crawling-indexing/google-common-crawlers</a></li>
+      <li id="f6">Google Search Central, « Introduction to structured data markup in Google Search ». <a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data">developers.google.com/search/docs/appearance/structured-data/intro-structured-data</a></li>
+      <li id="f7">Jeremy Howard, « The /llms.txt file », proposition publiée le 3 septembre 2024. <a href="https://llmstxt.org/">llmstxt.org</a></li>
+      <li id="f8">Aide Fiche d’établissement Google, « Conseils pour améliorer votre classement local sur Google » : pertinence, distance et notoriété. <a href="https://support.google.com/business/answer/7091?hl=es">support.google.com/business/answer/7091</a></li>
+      <li id="f9">Google Search Central, « Do you need an SEO? ». <a href="https://developers.google.com/search/docs/fundamentals/do-i-need-seo">developers.google.com/search/docs/fundamentals/do-i-need-seo</a></li>
+    </ol>
+  </section>
+</main>
+<footer class="pie">
+  <div class="inner">
+    <div class="pie-cols">
+      <div><p>Services</p><ul>
+        <li><a href="/fr/sites-web/">Site web en 8 langues</a></li>
+        <li><a href="/fr/referencement-ia/">Référencement IA</a></li>
+        <li><a href="/fr/prospection-et-email/">Prospection et e-mailing</a></li>
+        <li><a href="/servicios/agente-whatsapp-instagram/">Agent WhatsApp et Instagram</a></li>
+        <li><a href="/servicios/agente-de-voz/">Agent vocal</a></li>
+        <li><a href="/servicios/crm-y-seguimiento/">CRM et suivi</a></li>
+        <li><a href="/servicios/automatizaciones-y-reportes/">Automatisations et rapports</a></li>
+        <li><a href="/servicios/capacitacion/">Formation</a></li>
+      </ul></div>
+      <div><p>Villes</p><ul>
+        <li><a href="/ciudades/ciudad-de-mexico/">Mexico</a></li>
+        <li><a href="/ciudades/monterrey/">Monterrey</a></li>
+        <li><a href="/ciudades/guadalajara/">Guadalajara</a></li>
+        <li><a href="/ciudades/tulum-riviera-maya/">Tulum et Riviera Maya</a></li>
+      </ul></div>
+      <div><p>Secteurs</p><ul>
+        <li><a href="/gastronomia/">Restauration</a></li>
+        <li><a href="/hospitality/">Hôtellerie</a></li>
+        <li><a href="/real-estate/">Immobilier</a></li>
+        <li><a href="/fitness/">Fitness</a></li>
+        <li><a href="/eventos/">Événementiel</a></li>
+        <li><a href="/artistas/">Artistes</a></li>
+        <li><a href="/distribucion/">Distribution</a></li>
+      </ul></div>
+      <div><p>El Tío</p><ul>
+        <li><a href="/fr/offres-et-tarifs/">Offres et tarifs</a></li>
+        <li><a href="/como-trabajamos/">Notre façon de travailler</a></li>
+        <li><a href="/preguntas-frecuentes/">Questions fréquentes</a></li>
+        <li><a href="/guias/">Guides</a></li>
+        <li><a href="/glosario/">Glossaire de l’IA</a></li>
+        <li><a href="/cronometro/">Cronómetro</a></li>
+        <li><a href="/fr/a-propos/">À propos d’El Tío</a></li>
+        <li><a href="/fr/contact/">Contact</a></li>
+      </ul></div>
+    </div>
+    <div class="pie-base">
+      <p>El Tío · Intelligence artificielle appliquée aux entreprises</p>
+      <p><a href="mailto:hola@eltio.net">hola@eltio.net</a> · <a href="https://wa.me/525568976898?text=Hola%21%20Quiero%20hablar%20con%20El%20T%C3%ADo%20sobre%20inteligencia%20artificial%20para%20mi%20empresa." data-cta="whatsapp">WhatsApp +52 55 6897 6898</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

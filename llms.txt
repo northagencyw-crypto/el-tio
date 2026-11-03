@@ -157,3 +157,79 @@ Calculadora gratis para dueños de negocios de cualquier rubro, de restaurantes 
 hola@eltio.net
 WhatsApp: +52 55 6897 6898 (https://wa.me/525568976898)
 https://eltio.net/
+
+## Otros idiomas
+
+El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la llamada son en espanol.
+
+### English (en)
+- Portada: https://eltio.net/en/
+- Página web en 8 idiomas: https://eltio.net/en/websites/
+- Posicionamiento en IA: https://eltio.net/en/ai-search-visibility/
+- Servicios: https://eltio.net/en/services/
+- Paquetes y precios: https://eltio.net/en/pricing/
+- Prospección y email: https://eltio.net/en/prospecting-and-email/
+- Contacto: https://eltio.net/en/contact/
+- Sobre El Tío: https://eltio.net/en/about/
+
+### Português (pt-BR)
+- Portada: https://eltio.net/pt/
+- Página web en 8 idiomas: https://eltio.net/pt/sites/
+- Posicionamiento en IA: https://eltio.net/pt/posicionamento-em-ia/
+- Servicios: https://eltio.net/pt/servicos/
+- Paquetes y precios: https://eltio.net/pt/planos-e-precos/
+- Prospección y email: https://eltio.net/pt/prospeccao-e-email/
+- Contacto: https://eltio.net/pt/contato/
+- Sobre El Tío: https://eltio.net/pt/sobre/
+
+### Français (fr)
+- Portada: https://eltio.net/fr/
+- Página web en 8 idiomas: https://eltio.net/fr/sites-web/
+- Posicionamiento en IA: https://eltio.net/fr/referencement-ia/
+- Servicios: https://eltio.net/fr/services/
+- Paquetes y precios: https://eltio.net/fr/offres-et-tarifs/
+- Prospección y email: https://eltio.net/fr/prospection-et-email/
+- Contacto: https://eltio.net/fr/contact/
+- Sobre El Tío: https://eltio.net/fr/a-propos/
+
+### Deutsch (de)
+- Portada: https://eltio.net/de/
+- Página web en 8 idiomas: https://eltio.net/de/webseiten/
+- Posicionamiento en IA: https://eltio.net/de/ki-sichtbarkeit/
+- Servicios: https://eltio.net/de/leistungen/
+- Paquetes y precios: https://eltio.net/de/pakete-und-preise/
+- Prospección y email: https://eltio.net/de/akquise-und-email/
+- Contacto: https://eltio.net/de/kontakt/
+- Sobre El Tío: https://eltio.net/de/ueber-uns/
+
+### Italiano (it)
+- Portada: https://eltio.net/it/
+- Página web en 8 idiomas: https://eltio.net/it/siti-web/
+- Posicionamiento en IA: https://eltio.net/it/posizionamento-ia/
+- Servicios: https://eltio.net/it/servizi/
+- Paquetes y precios: https://eltio.net/it/pacchetti-e-prezzi/
+- Prospección y email: https://eltio.net/it/prospezione-ed-email/
+- Contacto: https://eltio.net/it/contatti/
+- Sobre El Tío: https://eltio.net/it/chi-siamo/
+
+### 中文 (zh-CN)
+- Portada: https://eltio.net/zh/
+- Página web en 8 idiomas: https://eltio.net/zh/websites/
+- Posicionamiento en IA: https://eltio.net/zh/ai-search-visibility/
+- Servicios: https://eltio.net/zh/services/
+- Paquetes y precios: https://eltio.net/zh/pricing/
+- Prospección y email: https://eltio.net/zh/prospecting-and-email/
+- Contacto: https://eltio.net/zh/contact/
+- Sobre El Tío: https://eltio.net/zh/about/
+
+### 日本語 (ja)
+- Portada: https://eltio.net/ja/
+- Página web en 8 idiomas: https://eltio.net/ja/websites/
+- Posicionamiento en IA: https://eltio.net/ja/ai-search-visibility/
+- Servicios: https://eltio.net/ja/services/
+- Paquetes y precios: https://eltio.net/ja/pricing/
+- Prospección y email: https://eltio.net/ja/prospecting-and-email/
+- Contacto: https://eltio.net/ja/contact/
+- Sobre El Tío: https://eltio.net/ja/about/
+
+<!-- fin otros idiomas -->

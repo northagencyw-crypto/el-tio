@@ -1,7 +1,27 @@
 # El Tío
 
-> Inteligencia artificial aplicada a empresas. Auditamos, optimizamos,
-> automatizamos y capacitamos, en ese orden.
+> Inteligencia artificial aplicada a empresas. El producto principal es la
+> pagina web con dominio propio, en 8 idiomas y con posicionamiento en Google
+> y en buscadores de IA (ChatGPT, Perplexity, Gemini, AI Overviews). Despues:
+> chatbot, CRM y datos; luego prospeccion y email marketing; luego otras
+> soluciones de IA.
+
+## Oferta principal
+
+- Pagina web en 8 idiomas: https://eltio.net/paginas-web/
+  Dominio a nombre del negocio, sitio rapido y editable, una URL por idioma con
+  hreflang, SEO de base, datos estructurados, Perfil de Empresa en Google,
+  llms.txt y medicion con Search Console y Analytics. Se cotiza por escrito
+  despues del Audit; no hay precio publicado.
+- Posicionamiento en IA (GEO y AEO): https://eltio.net/posicionamiento-en-ia/
+  Que los buscadores de ChatGPT (OAI-SearchBot), Perplexity (PerplexityBot) y
+  Google puedan leer, entender y citar al negocio. Medicion mensual con una
+  lista fija de preguntas en ChatGPT, Perplexity, Gemini y Google, mas Search
+  Console y Analytics. No se promete aparecer: se mide.
+- Prospeccion y email marketing: https://eltio.net/prospeccion-y-email/
+  Listas de negocios por rubro y ciudad, primer contacto y seguimiento por
+  correo, Instagram y LinkedIn (nunca WhatsApp en frio), y email marketing para
+  clientes que aceptaron recibirlo. Se cotiza por escrito despues del Audit.
 
 El Tío mira como trabaja hoy una empresa, encuentra donde se pierde tiempo,
 clientes o dinero, y devuelve un mapa de lo que conviene hacer primero, con el
@@ -29,7 +49,7 @@ de datos ordenada y sin duplicados, una web propia y editable, un newsletter
 propio y un chatbot que atiende y califica. Lo especifico de cada rubro va
 despues de eso, nunca antes.
 
-## Paquetes y precios (https://eltio.net/paquetes/)
+## Paquetes y precios del chatbot y el CRM (https://eltio.net/paquetes/)
 
 - Audit: gratis. Cuestionario de 15 a 25 minutos y mapa en 24 a 48 horas habiles.
 - Llamada de revision: USD 49, media hora. Se descuenta del alta si contrata en 7 dias.
@@ -63,6 +83,7 @@ terceros (mensajes de plantilla de WhatsApp, linea telefonica) van aparte.
 - Como trabajamos: https://eltio.net/como-trabajamos/
 - Preguntas frecuentes: https://eltio.net/preguntas-frecuentes/
 - Guias: https://eltio.net/guias/
+  - Como aparecer en ChatGPT y en Google si tienes un negocio pequeno: https://eltio.net/guias/como-aparecer-en-chatgpt-y-google-negocio-pequeno/
   - Chatbot de WhatsApp para restaurantes en Ciudad de Mexico: https://eltio.net/guias/chatbot-whatsapp-restaurantes-ciudad-de-mexico/
   - Reservas directas por WhatsApp para hoteles y rentas vacacionales: https://eltio.net/guias/reservas-directas-whatsapp-hoteles/
   - CRM para inmobiliarias, seguimiento de leads de preventa y renta: https://eltio.net/guias/crm-inmobiliaria-seguimiento-leads/

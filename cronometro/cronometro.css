@@ -1,0 +1,152 @@
+/* EL TIO - el Cronometro.
+   Usa base.css y vertical.css. Aca van los tokens de la pagina (los de la marca:
+   vacio #04070B y celeste #7FC9F2) y lo propio de la herramienta: campos,
+   panel de resultado, formulas y la vista previa de la tarjeta. */
+
+:root{
+  --fondo:#04070B;
+  --superficie:#0A111A;
+  --texto:#EDF1F4;
+  --texto-2:#C9D2DA;
+  --texto-3:#8794A1;
+  --acento:#7FC9F2;
+  --acento-texto:#7FC9F2;
+  --sobre-acento:#04070B;
+  --acento-glow:rgba(127,201,242,.35);
+  --acento-suave:rgba(127,201,242,.1);
+  --linea:rgba(237,241,244,.1);
+  --linea-fuerte:rgba(237,241,244,.22);
+  --campo:#0E1620;
+}
+
+/* ---------- hero ---------- */
+.cr-hero{padding-top:clamp(108px,15vh,160px);padding-bottom:clamp(24px,4vh,48px)}
+.cr-hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.8fr);gap:clamp(24px,4vw,64px);align-items:end}
+.cr-hero h1{color:var(--texto)}
+.cr-privado{
+  margin-top:18px;
+  font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--texto-3);
+}
+.cr-retrato{position:relative;max-width:360px;justify-self:end;width:100%}
+.cr-retrato img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:2px;filter:saturate(.85)}
+.cr-retrato::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--fondo) 2%,transparent 45%)}
+.cr-retrato figcaption{
+  position:absolute;left:12px;bottom:10px;z-index:2;
+  font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--texto-3);
+}
+
+/* ---------- herramienta ---------- */
+.cr-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(28px,5vw,80px);align-items:start}
+.cr-titulo{
+  font-family:'Geist Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--acento-texto);margin-bottom:8px;
+}
+.cr-campo{border:0;padding:22px 0;border-bottom:1px solid var(--linea);min-width:0}
+.cr-campo:last-child{border-bottom:0}
+.cr-campo label,.cr-campo legend{display:block;font-size:16px;font-weight:400;color:var(--texto);line-height:1.4}
+.cr-campo legend{padding:0;margin-bottom:12px;float:left;width:100%}
+.cr-campo legend + *{clear:both}
+.cr-ayuda{font-size:13.5px;color:var(--texto-3);margin-top:4px;max-width:62ch}
+.cr-ayuda a{color:var(--acento-texto);text-decoration:underline;text-underline-offset:3px}
+.cr-opcional{color:var(--texto-3);font-weight:300}
+
+.cr-campo input[type=number],.cr-campo input[type=text],.cr-campo select{
+  display:block;width:100%;max-width:320px;margin-top:12px;
+  min-height:48px;padding:10px 14px;
+  font:inherit;font-size:16px;font-weight:400;color:var(--texto);
+  background:var(--campo);border:1px solid var(--linea-fuerte);border-radius:2px;
+  -webkit-appearance:none;appearance:none;
+}
+.cr-campo select{
+  background-image:linear-gradient(45deg,transparent 50%,var(--acento) 50%),linear-gradient(135deg,var(--acento) 50%,transparent 50%);
+  background-position:calc(100% - 20px) 21px,calc(100% - 15px) 21px;
+  background-size:5px 5px;background-repeat:no-repeat;padding-right:40px;
+}
+.cr-campo input:focus,.cr-campo select:focus{border-color:var(--acento);outline:none;box-shadow:0 0 0 3px var(--acento-suave)}
+
+.cr-opciones{display:flex;flex-wrap:wrap;gap:8px}
+.cr-opciones label{position:relative;display:inline-flex}
+.cr-opciones input{position:absolute;opacity:0;width:1px;height:1px}
+.cr-opciones span{
+  display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;
+  font-size:14.5px;color:var(--texto-2);
+  border:1px solid var(--linea-fuerte);border-radius:999px;cursor:pointer;
+  transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease);
+}
+.cr-opciones span:hover{border-color:var(--acento)}
+.cr-opciones input:checked + span{background:var(--acento);border-color:var(--acento);color:var(--sobre-acento);font-weight:500}
+.cr-opciones input:focus-visible + span{outline:2px solid var(--acento);outline-offset:3px}
+
+.cr-rango{display:flex;align-items:center;gap:16px;margin-top:14px;max-width:420px}
+.cr-rango input{flex:1;accent-color:var(--acento);min-height:44px}
+.cr-rango output{font-family:'Geist Mono',monospace;font-size:13px;color:var(--acento-texto);min-width:64px;text-align:right}
+
+.cr-check{display:flex;align-items:center;gap:12px;min-height:44px;margin-top:10px;font-size:15px;color:var(--texto-2);cursor:pointer}
+.cr-check input{width:20px;height:20px;accent-color:var(--acento)}
+
+/* ---------- resultado ---------- */
+.cr-resultado{position:sticky;top:24px}
+.cr-panel{background:var(--superficie);border:1px solid var(--linea);padding:clamp(22px,3vw,36px)}
+.cr-cifra{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125;font-weight:800;
+  font-size:clamp(64px,9vw,128px);line-height:.9;letter-spacing:-.02em;color:var(--acento);
+  margin-top:14px;font-variant-numeric:tabular-nums;
+}
+.cr-cifra-pie{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 110;font-weight:700;text-transform:uppercase;
+  font-size:clamp(15px,1.6vw,19px);line-height:1.15;color:var(--texto);margin-top:10px;max-width:22ch;
+}
+.cr-datos{margin-top:24px;border-top:1px solid var(--linea)}
+.cr-datos div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--linea)}
+.cr-datos dt{font-size:13.5px;color:var(--texto-3)}
+.cr-datos dd{font-size:15px;font-weight:500;color:var(--texto);text-align:right;font-variant-numeric:tabular-nums}
+.cr-estimacion{margin-top:10px;font-size:12.5px;color:var(--texto-3)}
+.cr-consejo{margin-top:24px;padding:18px;border-left:2px solid var(--acento);background:var(--acento-suave)}
+.cr-consejo .tag{margin-bottom:8px}
+.cr-consejo p{font-size:15px;color:var(--texto);line-height:1.5}
+.cr-cta{display:block;text-align:center;margin-top:24px}
+
+/* ---------- formulas ---------- */
+.cr-calculo .lead{margin-bottom:28px}
+.cr-formulas{list-style:none;counter-reset:f;border-top:1px solid var(--linea);max-width:880px}
+.cr-formulas li{
+  counter-increment:f;display:grid;grid-template-columns:36px minmax(0,1fr);gap:8px 16px;
+  padding:16px 0;border-bottom:1px solid var(--linea);
+}
+.cr-formulas li::before{content:counter(f,decimal-leading-zero);font-family:'Geist Mono',monospace;font-size:11px;color:var(--acento-texto);padding-top:4px}
+.cr-formulas b{display:block;font-weight:500;color:var(--texto);font-size:15px}
+.cr-formulas code{
+  display:block;margin-top:4px;
+  font-family:'Geist Mono',monospace;font-size:13px;line-height:1.6;color:var(--texto-2);
+  overflow-wrap:anywhere;
+}
+.cr-formulas code em{font-style:normal;color:var(--acento-texto)}
+.cr-supuestos{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:0 48px;margin-top:28px;max-width:980px}
+.cr-supuestos .cr-campo{border-bottom:0}
+.cr-nota{margin-top:20px;font-size:13.5px;color:var(--texto-3);max-width:80ch}
+
+/* ---------- tarjeta ---------- */
+.cr-tarjeta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.7fr);gap:clamp(28px,5vw,80px);align-items:center}
+.cr-tarjeta-grid .lead{margin-bottom:8px}
+.cr-tarjeta-marco{justify-self:center;width:100%;max-width:340px}
+.cr-tarjeta-marco canvas{display:block;width:100%;height:auto;aspect-ratio:9 / 16;border:1px solid var(--linea);border-radius:14px;background:#04070B}
+.vertical button.btn{cursor:pointer;font:inherit;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.vertical .btn{min-height:48px}
+
+.cr-cierre h2{max-width:20ch}
+
+@media(max-width:900px){
+  .cr-grid,.cr-tarjeta-grid,.cr-supuestos{grid-template-columns:1fr}
+  .cr-resultado{position:static}
+  .cr-tarjeta-marco{max-width:300px}
+}
+@media(max-width:640px){
+  .cr-hero-grid{grid-template-columns:1fr}
+  .cr-retrato{max-width:180px;justify-self:start;order:-1}
+  .cr-campo input[type=number],.cr-campo input[type=text],.cr-campo select{max-width:none}
+  .cr-datos div{flex-direction:column;gap:2px}
+  .cr-datos dd{text-align:left}
+  .vertical .btn{width:100%;text-align:center}
+  .vertical footer .inner{flex-direction:column}
+}

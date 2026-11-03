@@ -109,6 +109,12 @@ Para quien: Ferreterías, materiales, suministros, mayoristas e importadores.
 
 En una distribuidora el margen se pierde en el medio: entre que el cliente pide y que alguien le manda el precio. El pedido llega como el cliente quiere, con abreviaturas, en un PDF escaneado o en un Excel con las columnas cambiadas. Alguien lo lee, busca cada producto y arma la cotización a mano.
 
+## Herramienta gratis
+
+### El Cronómetro del Tío (https://eltio.net/cronometro/)
+
+Calculadora gratis para dueños de negocios de cualquier rubro, de restaurantes y bares a hoteles, inmobiliarias y gimnasios. Con los números del propio negocio estima cuántos mensajes de clientes esperan más de una hora al mes y cuántas ventas pasan por ellos, con la cuenta a la vista. Todo se calcula en el navegador y no se guarda ningún dato.
+
 ## Que no hacemos
 
 - No prometemos resultados ni publicamos porcentajes de mejora.

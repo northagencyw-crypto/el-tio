@@ -82,3 +82,4 @@ td:first-child{color:var(--hueso);font-weight:500}
 
 @media(max-width:640px){.estado{display:none}.cierre{padding:22px}body{font-size:16px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.fuentes a{overflow-wrap:anywhere}

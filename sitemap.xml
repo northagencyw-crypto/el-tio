@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://eltio.net/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://eltio.net/real-estate/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://eltio.net/eventos/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://eltio.net/artistas/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://eltio.net/gastronomia/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://eltio.net/hospitality/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://eltio.net/fitness/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://eltio.net/distribucion/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://eltio.net/guias/chatbot-whatsapp-restaurantes-ciudad-de-mexico/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://eltio.net/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://eltio.net/servicios/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://eltio.net/servicios/agente-whatsapp-instagram/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/servicios/agente-de-voz/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/servicios/crm-y-seguimiento/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/servicios/automatizaciones-y-reportes/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/servicios/capacitacion/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/paquetes/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://eltio.net/como-trabajamos/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/preguntas-frecuentes/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/ciudades/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/ciudades/ciudad-de-mexico/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/ciudades/monterrey/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/ciudades/guadalajara/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/ciudades/tulum-riviera-maya/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/real-estate/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/eventos/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/artistas/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/gastronomia/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/hospitality/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/fitness/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/distribucion/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/guias/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://eltio.net/guias/chatbot-whatsapp-restaurantes-ciudad-de-mexico/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

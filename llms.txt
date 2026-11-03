@@ -29,6 +29,42 @@ de datos ordenada y sin duplicados, una web propia y editable, un newsletter
 propio y un chatbot que atiende y califica. Lo especifico de cada rubro va
 despues de eso, nunca antes.
 
+## Paquetes y precios (https://eltio.net/paquetes/)
+
+- Audit: gratis. Cuestionario de 15 a 25 minutos y mapa en 24 a 48 horas habiles.
+- Llamada de revision: USD 49, media hora. Se descuenta del alta si contrata en 7 dias.
+- El Tio contesta: alta USD 490 + USD 149 al mes. Agente de IA en WhatsApp e
+  Instagram que responde, agenda y guarda cada contacto en el CRM. Listo en 7 dias.
+- El Tio ordena: alta USD 1.500 + USD 390 al mes. Lo anterior mas CRM,
+  recordatorios, cobranza y reporte semanal. Listo en 21 dias.
+- El Tio resuelve: desde USD 4.000. Integraciones, datos, agente de voz y
+  capacitacion de equipos. Alcance y plazo por escrito.
+
+Mes a mes, sin contratos largos. Los datos son del cliente. Los costos de
+terceros (mensajes de plantilla de WhatsApp, linea telefonica) van aparte.
+
+## Servicios (https://eltio.net/servicios/)
+
+- Agente de WhatsApp e Instagram: https://eltio.net/servicios/agente-whatsapp-instagram/
+- Agente de voz: https://eltio.net/servicios/agente-de-voz/
+- CRM y seguimiento: https://eltio.net/servicios/crm-y-seguimiento/
+- Automatizaciones y reportes: https://eltio.net/servicios/automatizaciones-y-reportes/
+- Capacitacion: https://eltio.net/servicios/capacitacion/
+
+## Ciudades (https://eltio.net/ciudades/)
+
+- Ciudad de Mexico: https://eltio.net/ciudades/ciudad-de-mexico/
+- Monterrey: https://eltio.net/ciudades/monterrey/
+- Guadalajara: https://eltio.net/ciudades/guadalajara/
+- Tulum y Riviera Maya: https://eltio.net/ciudades/tulum-riviera-maya/
+
+## Mas paginas
+
+- Como trabajamos: https://eltio.net/como-trabajamos/
+- Preguntas frecuentes: https://eltio.net/preguntas-frecuentes/
+- Guias: https://eltio.net/guias/
+  - Chatbot de WhatsApp para restaurantes en Ciudad de Mexico: https://eltio.net/guias/chatbot-whatsapp-restaurantes-ciudad-de-mexico/
+
 ## Rubros
 
 ### Real Estate (https://eltio.net/real-estate/)
@@ -51,7 +87,7 @@ Un artista con carrera tiene números grandes en todos lados y no es dueño de n
 
 ### Gastronomía (https://eltio.net/gastronomia/)
 
-Para quien: Restaurantes, cafeterías, panaderías y bares.
+Para quien: Restaurantes, bares y cocinas.
 
 Alguien busca dónde comer a seis cuadras de tu local. Abre tu carta y es un PDF de hace dos años que hay que agrandar con dos dedos. El plato que mejor te sale no tiene foto. Cierra y abre el del lado.
 
@@ -78,9 +114,10 @@ En una distribuidora el margen se pierde en el medio: entre que el cliente pide 
 - No prometemos resultados ni publicamos porcentajes de mejora.
 - No inventamos clientes, testimonios ni respaldos.
 - No vendemos una plataforma propia: implementamos sobre lo que la empresa usa.
-- No publicamos precios de implementacion. Salen del Audit, con su alcance.
+- No cotizamos proyectos a medida antes de medir: el alcance sale del Audit.
 
 ## Contacto
 
 hola@eltio.net
+WhatsApp: +52 55 6897 6898 (https://wa.me/525568976898)
 https://eltio.net/

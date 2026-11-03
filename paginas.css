@@ -1,0 +1,144 @@
+/* EL TIO - paginas de contenido (servicios, ciudades, paquetes, metodo,
+   preguntas y guias).
+
+   Misma paleta y tipografia que la portada y que la guia de restaurantes: vacio
+   negro azulado, hueso y un solo acento celeste. Sin animaciones ni scroll
+   largo: estas paginas responden una pregunta y llevan al Audit. */
+
+:root{
+  --vacio:#04070B;--carbon:#0A111A;--carbon-2:#111B27;--hueso:#EDF1F4;--suave:#C9D2DA;--ceniza:#8794A1;
+  --acento:#7FC9F2;--sobre-acento:#04070B;--linea:rgba(237,241,244,.1);--linea-acento:rgba(127,201,242,.3);
+  --pad:clamp(16px,5vw,72px);--ease:cubic-bezier(.22,.61,.36,1);--max:1080px;--texto:720px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--vacio);color:var(--suave);font-family:'Geist',system-ui,sans-serif;font-weight:300;font-size:17px;line-height:1.7;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--acento);color:var(--vacio)}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
+strong{color:var(--hueso);font-weight:600}
+
+.saltar{position:fixed;top:-60px;left:12px;z-index:100;background:var(--acento);color:var(--sobre-acento);padding:10px 18px;min-height:44px;display:inline-flex;align-items:center;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
+.saltar:focus-visible{top:12px}
+
+/* ---------- cabecera ---------- */
+.cabecera{position:sticky;top:0;z-index:20;background:rgba(4,7,11,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.cabecera .inner{max-width:var(--max);margin:0 auto;padding:10px var(--pad);display:flex;align-items:center;gap:24px}
+.marca{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125;font-weight:900;font-size:17px;letter-spacing:.06em;color:var(--hueso);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;margin-right:auto}
+.marca span{color:var(--acento)}
+.menu{display:flex;gap:22px}
+.menu a{font-size:14px;color:var(--suave);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.menu a:hover,.menu a[aria-current="page"]{color:var(--acento)}
+.btn-chico{display:inline-flex;align-items:center;min-height:40px;padding:8px 18px;border-radius:999px;background:var(--acento);color:var(--sobre-acento);font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap}
+
+/* ---------- estructura ---------- */
+main{display:block}
+.franja{max-width:var(--max);margin:0 auto;padding:clamp(48px,8vh,88px) var(--pad) 0}
+.texto{max-width:var(--texto)}
+.migas{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ceniza);margin-bottom:24px}
+.migas a{text-decoration:none}.migas a:hover{color:var(--acento)}
+.ojo{font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--acento);margin-bottom:14px}
+
+h1{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 110;font-weight:800;text-transform:uppercase;color:var(--hueso);font-size:clamp(32px,5.6vw,62px);line-height:1;letter-spacing:-.01em;text-wrap:balance;max-width:20ch}
+.bajada{font-size:clamp(18px,1.8vw,21px);color:var(--hueso);margin-top:24px;max-width:60ch}
+h2{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 110;font-weight:800;text-transform:uppercase;color:var(--hueso);font-size:clamp(22px,3vw,32px);line-height:1.1;margin-bottom:18px;scroll-margin-top:80px;text-wrap:balance;max-width:28ch}
+h3{font-family:'Geist',sans-serif;font-weight:600;color:var(--hueso);font-size:18px;line-height:1.35;margin-bottom:8px}
+.franja p+p,.texto p+p{margin-top:16px}
+.franja ul,.franja ol.lista{padding-left:22px;display:grid;gap:8px;margin:16px 0;max-width:var(--texto)}
+.franja p,.franja li{max-width:68ch}
+.franja p a,.franja li a,.franja td a{color:var(--acento);text-underline-offset:3px}
+
+.acciones{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;margin-top:28px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:12px 26px;border-radius:999px;background:var(--acento);color:var(--sobre-acento);font-weight:500;text-decoration:none;transition:opacity .3s var(--ease)}
+.btn:hover{opacity:.88}
+.enlace{color:var(--hueso);text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+
+/* ---------- tarjetas ---------- */
+.grilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;margin-top:24px}
+.tarjeta{background:var(--carbon);border:1px solid var(--linea);border-radius:14px;padding:22px;display:grid;gap:6px;align-content:start;min-width:0}
+.tarjeta p{font-size:15.5px}
+.tarjeta .tag{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--acento)}
+a.tarjeta{text-decoration:none;transition:border-color .3s var(--ease)}
+a.tarjeta:hover{border-color:var(--linea-acento)}
+a.tarjeta h3::after{content:" \2192";color:var(--acento)}
+
+/* ---------- precios ---------- */
+.precios{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:28px}
+.precio{background:var(--carbon);border:1px solid var(--linea);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.precio.destacado{border-color:var(--linea-acento);background:var(--carbon-2)}
+.precio .tag{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--acento)}
+.precio h3{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 110;font-weight:800;text-transform:uppercase;font-size:24px;margin:0}
+.precio .monto{font-family:'Archivo',sans-serif;font-weight:800;font-size:30px;color:var(--hueso);line-height:1.1;font-variant-numeric:tabular-nums}
+.precio .monto small{display:block;font-family:'Geist',sans-serif;font-weight:400;font-size:15px;color:var(--suave);margin-top:4px}
+.precio ul{padding-left:20px;margin:6px 0;display:grid;gap:6px;font-size:15.5px}
+.precio .plazo{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--ceniza)}
+.precio .btn{margin-top:auto;align-self:flex-start}
+
+/* ---------- pasos ---------- */
+.pasos{list-style:none;counter-reset:p;display:grid;gap:14px;margin-top:24px;padding:0!important;max-width:none!important}
+.pasos li{counter-increment:p;display:grid;grid-template-columns:52px minmax(0,1fr);gap:4px 18px;background:var(--carbon);border:1px solid var(--linea);border-radius:14px;padding:20px 22px;max-width:none}
+.pasos li::before{content:counter(p,decimal-leading-zero);font-family:'Geist Mono',monospace;font-size:13px;color:var(--acento);grid-row:span 2;padding-top:3px}
+.pasos h3{margin:0}
+.pasos p{font-size:15.5px}
+
+/* ---------- tablas, avisos, chat ---------- */
+.tabla{overflow-x:auto;border:1px solid var(--linea);border-radius:12px;margin:20px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;border-top:1px solid var(--linea)}
+thead th{border-top:0;font-family:'Geist Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ceniza);background:var(--carbon)}
+td:first-child{color:var(--hueso);font-weight:500}
+.aviso{margin:24px 0;padding:18px 20px;border-left:2px solid var(--acento);background:var(--carbon);border-radius:0 10px 10px 0;font-size:15.5px;max-width:var(--texto)}
+.chat{margin:24px 0;padding:22px;border:1px solid var(--linea-acento);border-radius:16px;background:var(--carbon);display:grid;gap:10px;font-size:16px;line-height:1.45;max-width:560px}
+.chat .t{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ceniza)}
+.chat .yo{justify-self:end;background:#1A2532;color:var(--hueso);border-radius:16px;padding:10px 16px;max-width:85%}
+.chat .bot{justify-self:start;background:var(--acento);color:var(--vacio);border-radius:16px;padding:10px 16px;max-width:85%;font-weight:400}
+.chat .nota{font-size:13px;color:var(--ceniza)}
+
+/* ---------- preguntas ---------- */
+.preguntas{display:grid;gap:10px;margin-top:20px;max-width:var(--texto)}
+.preguntas details{background:var(--carbon);border:1px solid var(--linea);border-radius:12px;padding:0 20px}
+.preguntas summary{cursor:pointer;list-style:none;color:var(--hueso);font-weight:500;padding:16px 28px 16px 0;position:relative;min-height:44px}
+.preguntas summary::-webkit-details-marker{display:none}
+.preguntas summary::after{content:"+";position:absolute;right:0;top:14px;color:var(--acento);font-family:'Geist Mono',monospace;font-size:18px}
+.preguntas details[open] summary::after{content:"\2212"}
+.preguntas details>div{padding:0 0 18px;font-size:15.5px}
+.preguntas details>div p+p{margin-top:10px}
+.preguntas h3{font-size:13px;font-family:'Geist Mono',monospace;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--acento);margin:28px 0 4px}
+
+/* ---------- audit por rubro ---------- */
+.audit{margin-top:clamp(56px,9vh,96px);padding:clamp(22px,4vw,40px);border-radius:18px;background:var(--carbon);border:1px solid var(--linea-acento);scroll-margin-top:80px}
+.audit h2{margin-bottom:10px}
+.rubros{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:10px;margin:22px 0 0!important;padding:0!important;max-width:none!important}
+.rubros li{max-width:none}
+.rubros a{display:grid;gap:2px;min-height:44px;padding:12px 16px;border:1px solid var(--linea);border-radius:12px;text-decoration:none;color:var(--hueso);transition:border-color .3s var(--ease),background .3s var(--ease)}
+.rubros a:hover{border-color:var(--acento);background:var(--carbon-2)}
+.rubros a span{font-size:13px;color:var(--ceniza);line-height:1.4}
+.rubros a.fuerte{border-color:var(--linea-acento)}
+.audit .nota{font-size:14px;color:var(--ceniza);margin-top:18px}
+
+.fuentes{font-size:14.5px;max-width:var(--texto)}
+.fuentes ol{padding-left:22px;display:grid;gap:8px;margin-top:12px}
+
+/* ---------- pie ---------- */
+.pie{border-top:1px solid var(--linea);margin-top:clamp(72px,12vh,120px);padding:48px var(--pad) 32px}
+.pie .inner{max-width:var(--max);margin:0 auto}
+.pie-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:28px}
+.pie-cols p{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:8px}
+.pie-cols ul{list-style:none;display:grid}
+.pie-cols a{font-size:14px;color:var(--ceniza);text-decoration:none;min-height:36px;display:inline-flex;align-items:center}
+.pie-cols a:hover{color:var(--acento)}
+.pie-base{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;margin-top:36px;padding-top:20px;border-top:1px solid var(--linea);font-size:12.5px;color:var(--ceniza)}
+.pie-base a{text-decoration:none}.pie-base a:hover{color:var(--acento)}
+
+@media(max-width:820px){.menu{display:none}}
+@media(max-width:640px){
+  body{font-size:16px}
+  .pasos li{grid-template-columns:36px minmax(0,1fr);padding:18px}
+  .precio{padding:22px}
+  h1{font-size:clamp(24px,7.4vw,34px)}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.ref{font-size:.75em;vertical-align:super;text-decoration:none}
+h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
+.fuentes a{overflow-wrap:anywhere}

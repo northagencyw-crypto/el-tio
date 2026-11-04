@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Offres et tarifs des agents IA, du CRM et de l’automatisation · El Tío</title>
-<meta name="description" content="El Tío contesta : 490 USD de mise en place et 149 USD par mois. El Tío ordena : 1 500 USD et 390 USD par mois. El Tío resuelve : à partir de 4 000 USD. Audit gratuit, abonnement au mois.">
+<title>Offres et tarifs : site web, chatbot et prospection · El Tío</title>
+<meta name="description" content="Site web à partir de 300 USD et 39 USD par mois. Site + chatbot à partir de 400 USD et 59 USD par mois. Avec prospection et e-mail, à partir de 500 USD et 79 USD par mois. Audit gratuit, au mois.">
 <link rel="canonical" href="https://eltio.net/fr/offres-et-tarifs/">
 <link rel="alternate" hreflang="es" href="https://eltio.net/paquetes/">
 <link rel="alternate" hreflang="en" href="https://eltio.net/en/pricing/">
@@ -27,8 +27,8 @@
 <meta property="og:locale:alternate" content="ja_JP">
 <meta property="og:site_name" content="El Tío">
 <meta property="og:url" content="https://eltio.net/fr/offres-et-tarifs/">
-<meta property="og:title" content="Offres et tarifs des agents IA, du CRM et de l’automatisation">
-<meta property="og:description" content="El Tío contesta : 490 USD de mise en place et 149 USD par mois. El Tío ordena : 1 500 USD et 390 USD par mois. El Tío resuelve : à partir de 4 000 USD. Audit gratuit, abonnement au mois.">
+<meta property="og:title" content="Offres et tarifs : site web, chatbot et prospection">
+<meta property="og:description" content="Site web à partir de 300 USD et 39 USD par mois. Site + chatbot à partir de 400 USD et 59 USD par mois. Avec prospection et e-mail, à partir de 500 USD et 79 USD par mois. Audit gratuit, au mois.">
 <meta property="og:image" content="https://eltio.net/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
@@ -69,21 +69,20 @@
    },
    {
     "@type": "Offer",
-    "name": "El Tío contesta",
-    "price": 490,
+    "name": "Site web",
     "priceCurrency": "USD",
     "url": "https://eltio.net/fr/offres-et-tarifs/",
     "priceSpecification": [
      {
       "@type": "UnitPriceSpecification",
       "name": "Mise en place",
-      "price": 490,
+      "minPrice": 300,
       "priceCurrency": "USD"
      },
      {
       "@type": "UnitPriceSpecification",
       "name": "Mensuel",
-      "price": 149,
+      "price": 39,
       "priceCurrency": "USD",
       "unitCode": "MON",
       "unitText": "mois"
@@ -92,21 +91,20 @@
    },
    {
     "@type": "Offer",
-    "name": "El Tío ordena",
-    "price": 1500,
+    "name": "Site + chatbot",
     "priceCurrency": "USD",
     "url": "https://eltio.net/fr/offres-et-tarifs/",
     "priceSpecification": [
      {
       "@type": "UnitPriceSpecification",
       "name": "Mise en place",
-      "price": 1500,
+      "minPrice": 400,
       "priceCurrency": "USD"
      },
      {
       "@type": "UnitPriceSpecification",
       "name": "Mensuel",
-      "price": 390,
+      "price": 59,
       "priceCurrency": "USD",
       "unitCode": "MON",
       "unitText": "mois"
@@ -115,14 +113,25 @@
    },
    {
     "@type": "Offer",
-    "name": "El Tío resuelve",
+    "name": "Site + chatbot + prospection",
     "priceCurrency": "USD",
     "url": "https://eltio.net/fr/offres-et-tarifs/",
-    "priceSpecification": {
-     "@type": "PriceSpecification",
-     "minPrice": 4000,
-     "priceCurrency": "USD"
-    }
+    "priceSpecification": [
+     {
+      "@type": "UnitPriceSpecification",
+      "name": "Mise en place",
+      "minPrice": 500,
+      "priceCurrency": "USD"
+     },
+     {
+      "@type": "UnitPriceSpecification",
+      "name": "Mensuel",
+      "price": 79,
+      "priceCurrency": "USD",
+      "unitCode": "MON",
+      "unitText": "mois"
+     }
+    ]
    }
   ]
  }
@@ -159,10 +168,10 @@
   },
   {
    "@type": "Question",
-   "name": "À partir de quand courent les 7 ou 21 jours ?",
+   "name": "À partir de quand courent les délais ?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "À partir du moment où nous avons les informations de votre entreprise et les accès à vos canaux. La proposition contient la liste exacte de ce dont nous avons besoin."
+    "text": "Les 10, 14 ou 21 jours ouvrés, selon l’offre, courent à partir du moment où nous avons les informations de votre entreprise et les accès à vos canaux. La proposition contient la liste exacte de ce dont nous avons besoin."
    }
   },
   {
@@ -171,6 +180,14 @@
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "Les coûts de tiers qui dépendent de votre usage, comme les messages modèles facturés par WhatsApp ou une ligne téléphonique pour l’agent vocal. Ils sont détaillés dans la proposition avant de commencer."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Pourquoi « à partir de » ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Parce que c’est le prix d’un site normal pour une entreprise. Si vos besoins sont compliqués, comme beaucoup de pages, des textes à écrire de zéro ou des intégrations, cela peut coûter un peu plus et nous vous le disons par écrit avant de commencer."
    }
   },
   {
@@ -239,7 +256,7 @@
   <section class="franja" style="padding-top:8px">
     <p class="ojo">Offres et tarifs</p>
     <h1>Ce que coûte l’IA au travail dans votre entreprise</h1>
-    <p class="bajada">Trois offres identiques pour tous les secteurs, avec ce qui est propre à chacun à l’intérieur. On commence par l’Audit, qui est gratuit et vous dit laquelle vous convient. Tout est au mois et les données vous appartiennent.</p>
+    <p class="bajada">Trois offres identiques pour tous les secteurs, qui partent du site web. On commence par l’Audit, qui est gratuit et vous dit laquelle vous convient. Tout est au mois et les données vous appartiennent.</p>
     <div class="acciones">
       <a class="btn" data-cta="audit" href="#audit">Faire l’Audit gratuit</a>
       <a class="enlace" data-cta="whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20hablar%20con%20El%20T%C3%ADo%20sobre%20inteligencia%20artificial%20para%20mi%20empresa.">Écrire sur WhatsApp</a>
@@ -249,49 +266,50 @@
     <h2>Les trois offres</h2>
     <div class="precios">
       <div class="precio">
-        <span class="tag">Agent</span>
-        <h3>El Tío contesta</h3>
-        <p class="monto">490 USD <small>de mise en place, puis 149 USD par mois</small></p>
-        <p>Un agent IA sur WhatsApp et Instagram qui répond, prend les rendez-vous et enregistre chaque contact dans le CRM.</p>
+        <span class="tag">La base</span>
+        <h3>Site web</h3>
+        <p class="monto">À partir de 300 USD <small>de mise en place, puis 39 USD par mois</small></p>
+        <p>Votre site avec votre propre nom de domaine, en 8 langues, prêt pour qu’on vous trouve sur Google et dans les assistants IA.</p>
+        <ul>
+          <li>Nom de domaine au nom de votre entreprise</li>
+          <li>Espagnol, anglais, portugais, français, allemand, italien, chinois et japonais</li>
+          <li>Référencement sur Google et dans l’IA</li>
+          <li>Fiche d’établissement Google passée en revue</li>
+          <li>Suivi mensuel sur Google et dans les assistants IA</li>
+        </ul>
+        <p class="plazo">Prêt en 10 jours ouvrés</p>
+        <a class="btn" href="/fr/sites-web/">Voir le site web</a>
+      </div>
+      <div class="precio destacado">
+        <span class="tag">Site et service client</span>
+        <h3>Site + chatbot</h3>
+        <p class="monto">À partir de 400 USD <small>de mise en place, puis 59 USD par mois</small></p>
+        <p>Tout ce que comprend le site web, plus un agent IA qui répond sur WhatsApp et Instagram et enregistre chaque contact dans le CRM.</p>
         <ul>
           <li>Agent entraîné avec les informations de votre entreprise</li>
           <li>WhatsApp et Instagram connectés</li>
-          <li>Rendez-vous dans votre agenda</li>
           <li>Chaque contact enregistré dans le CRM</li>
           <li>Test avec deux téléphones et guide pour votre équipe</li>
         </ul>
-        <p class="plazo">Prêt en 7 jours</p>
+        <p class="plazo">Prêt en 14 jours ouvrés</p>
         <a class="btn" href="/fr/services/agent-whatsapp-instagram/">Voir l’agent</a>
       </div>
-      <div class="precio destacado">
-        <span class="tag">Opérations · la plus complète pour démarrer</span>
-        <h3>El Tío ordena</h3>
-        <p class="monto">1 500 USD <small>de mise en place, puis 390 USD par mois</small></p>
-        <p>Tout ce que contient El Tío contesta, plus la gestion qui suit chaque contact.</p>
-        <ul>
-          <li>CRM avec le tunnel de vente de votre secteur et une base de contacts en ordre</li>
-          <li>Rappels de rendez-vous, de visites et de réservations</li>
-          <li>Relances de paiement en séquence</li>
-          <li>Rapport hebdomadaire automatique chaque lundi</li>
-        </ul>
-        <p class="plazo">Prêt en 21 jours</p>
-        <a class="btn" href="/fr/services/crm-et-suivi/">Voir CRM et suivi</a>
-      </div>
       <div class="precio">
-        <span class="tag">Sur mesure</span>
-        <h3>El Tío resuelve</h3>
-        <p class="monto">À partir de 4 000 USD</p>
-        <p>Un projet chiffré selon le périmètre, pour les entreprises de taille moyenne.</p>
+        <span class="tag">Site, service client et nouveaux clients</span>
+        <h3>Site + chatbot + prospection</h3>
+        <p class="monto">À partir de 500 USD <small>de mise en place, puis 79 USD par mois</small></p>
+        <p>Tout ce qui précède, plus aller chercher des clients et écrire à ceux que vous avez déjà.</p>
         <ul>
-          <li>Intégrations avec vos outils</li>
-          <li>Données, lecture de documents et flux sur mesure</li>
-          <li>Agent vocal</li>
-          <li>Formation des équipes</li>
+          <li>Listes d’entreprises par secteur et par ville</li>
+          <li>Premier contact et relances par e-mail, Instagram et LinkedIn</li>
+          <li>E-mail marketing pour ceux qui ont accepté de le recevoir</li>
+          <li>Chaque réponse dans le CRM</li>
         </ul>
-        <p class="plazo">Périmètre et délai par écrit</p>
-        <a class="btn" href="/fr/services/automatisations-et-rapports/">Voir les automatisations</a>
+        <p class="plazo">Prêt en 21 jours ouvrés</p>
+        <a class="btn" href="/fr/prospection-et-email/">Voir la prospection et l’e-mail</a>
       </div>
     </div>
+    <p style="margin-top:20px">Les frais de mise en place sont « à partir de » : si vos besoins sont compliqués, cela peut coûter un peu plus, et nous vous le disons par écrit avant de commencer. Ce qui va au-delà de ces trois offres, comme l’agent vocal, les intégrations avec vos systèmes ou la formation des équipes, fait l’objet d’un devis écrit après l’Audit.</p>
   </section>
   <section class="franja">
     <h2>Avant de signer</h2>
@@ -318,8 +336,9 @@
       <details><summary>L’Audit est-il vraiment gratuit ?</summary><div><p>Oui. C’est un questionnaire de 15 à 25 minutes et une feuille de route que vous recevez sous 24 à 48 heures ouvrées. Nous ne demandons pas de carte bancaire et la feuille de route est à vous, que vous signiez ou non.</p></div></details>
       <details><summary>À quoi sert l’appel à 49 USD ?</summary><div><p>C’est une demi-heure pour passer en revue la feuille de route avec une personne, répondre à vos questions et repartir avec une proposition. Si vous prenez une offre dans les 7 jours qui suivent, les 49 USD sont déduits des frais de mise en place. C’est facultatif : vous pouvez signer sans le faire.</p></div></details>
       <details><summary>Y a-t-il une durée d’engagement ?</summary><div><p>Non. Les offres sont au mois et vous pouvez résilier quand vous voulez. Ce qui a été installé et les données restent à votre nom.</p></div></details>
-      <details><summary>À partir de quand courent les 7 ou 21 jours ?</summary><div><p>À partir du moment où nous avons les informations de votre entreprise et les accès à vos canaux. La proposition contient la liste exacte de ce dont nous avons besoin.</p></div></details>
+      <details><summary>À partir de quand courent les délais ?</summary><div><p>Les 10, 14 ou 21 jours ouvrés, selon l’offre, courent à partir du moment où nous avons les informations de votre entreprise et les accès à vos canaux. La proposition contient la liste exacte de ce dont nous avons besoin.</p></div></details>
       <details><summary>Qu’est-ce qui n’est pas inclus ?</summary><div><p>Les coûts de tiers qui dépendent de votre usage, comme les messages modèles facturés par WhatsApp ou une ligne téléphonique pour l’agent vocal. Ils sont détaillés dans la proposition avant de commencer.</p></div></details>
+      <details><summary>Pourquoi « à partir de » ?</summary><div><p>Parce que c’est le prix d’un site normal pour une entreprise. Si vos besoins sont compliqués, comme beaucoup de pages, des textes à écrire de zéro ou des intégrations, cela peut coûter un peu plus et nous vous le disons par écrit avant de commencer.</p></div></details>
       <details><summary>Puis-je payer en pesos ?</summary><div><p>Les prix sont en dollars. La proposition écrite indique le montant et le mode de paiement.</p></div></details>
     </div>
   </section>

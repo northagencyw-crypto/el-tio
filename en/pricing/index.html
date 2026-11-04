@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Packages and pricing for AI agents, CRM and automation · El Tío</title>
-<meta name="description" content="El Tío contesta: USD 490 setup and USD 149 a month. El Tío ordena: USD 1,500 and USD 390 a month. El Tío resuelve: from USD 4,000. Free Audit, month to month.">
+<title>Packages and pricing: website, chatbot and prospecting · El Tío</title>
+<meta name="description" content="Website from USD 300 and USD 39 a month. Website + chatbot from USD 400 and USD 59 a month. With prospecting and email, from USD 500 and USD 79 a month. Free Audit, month to month.">
 <link rel="canonical" href="https://eltio.net/en/pricing/">
 <link rel="alternate" hreflang="es" href="https://eltio.net/paquetes/">
 <link rel="alternate" hreflang="en" href="https://eltio.net/en/pricing/">
@@ -27,8 +27,8 @@
 <meta property="og:locale:alternate" content="ja_JP">
 <meta property="og:site_name" content="El Tío">
 <meta property="og:url" content="https://eltio.net/en/pricing/">
-<meta property="og:title" content="Packages and pricing for AI agents, CRM and automation">
-<meta property="og:description" content="El Tío contesta: USD 490 setup and USD 149 a month. El Tío ordena: USD 1,500 and USD 390 a month. El Tío resuelve: from USD 4,000. Free Audit, month to month.">
+<meta property="og:title" content="Packages and pricing: website, chatbot and prospecting">
+<meta property="og:description" content="Website from USD 300 and USD 39 a month. Website + chatbot from USD 400 and USD 59 a month. With prospecting and email, from USD 500 and USD 79 a month. Free Audit, month to month.">
 <meta property="og:image" content="https://eltio.net/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
@@ -69,21 +69,20 @@
    },
    {
     "@type": "Offer",
-    "name": "El Tío contesta",
-    "price": 490,
+    "name": "Website",
     "priceCurrency": "USD",
     "url": "https://eltio.net/en/pricing/",
     "priceSpecification": [
      {
       "@type": "UnitPriceSpecification",
       "name": "Setup",
-      "price": 490,
+      "minPrice": 300,
       "priceCurrency": "USD"
      },
      {
       "@type": "UnitPriceSpecification",
       "name": "Monthly",
-      "price": 149,
+      "price": 39,
       "priceCurrency": "USD",
       "unitCode": "MON",
       "unitText": "month"
@@ -92,21 +91,20 @@
    },
    {
     "@type": "Offer",
-    "name": "El Tío ordena",
-    "price": 1500,
+    "name": "Website + chatbot",
     "priceCurrency": "USD",
     "url": "https://eltio.net/en/pricing/",
     "priceSpecification": [
      {
       "@type": "UnitPriceSpecification",
       "name": "Setup",
-      "price": 1500,
+      "minPrice": 400,
       "priceCurrency": "USD"
      },
      {
       "@type": "UnitPriceSpecification",
       "name": "Monthly",
-      "price": 390,
+      "price": 59,
       "priceCurrency": "USD",
       "unitCode": "MON",
       "unitText": "month"
@@ -115,14 +113,25 @@
    },
    {
     "@type": "Offer",
-    "name": "El Tío resuelve",
+    "name": "Website + chatbot + prospecting",
     "priceCurrency": "USD",
     "url": "https://eltio.net/en/pricing/",
-    "priceSpecification": {
-     "@type": "PriceSpecification",
-     "minPrice": 4000,
-     "priceCurrency": "USD"
-    }
+    "priceSpecification": [
+     {
+      "@type": "UnitPriceSpecification",
+      "name": "Setup",
+      "minPrice": 500,
+      "priceCurrency": "USD"
+     },
+     {
+      "@type": "UnitPriceSpecification",
+      "name": "Monthly",
+      "price": 79,
+      "priceCurrency": "USD",
+      "unitCode": "MON",
+      "unitText": "month"
+     }
+    ]
    }
   ]
  }
@@ -159,10 +168,10 @@
   },
   {
    "@type": "Question",
-   "name": "When do the 7 or 21 days start?",
+   "name": "When does the timeline start?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Once we have your business information and access to your channels. The proposal lists exactly what we need."
+    "text": "The 10, 14 or 21 business days, depending on the package, start when we have your business information and access to your channels. The proposal lists exactly what we need."
    }
   },
   {
@@ -171,6 +180,14 @@
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "Third-party costs that depend on your usage, like the template messages WhatsApp charges for or a phone line for the voice agent. They're itemized in the proposal before we start."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does it say “from”?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Because that's the price of a normal site for a business. If your requirements are complicated, like lots of pages, copy that has to be written from scratch or integrations, it can cost a bit more and we tell you in writing before we start."
    }
   },
   {
@@ -239,7 +256,7 @@
   <section class="franja" style="padding-top:8px">
     <p class="ojo">Packages and pricing</p>
     <h1>What it costs to put AI to work in your business</h1>
-    <p class="bajada">Three packages, the same for every industry, with what's specific to each one built in. You start with the Audit, which is free and tells you which one fits. Everything is month to month and the data is yours.</p>
+    <p class="bajada">Three packages, the same for every industry, that build on the website. You start with the Audit, which is free and tells you which one fits. Everything is month to month and the data is yours.</p>
     <div class="acciones">
       <a class="btn" data-cta="audit" href="#audit">Take the free Audit</a>
       <a class="enlace" data-cta="whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20hablar%20con%20El%20T%C3%ADo%20sobre%20inteligencia%20artificial%20para%20mi%20empresa.">Message us on WhatsApp</a>
@@ -249,49 +266,50 @@
     <h2>The three packages</h2>
     <div class="precios">
       <div class="precio">
-        <span class="tag">Agent</span>
-        <h3>El Tío contesta</h3>
-        <p class="monto">USD 490 <small>setup, plus USD 149 a month</small></p>
-        <p>An AI agent on WhatsApp and Instagram that answers, books appointments and saves every contact in the CRM.</p>
+        <span class="tag">The basics</span>
+        <h3>Website</h3>
+        <p class="monto">From USD 300 <small>setup, plus USD 39 a month</small></p>
+        <p>Your website on your own domain, in 8 languages, ready to be found on Google and AI assistants.</p>
+        <ul>
+          <li>Domain in your business's name</li>
+          <li>Spanish, English, Portuguese, French, German, Italian, Chinese and Japanese</li>
+          <li>Google and AI search optimization</li>
+          <li>Google Business Profile reviewed</li>
+          <li>Monthly tracking on Google and AI assistants</li>
+        </ul>
+        <p class="plazo">Ready in 10 business days</p>
+        <a class="btn" href="/en/websites/">See the website</a>
+      </div>
+      <div class="precio destacado">
+        <span class="tag">Website and customer replies</span>
+        <h3>Website + chatbot</h3>
+        <p class="monto">From USD 400 <small>setup, plus USD 59 a month</small></p>
+        <p>Everything in the website, plus an AI agent that answers WhatsApp and Instagram and saves every contact in the CRM.</p>
         <ul>
           <li>Agent trained on your business's information</li>
           <li>WhatsApp and Instagram connected</li>
-          <li>Booking on your calendar</li>
           <li>Every contact saved in the CRM</li>
           <li>Testing with two phones and a guide for your team</li>
         </ul>
-        <p class="plazo">Ready in 7 days</p>
+        <p class="plazo">Ready in 14 business days</p>
         <a class="btn" href="/en/services/whatsapp-instagram-agent/">See the agent</a>
       </div>
-      <div class="precio destacado">
-        <span class="tag">Operations · the most complete way to start</span>
-        <h3>El Tío ordena</h3>
-        <p class="monto">USD 1,500 <small>setup, plus USD 390 a month</small></p>
-        <p>Everything in El Tío contesta, plus the operations behind every contact.</p>
-        <ul>
-          <li>CRM with your industry's pipeline and your contact list organized</li>
-          <li>Reminders for appointments, visits and reservations</li>
-          <li>Collections with reminders in sequence</li>
-          <li>Automatic weekly report every Monday</li>
-        </ul>
-        <p class="plazo">Ready in 21 days</p>
-        <a class="btn" href="/en/services/crm-and-follow-up/">See CRM and follow-up</a>
-      </div>
       <div class="precio">
-        <span class="tag">Custom</span>
-        <h3>El Tío resuelve</h3>
-        <p class="monto">From USD 4,000</p>
-        <p>A scoped project for mid-sized companies.</p>
+        <span class="tag">Website, replies and new customers</span>
+        <h3>Website + chatbot + prospecting</h3>
+        <p class="monto">From USD 500 <small>setup, plus USD 79 a month</small></p>
+        <p>Everything above, plus going out to find customers and writing to the ones you already have.</p>
         <ul>
-          <li>Integrations with your systems</li>
-          <li>Data, document reading and custom workflows</li>
-          <li>Voice agent</li>
-          <li>Team training</li>
+          <li>Business lists by industry and city</li>
+          <li>First contact and follow-up by email, Instagram and LinkedIn</li>
+          <li>Email marketing for people who agreed to receive it</li>
+          <li>Every reply in the CRM</li>
         </ul>
-        <p class="plazo">Scope and timeline in writing</p>
-        <a class="btn" href="/en/services/automation-and-reporting/">See automations</a>
+        <p class="plazo">Ready in 21 business days</p>
+        <a class="btn" href="/en/prospecting-and-email/">See prospecting and email</a>
       </div>
     </div>
+    <p style="margin-top:20px">Setup prices are “from”: if your requirements are complicated it can cost a bit more, and we tell you in writing before we start. Anything beyond these three packages, like the voice agent, integrations with your systems or team training, is quoted in writing after the Audit.</p>
   </section>
   <section class="franja">
     <h2>Before you hire us</h2>
@@ -318,8 +336,9 @@
       <details><summary>Is the Audit really free?</summary><div><p>Yes. It's a 15 to 25 minute questionnaire and a map you get within 24 to 48 business hours. We don't ask for a card and the map is yours, whether you hire us or not.</p></div></details>
       <details><summary>What's the USD 49 call for?</summary><div><p>It's half an hour to go over the map with a person, answer your questions and leave with a proposal. If you sign up for a package within the next 7 days, the USD 49 comes off the setup fee. It's optional: you can sign up without it.</p></div></details>
       <details><summary>Is there a minimum contract?</summary><div><p>No. The packages are month to month and you can cancel anytime. What we set up and the data stay in your name.</p></div></details>
-      <details><summary>When do the 7 or 21 days start?</summary><div><p>Once we have your business information and access to your channels. The proposal lists exactly what we need.</p></div></details>
+      <details><summary>When does the timeline start?</summary><div><p>The 10, 14 or 21 business days, depending on the package, start when we have your business information and access to your channels. The proposal lists exactly what we need.</p></div></details>
       <details><summary>What's not included?</summary><div><p>Third-party costs that depend on your usage, like the template messages WhatsApp charges for or a phone line for the voice agent. They're itemized in the proposal before we start.</p></div></details>
+      <details><summary>Why does it say “from”?</summary><div><p>Because that's the price of a normal site for a business. If your requirements are complicated, like lots of pages, copy that has to be written from scratch or integrations, it can cost a bit more and we tell you in writing before we start.</p></div></details>
       <details><summary>Can I pay in pesos?</summary><div><p>Prices are in US dollars. The written proposal states the amount and the payment method.</p></div></details>
     </div>
   </section>

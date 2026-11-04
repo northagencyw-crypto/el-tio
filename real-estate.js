@@ -186,7 +186,7 @@
     canvas.setAttribute(
       'aria-label',
       'Recorrido continuo desde la órbita hasta una villa en Tulum: la Tierra con la ' +
-      'península de Yucatán, la costa, la selva, el techo de la villa con su pileta, el ' +
+      'península de Yucatán, la costa, la selva, el techo de la villa con su piscina, el ' +
       'acceso, el living de doble altura y la terraza sobre el Caribe al atardecer.'
     );
 

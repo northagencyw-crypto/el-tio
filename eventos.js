@@ -538,7 +538,7 @@
         estado.textContent = vendidas === 0
           ? 'Sala vacía'
           : (vendidas < EQUILIBRIO
-            ? 'Faltan ' + (EQUILIBRIO - vendidas) + ' para no perder plata'
+            ? 'Faltan ' + (EQUILIBRIO - vendidas) + ' para no perder dinero'
             : (vendidas < AFORO
               ? 'Cubierto el costo, ' + (vendidas - EQUILIBRIO) + ' entradas de ganancia'
               : 'Sala llena'));
@@ -665,7 +665,7 @@
             ? 'Es riesgo alto: hay que llenar casi la sala solo para empatar.'
             : (pct >= 60
               ? 'Es riesgo medio: queda poco margen para un mal día.'
-              : 'Debajo de eso, la fecha pierde plata.'));
+              : 'Debajo de eso, la fecha pierde dinero.'));
       }
     }
 

@@ -177,23 +177,23 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - Prospecting and email marketing to win customers: https://eltio.net/en/prospecting-and-email/
 - Contact: El Tío's WhatsApp and email: https://eltio.net/en/contact/
 - About El Tío: artificial intelligence applied to real businesses: https://eltio.net/en/about/
-- Digital menu and local demand · El Tío Food Service: https://eltio.net/en/restaurants/
-- Your guest history belongs to you · El Tío Hospitality: https://eltio.net/en/hospitality/
-- AI audit for real estate agencies · El Tío Real Estate: https://eltio.net/en/real-estate/
-- Member retention and lead recovery · El Tío Fitness: https://eltio.net/en/fitness/
-- Measure a show's risk before you sign it: https://eltio.net/en/events/
-- Your own audience for artists and DJs · El Tío Artists: https://eltio.net/en/artists/
-- Automate B2B quotes · El Tío Distribution: https://eltio.net/en/distribution/
+- Restaurant websites in 8 languages · El Tío Food Service: https://eltio.net/en/restaurants/
+- Websites for hotels and villas in 8 languages · El Tío Hospitality: https://eltio.net/en/hospitality/
+- Real estate websites in 8 languages · El Tío Real Estate: https://eltio.net/en/real-estate/
+- Gym websites in 8 languages · El Tío Fitness: https://eltio.net/en/fitness/
+- Websites for event producers · El Tío Events: https://eltio.net/en/events/
+- Websites for artists and DJs in 8 languages · El Tío Artists: https://eltio.net/en/artists/
+- Websites for distributors in 8 languages · El Tío Distribution: https://eltio.net/en/distribution/
 - AI agent for WhatsApp and Instagram for businesses: https://eltio.net/en/services/whatsapp-instagram-agent/
 - AI voice agent for businesses: confirms appointments and answers calls: https://eltio.net/en/services/voice-agent/
 - CRM and customer follow-up for small businesses, with reminders and collections: https://eltio.net/en/services/crm-and-follow-up/
 - AI process automation and automatic reports: https://eltio.net/en/services/automation-and-reporting/
 - AI training for businesses and teams: https://eltio.net/en/services/ai-training/
 - Cities where El Tío works: AI for businesses in Mexico: https://eltio.net/en/cities/
-- Artificial intelligence for businesses in Mexico City (CDMX): https://eltio.net/en/cities/mexico-city/
-- Artificial intelligence for businesses in Monterrey: https://eltio.net/en/cities/monterrey/
-- Artificial intelligence for businesses in Guadalajara: https://eltio.net/en/cities/guadalajara/
-- AI for hotels, villas and businesses in Tulum and the Riviera Maya: https://eltio.net/en/cities/tulum-riviera-maya/
+- Websites in 8 languages and Google ranking for businesses in Mexico City (CDMX): https://eltio.net/en/cities/mexico-city/
+- Websites in 8 languages and Google ranking for businesses in Monterrey: https://eltio.net/en/cities/monterrey/
+- Websites in 8 languages and Google ranking for businesses in Guadalajara: https://eltio.net/en/cities/guadalajara/
+- Websites in 8 languages for hotels, villas and businesses in Tulum and the Riviera Maya: https://eltio.net/en/cities/tulum-riviera-maya/
 - How we work: from the Audit to delivery in 10 to 21 business days: https://eltio.net/en/how-we-work/
 - FAQ about AI agents, pricing and data: https://eltio.net/en/faq/
 - AI glossary for businesses: agents, CRM, RAG and more: https://eltio.net/en/glossary/
@@ -216,23 +216,23 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - Prospecção e e-mail marketing para conquistar clientes: https://eltio.net/pt/prospeccao-e-email/
 - Contato: WhatsApp e e-mail do El Tío: https://eltio.net/pt/contato/
 - Sobre El Tío: inteligência artificial aplicada a negócios reais: https://eltio.net/pt/sobre/
-- Cardápio digital e demanda local · El Tío Gastronomia: https://eltio.net/pt/gastronomia/
-- O histórico dos seus hóspedes é seu · El Tío Hotelaria: https://eltio.net/pt/hotelaria/
-- Auditoria de IA para imobiliárias · El Tío Imobiliário: https://eltio.net/pt/imobiliario/
-- Retenção de alunos e recuperação de leads · El Tío Fitness: https://eltio.net/pt/fitness/
-- Meça o risco de uma data antes de assinar: https://eltio.net/pt/eventos/
-- Público próprio para artistas e DJs · El Tío Artistas: https://eltio.net/pt/artistas/
-- Automatizar orçamentos B2B · El Tío Distribuição: https://eltio.net/pt/distribuicao/
+- Site para restaurantes em 8 idiomas · El Tío Gastronomia: https://eltio.net/pt/gastronomia/
+- Site para hotéis e casas de temporada em 8 idiomas · El Tío Hotelaria: https://eltio.net/pt/hotelaria/
+- Site para imobiliárias em 8 idiomas · El Tío Imobiliário: https://eltio.net/pt/imobiliario/
+- Site para academias em 8 idiomas · El Tío Fitness: https://eltio.net/pt/fitness/
+- Site para produtoras de eventos · El Tío Eventos: https://eltio.net/pt/eventos/
+- Site para artistas e DJs em 8 idiomas · El Tío Artistas: https://eltio.net/pt/artistas/
+- Site para distribuidoras em 8 idiomas · El Tío Distribuição: https://eltio.net/pt/distribuicao/
 - Agente de IA para WhatsApp e Instagram para empresas: https://eltio.net/pt/servicos/agente-whatsapp-instagram/
 - Agente de voz com IA para empresas: confirma agendamentos e atende ligações: https://eltio.net/pt/servicos/agente-de-voz/
 - CRM e follow-up de clientes para pequenas empresas, com lembretes e cobrança: https://eltio.net/pt/servicos/crm-e-acompanhamento/
 - Automação de processos com IA e relatórios automáticos: https://eltio.net/pt/servicos/automacoes-e-relatorios/
 - Capacitação em inteligência artificial para empresas e equipes: https://eltio.net/pt/servicos/capacitacao/
 - Cidades onde El Tío trabalha: IA para empresas no México: https://eltio.net/pt/cidades/
-- Inteligência artificial para empresas na Cidade do México (CDMX): https://eltio.net/pt/cidades/cidade-do-mexico/
-- Inteligência artificial para empresas em Monterrey: https://eltio.net/pt/cidades/monterrey/
-- Inteligência artificial para empresas em Guadalajara: https://eltio.net/pt/cidades/guadalajara/
-- IA para hotéis, vilas e negócios em Tulum e na Riviera Maya: https://eltio.net/pt/cidades/tulum-riviera-maya/
+- Site em 8 idiomas e posicionamento no Google para empresas na Cidade do México (CDMX): https://eltio.net/pt/cidades/cidade-do-mexico/
+- Site em 8 idiomas e posicionamento no Google para empresas em Monterrey: https://eltio.net/pt/cidades/monterrey/
+- Site em 8 idiomas e posicionamento no Google para empresas em Guadalajara: https://eltio.net/pt/cidades/guadalajara/
+- Site em 8 idiomas para hotéis, casas de temporada e empresas em Tulum e na Riviera Maya: https://eltio.net/pt/cidades/tulum-riviera-maya/
 - Como trabalhamos: do Audit à entrega em 10 a 21 dias úteis: https://eltio.net/pt/como-trabalhamos/
 - Perguntas frequentes sobre agentes de IA, preços e dados: https://eltio.net/pt/perguntas-frequentes/
 - Glossário de IA para empresas: agentes, CRM, RAG e mais: https://eltio.net/pt/glossario/
@@ -255,23 +255,23 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - Prospection et e-mailing pour trouver des clients: https://eltio.net/fr/prospection-et-email/
 - Contact : WhatsApp et e-mail d’El Tío: https://eltio.net/fr/contact/
 - À propos d’El Tío : l’intelligence artificielle appliquée à de vraies entreprises: https://eltio.net/fr/a-propos/
-- Carte digitale et demande locale · El Tío Restauration: https://eltio.net/fr/restauration/
-- L’historique de vos clients vous appartient · El Tío Hôtellerie: https://eltio.net/fr/hotellerie/
-- Audit IA pour les agences immobilières · El Tío Immobilier: https://eltio.net/fr/immobilier/
-- Fidélisation des adhérents et relance des prospects · El Tío Fitness: https://eltio.net/fr/fitness/
-- Mesurez le risque d’une date avant de la signer: https://eltio.net/fr/evenementiel/
-- Un public à vous pour les artistes et les DJ · El Tío Artistes: https://eltio.net/fr/artistes/
-- Automatiser les devis B2B · El Tío Distribution: https://eltio.net/fr/distribution/
+- Site web pour restaurants en 8 langues · El Tío Restauration: https://eltio.net/fr/restauration/
+- Site web pour hôtels et villas en 8 langues · El Tío Hôtellerie: https://eltio.net/fr/hotellerie/
+- Site web pour agences immobilières en 8 langues · El Tío Immobilier: https://eltio.net/fr/immobilier/
+- Site web pour salles de sport en 8 langues · El Tío Fitness: https://eltio.net/fr/fitness/
+- Site web pour sociétés de production d’événements · El Tío Événementiel: https://eltio.net/fr/evenementiel/
+- Site web pour artistes et DJ en 8 langues · El Tío Artistes: https://eltio.net/fr/artistes/
+- Site web pour distributeurs en 8 langues · El Tío Distribution: https://eltio.net/fr/distribution/
 - Agent IA pour WhatsApp et Instagram pour les entreprises: https://eltio.net/fr/services/agent-whatsapp-instagram/
 - Agent vocal IA pour les entreprises : il confirme les rendez-vous et prend les appels: https://eltio.net/fr/services/agent-vocal/
 - CRM et suivi client pour les PME, avec rappels et relances de paiement: https://eltio.net/fr/services/crm-et-suivi/
 - Automatisation des processus avec l’IA et rapports automatiques: https://eltio.net/fr/services/automatisations-et-rapports/
 - Formation à l’intelligence artificielle pour les entreprises et les équipes: https://eltio.net/fr/services/formation/
 - Les villes où travaille El Tío : l’IA pour les entreprises au Mexique: https://eltio.net/fr/villes/
-- Intelligence artificielle pour les entreprises à Mexico (CDMX): https://eltio.net/fr/villes/mexico/
-- Intelligence artificielle pour les entreprises à Monterrey: https://eltio.net/fr/villes/monterrey/
-- Intelligence artificielle pour les entreprises à Guadalajara: https://eltio.net/fr/villes/guadalajara/
-- L’IA pour les hôtels, villas et entreprises de Tulum et de la Riviera Maya: https://eltio.net/fr/villes/tulum-riviera-maya/
+- Site web en 8 langues et référencement Google pour les entreprises à Mexico (CDMX): https://eltio.net/fr/villes/mexico/
+- Site web en 8 langues et référencement Google pour les entreprises à Monterrey: https://eltio.net/fr/villes/monterrey/
+- Site web en 8 langues et référencement Google pour les entreprises à Guadalajara: https://eltio.net/fr/villes/guadalajara/
+- Site web en 8 langues pour hôtels, villas et entreprises à Tulum et sur la Riviera Maya: https://eltio.net/fr/villes/tulum-riviera-maya/
 - Notre façon de travailler : de l’Audit à la livraison en 10 à 21 jours ouvrés: https://eltio.net/fr/notre-methode/
 - Questions fréquentes sur les agents IA, les prix et les données: https://eltio.net/fr/questions-frequentes/
 - Glossaire de l’IA pour les entreprises : agents, CRM, RAG et plus: https://eltio.net/fr/glossaire/
@@ -294,23 +294,23 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - Kundenakquise und E-Mail-Marketing für neue Kunden: https://eltio.net/de/akquise-und-email/
 - Kontakt: WhatsApp und E-Mail von El Tío: https://eltio.net/de/kontakt/
 - Über El Tío: künstliche Intelligenz im Einsatz für echte Unternehmen: https://eltio.net/de/ueber-uns/
-- Digitale Speisekarte und Nachfrage vor Ort · El Tío Gastronomie: https://eltio.net/de/gastronomie/
-- Die Historie Ihrer Gäste gehört Ihnen · El Tío Hotellerie: https://eltio.net/de/hotellerie/
-- KI-Audit für Immobilienmakler · El Tío Immobilien: https://eltio.net/de/immobilien/
-- Mitgliederbindung und Rückgewinnung von Interessenten · El Tío Fitness: https://eltio.net/de/fitness/
-- Das Risiko eines Termins messen, bevor Sie unterschreiben: https://eltio.net/de/events/
-- Eigenes Publikum für Künstler und DJs · El Tío Künstler: https://eltio.net/de/kuenstler/
-- B2B-Angebote automatisieren · El Tío Großhandel: https://eltio.net/de/grosshandel/
+- Website für Restaurants in 8 Sprachen · El Tío Gastronomie: https://eltio.net/de/gastronomie/
+- Website für Hotels und Villen in 8 Sprachen · El Tío Hotellerie: https://eltio.net/de/hotellerie/
+- Website für Immobilienmakler in 8 Sprachen · El Tío Immobilien: https://eltio.net/de/immobilien/
+- Website für Fitnessstudios in 8 Sprachen · El Tío Fitness: https://eltio.net/de/fitness/
+- Website für Veranstalter · El Tío Events: https://eltio.net/de/events/
+- Website für Künstler und DJs in 8 Sprachen · El Tío Künstler: https://eltio.net/de/kuenstler/
+- Website für Großhändler in 8 Sprachen · El Tío Großhandel: https://eltio.net/de/grosshandel/
 - KI-Agent für WhatsApp und Instagram für Unternehmen: https://eltio.net/de/leistungen/whatsapp-instagram-agent/
 - KI-Sprachagent für Unternehmen: bestätigt Termine und nimmt Anrufe an: https://eltio.net/de/leistungen/sprachagent/
 - CRM und Kundennachverfolgung für kleine Unternehmen, mit Erinnerungen und Zahlungserinnerungen: https://eltio.net/de/leistungen/crm-und-nachverfolgung/
 - Prozessautomatisierung mit KI und automatische Berichte: https://eltio.net/de/leistungen/automatisierung-und-berichte/
 - Schulung in künstlicher Intelligenz für Unternehmen und Teams: https://eltio.net/de/leistungen/schulungen/
 - Städte, in denen El Tío arbeitet: KI für Unternehmen in Mexiko: https://eltio.net/de/staedte/
-- Künstliche Intelligenz für Unternehmen in Mexiko-Stadt (CDMX): https://eltio.net/de/staedte/mexiko-stadt/
-- Künstliche Intelligenz für Unternehmen in Monterrey: https://eltio.net/de/staedte/monterrey/
-- Künstliche Intelligenz für Unternehmen in Guadalajara: https://eltio.net/de/staedte/guadalajara/
-- KI für Hotels, Villen und Unternehmen in Tulum und an der Riviera Maya: https://eltio.net/de/staedte/tulum-riviera-maya/
+- Website in 8 Sprachen und Google-Sichtbarkeit für Unternehmen in Mexiko-Stadt (CDMX): https://eltio.net/de/staedte/mexiko-stadt/
+- Website in 8 Sprachen und Google-Sichtbarkeit für Unternehmen in Monterrey: https://eltio.net/de/staedte/monterrey/
+- Website in 8 Sprachen und Google-Sichtbarkeit für Unternehmen in Guadalajara: https://eltio.net/de/staedte/guadalajara/
+- Website in 8 Sprachen für Hotels, Villen und Unternehmen in Tulum und an der Riviera Maya: https://eltio.net/de/staedte/tulum-riviera-maya/
 - So arbeiten wir: vom Audit zur Übergabe in 10 bis 21 Werktagen: https://eltio.net/de/so-arbeiten-wir/
 - Häufige Fragen zu KI-Agenten, Preisen und Daten: https://eltio.net/de/haeufige-fragen/
 - KI-Glossar für Unternehmen: Agenten, CRM, RAG und mehr: https://eltio.net/de/glossar/
@@ -333,23 +333,23 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - Ricerca clienti ed email marketing per trovare clienti: https://eltio.net/it/prospezione-ed-email/
 - Contatti: WhatsApp ed email di El Tío: https://eltio.net/it/contatti/
 - Chi è El Tío: intelligenza artificiale applicata ad attività vere: https://eltio.net/it/chi-siamo/
-- Menu digitale e domanda locale · El Tío Ristorazione: https://eltio.net/it/ristorazione/
-- Lo storico dei tuoi ospiti è tuo · El Tío Ospitalità: https://eltio.net/it/ospitalita/
-- Audit di IA per agenzie immobiliari · El Tío Immobiliare: https://eltio.net/it/immobiliare/
-- Fidelizzazione degli iscritti e recupero dei lead · El Tío Fitness: https://eltio.net/it/fitness/
-- Misura il rischio di una data prima di firmarla: https://eltio.net/it/eventi/
-- Un pubblico tuo per artisti e DJ · El Tío Artisti: https://eltio.net/it/artisti/
-- Automatizzare i preventivi B2B · El Tío Distribuzione: https://eltio.net/it/distribuzione/
+- Sito web per ristoranti in 8 lingue · El Tío Ristorazione: https://eltio.net/it/ristorazione/
+- Sito web per hotel e ville in 8 lingue · El Tío Ospitalità: https://eltio.net/it/ospitalita/
+- Sito web per agenzie immobiliari in 8 lingue · El Tío Immobiliare: https://eltio.net/it/immobiliare/
+- Sito web per palestre in 8 lingue · El Tío Fitness: https://eltio.net/it/fitness/
+- Sito web per organizzatori di eventi · El Tío Eventi: https://eltio.net/it/eventi/
+- Sito web per artisti e DJ in 8 lingue · El Tío Artisti: https://eltio.net/it/artisti/
+- Sito web per distributori in 8 lingue · El Tío Distribuzione: https://eltio.net/it/distribuzione/
 - Agente IA per WhatsApp e Instagram per attività: https://eltio.net/it/servizi/agente-whatsapp-instagram/
 - Agente vocale con IA per le attività: conferma appuntamenti e risponde alle chiamate: https://eltio.net/it/servizi/agente-vocale/
 - CRM e follow-up dei clienti per le PMI, con promemoria e incassi: https://eltio.net/it/servizi/crm-e-follow-up/
 - Automazione dei processi con IA e report automatici: https://eltio.net/it/servizi/automazioni-e-report/
 - Formazione sull'intelligenza artificiale per aziende e team: https://eltio.net/it/servizi/formazione/
 - Città dove lavora El Tío: IA per le aziende in Messico: https://eltio.net/it/citta/
-- Intelligenza artificiale per le aziende a Città del Messico (CDMX): https://eltio.net/it/citta/citta-del-messico/
-- Intelligenza artificiale per le aziende a Monterrey: https://eltio.net/it/citta/monterrey/
-- Intelligenza artificiale per le aziende a Guadalajara: https://eltio.net/it/citta/guadalajara/
-- IA per hotel, ville e attività a Tulum e nella Riviera Maya: https://eltio.net/it/citta/tulum-riviera-maya/
+- Sito web in 8 lingue e posizionamento su Google per attività a Città del Messico (CDMX): https://eltio.net/it/citta/citta-del-messico/
+- Sito web in 8 lingue e posizionamento su Google per attività a Monterrey: https://eltio.net/it/citta/monterrey/
+- Sito web in 8 lingue e posizionamento su Google per attività a Guadalajara: https://eltio.net/it/citta/guadalajara/
+- Sito web in 8 lingue per hotel, ville e attività a Tulum e nella Riviera Maya: https://eltio.net/it/citta/tulum-riviera-maya/
 - Come lavoriamo: dall'Audit alla consegna in 10-21 giorni lavorativi: https://eltio.net/it/come-lavoriamo/
 - Domande frequenti su agenti IA, prezzi e dati: https://eltio.net/it/domande-frequenti/
 - Glossario dell'IA per le aziende: agenti, CRM, RAG e altro: https://eltio.net/it/glossario/
@@ -372,23 +372,23 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - 客户开发与邮件营销，帮您拿到新客户: https://eltio.net/zh/prospecting-and-email/
 - 联系方式：El Tío 的 WhatsApp 和邮箱: https://eltio.net/zh/contact/
 - 关于 El Tío：应用于真实商业的人工智能: https://eltio.net/zh/about/
-- 数字菜单与本地客流 · El Tío 餐饮: https://eltio.net/zh/restaurants/
-- 住客记录归您所有 · El Tío 酒店旅宿: https://eltio.net/zh/hospitality/
-- 房地产中介 AI 诊断 · El Tío 房地产: https://eltio.net/zh/real-estate/
-- 会员留存与线索挽回 · El Tío 健身: https://eltio.net/zh/fitness/
-- 签约之前，先衡量一场演出的风险: https://eltio.net/zh/events/
-- 艺人和 DJ 的自有受众 · El Tío 艺人: https://eltio.net/zh/artists/
-- B2B 报价自动化 · El Tío 分销: https://eltio.net/zh/distribution/
+- 餐厅网站，8 种语言 · El Tío 餐饮: https://eltio.net/zh/restaurants/
+- 酒店和别墅网站，8 种语言 · El Tío 酒店旅宿: https://eltio.net/zh/hospitality/
+- 房地产中介网站，8 种语言 · El Tío 房地产: https://eltio.net/zh/real-estate/
+- 健身房网站，8 种语言 · El Tío 健身: https://eltio.net/zh/fitness/
+- 活动制作公司网站 · El Tío 活动: https://eltio.net/zh/events/
+- 艺人和 DJ 网站，8 种语言 · El Tío 艺人: https://eltio.net/zh/artists/
+- 分销商网站，8 种语言 · El Tío 分销: https://eltio.net/zh/distribution/
 - 面向商家的 WhatsApp 和 Instagram AI 客服: https://eltio.net/zh/services/whatsapp-instagram-agent/
 - 商家用的 AI 语音客服：确认预约、接听电话: https://eltio.net/zh/services/voice-agent/
 - 面向中小企业的 CRM 和客户跟进，带提醒和催款: https://eltio.net/zh/services/crm-and-follow-up/
 - 用 AI 实现流程自动化和自动报表: https://eltio.net/zh/services/automation-and-reporting/
 - 面向企业和团队的人工智能培训: https://eltio.net/zh/services/ai-training/
 - El Tío 服务的城市：面向墨西哥企业的 AI: https://eltio.net/zh/cities/
-- 墨西哥城（CDMX）企业人工智能: https://eltio.net/zh/cities/mexico-city/
-- 蒙特雷企业人工智能: https://eltio.net/zh/cities/monterrey/
-- 瓜达拉哈拉企业人工智能: https://eltio.net/zh/cities/guadalajara/
-- 面向图卢姆和玛雅里维埃拉酒店、别墅和商家的 AI: https://eltio.net/zh/cities/tulum-riviera-maya/
+- 墨西哥城（CDMX）商家的 8 种语言网站和 Google 排名优化: https://eltio.net/zh/cities/mexico-city/
+- 蒙特雷商家的 8 种语言网站和 Google 排名优化: https://eltio.net/zh/cities/monterrey/
+- 瓜达拉哈拉商家的 8 种语言网站和 Google 排名优化: https://eltio.net/zh/cities/guadalajara/
+- 图卢姆和里维埃拉玛雅的酒店、别墅和商家的 8 种语言网站: https://eltio.net/zh/cities/tulum-riviera-maya/
 - 我们怎么做：从 Audit 到交付，10 到 21 个工作日: https://eltio.net/zh/how-we-work/
 - 关于 AI 客服、价格和数据的常见问题: https://eltio.net/zh/faq/
 - 企业 AI 术语表：AI 智能体、CRM、RAG 等: https://eltio.net/zh/glossary/
@@ -411,23 +411,23 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - お客様を増やすための新規開拓とメールマーケティング: https://eltio.net/ja/prospecting-and-email/
 - お問い合わせ：El TíoのWhatsAppとメール: https://eltio.net/ja/contact/
 - El Tíoについて：実際のビジネスで使うAI: https://eltio.net/ja/about/
-- デジタルメニューと地域の集客 · El Tío 飲食: https://eltio.net/ja/restaurants/
-- ゲストの履歴は、あなたのもの · El Tío 宿泊・観光: https://eltio.net/ja/hospitality/
-- 不動産会社向けAI診断 · El Tío 不動産: https://eltio.net/ja/real-estate/
-- 会員の定着と見込み客の掘り起こし · El Tío フィットネス: https://eltio.net/ja/fitness/
-- 契約する前に、その公演日のリスクを測る: https://eltio.net/ja/events/
-- アーティストとDJのための自分のファンリスト · El Tío アーティスト: https://eltio.net/ja/artists/
-- B2Bの見積もりを自動化する · El Tío 卸売・流通: https://eltio.net/ja/distribution/
+- 8言語対応のレストラン向けウェブサイト · El Tío 飲食: https://eltio.net/ja/restaurants/
+- 8言語対応のホテル・ヴィラ向けウェブサイト · El Tío 宿泊・観光: https://eltio.net/ja/hospitality/
+- 8言語対応の不動産会社向けウェブサイト · El Tío 不動産: https://eltio.net/ja/real-estate/
+- 8言語対応のジム向けウェブサイト · El Tío フィットネス: https://eltio.net/ja/fitness/
+- イベント制作会社向けウェブサイト · El Tío イベント: https://eltio.net/ja/events/
+- 8言語対応のアーティスト・DJ向けウェブサイト · El Tío アーティスト: https://eltio.net/ja/artists/
+- 8言語対応の卸売業者向けウェブサイト · El Tío 卸売・流通: https://eltio.net/ja/distribution/
 - ビジネス向けWhatsApp・InstagramのAIエージェント: https://eltio.net/ja/services/whatsapp-instagram-agent/
 - ビジネス向けAI音声エージェント：予約を確認し、電話に応対: https://eltio.net/ja/services/voice-agent/
 - 中小企業向けのCRMと顧客フォローアップ、リマインダーと集金つき: https://eltio.net/ja/services/crm-and-follow-up/
 - AIによる業務自動化と自動レポート: https://eltio.net/ja/services/automation-and-reporting/
 - 企業とチームのためのAI研修: https://eltio.net/ja/services/ai-training/
 - El Tíoが活動している都市：メキシコの企業のためのAI: https://eltio.net/ja/cities/
-- メキシコシティ（CDMX）の企業のためのAI: https://eltio.net/ja/cities/mexico-city/
-- モンテレイの企業のためのAI: https://eltio.net/ja/cities/monterrey/
-- グアダラハラの企業のためのAI: https://eltio.net/ja/cities/guadalajara/
-- トゥルムとリビエラ・マヤのホテル、ヴィラ、お店のためのAI: https://eltio.net/ja/cities/tulum-riviera-maya/
+- メキシコシティ（CDMX）のお店のための、8言語対応のウェブサイトとGoogle検索対策: https://eltio.net/ja/cities/mexico-city/
+- モンテレイのお店のための、8言語対応のウェブサイトとGoogle検索対策: https://eltio.net/ja/cities/monterrey/
+- グアダラハラのお店のための、8言語対応のウェブサイトとGoogle検索対策: https://eltio.net/ja/cities/guadalajara/
+- トゥルムとリビエラ・マヤのホテル、ヴィラ、お店のための8言語対応ウェブサイト: https://eltio.net/ja/cities/tulum-riviera-maya/
 - 仕事の進め方：Auditから10〜21営業日で納品: https://eltio.net/ja/how-we-work/
 - AIエージェント、料金、データについてのよくある質問: https://eltio.net/ja/faq/
 - 企業のためのAI用語集：エージェント、CRM、RAGなど: https://eltio.net/ja/glossary/

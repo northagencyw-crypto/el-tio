@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>企业 AI 术语表：AI 智能体、CRM、RAG 等 · El Tío</title>
+<meta name="description" content="什么是 AI 智能体、CRM、RAG、WhatsApp 模板或 webhook。写给商家老板的人工智能术语表，不讲行话。">
+<link rel="canonical" href="https://eltio.net/zh/glossary/">
+<link rel="alternate" hreflang="es" href="https://eltio.net/glosario/">
+<link rel="alternate" hreflang="en" href="https://eltio.net/en/glossary/">
+<link rel="alternate" hreflang="pt-BR" href="https://eltio.net/pt/glossario/">
+<link rel="alternate" hreflang="fr" href="https://eltio.net/fr/glossaire/">
+<link rel="alternate" hreflang="de" href="https://eltio.net/de/glossar/">
+<link rel="alternate" hreflang="it" href="https://eltio.net/it/glossario/">
+<link rel="alternate" hreflang="zh-CN" href="https://eltio.net/zh/glossary/">
+<link rel="alternate" hreflang="ja" href="https://eltio.net/ja/glossary/">
+<link rel="alternate" hreflang="x-default" href="https://eltio.net/glosario/">
+<meta name="theme-color" content="#04070B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="es_MX">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:site_name" content="El Tío">
+<meta property="og:url" content="https://eltio.net/zh/glossary/">
+<meta property="og:title" content="企业 AI 术语表：AI 智能体、CRM、RAG 等">
+<meta property="og:description" content="什么是 AI 智能体、CRM、RAG、WhatsApp 模板或 webhook。写给商家老板的人工智能术语表，不讲行话。">
+<meta property="og:image" content="https://eltio.net/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-var.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/paginas.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "DefinedTermSet",
+ "name": "企业人工智能术语表",
+ "url": "https://eltio.net/zh/glossary/",
+ "inLanguage": "zh-CN",
+ "hasDefinedTerm": [
+  {
+   "@type": "DefinedTerm",
+   "name": "AI 智能体",
+   "description": "一个和您的客户对话的程序，能听懂客户用自己的话提出的需求，并据此行动：回复、预约、登记，或把事情转给真人。它和按钮式聊天机器人的区别是，不需要客户去选选项。",
+   "url": "https://eltio.net/zh/glossary/#agente-de-ia",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "AI 语音客服",
+   "description": "会打电话的 AI 智能体。它拨打或接听电话，用自然的声音交谈，确认预约或筛选意向客户，并把通话摘要留在 CRM 里。开头会说明自己是 AI。",
+   "url": "https://eltio.net/zh/glossary/#agente-de-voz",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "幻觉",
+   "description": "AI 模型很有把握地给出一个其实是错误的回答。只给它您商家的信息，并要求它把不知道的事转给真人，就能减少幻觉。",
+   "url": "https://eltio.net/zh/glossary/#alucinacion",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "WhatsApp Business API",
+   "description": "面向企业的 WhatsApp 版本，可以把一个系统接到您的号码上，让 AI 客服来回复，每段对话都会保存下来。它不是手机上用的 WhatsApp Business 应用。",
+   "url": "https://eltio.net/zh/glossary/#api-whatsapp-business",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "WhatsApp Business 应用",
+   "description": "装在手机上、给商家用的免费应用。适合手工接待，有快捷回复和商品目录，但不能接入 AI 客服，也不能接入 CRM。",
+   "url": "https://eltio.net/zh/glossary/#app-whatsapp-business",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "归因（联系人来源）",
+   "description": "记录每位客户从哪里来：广告、Instagram、房产平台、朋友推荐。靠它才能知道哪个渠道带来销售，哪个只带来消息。",
+   "url": "https://eltio.net/zh/glossary/#atribucion",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "AI Audit",
+   "description": "El Tío 的第一步诊断：一份关于您的商家现在怎么运作的问卷，以及一份路线图，写明先优化和自动化什么、每一项的理由。免费。",
+   "url": "https://eltio.net/zh/glossary/#audit-de-ia",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "自动化",
+   "description": "以前由人做的一项工作，现在每当发生某件事就自动完成：一条欢迎消息、一个提醒、一条给负责人的通知。最好先把流程理顺，再做自动化。",
+   "url": "https://eltio.net/zh/glossary/#automatizacion",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "隐私声明",
+   "description": "告诉客户您保存哪些数据、用来做什么、怎么申请删除的文件。在墨西哥，个人数据法要求提供，最好在 AI 客服的第一条消息里附上链接。",
+   "url": "https://eltio.net/zh/glossary/#aviso-de-privacidad",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "统一收件箱",
+   "description": "一个界面，让团队在同一处看到 WhatsApp、Instagram、Facebook 和邮件的消息，而不用一个个应用分别去看。",
+   "url": "https://eltio.net/zh/glossary/#bandeja-unificada",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "知识库",
+   "description": "AI 客服对您生意的了解：营业时间、价格、规定、常见问题。没写进去的，AI 客服就不知道，正确的做法是转给真人。",
+   "url": "https://eltio.net/zh/glossary/#base-de-conocimiento",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "去重后的数据库",
+   "description": "您的客户名单，每人只有一条记录。同一个客户用三个不同的名字出现三次，就没人知道您到底有多少客户，也不知道最后是谁跟他联系的。",
+   "url": "https://eltio.net/zh/glossary/#base-deduplicada",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "线索筛选",
+   "description": "把准备购买的人和只是问问的人分开。AI 客服会问销售需要知道的问题，比如预算、日期或区域，并把回答记进 CRM。",
+   "url": "https://eltio.net/zh/glossary/#calificacion-de-leads",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "聊天机器人",
+   "description": "一个回复消息的程序。最简单的只显示选项菜单；用 AI 的能看懂客户写的内容，像正常聊天一样回复。",
+   "url": "https://eltio.net/zh/glossary/#chatbot",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "自动催款",
+   "description": "付款提醒自动发出，按您批准的顺序和文字发送，直到登记收到付款。每次发送您都看得到，也可以暂停某个客户的提醒序列。",
+   "url": "https://eltio.net/zh/glossary/#cobranza-automatizada",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "同意授权（opt-in）",
+   "description": "一个人允许您的商家给他发消息的许可。WhatsApp 要求在已开启的对话之外发消息必须有这项许可，墨西哥法律对某些数据用途也有这个要求。",
+   "url": "https://eltio.net/zh/glossary/#consentimiento",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "CRM",
+   "description": "Customer relationship management（客户关系管理）：一份统一的名单，记录谁联系过您、想要什么、谈到哪一步、下一步做什么。它取代每个销售自己的 WhatsApp、电子表格和团队的记忆。",
+   "url": "https://eltio.net/zh/glossary/#crm",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "敏感个人数据",
+   "description": "一旦被滥用就可能伤害当事人的数据，比如健康数据。在墨西哥，处理这类数据需要明确的书面同意，也不适合通过聊天索取。",
+   "url": "https://eltio.net/zh/glossary/#datos-sensibles",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "销售漏斗",
+   "description": "客户从第一次咨询到购买所经历的各个阶段，用的是您团队已经在用的叫法。能看出人在哪一步流失，每一步有多少人。",
+   "url": "https://eltio.net/zh/glossary/#embudo",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "工作流程",
+   "description": "一串自动触发的步骤：新联系人进来，就分配一个销售、发一条消息、设一个提醒。也叫 workflow。",
+   "url": "https://eltio.net/zh/glossary/#flujo-de-trabajo",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "系统集成",
+   "description": "两个系统之间的连接，让数据自动传过去，不用人复制粘贴：日程表连 CRM，收银系统连报表，表单连 WhatsApp。",
+   "url": "https://eltio.net/zh/glossary/#integracion",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "人工智能",
+   "description": "能完成以前需要人来做的任务的程序，比如看懂一条消息、读一份文件或起草一条回复。在生意里，主要用在重复性的事情上。",
+   "url": "https://eltio.net/zh/glossary/#inteligencia-artificial",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "潜在客户（lead）",
+   "description": "表现出兴趣但还没购买的人：在表单里留了资料、在 WhatsApp 上问过，或在某个平台上索取了信息。",
+   "url": "https://eltio.net/zh/glossary/#lead",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "文档识别",
+   "description": "把照片、PDF 或 Excel 里的内容转成数据：一张订货单、一张发票、一份身份证件。这项技术叫 OCR，加上 AI 还能看懂缩写和杂乱的表格。",
+   "url": "https://eltio.net/zh/glossary/#lectura-de-documentos",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "语言模型",
+   "description": "ChatGPT 或 Claude 这类工具背后的引擎。它从海量文本中学习，生成书面回答。也叫 LLM（英文缩写）。",
+   "url": "https://eltio.net/zh/glossary/#modelo-de-lenguaje",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "爽约（No-show）",
+   "description": "客户订了位或约了时间却没来，也没通知。发一条可以改约的提醒，就能把位置腾出来给别人。",
+   "url": "https://eltio.net/zh/glossary/#no-show",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "消息模板",
+   "description": "经 Meta 批准的 WhatsApp 消息，您的商家可以在已开启的对话之外发送，比如提醒。每种语言要单独建一个，WhatsApp 可能按每次发送收费。",
+   "url": "https://eltio.net/zh/glossary/#plantilla",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "提示词（Prompt）",
+   "description": "给 AI 工具的指令。好的提示词会说明做什么、用哪些信息、什么语气、不能做什么。",
+   "url": "https://eltio.net/zh/glossary/#prompt",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "RAG",
+   "description": "Retrieval augmented generation，检索增强生成。AI 客服在回答之前先查您的文档，而不是凭它学到的通用知识作答。这样它报的是您的价格，而不是编出来的价格。",
+   "url": "https://eltio.net/zh/glossary/#rag",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "自动提醒",
+   "description": "在预约、订位或到期之前自动发出的通知，发给客户，也发给您的团队。",
+   "url": "https://eltio.net/zh/glossary/#recordatorio",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "自动报表",
+   "description": "每周自动送到的摘要，列出您生意里重要的数字：新联系人、已回复、已预约、已成交和待收款。",
+   "url": "https://eltio.net/zh/glossary/#reporte-automatico",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "跟进",
+   "description": "对没回复或还没决定的客户的下一次联系。这是丢单最多的地方，因为全靠有人记得。",
+   "url": "https://eltio.net/zh/glossary/#seguimiento",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "流失率",
+   "description": "一段时间内离开的客户或会员所占的比例。英文叫 churn。有人要走的信号，通常提前几周就会出现：不再来了，或不再买了。",
+   "url": "https://eltio.net/zh/glossary/#tasa-de-bajas",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "文字转语音",
+   "description": "把书面回答变成听起来自然的声音的技术。它是 AI 语音客服的一半；另一半是语音识别，把对方说的话转成文字。",
+   "url": "https://eltio.net/zh/glossary/#texto-a-voz",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "首次响应时间",
+   "description": "您的商家回复客户第一条消息所花的时间。这是对成交影响最大的数字之一：来问的人，往往会选最先回复的那家。",
+   "url": "https://eltio.net/zh/glossary/#tiempo-de-respuesta",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "转接真人",
+   "description": "AI 客服把对话交给团队成员的那一刻，情况已经总结好。好的 AI 客服知道什么时候该转：投诉、特殊情况、大单。",
+   "url": "https://eltio.net/zh/glossary/#traspaso",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "UTM",
+   "description": "加在链接上的标签，用来知道点击的人从哪里来：哪条广告、哪篇帖子、哪封邮件。CRM 会把它们和联系人一起保存。",
+   "url": "https://eltio.net/zh/glossary/#utm",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "24 小时客服窗口",
+   "description": "在 WhatsApp API 中，客户每发一条消息就会开启的时限。在这 24 小时内，您可以自由回复；超出之后，只能用已批准的模板。",
+   "url": "https://eltio.net/zh/glossary/#ventana-24-horas",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Webhook",
+   "description": "一个系统在发生某件事时自动发给另一个系统的通知，比如收到一笔付款或有人填了表单。正是它让自动化能自己启动。",
+   "url": "https://eltio.net/zh/glossary/#webhook",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "El Tío",
+   "item": "https://eltio.net/zh/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "术语表",
+   "item": "https://eltio.net/zh/glossary/"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="saltar" href="#contenido">跳到正文</a>
+<header class="cabecera">
+  <div class="inner">
+    <a class="marca" href="/zh/">EL TIO<span>.</span></a>
+    <nav class="menu" aria-label="主菜单">
+      <a href="/zh/websites/">网站</a>
+      <a href="/zh/ai-search-visibility/">AI 搜索优化</a>
+      <a href="/zh/services/">服务</a>
+      <a href="/zh/pricing/">套餐</a>
+      <a href="/zh/guides/">指南</a>
+    </nav>
+    <details class="idioma">
+      <summary aria-label="语言: 中文">ZH</summary>
+      <ul>
+        <li><a href="/glosario/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="/en/glossary/" hreflang="en" lang="en">English</a></li>
+        <li><a href="/pt/glossario/" hreflang="pt-BR" lang="pt-BR">Português</a></li>
+        <li><a href="/fr/glossaire/" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="/de/glossar/" hreflang="de" lang="de">Deutsch</a></li>
+        <li><a href="/it/glossario/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="/zh/glossary/" hreflang="zh-CN" lang="zh-CN" aria-current="true">中文</a></li>
+        <li><a href="/ja/glossary/" hreflang="ja" lang="ja">日本語</a></li>
+      </ul>
+    </details>
+    <a class="btn-chico" href="#audit" data-cta="audit">免费 Audit</a>
+  </div>
+</header>
+<main id="contenido">
+  <nav class="migas franja" aria-label="当前位置" style="padding-bottom:0"><a href="/zh/">El Tío</a> / 术语表</nav>
+  <section class="franja" style="padding-top:8px">
+    <p class="ojo">术语表</p>
+    <h1>企业人工智能术语表</h1>
+    <p class="bajada">在为您的商家聊 AI 时会听到的词，用大白话解释。一共 39 个术语，每个都链接到用到它的服务。</p>
+
+  </section>
+  <nav class="franja letras" aria-label="字母"><a href="#letra-a">A</a> <a href="#letra-b">B</a> <a href="#letra-c">C</a> <a href="#letra-d">D</a> <a href="#letra-e">E</a> <a href="#letra-f">F</a> <a href="#letra-i">I</a> <a href="#letra-l">L</a> <a href="#letra-m">M</a> <a href="#letra-n">N</a> <a href="#letra-p">P</a> <a href="#letra-r">R</a> <a href="#letra-s">S</a> <a href="#letra-t">T</a> <a href="#letra-u">U</a> <a href="#letra-v">V</a> <a href="#letra-w">W</a></nav>
+  <section class="franja" id="letra-a">
+    <h2>A</h2>
+    <dl class="glosario">
+      <div class="termino" id="agente-de-ia"><dt>AI 智能体</dt><dd><p>一个和您的客户对话的程序，能听懂客户用自己的话提出的需求，并据此行动：回复、预约、登记，或把事情转给真人。它和按钮式聊天机器人的区别是，不需要客户去选选项。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+      <div class="termino" id="agente-de-voz"><dt>AI 语音客服</dt><dd><p>会打电话的 AI 智能体。它拨打或接听电话，用自然的声音交谈，确认预约或筛选意向客户，并把通话摘要留在 CRM 里。开头会说明自己是 AI。</p><p class="ver">参见：<a href="/zh/services/voice-agent/">AI 语音客服</a></p></dd></div>
+      <div class="termino" id="alucinacion"><dt>幻觉</dt><dd><p>AI 模型很有把握地给出一个其实是错误的回答。只给它您商家的信息，并要求它把不知道的事转给真人，就能减少幻觉。</p><p class="ver">参见：<a href="/zh/services/ai-training/">培训</a></p></dd></div>
+      <div class="termino" id="api-whatsapp-business"><dt>WhatsApp Business API</dt><dd><p>面向企业的 WhatsApp 版本，可以把一个系统接到您的号码上，让 AI 客服来回复，每段对话都会保存下来。它不是手机上用的 WhatsApp Business 应用。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+      <div class="termino" id="app-whatsapp-business"><dt>WhatsApp Business 应用</dt><dd><p>装在手机上、给商家用的免费应用。适合手工接待，有快捷回复和商品目录，但不能接入 AI 客服，也不能接入 CRM。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+      <div class="termino" id="atribucion"><dt>归因（联系人来源）</dt><dd><p>记录每位客户从哪里来：广告、Instagram、房产平台、朋友推荐。靠它才能知道哪个渠道带来销售，哪个只带来消息。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+      <div class="termino" id="audit-de-ia"><dt>AI Audit</dt><dd><p>El Tío 的第一步诊断：一份关于您的商家现在怎么运作的问卷，以及一份路线图，写明先优化和自动化什么、每一项的理由。免费。</p><p class="ver">参见：<a href="/zh/pricing/">套餐和价格</a></p></dd></div>
+      <div class="termino" id="automatizacion"><dt>自动化</dt><dd><p>以前由人做的一项工作，现在每当发生某件事就自动完成：一条欢迎消息、一个提醒、一条给负责人的通知。最好先把流程理顺，再做自动化。</p><p class="ver">参见：<a href="/zh/services/automation-and-reporting/">自动化和报表</a></p></dd></div>
+      <div class="termino" id="aviso-de-privacidad"><dt>隐私声明</dt><dd><p>告诉客户您保存哪些数据、用来做什么、怎么申请删除的文件。在墨西哥，个人数据法要求提供，最好在 AI 客服的第一条消息里附上链接。</p><p class="ver">参见：<a href="/zh/services/ai-training/">培训</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-b">
+    <h2>B</h2>
+    <dl class="glosario">
+      <div class="termino" id="bandeja-unificada"><dt>统一收件箱</dt><dd><p>一个界面，让团队在同一处看到 WhatsApp、Instagram、Facebook 和邮件的消息，而不用一个个应用分别去看。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+      <div class="termino" id="base-de-conocimiento"><dt>知识库</dt><dd><p>AI 客服对您生意的了解：营业时间、价格、规定、常见问题。没写进去的，AI 客服就不知道，正确的做法是转给真人。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+      <div class="termino" id="base-deduplicada"><dt>去重后的数据库</dt><dd><p>您的客户名单，每人只有一条记录。同一个客户用三个不同的名字出现三次，就没人知道您到底有多少客户，也不知道最后是谁跟他联系的。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-c">
+    <h2>C</h2>
+    <dl class="glosario">
+      <div class="termino" id="calificacion-de-leads"><dt>线索筛选</dt><dd><p>把准备购买的人和只是问问的人分开。AI 客服会问销售需要知道的问题，比如预算、日期或区域，并把回答记进 CRM。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+      <div class="termino" id="chatbot"><dt>聊天机器人</dt><dd><p>一个回复消息的程序。最简单的只显示选项菜单；用 AI 的能看懂客户写的内容，像正常聊天一样回复。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+      <div class="termino" id="cobranza-automatizada"><dt>自动催款</dt><dd><p>付款提醒自动发出，按您批准的顺序和文字发送，直到登记收到付款。每次发送您都看得到，也可以暂停某个客户的提醒序列。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+      <div class="termino" id="consentimiento"><dt>同意授权（opt-in）</dt><dd><p>一个人允许您的商家给他发消息的许可。WhatsApp 要求在已开启的对话之外发消息必须有这项许可，墨西哥法律对某些数据用途也有这个要求。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+      <div class="termino" id="crm"><dt>CRM</dt><dd><p>Customer relationship management（客户关系管理）：一份统一的名单，记录谁联系过您、想要什么、谈到哪一步、下一步做什么。它取代每个销售自己的 WhatsApp、电子表格和团队的记忆。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-d">
+    <h2>D</h2>
+    <dl class="glosario">
+      <div class="termino" id="datos-sensibles"><dt>敏感个人数据</dt><dd><p>一旦被滥用就可能伤害当事人的数据，比如健康数据。在墨西哥，处理这类数据需要明确的书面同意，也不适合通过聊天索取。</p><p class="ver">参见：<a href="/zh/services/ai-training/">培训</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-e">
+    <h2>E</h2>
+    <dl class="glosario">
+      <div class="termino" id="embudo"><dt>销售漏斗</dt><dd><p>客户从第一次咨询到购买所经历的各个阶段，用的是您团队已经在用的叫法。能看出人在哪一步流失，每一步有多少人。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-f">
+    <h2>F</h2>
+    <dl class="glosario">
+      <div class="termino" id="flujo-de-trabajo"><dt>工作流程</dt><dd><p>一串自动触发的步骤：新联系人进来，就分配一个销售、发一条消息、设一个提醒。也叫 workflow。</p><p class="ver">参见：<a href="/zh/services/automation-and-reporting/">自动化和报表</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-i">
+    <h2>I</h2>
+    <dl class="glosario">
+      <div class="termino" id="integracion"><dt>系统集成</dt><dd><p>两个系统之间的连接，让数据自动传过去，不用人复制粘贴：日程表连 CRM，收银系统连报表，表单连 WhatsApp。</p><p class="ver">参见：<a href="/zh/services/automation-and-reporting/">自动化和报表</a></p></dd></div>
+      <div class="termino" id="inteligencia-artificial"><dt>人工智能</dt><dd><p>能完成以前需要人来做的任务的程序，比如看懂一条消息、读一份文件或起草一条回复。在生意里，主要用在重复性的事情上。</p><p class="ver">参见：<a href="/zh/services/">服务</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-l">
+    <h2>L</h2>
+    <dl class="glosario">
+      <div class="termino" id="lead"><dt>潜在客户（lead）</dt><dd><p>表现出兴趣但还没购买的人：在表单里留了资料、在 WhatsApp 上问过，或在某个平台上索取了信息。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+      <div class="termino" id="lectura-de-documentos"><dt>文档识别</dt><dd><p>把照片、PDF 或 Excel 里的内容转成数据：一张订货单、一张发票、一份身份证件。这项技术叫 OCR，加上 AI 还能看懂缩写和杂乱的表格。</p><p class="ver">参见：<a href="/zh/services/automation-and-reporting/">自动化和报表</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-m">
+    <h2>M</h2>
+    <dl class="glosario">
+      <div class="termino" id="modelo-de-lenguaje"><dt>语言模型</dt><dd><p>ChatGPT 或 Claude 这类工具背后的引擎。它从海量文本中学习，生成书面回答。也叫 LLM（英文缩写）。</p><p class="ver">参见：<a href="/zh/services/ai-training/">培训</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-n">
+    <h2>N</h2>
+    <dl class="glosario">
+      <div class="termino" id="no-show"><dt>爽约（No-show）</dt><dd><p>客户订了位或约了时间却没来，也没通知。发一条可以改约的提醒，就能把位置腾出来给别人。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-p">
+    <h2>P</h2>
+    <dl class="glosario">
+      <div class="termino" id="plantilla"><dt>消息模板</dt><dd><p>经 Meta 批准的 WhatsApp 消息，您的商家可以在已开启的对话之外发送，比如提醒。每种语言要单独建一个，WhatsApp 可能按每次发送收费。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+      <div class="termino" id="prompt"><dt>提示词（Prompt）</dt><dd><p>给 AI 工具的指令。好的提示词会说明做什么、用哪些信息、什么语气、不能做什么。</p><p class="ver">参见：<a href="/zh/services/ai-training/">培训</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-r">
+    <h2>R</h2>
+    <dl class="glosario">
+      <div class="termino" id="rag"><dt>RAG</dt><dd><p>Retrieval augmented generation，检索增强生成。AI 客服在回答之前先查您的文档，而不是凭它学到的通用知识作答。这样它报的是您的价格，而不是编出来的价格。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+      <div class="termino" id="recordatorio"><dt>自动提醒</dt><dd><p>在预约、订位或到期之前自动发出的通知，发给客户，也发给您的团队。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+      <div class="termino" id="reporte-automatico"><dt>自动报表</dt><dd><p>每周自动送到的摘要，列出您生意里重要的数字：新联系人、已回复、已预约、已成交和待收款。</p><p class="ver">参见：<a href="/zh/services/automation-and-reporting/">自动化和报表</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-s">
+    <h2>S</h2>
+    <dl class="glosario">
+      <div class="termino" id="seguimiento"><dt>跟进</dt><dd><p>对没回复或还没决定的客户的下一次联系。这是丢单最多的地方，因为全靠有人记得。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-t">
+    <h2>T</h2>
+    <dl class="glosario">
+      <div class="termino" id="tasa-de-bajas"><dt>流失率</dt><dd><p>一段时间内离开的客户或会员所占的比例。英文叫 churn。有人要走的信号，通常提前几周就会出现：不再来了，或不再买了。</p><p class="ver">参见：<a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></p></dd></div>
+      <div class="termino" id="texto-a-voz"><dt>文字转语音</dt><dd><p>把书面回答变成听起来自然的声音的技术。它是 AI 语音客服的一半；另一半是语音识别，把对方说的话转成文字。</p><p class="ver">参见：<a href="/zh/services/voice-agent/">AI 语音客服</a></p></dd></div>
+      <div class="termino" id="tiempo-de-respuesta"><dt>首次响应时间</dt><dd><p>您的商家回复客户第一条消息所花的时间。这是对成交影响最大的数字之一：来问的人，往往会选最先回复的那家。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+      <div class="termino" id="traspaso"><dt>转接真人</dt><dd><p>AI 客服把对话交给团队成员的那一刻，情况已经总结好。好的 AI 客服知道什么时候该转：投诉、特殊情况、大单。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-u">
+    <h2>U</h2>
+    <dl class="glosario">
+      <div class="termino" id="utm"><dt>UTM</dt><dd><p>加在链接上的标签，用来知道点击的人从哪里来：哪条广告、哪篇帖子、哪封邮件。CRM 会把它们和联系人一起保存。</p><p class="ver">参见：<a href="/zh/services/automation-and-reporting/">自动化和报表</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-v">
+    <h2>V</h2>
+    <dl class="glosario">
+      <div class="termino" id="ventana-24-horas"><dt>24 小时客服窗口</dt><dd><p>在 WhatsApp API 中，客户每发一条消息就会开启的时限。在这 24 小时内，您可以自由回复；超出之后，只能用已批准的模板。</p><p class="ver">参见：<a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-w">
+    <h2>W</h2>
+    <dl class="glosario">
+      <div class="termino" id="webhook"><dt>Webhook</dt><dd><p>一个系统在发生某件事时自动发给另一个系统的通知，比如收到一笔付款或有人填了表单。正是它让自动化能自己启动。</p><p class="ver">参见：<a href="/zh/services/automation-and-reporting/">自动化和报表</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja">
+    <div class="audit" id="audit">
+      <p class="ojo">免费 Audit</p>
+      <h2>从免费 Audit 开始</h2>
+      <p>一份 15 到 25 分钟的引导式问卷，了解您的商家现在怎么运作。由真人审阅，24 到 48 个工作小时内，您会收到一份地图，告诉您先做什么最划算，以及每一项的理由。不管合不合作，地图都归您。</p>
+      <ul class="rubros">
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/gastronomia">餐饮<span>餐厅、酒吧、咖啡馆和面包店</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/hospitality">酒店旅宿<span>精品酒店、度假租赁和旅游团</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">房地产<span>房产中介、开发商和经纪人</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/fitness">健身<span>健身房和工作室</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/eventos">活动<span>制作公司、推广方和演出场馆</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/artistas">艺人<span>艺人、DJ 和经纪人</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/distribucion">分销<span>批发商、五金店和进口商</span></a></li>
+      </ul>
+      <p class="nota">选择您的行业，打开对应的问卷。想先聊聊？<a href="https://wa.me/525568976898?text=Hola%21%20Quiero%20hablar%20con%20El%20T%C3%ADo%20sobre%20inteligencia%20artificial%20para%20mi%20empresa." data-cta="whatsapp">通过 WhatsApp 联系我们</a>。</p>
+      <p class="nota nota-idioma">Audit 目前只有西班牙语版本。如果想用您的语言沟通，请通过 WhatsApp 或 hola@eltio.net 联系我们。</p>
+    </div>
+  </section>
+</main>
+<footer class="pie">
+  <div class="inner">
+    <div class="pie-cols">
+      <div><p>服务</p><ul>
+        <li><a href="/zh/websites/">8 种语言的网站</a></li>
+        <li><a href="/zh/ai-search-visibility/">AI 搜索优化</a></li>
+        <li><a href="/zh/prospecting-and-email/">客户开发和邮件营销</a></li>
+        <li><a href="/zh/services/whatsapp-instagram-agent/">WhatsApp 和 Instagram AI 客服</a></li>
+        <li><a href="/zh/services/voice-agent/">AI 语音客服</a></li>
+        <li><a href="/zh/services/crm-and-follow-up/">CRM 和客户跟进</a></li>
+        <li><a href="/zh/services/automation-and-reporting/">自动化和报表</a></li>
+        <li><a href="/zh/services/ai-training/">培训</a></li>
+      </ul></div>
+      <div><p>城市</p><ul>
+        <li><a href="/zh/cities/mexico-city/">墨西哥城</a></li>
+        <li><a href="/zh/cities/monterrey/">蒙特雷</a></li>
+        <li><a href="/zh/cities/guadalajara/">瓜达拉哈拉</a></li>
+        <li><a href="/zh/cities/tulum-riviera-maya/">图卢姆和玛雅里维埃拉</a></li>
+      </ul></div>
+      <div><p>行业</p><ul>
+        <li><a href="/zh/restaurants/">餐饮</a></li>
+        <li><a href="/zh/hospitality/">酒店旅宿</a></li>
+        <li><a href="/zh/real-estate/">房地产</a></li>
+        <li><a href="/zh/fitness/">健身</a></li>
+        <li><a href="/zh/events/">活动</a></li>
+        <li><a href="/zh/artists/">艺人</a></li>
+        <li><a href="/zh/distribution/">分销</a></li>
+      </ul></div>
+      <div><p>El Tío</p><ul>
+        <li><a href="/zh/pricing/">套餐和价格</a></li>
+        <li><a href="/zh/how-we-work/">我们怎么做</a></li>
+        <li><a href="/zh/faq/">常见问题</a></li>
+        <li><a href="/zh/guides/">指南</a></li>
+        <li><a href="/zh/glossary/">AI 术语表</a></li>
+        <li><a href="/cronometro/">Cronómetro</a></li>
+        <li><a href="/zh/about/">关于 El Tío</a></li>
+        <li><a href="/zh/contact/">联系</a></li>
+      </ul></div>
+    </div>
+    <div class="pie-base">
+      <p>El Tío · 应用于企业的人工智能</p>
+      <p><a href="mailto:hola@eltio.net">hola@eltio.net</a> · <a href="https://wa.me/525568976898?text=Hola%21%20Quiero%20hablar%20con%20El%20T%C3%ADo%20sobre%20inteligencia%20artificial%20para%20mi%20empresa." data-cta="whatsapp">WhatsApp +52 55 6897 6898</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

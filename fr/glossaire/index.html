@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossaire de l’IA pour les entreprises : agents, CRM, RAG et plus · El Tío</title>
+<meta name="description" content="Ce qu’est un agent IA, un CRM, le RAG, un modèle WhatsApp ou un webhook. Glossaire de l’intelligence artificielle pour les chefs d’entreprise, sans jargon.">
+<link rel="canonical" href="https://eltio.net/fr/glossaire/">
+<link rel="alternate" hreflang="es" href="https://eltio.net/glosario/">
+<link rel="alternate" hreflang="en" href="https://eltio.net/en/glossary/">
+<link rel="alternate" hreflang="pt-BR" href="https://eltio.net/pt/glossario/">
+<link rel="alternate" hreflang="fr" href="https://eltio.net/fr/glossaire/">
+<link rel="alternate" hreflang="de" href="https://eltio.net/de/glossar/">
+<link rel="alternate" hreflang="it" href="https://eltio.net/it/glossario/">
+<link rel="alternate" hreflang="zh-CN" href="https://eltio.net/zh/glossary/">
+<link rel="alternate" hreflang="ja" href="https://eltio.net/ja/glossary/">
+<link rel="alternate" hreflang="x-default" href="https://eltio.net/glosario/">
+<meta name="theme-color" content="#04070B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="es_MX">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:site_name" content="El Tío">
+<meta property="og:url" content="https://eltio.net/fr/glossaire/">
+<meta property="og:title" content="Glossaire de l’IA pour les entreprises : agents, CRM, RAG et plus">
+<meta property="og:description" content="Ce qu’est un agent IA, un CRM, le RAG, un modèle WhatsApp ou un webhook. Glossaire de l’intelligence artificielle pour les chefs d’entreprise, sans jargon.">
+<meta property="og:image" content="https://eltio.net/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-var.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/paginas.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "DefinedTermSet",
+ "name": "Glossaire de l’intelligence artificielle pour les entreprises",
+ "url": "https://eltio.net/fr/glossaire/",
+ "inLanguage": "fr",
+ "hasDefinedTerm": [
+  {
+   "@type": "DefinedTerm",
+   "name": "Agent IA",
+   "description": "Un programme qui discute avec vos clients, comprend ce qu’ils demandent avec leurs propres mots et en fait quelque chose : il répond, prend un rendez-vous, enregistre ou transmet le dossier à une personne. La différence avec un chatbot à boutons, c’est que le client n’a pas besoin de choisir une option.",
+   "url": "https://eltio.net/fr/glossaire/#agente-de-ia",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Agent vocal",
+   "description": "Un agent IA qui parle au téléphone. Il appelle ou décroche, converse avec une voix naturelle, confirme des rendez-vous ou qualifie un prospect, et laisse un résumé de l’appel dans le CRM. Au début, il dit que c’est une IA.",
+   "url": "https://eltio.net/fr/glossaire/#agente-de-voz",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Hallucination",
+   "description": "Quand un modèle d’IA affirme quelque chose avec assurance alors que c’est faux. On limite le problème en ne lui donnant que les informations de votre entreprise et en lui demandant de passer à une personne ce qu’il ne sait pas.",
+   "url": "https://eltio.net/fr/glossaire/#alucinacion",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "API WhatsApp Business",
+   "description": "La version de WhatsApp pour les entreprises qui permet de connecter un logiciel à votre numéro, pour qu’un agent réponde et que chaque conversation soit enregistrée. Ce n’est pas l’application WhatsApp Business qu’on utilise sur le téléphone.",
+   "url": "https://eltio.net/fr/glossaire/#api-whatsapp-business",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Application WhatsApp Business",
+   "description": "L’application gratuite pour les entreprises qui s’installe sur un téléphone. Elle sert à répondre à la main, avec des réponses rapides et un catalogue, mais pas à connecter un agent IA ni un CRM.",
+   "url": "https://eltio.net/fr/glossaire/#app-whatsapp-business",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Attribution ou origine du contact",
+   "description": "Enregistrer d’où vient chaque client : une publicité, Instagram, un portail, une recommandation. C’est ce qui permet de savoir quel canal apporte des ventes et lequel n’apporte que des messages.",
+   "url": "https://eltio.net/fr/glossaire/#atribucion",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Audit IA",
+   "description": "Le diagnostic par lequel commence El Tío : un questionnaire sur la façon dont votre entreprise travaille aujourd’hui et une feuille de route de ce qu’il vaut mieux optimiser et automatiser en premier, avec la raison de chaque point. C’est gratuit.",
+   "url": "https://eltio.net/fr/glossaire/#audit-de-ia",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Automatisation",
+   "description": "Une tâche qu’une personne faisait avant et qui se fait maintenant toute seule chaque fois qu’un événement se produit : un message de bienvenue, un rappel, une alerte au responsable. Il vaut mieux mettre de l’ordre dans le processus avant de l’automatiser.",
+   "url": "https://eltio.net/fr/glossaire/#automatizacion",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Politique de confidentialité (aviso de privacidad)",
+   "description": "Le document qui indique à votre client quelles données vous conservez, à quoi elles servent et comment il peut demander leur suppression. Au Mexique, la loi sur les données personnelles l’exige, et il est conseillé de mettre le lien dans le premier message de l’agent.",
+   "url": "https://eltio.net/fr/glossaire/#aviso-de-privacidad",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Messagerie unifiée",
+   "description": "Un seul écran où votre équipe voit les messages WhatsApp, Instagram, Facebook et e-mail, au lieu de vérifier chaque application séparément.",
+   "url": "https://eltio.net/fr/glossaire/#bandeja-unificada",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Base de connaissances",
+   "description": "Ce que l’agent sait de votre entreprise : horaires, prix, conditions, questions fréquentes. Si quelque chose n’y est pas écrit, l’agent ne le sait pas, et la bonne réaction est de passer la main à une personne.",
+   "url": "https://eltio.net/fr/glossaire/#base-de-conocimiento",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Base de données dédoublonnée",
+   "description": "Votre liste de clients avec une seule fiche par personne. Quand le même client apparaît trois fois sous des noms différents, personne ne sait combien de clients vous avez ni qui lui a parlé en dernier.",
+   "url": "https://eltio.net/fr/glossaire/#base-deduplicada",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Qualification des leads",
+   "description": "Distinguer celui qui est prêt à acheter de celui qui se renseigne. L’agent pose les questions dont votre commercial a besoin, comme le budget, la date ou le quartier, et note la réponse dans le CRM.",
+   "url": "https://eltio.net/fr/glossaire/#calificacion-de-leads",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Chatbot",
+   "description": "Un programme qui répond aux messages. Les plus simples affichent un menu d’options ; ceux qui utilisent l’IA comprennent ce que le client écrit et répondent comme dans une conversation normale.",
+   "url": "https://eltio.net/fr/glossaire/#chatbot",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Relances de paiement automatiques",
+   "description": "Des rappels de paiement qui partent tout seuls, dans l’ordre et avec le texte que vous validez, jusqu’à ce que le paiement soit enregistré. Vous voyez chaque envoi et vous pouvez arrêter la séquence d’un client.",
+   "url": "https://eltio.net/fr/glossaire/#cobranza-automatizada",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Consentement ou opt-in",
+   "description": "L’autorisation qu’une personne donne à votre entreprise pour lui écrire. WhatsApp l’exige pour envoyer des messages en dehors d’une conversation ouverte, et la loi mexicaine la demande pour certains usages des données.",
+   "url": "https://eltio.net/fr/glossaire/#consentimiento",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "CRM",
+   "description": "Customer relationship management : la liste unique de qui vous a écrit, ce qu’il veut, où vous en êtes restés et quelle est la suite. Il remplace le WhatsApp de chaque commercial, le tableur et la mémoire de l’équipe.",
+   "url": "https://eltio.net/fr/glossaire/#crm",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Données personnelles sensibles",
+   "description": "Des données qui, mal utilisées, peuvent nuire à la personne, comme les données de santé. Au Mexique, il faut un consentement exprès et écrit pour les traiter, et mieux vaut ne pas les demander par chat.",
+   "url": "https://eltio.net/fr/glossaire/#datos-sensibles",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Tunnel de vente",
+   "description": "Les étapes que traverse un client, de la première demande à l’achat, avec les noms que votre équipe utilise déjà. Il montre où les gens décrochent et combien en sont à chaque étape.",
+   "url": "https://eltio.net/fr/glossaire/#embudo",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Flux de travail",
+   "description": "Une suite d’étapes qui se déclenche toute seule : quand un nouveau contact arrive, on lui attribue un commercial, on lui envoie un message et on programme un rappel. On dit aussi workflow.",
+   "url": "https://eltio.net/fr/glossaire/#flujo-de-trabajo",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Intégration",
+   "description": "La connexion entre deux systèmes pour qu’ils échangent des données sans que personne ne fasse de copier-coller : votre agenda avec le CRM, votre caisse avec le rapport, votre formulaire avec WhatsApp.",
+   "url": "https://eltio.net/fr/glossaire/#integracion",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Intelligence artificielle",
+   "description": "Des programmes qui font des tâches qui demandaient avant une personne, comme comprendre un message, lire un document ou rédiger une réponse. Dans une entreprise, ça sert surtout pour ce qui se répète.",
+   "url": "https://eltio.net/fr/glossaire/#inteligencia-artificial",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Lead ou prospect",
+   "description": "Une personne qui a montré de l’intérêt mais n’a pas encore acheté : elle a laissé ses coordonnées dans un formulaire, posé une question sur WhatsApp ou demandé des informations sur un portail.",
+   "url": "https://eltio.net/fr/glossaire/#lead",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Lecture de documents",
+   "description": "Transformer en données ce qui arrive en photo, en PDF ou en Excel : une liste de commande, une facture, une pièce d’identité. La technique s’appelle OCR, et avec l’IA elle comprend aussi les abréviations et les tableaux en désordre.",
+   "url": "https://eltio.net/fr/glossaire/#lectura-de-documentos",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Modèle de langage",
+   "description": "Le moteur qui se trouve derrière des outils comme ChatGPT ou Claude. Il a appris sur d’énormes quantités de texte et produit des réponses écrites. On l’appelle aussi LLM, d’après le sigle anglais.",
+   "url": "https://eltio.net/fr/glossaire/#modelo-de-lenguaje",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "No-show",
+   "description": "La réservation ou le rendez-vous où le client ne vient pas et ne prévient pas. Un rappel avec la possibilité de déplacer le rendez-vous permet de libérer la place et de la proposer à quelqu’un d’autre.",
+   "url": "https://eltio.net/fr/glossaire/#no-show",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Modèle de message",
+   "description": "Un message WhatsApp validé par Meta que votre entreprise peut envoyer en dehors d’une conversation ouverte, par exemple un rappel. On en crée un par langue, et WhatsApp peut facturer chaque envoi.",
+   "url": "https://eltio.net/fr/glossaire/#plantilla",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Prompt",
+   "description": "L’instruction que l’on donne à un outil d’IA. Un bon prompt dit quoi faire, avec quelles informations, sur quel ton et ce qu’il ne faut pas faire.",
+   "url": "https://eltio.net/fr/glossaire/#prompt",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "RAG",
+   "description": "Retrieval augmented generation, ou génération augmentée par recherche. L’agent cherche dans vos documents avant de répondre, au lieu de répondre avec ce qu’il a appris en général. Il répond ainsi avec vos prix et non avec des prix inventés.",
+   "url": "https://eltio.net/fr/glossaire/#rag",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Rappel automatique",
+   "description": "Le message qui part tout seul avant un rendez-vous, une réservation ou une échéance, pour le client et pour votre équipe.",
+   "url": "https://eltio.net/fr/glossaire/#recordatorio",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Rapport automatique",
+   "description": "Le résumé qui arrive tout seul chaque semaine avec les chiffres qui comptent pour votre entreprise : nouveaux contacts, réponses, rendez-vous, ventes conclues et paiements en attente.",
+   "url": "https://eltio.net/fr/glossaire/#reporte-automatico",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Relance",
+   "description": "Le contact suivant avec un client qui n’a pas répondu ou n’a pas décidé. C’est là que se perdent le plus de ventes, parce que ça dépend de quelqu’un qui doit y penser.",
+   "url": "https://eltio.net/fr/glossaire/#seguimiento",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Taux d’attrition",
+   "description": "La part de vos clients ou adhérents qui part sur une période donnée. En anglais, on parle de churn. Le signe qu’une personne va partir apparaît souvent des semaines avant, quand elle ne vient plus ou n’achète plus.",
+   "url": "https://eltio.net/fr/glossaire/#tasa-de-bajas",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Synthèse vocale",
+   "description": "La technologie qui transforme une réponse écrite en une voix qui sonne naturelle. C’est la moitié d’un agent vocal ; l’autre moitié est la reconnaissance vocale, qui transcrit en texte ce que dit la personne.",
+   "url": "https://eltio.net/fr/glossaire/#texto-a-voz",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Délai de première réponse",
+   "description": "Le temps que met votre entreprise à répondre au premier message d’un client. C’est l’un des chiffres qui pèsent le plus dans une vente : celui qui pose la question achète souvent chez le premier qui répond.",
+   "url": "https://eltio.net/fr/glossaire/#tiempo-de-respuesta",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Transfert à une personne",
+   "description": "Le moment où l’agent passe la conversation à quelqu’un de l’équipe, avec le dossier déjà résumé. Un bon agent sait quand le faire : réclamations, cas particuliers, grosses ventes.",
+   "url": "https://eltio.net/fr/glossaire/#traspaso",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "UTM",
+   "description": "Des balises ajoutées à un lien pour savoir d’où vient la personne qui a cliqué : quelle annonce, quelle publication, quel e-mail. Le CRM les enregistre avec le contact.",
+   "url": "https://eltio.net/fr/glossaire/#utm",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Fenêtre de service client de 24 heures",
+   "description": "Le délai qu’ouvre chaque message d’un client dans l’API WhatsApp. Pendant ces 24 heures, vous pouvez répondre avec des messages libres ; en dehors, seulement avec des modèles validés.",
+   "url": "https://eltio.net/fr/glossaire/#ventana-24-horas",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "name": "Webhook",
+   "description": "L’alerte automatique qu’un système envoie à un autre quand quelque chose se passe, par exemple quand un paiement arrive ou qu’un formulaire est rempli. C’est ce qui permet à une automatisation de démarrer toute seule.",
+   "url": "https://eltio.net/fr/glossaire/#webhook",
+   "inDefinedTermSet": "https://eltio.net/glosario/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "El Tío",
+   "item": "https://eltio.net/fr/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Glossaire",
+   "item": "https://eltio.net/fr/glossaire/"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Aller au contenu</a>
+<header class="cabecera">
+  <div class="inner">
+    <a class="marca" href="/fr/">EL TIO<span>.</span></a>
+    <nav class="menu" aria-label="Principal">
+      <a href="/fr/sites-web/">Sites web</a>
+      <a href="/fr/referencement-ia/">Référencement IA</a>
+      <a href="/fr/services/">Services</a>
+      <a href="/fr/offres-et-tarifs/">Offres</a>
+      <a href="/fr/guides/">Guides</a>
+    </nav>
+    <details class="idioma">
+      <summary aria-label="Langue: Français">FR</summary>
+      <ul>
+        <li><a href="/glosario/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="/en/glossary/" hreflang="en" lang="en">English</a></li>
+        <li><a href="/pt/glossario/" hreflang="pt-BR" lang="pt-BR">Português</a></li>
+        <li><a href="/fr/glossaire/" hreflang="fr" lang="fr" aria-current="true">Français</a></li>
+        <li><a href="/de/glossar/" hreflang="de" lang="de">Deutsch</a></li>
+        <li><a href="/it/glossario/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="/zh/glossary/" hreflang="zh-CN" lang="zh-CN">中文</a></li>
+        <li><a href="/ja/glossary/" hreflang="ja" lang="ja">日本語</a></li>
+      </ul>
+    </details>
+    <a class="btn-chico" href="#audit" data-cta="audit">Audit gratuit</a>
+  </div>
+</header>
+<main id="contenido">
+  <nav class="migas franja" aria-label="Fil d’Ariane" style="padding-bottom:0"><a href="/fr/">El Tío</a> / Glossaire</nav>
+  <section class="franja" style="padding-top:8px">
+    <p class="ojo">Glossaire</p>
+    <h1>Glossaire de l’intelligence artificielle pour les entreprises</h1>
+    <p class="bajada">Les mots que vous allez entendre quand vous parlerez d’IA pour votre entreprise, expliqués sans jargon. Il y a 39 termes, et chacun renvoie au service où il est utilisé.</p>
+
+  </section>
+  <nav class="franja letras" aria-label="Lettres"><a href="#letra-a">A</a> <a href="#letra-b">B</a> <a href="#letra-c">C</a> <a href="#letra-d">D</a> <a href="#letra-e">E</a> <a href="#letra-f">F</a> <a href="#letra-i">I</a> <a href="#letra-l">L</a> <a href="#letra-m">M</a> <a href="#letra-n">N</a> <a href="#letra-p">P</a> <a href="#letra-r">R</a> <a href="#letra-s">S</a> <a href="#letra-t">T</a> <a href="#letra-u">U</a> <a href="#letra-v">V</a> <a href="#letra-w">W</a></nav>
+  <section class="franja" id="letra-a">
+    <h2>A</h2>
+    <dl class="glosario">
+      <div class="termino" id="agente-de-ia"><dt>Agent IA</dt><dd><p>Un programme qui discute avec vos clients, comprend ce qu’ils demandent avec leurs propres mots et en fait quelque chose : il répond, prend un rendez-vous, enregistre ou transmet le dossier à une personne. La différence avec un chatbot à boutons, c’est que le client n’a pas besoin de choisir une option.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+      <div class="termino" id="agente-de-voz"><dt>Agent vocal</dt><dd><p>Un agent IA qui parle au téléphone. Il appelle ou décroche, converse avec une voix naturelle, confirme des rendez-vous ou qualifie un prospect, et laisse un résumé de l’appel dans le CRM. Au début, il dit que c’est une IA.</p><p class="ver">Voir : <a href="/fr/services/agent-vocal/">Agent vocal</a></p></dd></div>
+      <div class="termino" id="alucinacion"><dt>Hallucination</dt><dd><p>Quand un modèle d’IA affirme quelque chose avec assurance alors que c’est faux. On limite le problème en ne lui donnant que les informations de votre entreprise et en lui demandant de passer à une personne ce qu’il ne sait pas.</p><p class="ver">Voir : <a href="/fr/services/formation/">Formation</a></p></dd></div>
+      <div class="termino" id="api-whatsapp-business"><dt>API WhatsApp Business</dt><dd><p>La version de WhatsApp pour les entreprises qui permet de connecter un logiciel à votre numéro, pour qu’un agent réponde et que chaque conversation soit enregistrée. Ce n’est pas l’application WhatsApp Business qu’on utilise sur le téléphone.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+      <div class="termino" id="app-whatsapp-business"><dt>Application WhatsApp Business</dt><dd><p>L’application gratuite pour les entreprises qui s’installe sur un téléphone. Elle sert à répondre à la main, avec des réponses rapides et un catalogue, mais pas à connecter un agent IA ni un CRM.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+      <div class="termino" id="atribucion"><dt>Attribution ou origine du contact</dt><dd><p>Enregistrer d’où vient chaque client : une publicité, Instagram, un portail, une recommandation. C’est ce qui permet de savoir quel canal apporte des ventes et lequel n’apporte que des messages.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+      <div class="termino" id="audit-de-ia"><dt>Audit IA</dt><dd><p>Le diagnostic par lequel commence El Tío : un questionnaire sur la façon dont votre entreprise travaille aujourd’hui et une feuille de route de ce qu’il vaut mieux optimiser et automatiser en premier, avec la raison de chaque point. C’est gratuit.</p><p class="ver">Voir : <a href="/fr/offres-et-tarifs/">Offres et tarifs</a></p></dd></div>
+      <div class="termino" id="automatizacion"><dt>Automatisation</dt><dd><p>Une tâche qu’une personne faisait avant et qui se fait maintenant toute seule chaque fois qu’un événement se produit : un message de bienvenue, un rappel, une alerte au responsable. Il vaut mieux mettre de l’ordre dans le processus avant de l’automatiser.</p><p class="ver">Voir : <a href="/fr/services/automatisations-et-rapports/">Automatisations et rapports</a></p></dd></div>
+      <div class="termino" id="aviso-de-privacidad"><dt>Politique de confidentialité (aviso de privacidad)</dt><dd><p>Le document qui indique à votre client quelles données vous conservez, à quoi elles servent et comment il peut demander leur suppression. Au Mexique, la loi sur les données personnelles l’exige, et il est conseillé de mettre le lien dans le premier message de l’agent.</p><p class="ver">Voir : <a href="/fr/services/formation/">Formation</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-b">
+    <h2>B</h2>
+    <dl class="glosario">
+      <div class="termino" id="bandeja-unificada"><dt>Messagerie unifiée</dt><dd><p>Un seul écran où votre équipe voit les messages WhatsApp, Instagram, Facebook et e-mail, au lieu de vérifier chaque application séparément.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+      <div class="termino" id="base-de-conocimiento"><dt>Base de connaissances</dt><dd><p>Ce que l’agent sait de votre entreprise : horaires, prix, conditions, questions fréquentes. Si quelque chose n’y est pas écrit, l’agent ne le sait pas, et la bonne réaction est de passer la main à une personne.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+      <div class="termino" id="base-deduplicada"><dt>Base de données dédoublonnée</dt><dd><p>Votre liste de clients avec une seule fiche par personne. Quand le même client apparaît trois fois sous des noms différents, personne ne sait combien de clients vous avez ni qui lui a parlé en dernier.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-c">
+    <h2>C</h2>
+    <dl class="glosario">
+      <div class="termino" id="calificacion-de-leads"><dt>Qualification des leads</dt><dd><p>Distinguer celui qui est prêt à acheter de celui qui se renseigne. L’agent pose les questions dont votre commercial a besoin, comme le budget, la date ou le quartier, et note la réponse dans le CRM.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+      <div class="termino" id="chatbot"><dt>Chatbot</dt><dd><p>Un programme qui répond aux messages. Les plus simples affichent un menu d’options ; ceux qui utilisent l’IA comprennent ce que le client écrit et répondent comme dans une conversation normale.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+      <div class="termino" id="cobranza-automatizada"><dt>Relances de paiement automatiques</dt><dd><p>Des rappels de paiement qui partent tout seuls, dans l’ordre et avec le texte que vous validez, jusqu’à ce que le paiement soit enregistré. Vous voyez chaque envoi et vous pouvez arrêter la séquence d’un client.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+      <div class="termino" id="consentimiento"><dt>Consentement ou opt-in</dt><dd><p>L’autorisation qu’une personne donne à votre entreprise pour lui écrire. WhatsApp l’exige pour envoyer des messages en dehors d’une conversation ouverte, et la loi mexicaine la demande pour certains usages des données.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+      <div class="termino" id="crm"><dt>CRM</dt><dd><p>Customer relationship management : la liste unique de qui vous a écrit, ce qu’il veut, où vous en êtes restés et quelle est la suite. Il remplace le WhatsApp de chaque commercial, le tableur et la mémoire de l’équipe.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-d">
+    <h2>D</h2>
+    <dl class="glosario">
+      <div class="termino" id="datos-sensibles"><dt>Données personnelles sensibles</dt><dd><p>Des données qui, mal utilisées, peuvent nuire à la personne, comme les données de santé. Au Mexique, il faut un consentement exprès et écrit pour les traiter, et mieux vaut ne pas les demander par chat.</p><p class="ver">Voir : <a href="/fr/services/formation/">Formation</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-e">
+    <h2>E</h2>
+    <dl class="glosario">
+      <div class="termino" id="embudo"><dt>Tunnel de vente</dt><dd><p>Les étapes que traverse un client, de la première demande à l’achat, avec les noms que votre équipe utilise déjà. Il montre où les gens décrochent et combien en sont à chaque étape.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-f">
+    <h2>F</h2>
+    <dl class="glosario">
+      <div class="termino" id="flujo-de-trabajo"><dt>Flux de travail</dt><dd><p>Une suite d’étapes qui se déclenche toute seule : quand un nouveau contact arrive, on lui attribue un commercial, on lui envoie un message et on programme un rappel. On dit aussi workflow.</p><p class="ver">Voir : <a href="/fr/services/automatisations-et-rapports/">Automatisations et rapports</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-i">
+    <h2>I</h2>
+    <dl class="glosario">
+      <div class="termino" id="integracion"><dt>Intégration</dt><dd><p>La connexion entre deux systèmes pour qu’ils échangent des données sans que personne ne fasse de copier-coller : votre agenda avec le CRM, votre caisse avec le rapport, votre formulaire avec WhatsApp.</p><p class="ver">Voir : <a href="/fr/services/automatisations-et-rapports/">Automatisations et rapports</a></p></dd></div>
+      <div class="termino" id="inteligencia-artificial"><dt>Intelligence artificielle</dt><dd><p>Des programmes qui font des tâches qui demandaient avant une personne, comme comprendre un message, lire un document ou rédiger une réponse. Dans une entreprise, ça sert surtout pour ce qui se répète.</p><p class="ver">Voir : <a href="/fr/services/">Services</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-l">
+    <h2>L</h2>
+    <dl class="glosario">
+      <div class="termino" id="lead"><dt>Lead ou prospect</dt><dd><p>Une personne qui a montré de l’intérêt mais n’a pas encore acheté : elle a laissé ses coordonnées dans un formulaire, posé une question sur WhatsApp ou demandé des informations sur un portail.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+      <div class="termino" id="lectura-de-documentos"><dt>Lecture de documents</dt><dd><p>Transformer en données ce qui arrive en photo, en PDF ou en Excel : une liste de commande, une facture, une pièce d’identité. La technique s’appelle OCR, et avec l’IA elle comprend aussi les abréviations et les tableaux en désordre.</p><p class="ver">Voir : <a href="/fr/services/automatisations-et-rapports/">Automatisations et rapports</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-m">
+    <h2>M</h2>
+    <dl class="glosario">
+      <div class="termino" id="modelo-de-lenguaje"><dt>Modèle de langage</dt><dd><p>Le moteur qui se trouve derrière des outils comme ChatGPT ou Claude. Il a appris sur d’énormes quantités de texte et produit des réponses écrites. On l’appelle aussi LLM, d’après le sigle anglais.</p><p class="ver">Voir : <a href="/fr/services/formation/">Formation</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-n">
+    <h2>N</h2>
+    <dl class="glosario">
+      <div class="termino" id="no-show"><dt>No-show</dt><dd><p>La réservation ou le rendez-vous où le client ne vient pas et ne prévient pas. Un rappel avec la possibilité de déplacer le rendez-vous permet de libérer la place et de la proposer à quelqu’un d’autre.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-p">
+    <h2>P</h2>
+    <dl class="glosario">
+      <div class="termino" id="plantilla"><dt>Modèle de message</dt><dd><p>Un message WhatsApp validé par Meta que votre entreprise peut envoyer en dehors d’une conversation ouverte, par exemple un rappel. On en crée un par langue, et WhatsApp peut facturer chaque envoi.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+      <div class="termino" id="prompt"><dt>Prompt</dt><dd><p>L’instruction que l’on donne à un outil d’IA. Un bon prompt dit quoi faire, avec quelles informations, sur quel ton et ce qu’il ne faut pas faire.</p><p class="ver">Voir : <a href="/fr/services/formation/">Formation</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-r">
+    <h2>R</h2>
+    <dl class="glosario">
+      <div class="termino" id="rag"><dt>RAG</dt><dd><p>Retrieval augmented generation, ou génération augmentée par recherche. L’agent cherche dans vos documents avant de répondre, au lieu de répondre avec ce qu’il a appris en général. Il répond ainsi avec vos prix et non avec des prix inventés.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+      <div class="termino" id="recordatorio"><dt>Rappel automatique</dt><dd><p>Le message qui part tout seul avant un rendez-vous, une réservation ou une échéance, pour le client et pour votre équipe.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+      <div class="termino" id="reporte-automatico"><dt>Rapport automatique</dt><dd><p>Le résumé qui arrive tout seul chaque semaine avec les chiffres qui comptent pour votre entreprise : nouveaux contacts, réponses, rendez-vous, ventes conclues et paiements en attente.</p><p class="ver">Voir : <a href="/fr/services/automatisations-et-rapports/">Automatisations et rapports</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-s">
+    <h2>S</h2>
+    <dl class="glosario">
+      <div class="termino" id="seguimiento"><dt>Relance</dt><dd><p>Le contact suivant avec un client qui n’a pas répondu ou n’a pas décidé. C’est là que se perdent le plus de ventes, parce que ça dépend de quelqu’un qui doit y penser.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-t">
+    <h2>T</h2>
+    <dl class="glosario">
+      <div class="termino" id="tasa-de-bajas"><dt>Taux d’attrition</dt><dd><p>La part de vos clients ou adhérents qui part sur une période donnée. En anglais, on parle de churn. Le signe qu’une personne va partir apparaît souvent des semaines avant, quand elle ne vient plus ou n’achète plus.</p><p class="ver">Voir : <a href="/fr/services/crm-et-suivi/">CRM et suivi</a></p></dd></div>
+      <div class="termino" id="texto-a-voz"><dt>Synthèse vocale</dt><dd><p>La technologie qui transforme une réponse écrite en une voix qui sonne naturelle. C’est la moitié d’un agent vocal ; l’autre moitié est la reconnaissance vocale, qui transcrit en texte ce que dit la personne.</p><p class="ver">Voir : <a href="/fr/services/agent-vocal/">Agent vocal</a></p></dd></div>
+      <div class="termino" id="tiempo-de-respuesta"><dt>Délai de première réponse</dt><dd><p>Le temps que met votre entreprise à répondre au premier message d’un client. C’est l’un des chiffres qui pèsent le plus dans une vente : celui qui pose la question achète souvent chez le premier qui répond.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+      <div class="termino" id="traspaso"><dt>Transfert à une personne</dt><dd><p>Le moment où l’agent passe la conversation à quelqu’un de l’équipe, avec le dossier déjà résumé. Un bon agent sait quand le faire : réclamations, cas particuliers, grosses ventes.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-u">
+    <h2>U</h2>
+    <dl class="glosario">
+      <div class="termino" id="utm"><dt>UTM</dt><dd><p>Des balises ajoutées à un lien pour savoir d’où vient la personne qui a cliqué : quelle annonce, quelle publication, quel e-mail. Le CRM les enregistre avec le contact.</p><p class="ver">Voir : <a href="/fr/services/automatisations-et-rapports/">Automatisations et rapports</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-v">
+    <h2>V</h2>
+    <dl class="glosario">
+      <div class="termino" id="ventana-24-horas"><dt>Fenêtre de service client de 24 heures</dt><dd><p>Le délai qu’ouvre chaque message d’un client dans l’API WhatsApp. Pendant ces 24 heures, vous pouvez répondre avec des messages libres ; en dehors, seulement avec des modèles validés.</p><p class="ver">Voir : <a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja" id="letra-w">
+    <h2>W</h2>
+    <dl class="glosario">
+      <div class="termino" id="webhook"><dt>Webhook</dt><dd><p>L’alerte automatique qu’un système envoie à un autre quand quelque chose se passe, par exemple quand un paiement arrive ou qu’un formulaire est rempli. C’est ce qui permet à une automatisation de démarrer toute seule.</p><p class="ver">Voir : <a href="/fr/services/automatisations-et-rapports/">Automatisations et rapports</a></p></dd></div>
+    </dl>
+  </section>
+  <section class="franja">
+    <div class="audit" id="audit">
+      <p class="ojo">Audit gratuit</p>
+      <h2>Commencez par l’Audit gratuit</h2>
+      <p>Un questionnaire guidé de 15 à 25 minutes sur la façon dont votre entreprise fonctionne aujourd’hui. Une personne le relit et sous 24 à 48 heures ouvrées vous recevez la feuille de route de ce qu’il vaut mieux faire en premier, avec la raison de chaque point. La feuille de route est à vous, que vous signiez ou non.</p>
+      <ul class="rubros">
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/gastronomia">Restauration<span>Restaurants, bars, cafés et boulangeries</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/hospitality">Hôtellerie<span>Hôtels de charme, locations saisonnières et excursions</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/real-estate">Immobilier<span>Agences immobilières, promoteurs et courtiers</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/fitness">Fitness<span>Salles de sport et studios</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/eventos">Événementiel<span>Sociétés de production, organisateurs et salles</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/artistas">Artistes<span>Artistes, DJ et managers</span></a></li>
+        <li><a data-cta="audit" href="https://app.eltio.net/auditoria/distribucion">Distribution<span>Grossistes, quincailleries et importateurs</span></a></li>
+      </ul>
+      <p class="nota">Choisissez votre secteur pour ouvrir son questionnaire. Vous préférez en parler d’abord ? <a href="https://wa.me/525568976898?text=Hola%21%20Quiero%20hablar%20con%20El%20T%C3%ADo%20sobre%20inteligencia%20artificial%20para%20mi%20empresa." data-cta="whatsapp">Écrivez-nous sur WhatsApp</a>.</p>
+      <p class="nota nota-idioma">Pour l’instant, l’Audit n’existe qu’en espagnol. Si vous préférez échanger dans votre langue, écrivez-nous sur WhatsApp ou à hola@eltio.net.</p>
+    </div>
+  </section>
+</main>
+<footer class="pie">
+  <div class="inner">
+    <div class="pie-cols">
+      <div><p>Services</p><ul>
+        <li><a href="/fr/sites-web/">Site web en 8 langues</a></li>
+        <li><a href="/fr/referencement-ia/">Référencement IA</a></li>
+        <li><a href="/fr/prospection-et-email/">Prospection et e-mailing</a></li>
+        <li><a href="/fr/services/agent-whatsapp-instagram/">Agent WhatsApp et Instagram</a></li>
+        <li><a href="/fr/services/agent-vocal/">Agent vocal</a></li>
+        <li><a href="/fr/services/crm-et-suivi/">CRM et suivi</a></li>
+        <li><a href="/fr/services/automatisations-et-rapports/">Automatisations et rapports</a></li>
+        <li><a href="/fr/services/formation/">Formation</a></li>
+      </ul></div>
+      <div><p>Villes</p><ul>
+        <li><a href="/fr/villes/mexico/">Mexico</a></li>
+        <li><a href="/fr/villes/monterrey/">Monterrey</a></li>
+        <li><a href="/fr/villes/guadalajara/">Guadalajara</a></li>
+        <li><a href="/fr/villes/tulum-riviera-maya/">Tulum et Riviera Maya</a></li>
+      </ul></div>
+      <div><p>Secteurs</p><ul>
+        <li><a href="/fr/restauration/">Restauration</a></li>
+        <li><a href="/fr/hotellerie/">Hôtellerie</a></li>
+        <li><a href="/fr/immobilier/">Immobilier</a></li>
+        <li><a href="/fr/fitness/">Fitness</a></li>
+        <li><a href="/fr/evenementiel/">Événementiel</a></li>
+        <li><a href="/fr/artistes/">Artistes</a></li>
+        <li><a href="/fr/distribution/">Distribution</a></li>
+      </ul></div>
+      <div><p>El Tío</p><ul>
+        <li><a href="/fr/offres-et-tarifs/">Offres et tarifs</a></li>
+        <li><a href="/fr/notre-methode/">Notre façon de travailler</a></li>
+        <li><a href="/fr/questions-frequentes/">Questions fréquentes</a></li>
+        <li><a href="/fr/guides/">Guides</a></li>
+        <li><a href="/fr/glossaire/">Glossaire de l’IA</a></li>
+        <li><a href="/cronometro/">Cronómetro</a></li>
+        <li><a href="/fr/a-propos/">À propos d’El Tío</a></li>
+        <li><a href="/fr/contact/">Contact</a></li>
+      </ul></div>
+    </div>
+    <div class="pie-base">
+      <p>El Tío · Intelligence artificielle appliquée aux entreprises</p>
+      <p><a href="mailto:hola@eltio.net">hola@eltio.net</a> · <a href="https://wa.me/525568976898?text=Hola%21%20Quiero%20hablar%20con%20El%20T%C3%ADo%20sobre%20inteligencia%20artificial%20para%20mi%20empresa." data-cta="whatsapp">WhatsApp +52 55 6897 6898</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

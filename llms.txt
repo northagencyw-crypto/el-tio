@@ -151,6 +151,12 @@ En una distribuidora el margen se pierde en el medio: entre que el cliente pide 
 
 Calculadora gratis para dueños de negocios de cualquier rubro, de restaurantes y bares a hoteles, inmobiliarias y gimnasios. Con los números del propio negocio estima cuántos mensajes de clientes esperan más de una hora al mes y cuántas ventas pasan por ellos, con la cuenta a la vista. Todo se calcula en el navegador y no se guarda ningún dato.
 
+## Datos abiertos
+
+### Índice El Tío (https://eltio.net/indice/)
+
+Cuántos negocios chicos de Latinoamérica no tienen web propia. Edición 1, noviembre de 2026: 94 de cada 100 de los 83.714 negocios de hasta 50 personas contados en cuatro estados de México no tienen web registrada en el censo del INEGI (DENUE). Incluye Salta, Tucumán, Santiago, Medellín y Lima con Overture Maps. Solo totales, sin nombres de negocios. Método en la página.
+
 ## Que no hacemos
 
 - No prometemos resultados ni publicamos porcentajes de mejora.
@@ -189,6 +195,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - CRM and customer follow-up for small businesses, with reminders and collections: https://eltio.net/en/services/crm-and-follow-up/
 - AI process automation and automatic reports: https://eltio.net/en/services/automation-and-reporting/
 - AI training for businesses and teams: https://eltio.net/en/services/ai-training/
+- El Tío Index: Latin American businesses without a website: https://eltio.net/en/index/
 - Cities where El Tío works: AI for businesses in Mexico: https://eltio.net/en/cities/
 - Websites in 8 languages and Google ranking for businesses in Mexico City (CDMX): https://eltio.net/en/cities/mexico-city/
 - Websites in 8 languages and Google ranking for businesses in Monterrey: https://eltio.net/en/cities/monterrey/
@@ -228,6 +235,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - CRM e follow-up de clientes para pequenas empresas, com lembretes e cobrança: https://eltio.net/pt/servicos/crm-e-acompanhamento/
 - Automação de processos com IA e relatórios automáticos: https://eltio.net/pt/servicos/automacoes-e-relatorios/
 - Capacitação em inteligência artificial para empresas e equipes: https://eltio.net/pt/servicos/capacitacao/
+- Índice El Tío: negócios da América Latina sem site: https://eltio.net/pt/indice/
 - Cidades onde El Tío trabalha: IA para empresas no México: https://eltio.net/pt/cidades/
 - Site em 8 idiomas e posicionamento no Google para empresas na Cidade do México (CDMX): https://eltio.net/pt/cidades/cidade-do-mexico/
 - Site em 8 idiomas e posicionamento no Google para empresas em Monterrey: https://eltio.net/pt/cidades/monterrey/
@@ -267,6 +275,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - CRM et suivi client pour les PME, avec rappels et relances de paiement: https://eltio.net/fr/services/crm-et-suivi/
 - Automatisation des processus avec l’IA et rapports automatiques: https://eltio.net/fr/services/automatisations-et-rapports/
 - Formation à l’intelligence artificielle pour les entreprises et les équipes: https://eltio.net/fr/services/formation/
+- Indice El Tío : les commerces d'Amérique latine sans site web: https://eltio.net/fr/indice/
 - Les villes où travaille El Tío : l’IA pour les entreprises au Mexique: https://eltio.net/fr/villes/
 - Site web en 8 langues et référencement Google pour les entreprises à Mexico (CDMX): https://eltio.net/fr/villes/mexico/
 - Site web en 8 langues et référencement Google pour les entreprises à Monterrey: https://eltio.net/fr/villes/monterrey/
@@ -306,6 +315,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - CRM und Kundennachverfolgung für kleine Unternehmen, mit Erinnerungen und Zahlungserinnerungen: https://eltio.net/de/leistungen/crm-und-nachverfolgung/
 - Prozessautomatisierung mit KI und automatische Berichte: https://eltio.net/de/leistungen/automatisierung-und-berichte/
 - Schulung in künstlicher Intelligenz für Unternehmen und Teams: https://eltio.net/de/leistungen/schulungen/
+- El-Tío-Index: Unternehmen in Lateinamerika ohne Website: https://eltio.net/de/index/
 - Städte, in denen El Tío arbeitet: KI für Unternehmen in Mexiko: https://eltio.net/de/staedte/
 - Website in 8 Sprachen und Google-Sichtbarkeit für Unternehmen in Mexiko-Stadt (CDMX): https://eltio.net/de/staedte/mexiko-stadt/
 - Website in 8 Sprachen und Google-Sichtbarkeit für Unternehmen in Monterrey: https://eltio.net/de/staedte/monterrey/
@@ -345,6 +355,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - CRM e follow-up dei clienti per le PMI, con promemoria e incassi: https://eltio.net/it/servizi/crm-e-follow-up/
 - Automazione dei processi con IA e report automatici: https://eltio.net/it/servizi/automazioni-e-report/
 - Formazione sull'intelligenza artificiale per aziende e team: https://eltio.net/it/servizi/formazione/
+- Indice El Tío: le attività dell'America Latina senza sito web: https://eltio.net/it/indice/
 - Città dove lavora El Tío: IA per le aziende in Messico: https://eltio.net/it/citta/
 - Sito web in 8 lingue e posizionamento su Google per attività a Città del Messico (CDMX): https://eltio.net/it/citta/citta-del-messico/
 - Sito web in 8 lingue e posizionamento su Google per attività a Monterrey: https://eltio.net/it/citta/monterrey/
@@ -384,6 +395,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - 面向中小企业的 CRM 和客户跟进，带提醒和催款: https://eltio.net/zh/services/crm-and-follow-up/
 - 用 AI 实现流程自动化和自动报表: https://eltio.net/zh/services/automation-and-reporting/
 - 面向企业和团队的人工智能培训: https://eltio.net/zh/services/ai-training/
+- El Tío 指数：没有网站的拉丁美洲商家: https://eltio.net/zh/index/
 - El Tío 服务的城市：面向墨西哥企业的 AI: https://eltio.net/zh/cities/
 - 墨西哥城（CDMX）商家的 8 种语言网站和 Google 排名优化: https://eltio.net/zh/cities/mexico-city/
 - 蒙特雷商家的 8 种语言网站和 Google 排名优化: https://eltio.net/zh/cities/monterrey/
@@ -423,6 +435,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la l
 - 中小企業向けのCRMと顧客フォローアップ、リマインダーと集金つき: https://eltio.net/ja/services/crm-and-follow-up/
 - AIによる業務自動化と自動レポート: https://eltio.net/ja/services/automation-and-reporting/
 - 企業とチームのためのAI研修: https://eltio.net/ja/services/ai-training/
+- El Tío インデックス：ウェブサイトのない中南米の事業者: https://eltio.net/ja/index/
 - El Tíoが活動している都市：メキシコの企業のためのAI: https://eltio.net/ja/cities/
 - メキシコシティ（CDMX）のお店のための、8言語対応のウェブサイトとGoogle検索対策: https://eltio.net/ja/cities/mexico-city/
 - モンテレイのお店のための、8言語対応のウェブサイトとGoogle検索対策: https://eltio.net/ja/cities/monterrey/

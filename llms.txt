@@ -32,9 +32,9 @@ motivo de cada cosa. El producto de entrada es el AI Audit: un cuestionario
 guiado de 15 a 25 minutos, gratis. Lo revisa una persona antes de que llegue.
 De ahi sale la hoja de ruta con todo lo que se puede optimizar y automatizar,
 en que orden y por que, y la conclusion con los cambios a aplicar. Queda del
-cliente, contrate o no despues. Si quiere repasarla con alguien, hay una
-llamada de revision de media hora por USD 49, que se descuenta del alta si
-contrata en los 7 dias siguientes.
+cliente, contrate o no despues. No hay llamadas: las dudas se resuelven
+por chat (WhatsApp o Instagram), la propuesta llega por escrito, se paga con
+un enlace de pago y se llena un formulario de arranque.
 
 ## Como funciona
 
@@ -55,7 +55,6 @@ despues de eso, nunca antes.
 ## Paquetes y precios (https://eltio.net/paquetes/)
 
 - Audit: gratis. Cuestionario de 15 a 25 minutos y mapa en 24 a 48 horas habiles.
-- Llamada de revision: USD 49, media hora. Se descuenta del alta si contrata en 7 dias.
 - Pagina web: desde USD 300 de alta + USD 39 al mes. Dominio propio, 8 idiomas,
   posicionamiento en Google y en IA. Lista en 10 dias habiles.
 - Web + chatbot: desde USD 400 de alta + USD 59 al mes. Lo anterior mas un agente
@@ -172,7 +171,7 @@ https://eltio.net/
 
 ## Otros idiomas
 
-El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit y la llamada son en espanol.
+El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit es en espanol.
 
 ### English (en)
 - El Tío · Your website in 8 languages, on Google and ChatGPT: https://eltio.net/en/

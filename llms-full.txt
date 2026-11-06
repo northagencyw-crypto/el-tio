@@ -73,9 +73,10 @@ de cada paquete esta en https://eltio.net/paquetes/.
 
 ## Paises
 
-Mexico, Argentina, Colombia, Chile y Peru. Hay paginas por ciudad y rubro para
+Mexico, Argentina, Colombia, Chile, Peru y Brasil. Hay paginas por ciudad y rubro para
 106 ciudades en https://eltio.net/negocios/ (43 de Mexico, 17 de Argentina, 16
-de Colombia, 15 de Chile y 15 de Peru).
+de Colombia, 15 de Chile y 15 de Peru), y 21 ciudades de Brasil en portugues en
+https://eltio.net/pt/negocios/.
 
 ## Ciudades con presencia (https://eltio.net/ciudades/)
 

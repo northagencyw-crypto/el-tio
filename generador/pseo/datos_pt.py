@@ -50,7 +50,7 @@ RUBROS_PT = {
             ("Dá para perceber que é uma IA?", "O recomendável é dizer na primeira mensagem. Para quem só quer uma mesa, o que importa é uma resposta rápida e certa."),
             ("Eu mesmo posso mudar o cardápio?", "Sim. O cardápio do site e as informações do chatbot são atualizados num só lugar."),
         ],
-        "ventagens": ["Os centenas de clientes que já escreveram para você são uma lista. Eles são convidados a voltar na data certa.", "Empresas da região com jantares de equipe, eventos e pedidos grandes, encontradas antes da concorrência.", "A cozinha, a equipe e os pratos mostrados toda semana. Quem vê você sempre escolhe você antes de provar.", "Publicar todos os dias e responder a qualquer hora, inclusive no meio do atendimento.", "Reservas, pedidos e as perguntas de sempre resolvidos sozinhos, com a equipe no salão."],
+        "ventagens": ["As centenas de clientes que já escreveram para você são uma lista. Eles são convidados a voltar na data certa.", "Empresas da região com jantares de equipe, eventos e pedidos grandes, encontradas antes da concorrência.", "A cozinha, a equipe e os pratos mostrados toda semana. Quem vê você sempre escolhe você antes de provar.", "Publicar todos os dias e responder a qualquer hora, inclusive no meio do atendimento.", "Reservas, pedidos e as perguntas de sempre resolvidos sozinhos, com a equipe no salão."],
         "local": "Em {nom}, quem procura onde comer em {zonas} compara pelo celular antes de sair. Numa cidade movida por {motor}, o horário de mais pedidos muda de uma região para outra, e ter cardápio, horário e reservas em dia num site próprio e no WhatsApp decide se escolhem a sua mesa ou a da frente.",
     },
     "hospitality": {

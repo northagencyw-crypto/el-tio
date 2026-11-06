@@ -8,7 +8,7 @@ import hashlib, html, json, os, re, sys, urllib.parse
 from datetime import date
 
 sys.path.insert(0, os.path.dirname(__file__))
-from datos import CIUDADES, RUBROS, PAISES, PERFILES
+from datos import CIUDADES, RUBROS, PAISES, PERFILES, VENTAJAS, VENTAJA_TITULOS
 
 RAIZ = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 BASE = "https://eltio.net"
@@ -161,6 +161,11 @@ def pagina(c, rk, todas, guias):
           f"    <p>{e(p['general'])}</p>",
           f"    <p>{e(p[rk])}</p>",
           f'    <div class="aviso">Una prueba simple: busca en Google «{e(plural.split(" y ")[0])} en {e(nom)}» desde tu teléfono y mira si apareces, qué se ve de tu negocio y cuánto tardarías en contestar si alguien te escribe ahora.</div>',
+          f'    <h2 id="ventaja">Tu ventaja en {e(r["nombre"].lower() if rk not in ("hospitality", "real-estate") else r["nombre"])} en {e(nom)}</h2>',
+          f"    <p>La IA ya es una ventaja frente al mercado y la ventana es hoy: quien no da un paso ahora, mañana tiene que dar diez para llegar al mismo lugar. Estas son las cinco que más pesan en {e(plural)}.</p>",
+          '    <ol class="lista">']
+    h += [f"      <li><strong>{e(t)}.</strong> {e(x)}</li>" for t, x in zip(VENTAJA_TITULOS, VENTAJAS[rk])]
+    h += ["    </ol>", f'    <p><a data-cta="ventaja" href="{e(wtxt)}">No pierdas la ventaja, es hoy. Habla con El Tío.</a></p>',
           '    <h2 id="como">Cómo se resuelve</h2>', '    <ol class="lista">']
     h += [f"      <li>{e(x)}</li>" for x in [r["pasos"][0]] + rota(r["pasos"][1:], 3, s)]
     h += ["    </ol>",

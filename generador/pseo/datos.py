@@ -60,6 +60,9 @@ CIUDADES = [
     ("tulum", "Tulum", "Quintana Roo", "mx", "playa", "peninsula", "Vive del turismo internacional, con muchos negocios pequeños y clientes que reservan desde otro huso horario.", "tulum-riviera-maya"),
 ]
 
+from datos_latam import CIUDADES_LATAM, LOCAL, LOCAL_RUBRO
+CIUDADES += CIUDADES_LATAM
+
 RUBROS = {
     "gastronomia": {
         "nombre": "Gastronomía", "plural": "restaurantes y cafeterías", "uno": "tu restaurante o cafetería", "cliente": "comensales",

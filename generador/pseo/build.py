@@ -9,6 +9,7 @@ from datetime import date
 
 sys.path.insert(0, os.path.dirname(__file__))
 from datos import CIUDADES, RUBROS, PAISES, PERFILES, VENTAJAS, VENTAJA_TITULOS
+from datos_latam import LOCAL, LOCAL_RUBRO, FRONTERA_LATAM
 
 RAIZ = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 BASE = "https://eltio.net"
@@ -123,8 +124,16 @@ def cercanas(c, todas, n=4):
     return (misma + otras)[:n]
 
 
+def perfil(c):
+    if c["pais"] == "mx":
+        return PERFILES[c["perfil"]]
+    base = FRONTERA_LATAM if c["perfil"] == "frontera" else PERFILES[c["perfil"]]
+    nom = PAISES[c["pais"]]["nombre"]
+    return {k: v.replace("en México", "en " + nom).replace("cada colonia", "cada barrio") for k, v in base.items()}
+
+
 def pagina(c, rk, todas, guias):
-    r, p, pais = RUBROS[rk], PERFILES[c["perfil"]], PAISES[c["pais"]]
+    r, p, pais = RUBROS[rk], perfil(c), PAISES[c["pais"]]
     s = semilla(c["slug"], rk)
     nom, plural = c["nombre"], r["plural"]
     ruta = f"/negocios/{c['slug']}/{rk}/"
@@ -160,6 +169,7 @@ def pagina(c, rk, todas, guias):
     h += [f'    <h2 id="ciudad">Qué cambia en {e(nom)}</h2>',
           f"    <p>{e(p['general'])}</p>",
           f"    <p>{e(p[rk])}</p>",
+          *([f"    <p>{e(LOCAL_RUBRO[rk].format(nom=nom, zonas=LOCAL[c['slug']][0], motor=LOCAL[c['slug']][1]))}</p>"] if c["slug"] in LOCAL else []),
           f'    <div class="aviso">Una prueba simple: busca en Google «{e(plural.split(" y ")[0])} en {e(nom)}» desde tu teléfono y mira si apareces, qué se ve de tu negocio y cuánto tardarías en contestar si alguien te escribe ahora.</div>',
           f'    <h2 id="ventaja">Tu ventaja en {e(r["nombre"].lower() if rk not in ("hospitality", "real-estate") else r["nombre"])} en {e(nom)}</h2>',
           f"    <p>La IA ya es una ventaja frente al mercado y la ventana es hoy: quien no da un paso ahora, mañana tiene que dar diez para llegar al mismo lugar. Estas son las cinco que más pesan en {e(plural)}.</p>",
@@ -185,6 +195,8 @@ def pagina(c, rk, todas, guias):
     if c["eltio"]:
         h.append(f'        <li><a href="/ciudades/{c["eltio"]}/">El Tío en {e(nom if c["eltio"] != "tulum-riviera-maya" else "Tulum y Riviera Maya")}</a></li>')
     for g, t in guias.get(rk, []):
+        if c["pais"] != "mx" and "mexico" in g:
+            continue
         h.append(f'        <li><a href="/guias/{g}/">{e(t)}</a></li>')
     for v in vecinas:
         h.append(f'        <li><a href="/negocios/{v["slug"]}/{rk}/">{e(plural.capitalize())} en {e(v["nombre"])}</a></li>')
@@ -200,10 +212,10 @@ def hub_ciudad(c, todas):
     titulo = f"Páginas web y chatbots para negocios en {c['nombre']}"
     desc = f"Página web propia y chatbot de WhatsApp para restaurantes, hoteles, inmobiliarias, gimnasios, eventos, artistas y distribuidoras de {c['nombre']}. Audit gratis."
     l_m, h_m = migas([("El Tío", "/"), ("Ciudades y rubros", "/negocios/"), (c["nombre"], ruta)])
-    h = [h_m, "  <article>", f"    <h1>{e(titulo)}</h1>", f'    <p class="bajada">{e(c["nota"])} {e(PERFILES[c["perfil"]]["general"])}</p>',
+    h = [h_m, "  <article>", f"    <h1>{e(titulo)}</h1>", f'    <p class="bajada">{e(c["nota"])} {e(perfil(c)["general"])}</p>',
          '    <h2>Elige tu rubro</h2>', '    <ul>']
     for k, r in RUBROS.items():
-        h.append(f'      <li><a href="/negocios/{c["slug"]}/{k}/"><strong>{e(r["plural"].capitalize())}</strong></a>: {e(PERFILES[c["perfil"]][k])}</li>')
+        h.append(f'      <li><a href="/negocios/{c["slug"]}/{k}/"><strong>{e(r["plural"].capitalize())}</strong></a>: {e(perfil(c)[k])}</li>')
     h += ["    </ul>", '    <section class="cierre"><h2>Por dónde empezar</h2><p>El Audit es gratis y en 24 a 48 horas hábiles tienes el mapa de lo que conviene hacer primero.</p>',
           '      <div class="acciones"><a class="btn" data-cta="audit" href="https://app.eltio.net/">Hacer el Audit gratis</a>',
           f'      <a class="enlace" data-cta="whatsapp" href="{e(wa("Hola! Tengo un negocio en " + c["nombre"] + " y quiero el Audit gratis."))}">Escribir por WhatsApp</a></div></section>',

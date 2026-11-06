@@ -176,7 +176,7 @@ https://eltio.net/
 El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit es en espanol.
 
 ### English (en)
-- El Tío · Your website in 8 languages, on Google and ChatGPT: https://eltio.net/en/
+- El Tío · AI is already an advantage in your industry: https://eltio.net/en/
 - Website on your own domain, in 8 languages, with SEO for businesses: https://eltio.net/en/websites/
 - AI search optimization: show up on ChatGPT, Perplexity and Google: https://eltio.net/en/ai-search-visibility/
 - Artificial intelligence services for business: https://eltio.net/en/services/
@@ -216,7 +216,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit es en 
 - Member retention at gyms and studios: cancellations and class bookings: https://eltio.net/en/guides/gym-member-retention-class-bookings/
 
 ### Português (pt-BR)
-- El Tío · Seu site em 8 idiomas, no Google e no ChatGPT: https://eltio.net/pt/
+- El Tío · A IA já é vantagem no seu setor: https://eltio.net/pt/
 - Site com domínio próprio, 8 idiomas e SEO para empresas: https://eltio.net/pt/sites/
 - Posicionamento em IA: aparecer no ChatGPT, Perplexity e Google: https://eltio.net/pt/posicionamento-em-ia/
 - Serviços de inteligência artificial para empresas: https://eltio.net/pt/servicos/
@@ -256,7 +256,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit es en 
 - Retenção de alunos em academias e estúdios: cancelamentos e reservas de aula: https://eltio.net/pt/guias/retencao-alunos-academia-reservas-aulas/
 
 ### Français (fr)
-- El Tío · Votre site web en 8 langues, sur Google et sur ChatGPT: https://eltio.net/fr/
+- El Tío · L'IA est déjà un avantage dans votre secteur: https://eltio.net/fr/
 - Site web avec nom de domaine propre, 8 langues et SEO pour les entreprises: https://eltio.net/fr/sites-web/
 - Référencement IA : apparaître dans ChatGPT, Perplexity et Google: https://eltio.net/fr/referencement-ia/
 - Services d’intelligence artificielle pour les entreprises: https://eltio.net/fr/services/
@@ -296,7 +296,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit es en 
 - Fidéliser les adhérents en salle de sport et en studio : résiliations et réservations de cours: https://eltio.net/fr/guides/fidelisation-adherents-salle-de-sport-reservations/
 
 ### Deutsch (de)
-- El Tío · Ihre Website in 8 Sprachen, bei Google und in ChatGPT: https://eltio.net/de/
+- El Tío · KI ist schon ein Vorteil in deiner Branche: https://eltio.net/de/
 - Website mit eigener Domain, 8 Sprachen und SEO für Unternehmen: https://eltio.net/de/webseiten/
 - Sichtbarkeit in KI-Suchen: in ChatGPT, Perplexity und Google erscheinen: https://eltio.net/de/ki-sichtbarkeit/
 - KI-Leistungen für Unternehmen: https://eltio.net/de/leistungen/
@@ -336,7 +336,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit es en 
 - Mitgliederbindung in Fitnessstudios und Studios: Kündigungen und Kursbuchungen: https://eltio.net/de/ratgeber/mitgliederbindung-fitnessstudio-kursbuchung/
 
 ### Italiano (it)
-- El Tío · Il tuo sito web in 8 lingue, su Google e su ChatGPT: https://eltio.net/it/
+- El Tío · L'IA è già un vantaggio nel tuo settore: https://eltio.net/it/
 - Sito web con dominio proprio, 8 lingue e SEO per attività: https://eltio.net/it/siti-web/
 - Posizionamento nell'IA: comparire su ChatGPT, Perplexity e Google: https://eltio.net/it/posizionamento-ia/
 - Servizi di intelligenza artificiale per le aziende: https://eltio.net/it/servizi/
@@ -376,7 +376,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit es en 
 - Fidelizzare gli iscritti di palestre e studi: disdette e prenotazioni dei corsi: https://eltio.net/it/guide/fidelizzazione-iscritti-palestra-prenotazioni/
 
 ### 中文 (zh-CN)
-- El Tío · 8 种语言的网站，让 Google 和 ChatGPT 都找得到您: https://eltio.net/zh/
+- El Tío · AI 已经成为你所在行业的优势: https://eltio.net/zh/
 - 自有域名、8 种语言、带 SEO 的商家网站: https://eltio.net/zh/websites/
 - AI 搜索优化：出现在 ChatGPT、Perplexity 和 Google 中: https://eltio.net/zh/ai-search-visibility/
 - 面向企业的人工智能服务: https://eltio.net/zh/services/
@@ -416,7 +416,7 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit es en 
 - 健身房和工作室的会员留存：退会与课程预约: https://eltio.net/zh/guides/gym-member-retention-class-bookings/
 
 ### 日本語 (ja)
-- El Tío · 8言語のウェブサイトで、GoogleとChatGPTに見つけてもらう: https://eltio.net/ja/
+- El Tío · AIはすでにあなたの業界の強みです: https://eltio.net/ja/
 - 独自ドメイン・8言語・SEO対応のビジネス向けウェブサイト: https://eltio.net/ja/websites/
 - AI検索対策：ChatGPT、Perplexity、Googleに出る: https://eltio.net/ja/ai-search-visibility/
 - 企業向けAIサービス: https://eltio.net/ja/services/

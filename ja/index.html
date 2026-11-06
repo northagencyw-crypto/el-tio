@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Tío · 8言語のウェブサイトで、GoogleとChatGPTに見つけてもらう</title>
-<meta name="description" content="独自ドメインで8言語、Google、ChatGPT、Perplexity、Geminiでの検索対策つきのウェブサイト。その次にチャットボット、CRM、新規開拓。">
+<title>El Tío · AIはすでにあなたの業界の強みです</title>
+<meta name="description" content="業界を選んで、今日AIが競合に対してもたらす5つの強みをご覧ください。Auditを無料で受けると、書面のプランが届きます。電話はありません。">
 <meta name="theme-color" content="#04070B">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
@@ -15,8 +15,8 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="it_IT">
 <meta property="og:locale:alternate" content="zh_CN">
-<meta property="og:title" content="El Tío · 8言語のウェブサイトで、GoogleとChatGPTに見つけてもらう">
-<meta property="og:description" content="独自ドメインで8言語、GoogleやAIアシスタントで見つけてもらえるウェブサイト。その次にチャットボット、CRM、新規開拓。">
+<meta property="og:title" content="El Tío · AIはすでにあなたの業界の強みです">
+<meta property="og:description" content="業界を選んで、今日AIが競合に対してもたらす5つの強みをご覧ください。Auditを無料で受けると、書面のプランが届きます。電話はありません。">
 <link rel="canonical" href="https://eltio.net/ja/">
 <link rel="alternate" hreflang="es" href="https://eltio.net/">
 <link rel="alternate" hreflang="en" href="https://eltio.net/en/">
@@ -32,12 +32,11 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" as="image" imagesrcset="/assets/tio-1-768.webp 768w, /assets/tio-1.webp 1536w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-var.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/geist.woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/inicio.css">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -61,32 +60,64 @@
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "WebPage",
- "name": "El Tío · 8言語のウェブサイトで、GoogleとChatGPTに見つけてもらう",
- "description": "独自ドメインで8言語、Google、ChatGPT、Perplexity、Geminiでの検索対策つきのウェブサイト。その次にチャットボット、CRM、新規開拓。",
- "url": "https://eltio.net/ja/",
- "inLanguage": "ja",
- "isPartOf": {
-  "@type": "WebSite",
-  "name": "El Tío",
-  "url": "https://eltio.net/ja/"
- }
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eltio.net/ja/#organization",
+   "name": "El Tío",
+   "url": "https://eltio.net/ja/",
+   "logo": "https://eltio.net/assets/og.jpg",
+   "email": "hola@eltio.net",
+   "areaServed": [
+    "MX",
+    "AR",
+    "CO",
+    "CL",
+    "PE",
+    "BR"
+   ],
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "hola@eltio.net",
+    "url": "https://wa.me/525568976898",
+    "availableLanguage": [
+     "es",
+     "en",
+     "pt",
+     "fr",
+     "de",
+     "it",
+     "zh",
+     "ja"
+    ]
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://eltio.net/ja/#website",
+   "name": "El Tío",
+   "url": "https://eltio.net/ja/",
+   "inLanguage": "ja",
+   "publisher": {
+    "@id": "https://eltio.net/ja/#organization"
+   }
+  }
+ ]
 }
 </script>
 <script src="/medicion.js" defer></script>
 </head>
 <body>
 
-<a class="skip" href="#manifiesto">本文へスキップ</a>
-<div id="progress" aria-hidden="true"></div>
+<a class="skip" href="#rubro">本文へスキップ</a>
 <header class="top">
-  <div class="wordmark">EL TIO<span class="dot">.</span></div>
+  <a class="wordmark" href="/ja/" aria-label="El Tío、ホーム">EL TIO<span>.</span></a>
   <nav class="nav" aria-label="セクション">
-    <a href="/ja/websites/">ウェブサイト</a>
-    <a href="#web">できること</a>
-    <a href="#casos">活用例</a>
-    <a href="#metodo">進め方</a>
-    <a href="#contacto">お問い合わせ</a>
+    <a href="#rubro">あなたの業界</a>
+    <a href="#demos">見え方</a>
+    <a href="#dias">30日間</a>
+    <a href="#preguntas">よくある質問</a>
   </nav>
     <details class="idioma">
     <summary aria-label="言語: 日本語">JA</summary>
@@ -101,261 +132,220 @@
       <li><a href="/ja/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
     </ul>
   </details>
-  <div class="status" aria-hidden="true"><span class="pulse"></span>オンライン</div>
+  <a class="btn solid chico" data-cta="cabecera" href="#rubro">無料のAudit</a>
 </header>
 
-<!-- ============ HERO: LA DIGITALIZACION ============ -->
-<div class="hero" id="hero">
-  <div class="hero-stage">
-    <div class="hero-media" aria-hidden="true">
-      <img class="frame f1" src="/assets/tio-1.jpg" srcset="/assets/tio-1-768.webp 768w, /assets/tio-1.webp 1536w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
-      <img class="frame f2" data-src="/assets/tio-2.webp" data-src-sm="/assets/tio-2-768.webp" alt="" decoding="async">
-      <img class="frame f3" data-src="/assets/tio-3.webp" data-src-sm="/assets/tio-3-768.webp" alt="" decoding="async">
-      <img class="frame f4" data-src="/assets/tio-4.webp" data-src-sm="/assets/tio-4-768.webp" alt="" decoding="async">
-      <img class="frame f5" data-src="/assets/tio-1.webp" data-src-sm="/assets/tio-1-768.webp" alt="" decoding="async">
-    </div>
-    <canvas id="rain" aria-hidden="true"></canvas>
-    <div class="hero-veil" aria-hidden="true"></div>
-
-    <div class="beat b0" aria-hidden="true">
-      <p class="eyebrow">企業のためのAI</p>
-      <p class="beat-line">お客様はGoogleやChatGPTであなたを探しています。<br>見つけてもらうのは、El Tíoの仕事です。</p>
-    </div>
-    <div class="beat b1" aria-hidden="true">
-      <p class="eyebrow">01 &nbsp;/&nbsp; 業務プロセス</p>
-      <p class="beat-word">自動化する</p>
-      <p class="beat-line">営業、接客、業務が自動で回ります。24時間年中無休。</p>
-    </div>
-    <div class="beat b2" aria-hidden="true">
-      <p class="eyebrow">02 &nbsp;/&nbsp; 成果</p>
-      <p class="beat-word">最適化する</p>
-      <p class="beat-line">コストは減る。ミスも減る。利益は増える。</p>
-    </div>
-    <div class="beat b3" aria-hidden="true">
-      <p class="eyebrow">03 &nbsp;/&nbsp; チーム</p>
-      <p class="beat-word">研修する</p>
-      <p class="beat-line">数年ではなく数週間で、チームがAIを使いこなせるように。</p>
-    </div>
-
-    <div class="hero-title">
-      <h1 class="display">EL TIO</h1>
-      <p class="hero-sub">AIはすでに市場での優位性です。El Tíoがあなたの業界の優位性をお見せします。</p>
-      <div class="hero-cta">
-        <a class="btn solid" data-cta="hero" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">El Tíoに相談する</a>
-        <a class="btn ghost" href="#web">できることを見る</a>
+<main>
+<section class="hero" id="rubro" aria-labelledby="titulo">
+  <div class="inner hero-grid">
+    <div class="hero-txt">
+      <h1 id="titulo" class="display">AIはすでにあなたの業界の強みです。その時は今日です。</h1>
+      <p class="lead">今日なら一歩です。明日は同じ場所に着くのに十歩かかります。業界を選んで、何が変わるかご覧ください。</p>
+      <p class="pregunta" id="pregunta">あなたの業界は何ですか？</p>
+      <div class="chips" role="group" aria-labelledby="pregunta">
+        <button type="button" class="chip" id="t-gastronomia" aria-controls="p-gastronomia" aria-pressed="true">飲食</button>
+        <button type="button" class="chip" id="t-hospitality" aria-controls="p-hospitality" aria-pressed="false">宿泊・観光</button>
+        <button type="button" class="chip" id="t-real-estate" aria-controls="p-real-estate" aria-pressed="false">不動産</button>
+        <button type="button" class="chip" id="t-fitness" aria-controls="p-fitness" aria-pressed="false">フィットネス</button>
+        <button type="button" class="chip" id="t-eventos" aria-controls="p-eventos" aria-pressed="false">イベント</button>
+        <button type="button" class="chip" id="t-artistas" aria-controls="p-artistas" aria-pressed="false">アーティスト</button>
+        <button type="button" class="chip" id="t-distribucion" aria-controls="p-distribucion" aria-pressed="false">卸売・流通</button>
       </div>
     </div>
-
-    <div class="scroll-cue" aria-hidden="true">スクロール</div>
+    <div class="tablero" aria-live="polite">
+      <div class="panel" id="p-gastronomia" data-rubro="gastronomia">
+        <ol class="ventajas">
+          <li><h3>眠っているデータを呼び起こす</h3><p>すでにメッセージをくれた数百人のお客様は、ひとつのリストです。ちょうどよい時期に、また来てもらうよう案内します。</p></li>
+          <li><h3>新しいお客様を探す</h3><p>チームの食事会、イベント、大口の注文がある地域の企業を、競合より先に見つけます。</p></li>
+          <li><h3>SNSでの信頼</h3><p>キッチン、スタッフ、料理を毎週伝えます。よく目にする店は、試す前から選ばれます。</p></li>
+          <li><h3>いつもそこにいる</h3><p>毎日投稿し、営業中でもどの時間でも返信します。</p></li>
+          <li><h3>仕事の最適化</h3><p>予約、注文、いつもの質問は自動で片づき、スタッフはホールに専念できます。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/gastronomia?utm_source=eltio&amp;utm_medium=portada">Auditを無料で受ける</a><small class="nota-idioma">Auditは今のところスペイン語のみです。あなたの言語で話したい場合は、WhatsAppかhola@eltio.netへご連絡ください。</small>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">WhatsAppで連絡する</a>
+        </div>
+      </div>
+      <div class="panel" id="p-hospitality" data-rubro="hospitality">
+        <ol class="ventajas">
+          <li><h3>眠っているデータを呼び起こす</h3><p>過去のシーズンの宿泊客に、他で予約される前に再訪の案内を送ります。</p></li>
+          <li><h3>新しいお客様を探す</h3><p>団体を連れてくる旅行会社、企業、結婚式やリトリートの主催者。</p></li>
+          <li><h3>SNSでの信頼</h3><p>口コミと施設の日常を継続して見せます。旅行者は信頼できる場所を予約します。</p></li>
+          <li><h3>いつもそこにいる</h3><p>宿泊客の言語と時間帯で返信します。別の時差から書き込まれても同じです。</p></li>
+          <li><h3>仕事の最適化</h3><p>到着、繰り返される質問、リマインダーを、フロントを通さずに処理します。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/hospitality?utm_source=eltio&amp;utm_medium=portada">Auditを無料で受ける</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">WhatsAppで連絡する</a>
+        </div>
+      </div>
+      <div class="panel" id="p-real-estate" data-rubro="real-estate">
+        <ol class="ventajas">
+          <li><h3>眠っているデータを呼び起こす</h3><p>数か月前に問い合わせて購入しなかった連絡先。多くの人はまだ探しています。</p></li>
+          <li><h3>新しいお客様を探す</h3><p>売却や賃貸を考える所有者と条件の合う購入希望者に、他の不動産会社より先に連絡します。</p></li>
+          <li><h3>SNSでの信頼</h3><p>取引、エリア、判断基準を継続して見せます。大きな買い物では、知っている人が選ばれます。</p></li>
+          <li><h3>いつもそこにいる</h3><p>すべての問い合わせに数分で返信します。週末も同様です。</p></li>
+          <li><h3>仕事の最適化</h3><p>問い合わせの選別、内見の予約、フォローまで、チャットの中で誰も取りこぼしません。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/real-estate?utm_source=eltio&amp;utm_medium=portada">Auditを無料で受ける</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">WhatsAppで連絡する</a>
+        </div>
+      </div>
+      <div class="panel" id="p-fitness" data-rubro="fitness">
+        <ol class="ventajas">
+          <li><h3>眠っているデータを呼び起こす</h3><p>退会した会員と、戻らなかった体験参加者。タイミングのよい案内で戻ってきます。</p></li>
+          <li><h3>新しいお客様を探す</h3><p>ウェルネスを求めるチームのいる地域の企業と、まだあなたを知らない近隣の人々。</p></li>
+          <li><h3>SNSでの信頼</h3><p>クラス、コーチ、成長をSNSで伝えます。人は仲間だと感じられる場所でトレーニングします。</p></li>
+          <li><h3>いつもそこにいる</h3><p>営業時間と体験クラスの質問に、いつでもすぐ返信します。</p></li>
+          <li><h3>仕事の最適化</h3><p>入会、更新、支払いのリマインダーが自動で送られます。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/fitness?utm_source=eltio&amp;utm_medium=portada">Auditを無料で受ける</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">WhatsAppで連絡する</a>
+        </div>
+      </div>
+      <div class="panel" id="p-eventos" data-rubro="eventos">
+        <ol class="ventajas">
+          <li><h3>眠っているデータを呼び起こす</h3><p>過去のイベントのお客様。日程は毎年巡ってきます。</p></li>
+          <li><h3>新しいお客様を探す</h3><p>年に何度も開催する企業、ウェディングプランナー、代理店。</p></li>
+          <li><h3>SNSでの信頼</h3><p>設営、細部、お客様の声を継続して見せます。中身を見ずにイベントを依頼する人はいません。</p></li>
+          <li><h3>いつもそこにいる</h3><p>見積もりを当日中に返信します。設営の真っ最中でも同じです。</p></li>
+          <li><h3>仕事の最適化</h3><p>見積もり、業者の確認、入金の管理をひとつの場所で行います。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/eventos?utm_source=eltio&amp;utm_medium=portada">Auditを無料で受ける</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">WhatsAppで連絡する</a>
+        </div>
+      </div>
+      <div class="panel" id="p-artistas" data-rubro="artistas">
+        <ol class="ventajas">
+          <li><h3>眠っているデータを呼び起こす</h3><p>すでにチケット、作品、クラスを購入した人は、次の予定を最初に知ります。</p></li>
+          <li><h3>新しいお客様を探す</h3><p>あなたのようなアーティストを探している会場、ブランド、フェスティバル、プロデューサー。</p></li>
+          <li><h3>SNSでの信頼</h3><p>制作の過程、リハーサル、作品を継続して伝えます。観客は人についていきます。</p></li>
+          <li><h3>いつもそこにいる</h3><p>創作を止めずに、こまめに投稿します。</p></li>
+          <li><h3>仕事の最適化</h3><p>契約、スケジュール、メッセージが整い、作品に使う時間が生まれます。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/artistas?utm_source=eltio&amp;utm_medium=portada">Auditを無料で受ける</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">WhatsAppで連絡する</a>
+        </div>
+      </div>
+      <div class="panel" id="p-distribucion" data-rubro="distribucion">
+        <ol class="ventajas">
+          <li><h3>眠っているデータを呼び起こす</h3><p>注文が止まったお客様を、離れる前に見つけて呼び戻します。</p></li>
+          <li><h3>新しいお客様を探す</h3><p>まだあなたから仕入れていない、地域の店、レストラン、事業者。</p></li>
+          <li><h3>SNSでの信頼</h3><p>カタログ、配送、保証を継続して見せます。買い手は信頼できるときに仕入れ先を変えます。</p></li>
+          <li><h3>いつもそこにいる</h3><p>カタログと在庫に、いつでもすぐ返信します。</p></li>
+          <li><h3>仕事の最適化</h3><p>注文、在庫、配送ルートが整い、手入力は不要です。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/distribucion?utm_source=eltio&amp;utm_medium=portada">Auditを無料で受ける</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">WhatsAppで連絡する</a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- ============ LO PRIMERO: LA WEB ============ -->
-<section class="block orden" id="web">
+<section class="contraste" aria-label="なぜ今日なのか">
+  <div class="inner contraste-grid">
+    <p><strong>100社中78社</strong>の組織が、事業の少なくとも一部ですでにAIを使っています。<cite>McKinsey, The state of AI, 2025</cite></p>
+    <p><strong>100社中94社</strong>のメキシコ4州の小規模事業者は、登録されたウェブサイトを持っていません。<cite><a href="/ja/index/">El Tíoインデックス、INEGIのDENUEに基づく</a></cite></p>
+    <p class="remate">大企業はすでに動きました。小さな事業者はまだです。そこにあなたの強みがあります。</p>
+  </div>
+</section>
+
+<section class="bloque" id="demos" aria-labelledby="demos-t">
   <div class="inner">
-    <p class="eyebrow reveal">やること、順番に</p>
-    <h2 class="display reveal d1">まずは、見つけてもらうこと</h2>
-    <p class="lead reveal d2">お客様の言語で読める自社サイトを、GoogleやChatGPT、Perplexity、Geminiの回答に出るように作ります。次に、問い合わせを取りこぼさない仕組み。その先で、新しいお客様を探しに行きます。</p>
-    <div class="steps">
-      <div class="step reveal"><span class="s-num">01</span><h3><a href="/ja/websites/">ウェブサイト</a></h3><p>独自ドメイン、8言語、SEO。<a href="/ja/ai-search-visibility/">AI検索対策</a>も含みます。</p></div>
-      <div class="step reveal d1"><span class="s-num">02</span><h3><a href="/ja/services/whatsapp-instagram-agent/">チャットボットとCRM</a></h3><p>WhatsAppとInstagramに返信するエージェントと、データを整理する<a href="/ja/services/crm-and-follow-up/">CRM</a>。</p></div>
-      <div class="step reveal d2"><span class="s-num">03</span><h3><a href="/ja/prospecting-and-email/">新規開拓</a></h3><p>企業リスト、フォローアップ付きのメール、既存のお客様向けのメールマーケティング。</p></div>
-      <div class="step reveal d3"><span class="s-num">04</span><h3><a href="/ja/services/">その他のAI</a></h3><p>音声エージェント、自動化、レポート、社員研修。</p></div>
-    </div>
-    <div class="hero-cta reveal">
-      <a class="btn solid" data-cta="web" href="/ja/websites/#audit">無料のAuditを受ける</a>
-      <a class="btn ghost" href="/ja/guides/show-up-in-chatgpt-and-google-small-business/">ガイドを読む</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONFIAN ============ -->
-<section class="clients" aria-label="El Tíoを信頼するブランド">
-  <div class="inner clients-head">
-    <p class="eyebrow reveal">El Tíoを信頼するブランド</p>
-    <button class="marquee-pause" type="button" aria-pressed="false" aria-label="スクロールを一時停止"><span class="vo">一時停止</span></button>
-  </div>
-  <div class="marquee">
-    <div class="marquee-track">
-      <div class="marquee-group">
-        <span class="cl cl-north">NORTH</span>
-        <span class="cl cl-login">LOGIN</span>
-        <span class="cl cl-420">420 CREW</span>
-        <span class="cl cl-giorgini">GIORGINI</span>
-        <span class="cl cl-update">UPDATE NOW</span>
-        <span class="cl cl-ncf">NORTH CAFÉ FESTIVAL</span>
-        <span class="cl cl-freedom">FREEDOM SERVER</span>
-        <span class="cl cl-cat">建築設計事務所</span>
-        <span class="cl cl-cat">エンジニアリング事務所</span>
-      </div>
-      <div class="marquee-group" aria-hidden="true">
-        <span class="cl cl-north">NORTH</span>
-        <span class="cl cl-login">LOGIN</span>
-        <span class="cl cl-420">420 CREW</span>
-        <span class="cl cl-giorgini">GIORGINI</span>
-        <span class="cl cl-update">UPDATE NOW</span>
-        <span class="cl cl-ncf">NORTH CAFÉ FESTIVAL</span>
-        <span class="cl cl-freedom">FREEDOM SERVER</span>
-        <span class="cl cl-cat">建築設計事務所</span>
-        <span class="cl cl-cat">エンジニアリング事務所</span>
-      </div>
+    <h2 id="demos-t" class="display">あなたの事業ではこう見えます</h2>
+    <p class="lead">3つのサンプル画面です。名前とメッセージは架空のものです。</p>
+    <div class="ventanas">
+      <figure class="ventana">
+        <div class="barra" aria-hidden="true"><i></i><i></i><i></i><span>事業のWhatsApp</span></div>
+        <div class="chat">
+          <p class="hora">23:40</p>
+          <p class="msg ellos">こんにちは、明日の9時に6名のテーブルは空いていますか？</p>
+          <p class="msg nos">こんにちは、はい。6名様でテラス席を21:00にお取りします。お名前をお願いします。</p>
+          <p class="msg ellos">Ana López</p>
+          <p class="msg nos">承知しました、Anaさん。明日の18:00にリマインダーをお送りします。</p>
+        </div>
+        <figcaption><strong>いつもそこにいる。</strong>夜にメッセージが届いても、誰かが返信します。</figcaption>
+      </figure>
+      <figure class="ventana">
+        <div class="barra" aria-hidden="true"><i></i><i></i><i></i><span>お客様</span></div>
+        <div class="tabla">
+          <p class="fila cab"><span>お客様</span><span>最終来店</span><span>状態</span></p>
+          <p class="fila"><span>Marta R.</span><span>3月</span><span class="et">案内送信済み</span></p>
+          <p class="fila"><span>Luis G.</span><span>4月</span><span class="et ok">再来店</span></p>
+          <p class="fila"><span>Empresa Norte</span><span>5月</span><span class="et">案内送信済み</span></p>
+          <p class="fila"><span>Sofía P.</span><span>6月</span><span class="et ok">予約済み</span></p>
+        </div>
+        <figcaption><strong>眠っているデータ。</strong>すでに購入したお客様に、再来のご案内が届きます。</figcaption>
+      </figure>
+      <figure class="ventana">
+        <div class="barra" aria-hidden="true"><i></i><i></i><i></i><span>今週の投稿</span></div>
+        <div class="semana">
+          <p><span>月</span><b>開店前のキッチン</b></p>
+          <p><span>火</span><b>バースタッフ</b></p>
+          <p><span>水</span><b>季節の一皿</b></p>
+          <p><span>木</span><b>お客様の口コミ</b></p>
+          <p><span>金</span><b>週末の予定</b></p>
+        </div>
+        <figcaption><strong>SNSでの信頼。</strong>何を投稿するか悩まずに、毎週あなたを見せられます。</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ============ MANIFIESTO ============ -->
-<section class="block" id="manifiesto">
+<section class="bloque" id="dias" aria-labelledby="dias-t">
   <div class="inner">
-    <p class="eyebrow reveal">私たちの考え</p>
-    <h2 class="display giant reveal d1">役に立つAI。<br><span class="hl">本物の成果。</span></h2>
-    <p class="lead reveal d2">El Tíoは、会社がいちばん必要としている場所でAIを働かせます。営業、業務、顧客対応、データ、そして社員。指標が良くならないなら、導入しません。</p>
+    <h2 id="dias-t" class="display">30日間で変わること</h2>
+    <p class="lead">数字の約束はしません。起こることを、起こる順番でお伝えします。</p>
+    <ol class="linea">
+      <li><span class="cuando">1日目</span><h3>Auditを受ける</h3><p>事業についての15分から25分のアンケートです。電話はありません。</p></li>
+      <li><span class="cuando">2日目と3日目</span><h3>マップが届く</h3><p>あなたの業界の強みを、あなたのケースに合わせて並べ、日付つきで書面にします。</p></li>
+      <li><span class="cuando">1週目と2週目</span><h3>最初の一歩が動き出す</h3><p>マップから選んだことが動き始めます。見つけてもらえること、誰も返信待ちにならないこと。</p></li>
+      <li><span class="cuando">3週目と4週目</span><h3>変化を確認する</h3><p>あなた自身のデータで確認します。誰が連絡してきたか、誰が戻ったか、何が自動で返信されたか。</p></li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ PILARES ============ -->
-<section class="block" id="pilares">
+<section class="clientes" aria-labelledby="clientes-t">
   <div class="inner">
-    <p class="eyebrow reveal">できること</p>
-    <p class="lead reveal d1">会社が時間、お客様、お金を失っている場所を見つけて、もっとシンプルな働き方を作ります。</p>
-    <div class="pillar reveal">
-      <div class="pillar-head">
-        <h3 class="display p-word">自動化</h3>
-        <p class="p-claim">勝手に回る業務。</p>
-      </div>
-      <ul class="p-list">
-        <li>WhatsApp、Instagram、ウェブで、24時間年中無休で販売と対応をするチャットボットとアシスタント</li>
-        <li>手作業のいらない社内フロー：請求、レポート、フォローアップ、リマインダー</li>
-        <li>自動で動くCRMとマーケティング：キャンペーン、ファネル、リマーケティング、カゴ落ち対策</li>
-        <li>今使っているシステム同士をつなぎます。ツールを変える必要はありません</li>
-      </ul>
-    </div>
-    <div class="pillar reveal">
-      <div class="pillar-head">
-        <h3 class="display p-word">最適化</h3>
-        <p class="p-claim">勘ではなく、データで決める。</p>
-      </div>
-      <ul class="p-list">
-        <li>予測分析：需要、消費、在庫、顧客の行動</li>
-        <li>ダイナミックプライシングと、顧客リストの賢いセグメント分け</li>
-        <li>リアルタイムのダッシュボード：業務全体をひとつの画面で</li>
-        <li>不正検知、品質管理、問題が起きる前のアラート</li>
-      </ul>
-    </div>
-    <div class="pillar reveal">
-      <div class="pillar-head">
-        <h3 class="display p-word">研修</h3>
-        <p class="p-claim">チームがAIを使いこなす。</p>
-      </div>
-      <ul class="p-list">
-        <li>部門別のトレーニング：営業、マーケティング、業務、管理</li>
-        <li>初日から使える、AIのプレイブックとワークフロー</li>
-        <li>チームが自分たちで回せるようになるまで、しっかり伴走します</li>
-        <li>基準、限界、セキュリティ：特定の業者に頼るのではなく、AIを使う文化をつくります</li>
-      </ul>
-    </div>
+    <h2 id="clientes-t" class="sub">El Tíoを信頼する人たち</h2>
+    <ul class="logos">
+      <li>NORTH</li><li>LOGIN</li><li>420 CREW</li><li>GIORGINI</li><li>UPDATE NOW</li><li>NORTH CAFÉ FESTIVAL</li><li>FREEDOM SERVER</li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ CASOS ============ -->
-<section class="block" id="casos">
-  <div class="inner">
-    <p class="eyebrow reveal">実践では</p>
-    <h2 class="display reveal d1">具体的な自動化</h2>
-    <p class="lead reveal d2">El Tíoが会社の中で動かしている仕組みの例です。</p>
-    <div class="case-grid">
-      <div class="case reveal">
-        <span class="case-tag">営業</span>
-        <h3>WhatsAppにすぐ返信</h3>
-        <p>問い合わせには数秒で返信し、自動で見込み度を判定します。有望なものは営業担当のカレンダーに予約が入り、双方にリマインダーが届きます。</p>
-      </div>
-      <div class="case reveal d1">
-        <span class="case-tag">マーケティング</span>
-        <h3>勝手に投稿されるコンテンツ</h3>
-        <p>システムが文章を書き、画像を作り、決めたカレンダーと時間どおりに毎日SNSへ投稿します。チームは確認するだけです。</p>
-      </div>
-      <div class="case reveal d2">
-        <span class="case-tag">キャンペーン</span>
-        <h3>少しずつ送る一斉配信</h3>
-        <p>WhatsAppのキャンペーンを、間隔をあけて小分けに送ります。休止と時間帯を調整して、番号を守りながら、ブロックされずにリスト全体へ届けます。</p>
-      </div>
-      <div class="case reveal">
-        <span class="case-tag">管理</span>
-        <h3>催促しなくていい集金</h3>
-        <p>成約と同時に請求書を発行して自動で送り、入金まで支払いのリマインダーが順番に届きます。すべて記録に残ります。</p>
-      </div>
-      <div class="case reveal d1">
-        <span class="case-tag">経営</span>
-        <h3>月曜日には、もうレポートが届いている</h3>
-        <p>毎週、経営陣に売上、コスト、計画とのズレ、アラートをまとめた自動レポートが届きます。会社が今使っているシステムから作ります。</p>
-      </div>
-      <div class="case reveal d2">
-        <span class="case-tag">業務</span>
-        <h3>足りなくなる前に知らせる在庫</h3>
-        <p>過去の需要から在庫を予測し、欠品する前に何を補充するべきか知らせます。発注書は承認するだけの状態で用意されます。</p>
-      </div>
-    </div>
+<section class="bloque" id="preguntas" aria-labelledby="preguntas-t">
+  <div class="inner estrecho">
+    <h2 id="preguntas-t" class="display">よくある質問</h2>
+    <details><summary>Auditとは？</summary><p>事業についてのアンケートです。回答をもとに、業界の強みを順番と日付つきでまとめたマップが書面で届きます。</p></details>
+    <details><summary>Auditは有料ですか？</summary><p>いいえ。無料で、何の義務もありません。</p></details>
+    <details><summary>電話や打ち合わせは必要ですか？</summary><p>いいえ。すべて書面で進みます。Audit、マップ、その後のこともWhatsAppまたはメールで行います。</p></details>
+    <details><summary>技術の知識は必要ですか？</summary><p>いいえ。あなたは事業の仕組みを教えてください。残りはEl Tíoが担当します。</p></details>
+    <details><summary>小さな事業でも役に立ちますか？</summary><p>はい。最も効果が見えるのがそこです。小さな事業の大半はまだ始めていません。</p></details>
+    <details><summary>データはどうなりますか？</summary><p>あなたのものです。共有も販売もされません。</p></details>
+    <p class="mas"><a href="/ja/faq/">すべての質問を見る</a></p>
   </div>
 </section>
 
-<!-- ============ ARSENAL ============ -->
-<section class="block arsenal" id="arsenal">
-  <div class="arsenal-bg" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="eyebrow reveal">道具箱</p>
-    <h2 class="display reveal d1">解決できること</h2>
-    <p class="lead reveal d2">窓口はひとつ。道具はすべてそろっています。El Tíoが、課題に合ったチームを組みます。</p>
-    <div class="cap-grid">
-      <div class="cap reveal"><span class="cap-tag">ウェブ＋検索対策</span><p>独自ドメインの8言語サイト、SEO、構造化データ、AI検索での露出</p></div>
-      <div class="cap reveal d1"><span class="cap-tag">会話</span><p>多言語チャットボット、音声アシスタント、販売ボット、予約ボット</p></div>
-      <div class="cap reveal d2"><span class="cap-tag">マーケティング＋CRM</span><p>AIを使ったキャンペーン、コピーライティング、メールの自動化、リードスコアリング、クチコミ</p></div>
-      <div class="cap reveal d3"><span class="cap-tag">データ</span><p>自動レポート、予測、レコメンド、賢いダッシュボード</p></div>
-      <div class="cap reveal"><span class="cap-tag">コンテンツ</span><p>最先端のAIで作る画像、動画、デザイン、ビジュアルキャンペーン</p></div>
-      <div class="cap reveal d1"><span class="cap-tag">音声</span><p>ナレーション、音声クローン、文字起こし、字幕、リアルタイム翻訳</p></div>
-      <div class="cap reveal d2"><span class="cap-tag">ビジョン</span><p>OCR、書類の読み取り、画像による品質検査、動画解析</p></div>
-      <div class="cap reveal d3"><span class="cap-tag">オーダーメイド</span><p>RAG、社内専用のナレッジベース、AIを使ったEC、オーダーメイドのアプリとシステム</p></div>
+<section class="cierre" id="contacto" aria-labelledby="cierre-t">
+  <div class="inner cierre-grid">
+    <div>
+      <h2 id="cierre-t" class="display">強みを逃さないでください。その時は今日です。El Tíoに相談しましょう。</h2>
+      <div class="acciones">
+        <a class="btn solid" data-cta="cierre-audit" href="https://app.eltio.net/auditoria/gastronomia?utm_source=eltio&amp;utm_medium=cierre">Auditを無料で受ける</a>
+        <a class="btn ghost" data-cta="cierre-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">WhatsAppで連絡する</a>
+      </div>
     </div>
+    <img src="/assets/re-tio-retrato-480.webp" srcset="/assets/re-tio-retrato-480.webp 480w, /assets/re-tio-retrato-768.webp 768w" sizes="(min-width: 900px) 360px, 70vw" width="480" height="720" alt="スーツに黒いメガネのEl Tío" loading="lazy" decoding="async">
   </div>
 </section>
-
-<!-- ============ METODO ============ -->
-<section class="block" id="metodo">
-  <div class="inner">
-    <p class="eyebrow reveal">進め方</p>
-    <h2 class="display reveal d1">4つのステップ。回り道はしません。</h2>
-    <div class="steps">
-      <div class="step reveal"><span class="s-num">01</span><h3>Scan</h3><p>課題と、チャンスがどこにあるかを把握します。</p></div>
-      <div class="step reveal d1"><span class="s-num">02</span><h3>Upgrade</h3><p>プロセスを改善し、必要なものを導入します。</p></div>
-      <div class="step reveal d2"><span class="s-num">03</span><h3>Train</h3><p>チームが使い方を覚えます。</p></div>
-      <div class="step reveal d3"><span class="s-num">04</span><h3>Measure</h3><p>何が変わったかを測ります。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CODIGO DEL TIO ============ -->
-<section class="block codigo" id="codigo">
-  <div class="inner">
-    <p class="eyebrow reveal">El Tíoのルール</p>
-    <div class="rules">
-      <div class="rule reveal"><h3>範囲を先に決める</h3><p>範囲、成果、期間は始める前に合意します。終わらないプロジェクトはありません。</p></div>
-      <div class="rule reveal d1"><h3>長期契約なし</h3><p>月ごとの契約です。いつでも違約金なしで解約できます。</p></div>
-      <div class="rule reveal d2"><h3>データはあなたのもの</h3><p>秘密は厳守します。必要なら専用のモデルを使います。何も共有しません。</p></div>
-      <div class="rule reveal d3"><h3>本物のサポート</h3><p>返事をするのはチケットではなく、El Tíoです。スペイン語か英語で、WhatsAppから。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CIERRE ============ -->
-<section class="block cierre" id="contacto">
-  <div class="cierre-bg" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="eyebrow reveal">次のステップ</p>
-    <h2 class="display giant reveal d1">優位性を逃さないで。<br><span class="hl">今日がその日です。</span></h2>
-    <p class="lead reveal d2">今日なら一歩。明日なら同じ場所まで十歩。<br>El Tíoがあなたの業界の優位性をお見せします。<br>無料のAuditを受けて、日付入りの計画を書面で受け取れます。<br>電話も打ち合わせもありません。</p>
-    <div class="hero-cta reveal d3">
-      <a class="btn solid" data-cta="cierre" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">El Tíoに相談する</a>
-    </div>
-  </div>
-</section>
+</main>
 
 <footer>
   <nav class="foot-nav inner" aria-label="業種別ソリューション">
@@ -395,6 +385,6 @@
   </div>
 </footer>
 
-<script src="/main.js" defer></script>
+<script src="/inicio.js" defer></script>
 </body>
 </html>

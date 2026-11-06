@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Tío · 8 种语言的网站，让 Google 和 ChatGPT 都找得到您</title>
-<meta name="description" content="自有域名、8 种语言的网站，在 Google、ChatGPT、Perplexity 和 Gemini 中获得排名。之后再做聊天机器人、CRM 和客户开发。">
+<title>El Tío · AI 已经成为你所在行业的优势</title>
+<meta name="description" content="选择你的行业，看看 AI 今天能为你带来哪 5 项优势，胜过你的竞争对手。免费做 Audit，获得一份书面方案，不用打电话。">
 <meta name="theme-color" content="#04070B">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_CN">
@@ -15,8 +15,8 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="it_IT">
 <meta property="og:locale:alternate" content="ja_JP">
-<meta property="og:title" content="El Tío · 8 种语言的网站，让 Google 和 ChatGPT 都找得到您">
-<meta property="og:description" content="自有域名、8 种语言的网站，让客户在 Google 和 AI 助手里找得到您。之后再做聊天机器人、CRM 和客户开发。">
+<meta property="og:title" content="El Tío · AI 已经成为你所在行业的优势">
+<meta property="og:description" content="选择你的行业，看看 AI 今天能为你带来哪 5 项优势，胜过你的竞争对手。免费做 Audit，获得一份书面方案，不用打电话。">
 <link rel="canonical" href="https://eltio.net/zh/">
 <link rel="alternate" hreflang="es" href="https://eltio.net/">
 <link rel="alternate" hreflang="en" href="https://eltio.net/en/">
@@ -32,12 +32,11 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" as="image" imagesrcset="/assets/tio-1-768.webp 768w, /assets/tio-1.webp 1536w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-var.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/geist.woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/inicio.css">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -61,32 +60,64 @@
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "WebPage",
- "name": "El Tío · 8 种语言的网站，让 Google 和 ChatGPT 都找得到您",
- "description": "自有域名、8 种语言的网站，在 Google、ChatGPT、Perplexity 和 Gemini 中获得排名。之后再做聊天机器人、CRM 和客户开发。",
- "url": "https://eltio.net/zh/",
- "inLanguage": "zh-CN",
- "isPartOf": {
-  "@type": "WebSite",
-  "name": "El Tío",
-  "url": "https://eltio.net/zh/"
- }
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eltio.net/zh/#organization",
+   "name": "El Tío",
+   "url": "https://eltio.net/zh/",
+   "logo": "https://eltio.net/assets/og.jpg",
+   "email": "hola@eltio.net",
+   "areaServed": [
+    "MX",
+    "AR",
+    "CO",
+    "CL",
+    "PE",
+    "BR"
+   ],
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "hola@eltio.net",
+    "url": "https://wa.me/525568976898",
+    "availableLanguage": [
+     "es",
+     "en",
+     "pt",
+     "fr",
+     "de",
+     "it",
+     "zh",
+     "ja"
+    ]
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://eltio.net/zh/#website",
+   "name": "El Tío",
+   "url": "https://eltio.net/zh/",
+   "inLanguage": "zh-CN",
+   "publisher": {
+    "@id": "https://eltio.net/zh/#organization"
+   }
+  }
+ ]
 }
 </script>
 <script src="/medicion.js" defer></script>
 </head>
 <body>
 
-<a class="skip" href="#manifiesto">跳到正文</a>
-<div id="progress" aria-hidden="true"></div>
+<a class="skip" href="#rubro">跳到正文</a>
 <header class="top">
-  <div class="wordmark">EL TIO<span class="dot">.</span></div>
+  <a class="wordmark" href="/zh/" aria-label="El Tío，首页">EL TIO<span>.</span></a>
   <nav class="nav" aria-label="栏目">
-    <a href="/zh/websites/">网站</a>
-    <a href="#web">他做什么</a>
-    <a href="#casos">案例</a>
-    <a href="#metodo">方法</a>
-    <a href="#contacto">联系</a>
+    <a href="#rubro">你的行业</a>
+    <a href="#demos">效果展示</a>
+    <a href="#dias">30 天</a>
+    <a href="#preguntas">常见问题</a>
   </nav>
     <details class="idioma">
     <summary aria-label="语言: 中文">ZH</summary>
@@ -101,261 +132,220 @@
       <li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li>
     </ul>
   </details>
-  <div class="status" aria-hidden="true"><span class="pulse"></span>在线</div>
+  <a class="btn solid chico" data-cta="cabecera" href="#rubro">免费 Audit</a>
 </header>
 
-<!-- ============ HERO: LA DIGITALIZACION ============ -->
-<div class="hero" id="hero">
-  <div class="hero-stage">
-    <div class="hero-media" aria-hidden="true">
-      <img class="frame f1" src="/assets/tio-1.jpg" srcset="/assets/tio-1-768.webp 768w, /assets/tio-1.webp 1536w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
-      <img class="frame f2" data-src="/assets/tio-2.webp" data-src-sm="/assets/tio-2-768.webp" alt="" decoding="async">
-      <img class="frame f3" data-src="/assets/tio-3.webp" data-src-sm="/assets/tio-3-768.webp" alt="" decoding="async">
-      <img class="frame f4" data-src="/assets/tio-4.webp" data-src-sm="/assets/tio-4-768.webp" alt="" decoding="async">
-      <img class="frame f5" data-src="/assets/tio-1.webp" data-src-sm="/assets/tio-1-768.webp" alt="" decoding="async">
-    </div>
-    <canvas id="rain" aria-hidden="true"></canvas>
-    <div class="hero-veil" aria-hidden="true"></div>
-
-    <div class="beat b0" aria-hidden="true">
-      <p class="eyebrow">面向企业的人工智能</p>
-      <p class="beat-line">客户在 Google 和 ChatGPT 上找您。<br>他让客户找得到您。</p>
-    </div>
-    <div class="beat b1" aria-hidden="true">
-      <p class="eyebrow">01 &nbsp;/&nbsp; 流程</p>
-      <p class="beat-word">自动化</p>
-      <p class="beat-line">销售、客服和运营自己运转。24/7。</p>
-    </div>
-    <div class="beat b2" aria-hidden="true">
-      <p class="eyebrow">02 &nbsp;/&nbsp; 成果</p>
-      <p class="beat-word">优化</p>
-      <p class="beat-line">成本更低。错误更少。利润更高。</p>
-    </div>
-    <div class="beat b3" aria-hidden="true">
-      <p class="eyebrow">03 &nbsp;/&nbsp; 团队</p>
-      <p class="beat-word">培训</p>
-      <p class="beat-line">几周内让团队用好 AI，而不是几年。</p>
-    </div>
-
-    <div class="hero-title">
-      <h1 class="display">EL TIO</h1>
-      <p class="hero-sub">AI 已经是您在市场上的优势。El Tío 告诉您所在行业的优势。</p>
-      <div class="hero-cta">
-        <a class="btn solid" data-cta="hero" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">和 El Tío 聊聊</a>
-        <a class="btn ghost" href="#web">看看他做什么</a>
+<main>
+<section class="hero" id="rubro" aria-labelledby="titulo">
+  <div class="inner hero-grid">
+    <div class="hero-txt">
+      <h1 id="titulo" class="display">AI 已经是你所在行业的优势。就在今天。</h1>
+      <p class="lead">今天只需一步。明天要走十步才能到同一个地方。选择你的行业，看看会有什么改变。</p>
+      <p class="pregunta" id="pregunta">你的行业是什么？</p>
+      <div class="chips" role="group" aria-labelledby="pregunta">
+        <button type="button" class="chip" id="t-gastronomia" aria-controls="p-gastronomia" aria-pressed="true">餐饮</button>
+        <button type="button" class="chip" id="t-hospitality" aria-controls="p-hospitality" aria-pressed="false">酒店旅宿</button>
+        <button type="button" class="chip" id="t-real-estate" aria-controls="p-real-estate" aria-pressed="false">房地产</button>
+        <button type="button" class="chip" id="t-fitness" aria-controls="p-fitness" aria-pressed="false">健身</button>
+        <button type="button" class="chip" id="t-eventos" aria-controls="p-eventos" aria-pressed="false">活动</button>
+        <button type="button" class="chip" id="t-artistas" aria-controls="p-artistas" aria-pressed="false">艺人</button>
+        <button type="button" class="chip" id="t-distribucion" aria-controls="p-distribucion" aria-pressed="false">分销</button>
       </div>
     </div>
-
-    <div class="scroll-cue" aria-hidden="true">向下滑动</div>
+    <div class="tablero" aria-live="polite">
+      <div class="panel" id="p-gastronomia" data-rubro="gastronomia">
+        <ol class="ventajas">
+          <li><h3>唤醒沉睡的数据</h3><p>已经联系过你的数百位客户就是一份名单。在合适的时间邀请他们回来。</p></li>
+          <li><h3>开发新客户</h3><p>本地有团建聚餐、活动和大额订单的企业，比你的竞争对手更早找到。</p></li>
+          <li><h3>社交媒体上的信任</h3><p>厨房、团队和菜品，每周都讲给大家听。常看到你的人，会在尝试之前就选择你。</p></li>
+          <li><h3>持续在线</h3><p>每天发布内容，任何时间都能回复，营业高峰时也一样。</p></li>
+          <li><h3>优化工作</h3><p>订座、订单和常见问题自动处理，团队专心服务现场。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/gastronomia?utm_source=eltio&amp;utm_medium=portada">免费做 Audit</a><small class="nota-idioma">Audit 目前只有西班牙语版本。如果想用您的语言沟通，请通过 WhatsApp 或 hola@eltio.net 联系我们。</small>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">通过 WhatsApp 联系我们</a>
+        </div>
+      </div>
+      <div class="panel" id="p-hospitality" data-rubro="hospitality">
+        <ol class="ventajas">
+          <li><h3>唤醒沉睡的数据</h3><p>往季的住客，在他们订别家之前就被邀请回来。</p></li>
+          <li><h3>开发新客户</h3><p>带来团体客人的旅行社、企业，以及婚礼和静修活动的组织者。</p></li>
+          <li><h3>社交媒体上的信任</h3><p>持续展示评价和场地的日常。旅行者会订自己信任的地方。</p></li>
+          <li><h3>持续在线</h3><p>用住客的语言和时间回复，即使对方身处另一个时区。</p></li>
+          <li><h3>优化工作</h3><p>到店、重复问题和提醒，不必经过前台。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/hospitality?utm_source=eltio&amp;utm_medium=portada">免费做 Audit</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">通过 WhatsApp 联系我们</a>
+        </div>
+      </div>
+      <div class="panel" id="p-real-estate" data-rubro="real-estate">
+        <ol class="ventajas">
+          <li><h3>唤醒沉睡的数据</h3><p>几个月前来咨询但没有购买的联系人。很多人仍在寻找。</p></li>
+          <li><h3>开发新客户</h3><p>想出售或出租的业主和有明确需求的买家，比其他中介更早联系。</p></li>
+          <li><h3>社交媒体上的信任</h3><p>持续展示成交、区域和判断。大额购买时，人们会选择自己熟悉的人。</p></li>
+          <li><h3>持续在线</h3><p>每个咨询都在几分钟内得到回复，周末也一样。</p></li>
+          <li><h3>优化工作</h3><p>筛选咨询、安排看房并跟进，不会在各个聊天里漏掉任何人。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/real-estate?utm_source=eltio&amp;utm_medium=portada">免费做 Audit</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">通过 WhatsApp 联系我们</a>
+        </div>
+      </div>
+      <div class="panel" id="p-fitness" data-rubro="fitness">
+        <ol class="ventajas">
+          <li><h3>唤醒沉睡的数据</h3><p>退会的会员和没有再来的试课学员。一次及时的邀请就能让他们回来。</p></li>
+          <li><h3>开发新客户</h3><p>本地有团队想要健康福利的企业，以及还不认识你的邻近居民。</p></li>
+          <li><h3>社交媒体上的信任</h3><p>课程、教练和进步在社交媒体上讲出来。人们愿意在有归属感的地方训练。</p></li>
+          <li><h3>持续在线</h3><p>营业时间和试课问题即时回复，任何时间都行。</p></li>
+          <li><h3>优化工作</h3><p>入会、续费和付款提醒自动发出。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/fitness?utm_source=eltio&amp;utm_medium=portada">免费做 Audit</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">通过 WhatsApp 联系我们</a>
+        </div>
+      </div>
+      <div class="panel" id="p-eventos" data-rubro="eventos">
+        <ol class="ventajas">
+          <li><h3>唤醒沉睡的数据</h3><p>往届活动的客户，日期每年都会重复。</p></li>
+          <li><h3>开发新客户</h3><p>每年举办多场活动的企业、婚礼策划师和机构。</p></li>
+          <li><h3>社交媒体上的信任</h3><p>持续展示布置、细节和客户评价。没有人会盲目预订活动。</p></li>
+          <li><h3>持续在线</h3><p>报价当天回复，即使你正在布置现场。</p></li>
+          <li><h3>优化工作</h3><p>在一个地方完成报价、确认供应商和跟进付款。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/eventos?utm_source=eltio&amp;utm_medium=portada">免费做 Audit</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">通过 WhatsApp 联系我们</a>
+        </div>
+      </div>
+      <div class="panel" id="p-artistas" data-rubro="artistas">
+        <ol class="ventajas">
+          <li><h3>唤醒沉睡的数据</h3><p>已经买过门票、作品或课程的人，最先知道接下来的安排。</p></li>
+          <li><h3>开发新客户</h3><p>寻找像你这样的艺术家的场地、品牌、艺术节和制作人。</p></li>
+          <li><h3>社交媒体上的信任</h3><p>创作过程、排练和作品持续讲述。观众关注的是人。</p></li>
+          <li><h3>持续在线</h3><p>经常发布，同时不中断创作。</p></li>
+          <li><h3>优化工作</h3><p>合约、日程和消息井然有序，把时间留给作品。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/artistas?utm_source=eltio&amp;utm_medium=portada">免费做 Audit</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">通过 WhatsApp 联系我们</a>
+        </div>
+      </div>
+      <div class="panel" id="p-distribucion" data-rubro="distribucion">
+        <ol class="ventajas">
+          <li><h3>唤醒沉睡的数据</h3><p>停止下单的客户，在流失之前被发现并重新唤回。</p></li>
+          <li><h3>开发新客户</h3><p>本地还没有向你采购的商店、餐厅和企业。</p></li>
+          <li><h3>社交媒体上的信任</h3><p>持续展示目录、配送和保障。买家在信任你时才会更换供应商。</p></li>
+          <li><h3>持续在线</h3><p>目录和库存即时回复，任何时间都行。</p></li>
+          <li><h3>优化工作</h3><p>订单、库存和路线井然有序，不用手工录入。</p></li>
+        </ol>
+        <div class="acciones">
+          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/distribucion?utm_source=eltio&amp;utm_medium=portada">免费做 Audit</a>
+          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">通过 WhatsApp 联系我们</a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- ============ LO PRIMERO: LA WEB ============ -->
-<section class="block orden" id="web">
+<section class="contraste" aria-label="为什么是今天">
+  <div class="inner contraste-grid">
+    <p><strong>100 家中有 78 家</strong>组织已经在业务的至少一部分使用 AI。<cite>McKinsey, The state of AI, 2025</cite></p>
+    <p><strong>100 家中有 94 家</strong>墨西哥四个州的小企业没有登记的网站。<cite><a href="/zh/index/">El Tío 指数，基于 INEGI 的 DENUE</a></cite></p>
+    <p class="remate">大企业已经行动了。小企业还没有。你的优势就在这里。</p>
+  </div>
+</section>
+
+<section class="bloque" id="demos" aria-labelledby="demos-t">
   <div class="inner">
-    <p class="eyebrow reveal">他做的事，按顺序来</p>
-    <h2 class="display reveal d1">第一步，让客户找到您</h2>
-    <p class="lead reveal d2">一个属于自己的网站，用客户的语言，专门为出现在 Google 以及 ChatGPT、Perplexity 和 Gemini 的回答里而搭建。然后，不让任何人等不到回复。再往后，主动去找新客户。</p>
-    <div class="steps">
-      <div class="step reveal"><span class="s-num">01</span><h3><a href="/zh/websites/">网站</a></h3><p>自有域名、8 种语言和 SEO。含<a href="/zh/ai-search-visibility/">AI 搜索优化</a>。</p></div>
-      <div class="step reveal d1"><span class="s-num">02</span><h3><a href="/zh/services/whatsapp-instagram-agent/">聊天机器人和 CRM</a></h3><p>一个回复 WhatsApp 和 Instagram 的 AI 客服，加上一个把您的数据整理清楚的 <a href="/zh/services/crm-and-follow-up/">CRM</a>。</p></div>
-      <div class="step reveal d2"><span class="s-num">03</span><h3><a href="/zh/prospecting-and-email/">客户开发</a></h3><p>商家名单、带跟进的邮件，以及面向您客户的邮件营销。</p></div>
-      <div class="step reveal d3"><span class="s-num">04</span><h3><a href="/zh/services/">更多 AI</a></h3><p>AI 语音客服、自动化、报表和团队培训。</p></div>
-    </div>
-    <div class="hero-cta reveal">
-      <a class="btn solid" data-cta="web" href="/zh/websites/#audit">免费做 Audit</a>
-      <a class="btn ghost" href="/zh/guides/show-up-in-chatgpt-and-google-small-business/">阅读指南</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONFIAN ============ -->
-<section class="clients" aria-label="信赖 El Tío 的品牌">
-  <div class="inner clients-head">
-    <p class="eyebrow reveal">信赖 EL TÍO 的品牌</p>
-    <button class="marquee-pause" type="button" aria-pressed="false" aria-label="暂停滚动"><span class="vo">暂停</span></button>
-  </div>
-  <div class="marquee">
-    <div class="marquee-track">
-      <div class="marquee-group">
-        <span class="cl cl-north">NORTH</span>
-        <span class="cl cl-login">LOGIN</span>
-        <span class="cl cl-420">420 CREW</span>
-        <span class="cl cl-giorgini">GIORGINI</span>
-        <span class="cl cl-update">UPDATE NOW</span>
-        <span class="cl cl-ncf">NORTH CAFÉ FESTIVAL</span>
-        <span class="cl cl-freedom">FREEDOM SERVER</span>
-        <span class="cl cl-cat">建筑事务所</span>
-        <span class="cl cl-cat">工程事务所</span>
-      </div>
-      <div class="marquee-group" aria-hidden="true">
-        <span class="cl cl-north">NORTH</span>
-        <span class="cl cl-login">LOGIN</span>
-        <span class="cl cl-420">420 CREW</span>
-        <span class="cl cl-giorgini">GIORGINI</span>
-        <span class="cl cl-update">UPDATE NOW</span>
-        <span class="cl cl-ncf">NORTH CAFÉ FESTIVAL</span>
-        <span class="cl cl-freedom">FREEDOM SERVER</span>
-        <span class="cl cl-cat">建筑事务所</span>
-        <span class="cl cl-cat">工程事务所</span>
-      </div>
+    <h2 id="demos-t" class="display">在你的生意里是什么样子</h2>
+    <p class="lead">三个示例界面。名称和消息均为虚构。</p>
+    <div class="ventanas">
+      <figure class="ventana">
+        <div class="barra" aria-hidden="true"><i></i><i></i><i></i><span>企业的 WhatsApp</span></div>
+        <div class="chat">
+          <p class="hora">23:40</p>
+          <p class="msg ellos">你好，明天 9 点有 6 人的桌子吗？</p>
+          <p class="msg nos">你好，有的。我给你留露台 6 位，21:00。请问订在谁名下？</p>
+          <p class="msg ellos">Ana López</p>
+          <p class="msg nos">好的，Ana。明天 18:00 我会发提醒给你。</p>
+        </div>
+        <figcaption><strong>持续在线。</strong>夜里有人给你发消息，也有人回复。</figcaption>
+      </figure>
+      <figure class="ventana">
+        <div class="barra" aria-hidden="true"><i></i><i></i><i></i><span>客户</span></div>
+        <div class="tabla">
+          <p class="fila cab"><span>客户</span><span>上次到访</span><span>状态</span></p>
+          <p class="fila"><span>Marta R.</span><span>3 月</span><span class="et">已发送邀请</span></p>
+          <p class="fila"><span>Luis G.</span><span>4 月</span><span class="et ok">已回来</span></p>
+          <p class="fila"><span>Empresa Norte</span><span>5 月</span><span class="et">已发送邀请</span></p>
+          <p class="fila"><span>Sofía P.</span><span>6 月</span><span class="et ok">已预订</span></p>
+        </div>
+        <figcaption><strong>沉睡的数据。</strong>已经向你购买过的人会收到回来的邀请。</figcaption>
+      </figure>
+      <figure class="ventana">
+        <div class="barra" aria-hidden="true"><i></i><i></i><i></i><span>本周发布内容</span></div>
+        <div class="semana">
+          <p><span>周一</span><b>开门前的厨房</b></p>
+          <p><span>周二</span><b>吧台团队</b></p>
+          <p><span>周三</span><b>当季菜品</b></p>
+          <p><span>周四</span><b>客户的评价</b></p>
+          <p><span>周五</span><b>周末的安排</b></p>
+        </div>
+        <figcaption><strong>社交媒体上的信任。</strong>你每周都在展示自己，不用想发什么。</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ============ MANIFIESTO ============ -->
-<section class="block" id="manifiesto">
+<section class="bloque" id="dias" aria-labelledby="dias-t">
   <div class="inner">
-    <p class="eyebrow reveal">核心理念</p>
-    <h2 class="display giant reveal d1">真正好用的 AI。<br><span class="hl">实实在在的成果。</span></h2>
-    <p class="lead reveal d2">El Tío 让人工智能在企业最需要的地方干活：销售、运营、客服、数据，以及您自己的团队。不能改善某项指标的，就不做。</p>
+    <h2 id="dias-t" class="display">30 天内的变化</h2>
+    <p class="lead">不承诺数字。只讲发生了什么，按发生的顺序。</p>
+    <ol class="linea">
+      <li><span class="cuando">第 1 天</span><h3>你来做 Audit</h3><p>一份针对你生意的问卷，需要 15 到 25 分钟。不用打电话。</p></li>
+      <li><span class="cuando">第 2 天和第 3 天</span><h3>收到你的行动图</h3><p>你所在行业的优势，按你的情况排好顺序，附日期，书面提供。</p></li>
+      <li><span class="cuando">第 1 周和第 2 周</span><h3>第一步启动</h3><p>你从行动图里选的事项开始运转：让人找到你，没有人得不到回复。</p></li>
+      <li><span class="cuando">第 3 周和第 4 周</span><h3>看到变化</h3><p>用你自己的数据：谁来过消息，谁回来了，哪些是自动回复的。</p></li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ PILARES ============ -->
-<section class="block" id="pilares">
+<section class="clientes" aria-labelledby="clientes-t">
   <div class="inner">
-    <p class="eyebrow reveal">他做什么</p>
-    <p class="lead reveal d1">我们找出企业在哪里浪费时间、流失客户或损失金钱，然后搭建一种更简单的工作方式。</p>
-    <div class="pillar reveal">
-      <div class="pillar-head">
-        <h3 class="display p-word">自动化</h3>
-        <p class="p-claim">自己运转的流程。</p>
-      </div>
-      <ul class="p-list">
-        <li>在 WhatsApp、Instagram 和网站上 24/7 销售和接待的聊天机器人与助手</li>
-        <li>无需人工的内部流程：开票、报表、跟进、提醒</li>
-        <li>CRM 和营销自动运行：推广活动、销售漏斗、再营销、挽回弃购订单</li>
-        <li>打通您已经在用的系统，不用换工具</li>
-      </ul>
-    </div>
-    <div class="pillar reveal">
-      <div class="pillar-head">
-        <h3 class="display p-word">优化</h3>
-        <p class="p-claim">用数据做决定，而不是凭感觉。</p>
-      </div>
-      <ul class="p-list">
-        <li>预测分析：需求、消耗、库存和客户行为</li>
-        <li>动态定价和客户群智能细分</li>
-        <li>实时数据看板：整个运营一屏看全</li>
-        <li>欺诈识别、质量控制，问题出现之前就预警</li>
-      </ul>
-    </div>
-    <div class="pillar reveal">
-      <div class="pillar-head">
-        <h3 class="display p-word">培训</h3>
-        <p class="p-claim">让团队用好 AI。</p>
-      </div>
-      <ul class="p-list">
-        <li>按部门培训：销售、市场、运营、行政</li>
-        <li>第一天就能用的 AI 操作手册和工作流程</li>
-        <li>一路陪跑，直到团队完全能自己上手</li>
-        <li>准则、边界和安全：建立 AI 文化，而不是依赖某个供应商</li>
-      </ul>
-    </div>
+    <h2 id="clientes-t" class="sub">信任 El Tío 的人</h2>
+    <ul class="logos">
+      <li>NORTH</li><li>LOGIN</li><li>420 CREW</li><li>GIORGINI</li><li>UPDATE NOW</li><li>NORTH CAFÉ FESTIVAL</li><li>FREEDOM SERVER</li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ CASOS ============ -->
-<section class="block" id="casos">
-  <div class="inner">
-    <p class="eyebrow reveal">实际应用</p>
-    <h2 class="display reveal d1">具体的自动化</h2>
-    <p class="lead reveal d2">举几个例子，看看 El Tío 在企业里落地运行的是哪类系统。</p>
-    <div class="case-grid">
-      <div class="case reveal">
-        <span class="case-tag">销售</span>
-        <h3>WhatsApp 即时回复</h3>
-        <p>每条咨询几秒内回复，自动筛选，值得跟进的直接排进销售人员的日历，双方都会收到提醒。</p>
-      </div>
-      <div class="case reveal d1">
-        <span class="case-tag">营销</span>
-        <h3>自动发布的内容</h3>
-        <p>系统撰写文案、生成图片，每天按设定的日程和时间发到社交媒体。团队只需审核。</p>
-      </div>
-      <div class="case reveal d2">
-        <span class="case-tag">推广活动</span>
-        <h3>控制节奏的分批群发</h3>
-        <p>WhatsApp 群发分批错开发送，停顿和时段都经过调校，保护号码，触达全部客户而不被封号。</p>
-      </div>
-      <div class="case reveal">
-        <span class="case-tag">行政</span>
-        <h3>收款不用追着要</h3>
-        <p>成交即开票，自动发送，付款提醒按顺序发出，直到收齐款项。全部留有记录。</p>
-      </div>
-      <div class="case reveal d1">
-        <span class="case-tag">管理层</span>
-        <h3>周一，报表已经到了</h3>
-        <p>管理层每周都会收到一份自动汇总，包括销售、成本、偏差和预警，数据来自企业已经在用的系统。</p>
-      </div>
-      <div class="case reveal d2">
-        <span class="case-tag">运营</span>
-        <h3>提前预警的库存</h3>
-        <p>根据历史需求预测库存，缺货之前就提示该补什么，采购单已备好待批。</p>
-      </div>
-    </div>
+<section class="bloque" id="preguntas" aria-labelledby="preguntas-t">
+  <div class="inner estrecho">
+    <h2 id="preguntas-t" class="display">常见问题</h2>
+    <details><summary>什么是 Audit？</summary><p>一份关于你生意的问卷。根据你的回答，你会收到一张行动图，列出你所在行业的优势，按顺序、附日期、书面提供。</p></details>
+    <details><summary>Audit 要收费吗？</summary><p>不收费。免费，也不要求你做任何承诺。</p></details>
+    <details><summary>我需要打电话或开会吗？</summary><p>不需要。一切都以书面进行：Audit、行动图和后续事项，通过 WhatsApp 或邮件。</p></details>
+    <details><summary>我需要懂技术吗？</summary><p>不需要。你讲你的生意怎么运转。其余交给 El Tío。</p></details>
+    <details><summary>小生意适用吗？</summary><p>适用。这正是效果最明显的地方：大多数小生意还没有开始。</p></details>
+    <details><summary>我的数据会怎样？</summary><p>数据是你的。不会被共享，也不会被出售。</p></details>
+    <p class="mas"><a href="/zh/faq/">查看所有问题</a></p>
   </div>
 </section>
 
-<!-- ============ ARSENAL ============ -->
-<section class="block arsenal" id="arsenal">
-  <div class="arsenal-bg" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="eyebrow reveal">武器库</p>
-    <h2 class="display reveal d1">他能解决的一切</h2>
-    <p class="lead reveal d2">一个联系人。一整套武器库。El Tío 按您的问题配齐所需的团队。</p>
-    <div class="cap-grid">
-      <div class="cap reveal"><span class="cap-tag">网站 + 搜索排名</span><p>8 种语言的网站，自有域名、SEO、结构化数据，并在 AI 搜索引擎中露出</p></div>
-      <div class="cap reveal d1"><span class="cap-tag">对话</span><p>多语言聊天机器人、语音助手、销售和预约机器人</p></div>
-      <div class="cap reveal d2"><span class="cap-tag">营销 + CRM</span><p>AI 推广活动、文案、自动化邮件、线索评分、评价管理</p></div>
-      <div class="cap reveal d3"><span class="cap-tag">数据</span><p>自动报表、预测、推荐、智能数据看板</p></div>
-      <div class="cap reveal"><span class="cap-tag">内容</span><p>用顶尖 AI 生成的图片、视频、设计和视觉推广</p></div>
-      <div class="cap reveal d1"><span class="cap-tag">音频 + 语音</span><p>配音、声音克隆、转写、字幕、实时翻译</p></div>
-      <div class="cap reveal d2"><span class="cap-tag">视觉</span><p>OCR、文档识别、视觉质检、视频分析</p></div>
-      <div class="cap reveal d3"><span class="cap-tag">定制</span><p>RAG、私有知识库、AI 电商、定制应用和系统</p></div>
+<section class="cierre" id="contacto" aria-labelledby="cierre-t">
+  <div class="inner cierre-grid">
+    <div>
+      <h2 id="cierre-t" class="display">别错过这个优势，就在今天。联系 El Tío。</h2>
+      <div class="acciones">
+        <a class="btn solid" data-cta="cierre-audit" href="https://app.eltio.net/auditoria/gastronomia?utm_source=eltio&amp;utm_medium=cierre">免费做 Audit</a>
+        <a class="btn ghost" data-cta="cierre-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">通过 WhatsApp 联系我们</a>
+      </div>
     </div>
+    <img src="/assets/re-tio-retrato-480.webp" srcset="/assets/re-tio-retrato-480.webp 480w, /assets/re-tio-retrato-768.webp 768w" sizes="(min-width: 900px) 360px, 70vw" width="480" height="720" alt="穿西装戴黑色眼镜的 El Tío" loading="lazy" decoding="async">
   </div>
 </section>
-
-<!-- ============ METODO ============ -->
-<section class="block" id="metodo">
-  <div class="inner">
-    <p class="eyebrow reveal">方法</p>
-    <h2 class="display reveal d1">四步。不绕弯子。</h2>
-    <div class="steps">
-      <div class="step reveal"><span class="s-num">01</span><h3>Scan</h3><p>弄清问题，找到机会在哪里。</p></div>
-      <div class="step reveal d1"><span class="s-num">02</span><h3>Upgrade</h3><p>改进流程，落地必要的东西。</p></div>
-      <div class="step reveal d2"><span class="s-num">03</span><h3>Train</h3><p>团队学会使用。</p></div>
-      <div class="step reveal d3"><span class="s-num">04</span><h3>Measure</h3><p>衡量变化。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CODIGO DEL TIO ============ -->
-<section class="block codigo" id="codigo">
-  <div class="inner">
-    <p class="eyebrow reveal">EL TÍO 守则</p>
-    <div class="rules">
-      <div class="rule reveal"><h3>范围明确</h3><p>开始前先约定范围、结果和时间。不做没完没了的项目。</p></div>
-      <div class="rule reveal d1"><h3>没有长期合同</h3><p>按月付费。随时可以取消，没有违约金。</p></div>
-      <div class="rule reveal d2"><h3>数据归您</h3><p>完全保密。需要时可用私有模型。不对外共享任何数据。</p></div>
-      <div class="rule reveal d3"><h3>真人支持</h3><p>回复您的是 El Tío，不是工单系统。西班牙语或英语，通过 WhatsApp。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CIERRE ============ -->
-<section class="block cierre" id="contacto">
-  <div class="cierre-bg" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="eyebrow reveal">下一步</p>
-    <h2 class="display giant reveal d1">别错过优势，<br><span class="hl">就是今天。</span></h2>
-    <p class="lead reveal d2">今天只需一步。明天要走十步才能到同一个地方。<br>El Tío 告诉您所在行业的优势。<br>免费做 Audit，拿到一份带日期的书面计划。<br>不用打电话，也不用开会。</p>
-    <div class="hero-cta reveal d3">
-      <a class="btn solid" data-cta="cierre" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">和 El Tío 聊聊</a>
-    </div>
-  </div>
-</section>
+</main>
 
 <footer>
   <nav class="foot-nav inner" aria-label="行业解决方案">
@@ -395,6 +385,6 @@
   </div>
 </footer>
 
-<script src="/main.js" defer></script>
+<script src="/inicio.js" defer></script>
 </body>
 </html>

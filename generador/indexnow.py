@@ -11,6 +11,7 @@ import glob, json, os, re, sys, urllib.request
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOST = "eltio.net"
 LOTE = 10000
+ENDPOINT = os.environ.get("INDEXNOW_ENDPOINT", "https://api.indexnow.org/indexnow")
 
 
 def clave():
@@ -35,7 +36,7 @@ def enviar(urls, k):
     for i in range(0, len(urls), LOTE):
         lote = urls[i:i + LOTE]
         cuerpo = json.dumps({"host": HOST, "key": k, "keyLocation": f"https://{HOST}/{k}.txt", "urlList": lote}).encode()
-        req = urllib.request.Request("https://api.indexnow.org/indexnow", data=cuerpo,
+        req = urllib.request.Request(ENDPOINT, data=cuerpo,
                                      headers={"Content-Type": "application/json; charset=utf-8"})
         try:
             with urllib.request.urlopen(req, timeout=60) as r:

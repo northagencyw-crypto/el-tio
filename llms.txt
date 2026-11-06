@@ -11,9 +11,7 @@
 - Pagina web en 8 idiomas: https://eltio.net/paginas-web/
   Dominio a nombre del negocio, sitio rapido y editable, una URL por idioma con
   hreflang, SEO de base, datos estructurados, Perfil de Empresa en Google,
-  llms.txt y medicion con Search Console y Analytics. Desde USD 300 de alta y
-  USD 39 al mes; si los requerimientos son complicados puede costar un poco mas
-  y se cotiza por escrito. Lista en 10 dias habiles.
+  llms.txt y medicion. Lista en 10 dias habiles.
 - Posicionamiento en IA (GEO y AEO): https://eltio.net/posicionamiento-en-ia/
   Que los buscadores de ChatGPT (OAI-SearchBot), Perplexity (PerplexityBot) y
   Google puedan leer, entender y citar al negocio. Medicion mensual con una
@@ -24,7 +22,7 @@
   Listas de negocios por rubro y ciudad, primer contacto y seguimiento por
   correo, Instagram y LinkedIn (nunca WhatsApp en frio), y email marketing para
   clientes que aceptaron recibirlo. Va en el paquete web + chatbot +
-  prospeccion, desde USD 500 de alta y USD 79 al mes.
+  prospeccion.
 
 El Tío mira como trabaja hoy una empresa, encuentra donde se pierde tiempo,
 clientes o dinero, y devuelve un mapa de lo que conviene hacer primero, con el
@@ -52,21 +50,18 @@ de datos ordenada y sin duplicados, una web propia y editable, un newsletter
 propio y un chatbot que atiende y califica. Lo especifico de cada rubro va
 despues de eso, nunca antes.
 
-## Paquetes y precios (https://eltio.net/paquetes/)
+## Paquetes (https://eltio.net/paquetes/)
 
 - Audit: gratis. Cuestionario de 15 a 25 minutos y mapa en 24 a 48 horas habiles.
-- Pagina web: desde USD 300 de alta + USD 39 al mes. Dominio propio, 8 idiomas,
-  posicionamiento en Google y en IA. Lista en 10 dias habiles.
-- Web + chatbot: desde USD 400 de alta + USD 59 al mes. Lo anterior mas un agente
-  de IA en WhatsApp e Instagram con CRM. Listo en 14 dias habiles.
-- Web + chatbot + prospeccion y email: desde USD 500 de alta + USD 79 al mes.
-  Lo anterior mas listas, primer contacto y seguimiento, y email marketing.
-  Listo en 21 dias habiles.
+- Pagina web: dominio propio, 8 idiomas, posicionamiento en Google y en IA.
+- Web + chatbot: lo anterior mas un agente de IA en WhatsApp e Instagram con CRM.
+- Web + chatbot + prospeccion y email: lo anterior mas listas, primer contacto,
+  seguimiento y email marketing.
 - Lo que va mas alla (agente de voz, integraciones, capacitacion de equipos) se
   cotiza por escrito.
 
-Mes a mes, sin contratos largos. Los datos son del cliente. Los costos de
-terceros (mensajes de plantilla de WhatsApp, linea telefonica) van aparte.
+Mes a mes, sin contratos largos. Los datos son del cliente. El detalle vigente
+de cada paquete esta en https://eltio.net/paquetes/.
 
 ## Servicios (https://eltio.net/servicios/)
 
@@ -76,7 +71,13 @@ terceros (mensajes de plantilla de WhatsApp, linea telefonica) van aparte.
 - Automatizaciones y reportes: https://eltio.net/servicios/automatizaciones-y-reportes/
 - Capacitacion: https://eltio.net/servicios/capacitacion/
 
-## Ciudades (https://eltio.net/ciudades/)
+## Paises
+
+Mexico, Argentina, Colombia, Chile y Peru. Hay paginas por ciudad y rubro para
+106 ciudades en https://eltio.net/negocios/ (43 de Mexico, 17 de Argentina, 16
+de Colombia, 15 de Chile y 15 de Peru).
+
+## Ciudades con presencia (https://eltio.net/ciudades/)
 
 - Ciudad de Mexico: https://eltio.net/ciudades/ciudad-de-mexico/
 - Monterrey: https://eltio.net/ciudades/monterrey/

@@ -106,3 +106,16 @@ td:first-child{color:var(--hueso);font-weight:500}
 /* bloques de codigo (robots.txt, llms.txt) */
 .guia pre{max-width:100%;overflow-x:auto;background:rgba(127,201,242,.06);border:1px solid rgba(127,201,242,.18);border-radius:10px;padding:14px 16px;margin:16px 0;font-size:13px;line-height:1.55}
 .guia code{font-family:'Geist Mono',ui-monospace,monospace;font-size:.92em}
+.ventana{margin:28px 0;border:1px solid rgba(127,201,242,.28);border-radius:14px;background:var(--carbon);overflow:hidden}
+.ventana .barra{display:flex;align-items:center;gap:7px;padding:11px 16px;border-bottom:1px solid var(--linea);background:#0D1621}
+.ventana .barra i{width:9px;height:9px;border-radius:50%;background:#26323F}
+.ventana .barra i:first-child{background:var(--acento)}
+.ventana .barra span{margin-left:8px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ceniza);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ventana .cuerpo{padding:18px}
+.ventana .cuerpo.chat{margin:0;border:0;border-radius:0;background:transparent}
+.ventana .filas{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ventana .filas li{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:10px 12px;border:1px solid var(--linea);border-radius:10px;font-size:15px;line-height:1.4}
+.ventana .filas b{color:var(--hueso);font-weight:500}
+.ventana .filas span{grid-column:1;color:var(--ceniza);font-size:14px}
+.ventana .filas em{grid-column:2;grid-row:1/3;align-self:center;font-style:normal;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--acento);text-align:right;max-width:140px}
+.ventana figcaption{padding:0 18px 14px;font-size:13px;color:var(--ceniza)}

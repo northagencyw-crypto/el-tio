@@ -74,6 +74,15 @@ a.tarjeta h3::after{content:" \2192";color:var(--acento)}
 .precio ul{padding-left:20px;margin:6px 0;display:grid;gap:6px;font-size:15.5px}
 .precio .plazo{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--ceniza)}
 .precio .btn{margin-top:auto;align-self:flex-start}
+.precio h3{font-size:21px;hyphens:manual}
+/* ---------- extras (tabla de precios) ---------- */
+.extras{width:100%;border-collapse:collapse;margin-top:20px;font-size:15.5px}
+.extras thead th{font-family:'Geist Mono',monospace;font-size:11px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--ceniza);text-align:right;padding:0 0 10px 12px;border-bottom:1px solid var(--linea)}
+.extras thead th:first-child{text-align:left;padding-left:0}
+.extras tbody th{text-align:left;font-weight:600;color:var(--hueso);padding:14px 0;border-bottom:1px solid var(--linea);vertical-align:top}
+.extras tbody th span{display:block;font-weight:400;color:var(--suave);font-size:14.5px;margin-top:3px}
+.extras td{text-align:right;white-space:nowrap;padding:14px 0 14px 12px;border-bottom:1px solid var(--linea);vertical-align:top;font-variant-numeric:tabular-nums;color:var(--hueso)}
+
 
 /* ---------- pasos ---------- */
 .pasos{list-style:none;counter-reset:p;display:grid;gap:14px;margin-top:24px;padding:0!important;max-width:none!important}
@@ -136,6 +145,7 @@ td:first-child{color:var(--hueso);font-weight:500}
   body{font-size:16px}
   .pasos li{grid-template-columns:36px minmax(0,1fr);padding:18px}
   .precio{padding:22px}
+  .extras{font-size:14.5px}.extras td{white-space:normal}
   h1{font-size:clamp(24px,7.4vw,34px)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

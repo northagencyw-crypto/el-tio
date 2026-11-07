@@ -53,10 +53,13 @@ despues de eso, nunca antes.
 ## Paquetes (https://eltio.net/paquetes/)
 
 - Audit: gratis. Cuestionario de 15 a 25 minutos y mapa en 24 a 48 horas habiles.
-- Pagina web: dominio propio, 8 idiomas, posicionamiento en Google y en IA.
-- Web + chatbot: lo anterior mas un agente de IA en WhatsApp e Instagram con CRM.
-- Web + chatbot + prospeccion y email: lo anterior mas listas, primer contacto,
-  seguimiento y email marketing.
+- Para empezar, uno de dos productos: Web y posicionamiento (dominio propio, 8
+  idiomas, Google, Maps y buscadores con IA, hosting) o Instagram que vende
+  (perfil optimizado, publicaciones e historias cada semana, respuesta a DMs).
+- Extras que se suman: chatbot 24/7 con CRM, Meta Ads (armado y gestion; la pauta
+  va aparte), redes completas con community manager, prospeccion, carrito o
+  reservas con pago y fotografo.
+- Plan completo: las dos entradas y todos los extras en un solo plan.
 - Lo que va mas alla (agente de voz, integraciones, capacitacion de equipos) se
   cotiza por escrito.
 
@@ -2354,7 +2357,7 @@ De punta a punta, como un cliente real, antes de entregarlo.
 Tu equipo recibe una guía corta
 Cómo ver las conversaciones, cuándo intervenir y cómo pedir cambios.
 Cuánto cuesta
-Ver los tres paquetes
+Ver paquetes y precios
 Preguntas frecuentes
 ¿Puedo usar el número de WhatsApp que ya tengo? Casi siempre sí. El agente funciona sobre la API de WhatsApp Business, que necesita un número conectado. En el Audit revisamos si conviene pasar tu número actual o usar uno nuevo, y qué pasa con el historial en cada caso.
 ¿El agente dice que es una inteligencia artificial? Sí, en el primer mensaje. Quien solo quiere una reserva o un precio no lo toma a mal, y quien prefiere hablar con una persona puede pedirlo en cualquier momento.

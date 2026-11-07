@@ -7,6 +7,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 from build import RAIZ, BASE, HOY, e, semilla, rota, wa
 from datos_pt import CIDADES_BR, RUBROS_PT, SLUG_PT, VENTAGEM_TITULOS, PERFIS
 
+GUIA_PILAR = {'gastronomia': ('como-usar-ia-em-um-restaurante', 'Como usar IA em um restaurante em 2026'), 'hotelaria': ('como-usar-ia-em-um-hotel', 'Como usar IA em um hotel em 2026'), 'imobiliario': ('como-usar-ia-em-uma-imobiliaria', 'Como usar IA em uma imobiliária em 2026'), 'fitness': ('como-usar-ia-em-uma-academia', 'Como usar IA em uma academia em 2026'), 'eventos': ('como-usar-ia-em-eventos', 'Como usar IA em uma empresa de eventos em 2026'), 'artistas': ('como-usar-ia-sendo-artista', 'Como usar IA sendo artista em 2026'), 'distribuicao': ('como-usar-ia-em-uma-distribuidora', 'Como usar IA em uma distribuidora em 2026')}
+
 LEI = "a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018)"
 
 CAB = """<header class="cabecera">
@@ -145,7 +147,8 @@ def pagina(c, rk, todas):
           '      <div class="acciones">', f'        <a class="btn" data-cta="audit" href="{audit}">Fazer o Audit gratuito</a>',
           f'        <a class="enlace" data-cta="whatsapp" href="{e(wt)}">Escrever pelo WhatsApp</a>', "      </div>", "    </section>",
           '    <nav class="relacionado" aria-label="Para continuar">', "      <p>Para continuar</p>", "      <ul>",
-          f'        <li><a href="{r["pag"]}">{e(r["nome"])}</a>: a página do setor</li>', '        <li><a href="/pt/sites/">Sites do El Tío</a></li>']
+          f'        <li><a href="{r["pag"]}">{e(r["nome"])}</a>: a página do setor</li>', '        <li><a href="/pt/sites/">Sites do El Tío</a></li>',
+          f'        <li><a href="/pt/guias/{GUIA_PILAR[sl][0]}/">{e(GUIA_PILAR[sl][1])}</a>: o guia completo do setor</li>']
     for v in vizinhas(c, todas):
         h.append(f'        <li><a href="/pt/negocios/{v["slug"]}/{sl}/">{e(r["plural"].capitalize())} em {e(v["nome"])}</a></li>')
     for k in rota([k for k in RUBROS_PT if k != rk], 3, s):

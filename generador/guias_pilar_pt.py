@@ -9,6 +9,7 @@ FUENTES_PT = {
  "della": "Stefano DellaVigna e Ulrike Malmendier, «Paying Not to Go to the Gym», American Economic Review, vol. 96, n. 3, junho de 2006, p. 694 a 719.",
  "meta": "Meta, «Pricing on the WhatsApp Business Platform», documentação para desenvolvedores: janela de atendimento de 24 horas, mensagens com e sem modelo e permissão do usuário.",
  "wapol": "WhatsApp, «Política de mensagens do WhatsApp Business», atualizada em 23 de setembro de 2026.",
+ "lgpd": "Lei n. 13.709, de 14 de agosto de 2018, Lei Geral de Proteção de Dados Pessoais (LGPD), Diário Oficial da União. Texto compilado no Planalto.",
  "lfpd": "Lei Federal de Proteção de Dados Pessoais em Posse de Particulares do México, Diario Oficial de la Federación, 20 de março de 2025. Texto vigente na Câmara dos Deputados.",
 }
 
@@ -52,7 +53,7 @@ def cuidar(extra, quem="clientes"):
         {"lista": [
             "<strong>Permissão para escrever primeiro.</strong> Se o cliente manda mensagem, você tem 24 horas para responder com mensagens livres. Para escrever primeiro pelo WhatsApp, é preciso um modelo de mensagem aprovado e que a pessoa tenha aceitado receber as suas mensagens.{{meta}}",
             "<strong>Respeitar quem diz não.</strong> A política do WhatsApp Business exige parar de escrever para quem pede, e mandar mensagem fria para uma lista comprada coloca o seu número em risco.{{wapol}}",
-            f"<strong>Dados pessoais.</strong> Os nomes, telefones e históricos dos seus {quem} são protegidos por lei. Se você atende no México, vale a lei de 2025: o seu aviso de privacidade precisa dizer o que você guarda e para quê.{{{{lfpd}}}}",
+            f"<strong>Dados pessoais.</strong> Os nomes, telefones e históricos dos seus {quem} são protegidos por lei. No Brasil vale a LGPD, a Lei 13.709/2018, que pede uma base legal e transparência sobre o que você guarda e para quê.{{{{lgpd}}}} Se você também atende no México, vale a lei mexicana de 2025, com regras parecidas para o aviso de privacidade.{{{{lfpd}}}}",
             "<strong>Dizer que é um assistente.</strong> Quem escreve sabe que está falando com um assistente de IA e que uma pessoa pode assumir a conversa quando for preciso.",
             extra,
         ]},

@@ -21,6 +21,8 @@ FUENTES = {
              "https://developers.facebook.com/docs/whatsapp/pricing"),
     "wapol": ("WhatsApp, «Política de mensajería de WhatsApp Business», actualizada el 23 de septiembre de 2026.",
               "https://whatsappbusiness.com/es-la/policy/"),
+    "lgpd": ("Lei n. 13.709, de 14 de agosto de 2018, Lei Geral de Proteção de Dados Pessoais (LGPD), Brasil.",
+             "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"),
     "lfpd": ("Ley Federal de Protección de Datos Personales en Posesión de los Particulares, Diario Oficial de la Federación, 20 de marzo de 2025. Texto vigente en la Cámara de Diputados.",
              "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf"),
 }

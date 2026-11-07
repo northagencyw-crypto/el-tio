@@ -192,29 +192,89 @@ EN_UI = [
 ]
 
 
-def en_pagina(g):
+def hreflang(es, en, pt):
+    b = "https://eltio.net"
+    return (f'\n<link rel="alternate" hreflang="es" href="{b}/guias/{es}/">'
+            f'\n<link rel="alternate" hreflang="en" href="{b}/en/guides/{en}/">'
+            f'\n<link rel="alternate" hreflang="pt-BR" href="{b}/pt/guias/{pt}/">'
+            f'\n<link rel="alternate" hreflang="x-default" href="{b}/guias/{es}/">')
+
+
+EN_UI += [('"item": "https://eltio.net/"', '"item": "https://eltio.net/en/"'),
+          ('<a class="marca" href="https://eltio.net/">', '<a class="marca" href="https://eltio.net/en/">')]
+
+PT_UI = [
+    ('<html lang="es-MX">', '<html lang="pt-BR">'), ('content="es_MX"', 'content="pt_BR"'), ('"es-MX"', '"pt-BR"'),
+    ("Saltar al contenido", "Pular para o conteúdo"), ("EN LÍNEA", "ONLINE"), ('aria-label="Ruta"', 'aria-label="Caminho"'),
+    ('<a class="marca" href="https://eltio.net/">', '<a class="marca" href="https://eltio.net/pt/">'),
+    ('<a href="https://eltio.net">El Tío</a> / <a href="https://eltio.net/guias/">Guías</a>', '<a href="https://eltio.net/pt/">El Tío</a> / <a href="https://eltio.net/pt/guias/">Guias</a>'),
+    ('"name": "Guías",\n   "item": "https://eltio.net/guias/"', '"name": "Guias",\n   "item": "https://eltio.net/pt/guias/"'),
+    ('"item": "https://eltio.net/"', '"item": "https://eltio.net/pt/"'),
+    ("Actualizada el " + FECHA_TXT, "Atualizado em 6 de novembro de 2026"), ('aria-label="En esta guía"', 'aria-label="Neste guia"'),
+    ("<p>En esta guía</p>", "<p>Neste guia</p>"), ("Preguntas frecuentes", "Perguntas frequentes"),
+    ("Por dónde empezar", "Por onde começar"), ("Simulación de ejemplo: ", "Simulação de exemplo: "),
+    ("Simulación de ejemplo. Nombres, mensajes y cifras inventados para mostrar la idea.", "Simulação de exemplo. Nomes, mensagens e números inventados para mostrar a ideia."),
+    ("El Audit es gratis: un cuestionario de 15 a 25 minutos sobre cómo trabaja hoy tu negocio y, en 24 a 48 horas hábiles, el mapa de qué ventaja conviene tomar primero. Si lo que más te sirve no es algo que hagamos nosotros, te lo decimos.",
+     "O Audit é gratuito: um questionário de 15 a 25 minutos sobre como a sua empresa trabalha hoje e, em 24 a 48 horas úteis, o mapa de qual vantagem vale pegar primeiro. Se o que mais ajuda você não for algo que a gente faz, a gente diz."),
+    ("No pierdas la ventaja, es hoy. Habla con El Tío.", "Não perca a vantagem, ela é hoje. Fale com El Tío."),
+    (">Hacer el Audit gratis</a>", '>Fazer o Audit gratuito</a><small class="nota-idioma">Por enquanto, o Audit está só em espanhol. Se preferir conversar no seu idioma, fale com a gente pelo WhatsApp ou em hola@eltio.net.</small>'),
+    (">Escribir por WhatsApp</a>", ">Chamar no WhatsApp</a>"), ('aria-label="Para seguir"', 'aria-label="Para continuar"'),
+    ("<p>Para seguir</p>", "<p>Para continuar</p>"), (">Fuentes</h2>", ">Fontes</h2>"),
+]
+
+
+def traducir(g, ui, pie_src):
     out = pagina(g)
-    for a, b in EN_UI:
+    for a, b in ui:
         out = out.replace(a, b)
-    pie = open(os.path.join(RAIZ, "en", "guides", "direct-bookings-whatsapp-hotels", "index.html"), encoding="utf-8").read()
+    pie = open(os.path.join(RAIZ, *pie_src.split("/"), "index.html"), encoding="utf-8").read()
     out = out[:out.index('<footer class="pie">')] + pie[pie.index('<footer class="pie">'):]
+    resto = out.split('<footer class="pie">')[0]
+    for x in ("Guías", "Preguntas", "Fuentes", "Saltar", "Actualizada", "Simulación"):
+        assert x not in resto, (g["slug"], x)
     return out
 
 
+def escribir(d, out, tag):
+    d = os.path.join(RAIZ, *d.split("/"))
+    os.makedirs(d, exist_ok=True)
+    assert "—" not in out and "–" not in out, d
+    open(os.path.join(d, "index.html"), "w", encoding="utf-8", newline="\n").write(out)
+    main = re.search(r"<article>.*?<section class=\"fuentes\"", out, re.S).group(0)
+    print(d[len(RAIZ):], len(limpio(main).split()), tag)
+
+
+def sitemap(trios):
+    p = os.path.join(RAIZ, "sitemap.xml")
+    s = open(p, encoding="utf-8").read()
+    for es, en, pt in trios:
+        urls = [f"https://eltio.net/guias/{es}/", f"https://eltio.net/en/guides/{en}/", f"https://eltio.net/pt/guias/{pt}/"]
+        alt = "".join(f'<xhtml:link rel="alternate" hreflang="{h}" href="{u}"/>' for h, u in
+                      (("es", urls[0]), ("en", urls[1]), ("pt-BR", urls[2]), ("x-default", urls[0])))
+        for u in urls:
+            linea = f'  <url><loc>{u}</loc><lastmod>{FECHA}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>{alt}</url>'
+            m = re.search(r"  <url><loc>" + re.escape(u) + r"</loc>.*?</url>", s)
+            if m:
+                s = s[:m.start()] + linea + s[m.end():]
+            else:
+                s = s.replace("</urlset>", linea + "\n</urlset>")
+    open(p, "w", encoding="utf-8", newline="\n").write(s)
+
+
 if __name__ == "__main__":
-    from guias_pilar_en import GUIAS_EN
-    for g in GUIAS_EN:
-        d = os.path.join(RAIZ, *g["dir"].split("/"))
-        os.makedirs(d, exist_ok=True)
-        out = en_pagina(g)
-        assert "—" not in out and "–" not in out
-        open(os.path.join(d, "index.html"), "w", encoding="utf-8", newline="\n").write(out)
-        print(g["dir"], len(limpio(re.search(r"<article>.*?<section class=\"fuentes\"", out, re.S).group(0)).split()), "words")
+    from guias_pilar_en import GUIAS_EN, FUENTES_EN
+    from guias_pilar_pt import GUIAS_PT, FUENTES_PT
+    EN = {g["es"]: g for g in GUIAS_EN}
+    PT = {g["es"]: g for g in GUIAS_PT}
+    trios = []
     for g in GUIAS:
-        d = os.path.join(RAIZ, "guias", g["slug"])
-        os.makedirs(d, exist_ok=True)
-        out = pagina(g)
-        assert "—" not in out and "–" not in out, g["slug"]
-        open(os.path.join(d, "index.html"), "w", encoding="utf-8", newline="\n").write(out)
-        main = re.search(r"<article>.*?<section class=\"fuentes\"", out, re.S).group(0)
-        print(g["slug"], len(limpio(main).split()), "palabras")
+        en, pt = EN[g["slug"]], PT[g["slug"]]
+        trios.append((g["slug"], en["slug"], pt["slug"]))
+        g["hreflang"] = en["hreflang"] = pt["hreflang"] = hreflang(g["slug"], en["slug"], pt["slug"])
+        en["url"] = f"https://eltio.net/en/guides/{en['slug']}/"
+        pt["url"] = f"https://eltio.net/pt/guias/{pt['slug']}/"
+        en["fuentes_txt"], pt["fuentes_txt"], en["ciudades"], pt["ciudades"] = FUENTES_EN, FUENTES_PT, [], []
+        escribir(f"guias/{g['slug']}", pagina(g), "es")
+        escribir(f"en/guides/{en['slug']}", traducir(en, EN_UI, "en/guides/direct-bookings-whatsapp-hotels"), "en")
+        escribir(f"pt/guias/{pt['slug']}", traducir(pt, PT_UI, "pt/guias/reservas-diretas-whatsapp-hoteis"), "pt")
+    sitemap(trios)

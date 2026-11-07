@@ -57,8 +57,6 @@ def cuidar(extra):
     ]}
 
 
-from guias_pilar_en import _HREF_HOTEL
-
 GUIAS = [
 # ---------------------------------------------------------------- GASTRONOMIA
 {
@@ -129,8 +127,7 @@ GUIAS = [
 },
 # ---------------------------------------------------------------- HOSPITALITY
 {
- "slug": "como-usar-ia-en-un-hotel", "rubro": "hospitality",
- "hreflang": _HREF_HOTEL, "rubro_nombre": "Hospitality",
+ "slug": "como-usar-ia-en-un-hotel", "rubro": "hospitality", "rubro_nombre": "Hospitality",
  "wa": "hoteles", "about": "Inteligencia artificial para hoteles y turismo",
  "title": "Cómo usar IA en un hotel en 2026: 5 ventajas · El Tío",
  "h1": "Cómo usar IA en un hotel en 2026: 5 ventajas que tu competencia ya aprovecha",

@@ -7,7 +7,7 @@ CIUDADES = {"ciudad-de-mexico": "Ciudad de México", "monterrey": "Monterrey", "
             "queretaro": "Querétaro"}
 
 FUENTES = {
-    "mck": ("McKinsey &amp; Company, «The state of AI», encuesta global publicada en marzo de 2025: 78 % de las organizaciones usa IA en al menos una función del negocio.",
+    "mck": ("McKinsey &amp; Company, «The State of AI in 2025», encuesta global publicada en noviembre de 2025: 88 % de las organizaciones usa IA de forma habitual en al menos una función del negocio.",
             "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai"),
     "ind": ("El Tío, «Índice El Tío», edición 1, noviembre de 2026: 83,714 negocios de hasta 50 personas en cuatro estados de México, sobre el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del INEGI.",
             "https://eltio.net/indice/"),
@@ -28,7 +28,7 @@ FUENTES = {
 
 def hoy(rubro_txt, extra):
     return {"id": "hoy", "h2": "Por qué la ventaja es hoy", "bloques": [
-        "Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en marzo de 2025, 78 % de las organizaciones dijo usar inteligencia artificial en al menos una función de su negocio.{{mck}}",
+        "Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en noviembre de 2025, 88 % de las organizaciones dijo usar inteligencia artificial de forma habitual en al menos una función de su negocio.{{mck}}",
         f"Los negocios chicos, en cambio, en su mayoría todavía no empiezan. En el Índice El Tío contamos 83,714 negocios de hasta 50 personas en cuatro estados de México con el directorio del INEGI, y 94 de cada 100 no tienen una web registrada.{{{{ind}}}} Si muchos {rubro_txt} todavía no tienen lo básico, quien hoy suma IA a su forma de trabajar queda adelante en su zona.",
         extra,
         "Esa distancia es la ventana. Hoy alcanza con dar un paso. Cuando la mayoría de tu competencia haya empezado, vas a tener que dar diez para llegar al mismo lugar. Las cinco ventajas que siguen son las que más se repiten en tu rubro, ordenadas de lo que ya tienes a lo que te falta.",
@@ -56,6 +56,8 @@ def cuidar(extra):
         ]},
     ]}
 
+
+from guias_pilar_en import _HREF_HOTEL
 
 GUIAS = [
 # ---------------------------------------------------------------- GASTRONOMIA
@@ -127,7 +129,8 @@ GUIAS = [
 },
 # ---------------------------------------------------------------- HOSPITALITY
 {
- "slug": "como-usar-ia-en-un-hotel", "rubro": "hospitality", "rubro_nombre": "Hospitality",
+ "slug": "como-usar-ia-en-un-hotel", "rubro": "hospitality",
+ "hreflang": _HREF_HOTEL, "rubro_nombre": "Hospitality",
  "wa": "hoteles", "about": "Inteligencia artificial para hoteles y turismo",
  "title": "Cómo usar IA en un hotel en 2026: 5 ventajas · El Tío",
  "h1": "Cómo usar IA en un hotel en 2026: 5 ventajas que tu competencia ya aprovecha",

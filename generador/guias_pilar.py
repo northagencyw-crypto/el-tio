@@ -35,7 +35,7 @@ def ventana(v):
 
 
 def pagina(g):
-    url = f"https://eltio.net/guias/{g['slug']}/"
+    url = g.get("url", f"https://eltio.net/guias/{g['slug']}/")
     orden = []
 
     def refs(txt):
@@ -72,7 +72,7 @@ def pagina(g):
         cuerpo.append(f"<h3>{q}</h3><p>{refs(a)}</p>")
     indice.append('<li><a href="#empezar">Por dónde empezar</a></li>')
 
-    fuentes = "".join(f'<li id="f{i+1}">{FUENTES[k][0]} <a href="{FUENTES[k][1]}">{FUENTES[k][1].split("//")[1].rstrip("/")}</a></li>'
+    fuentes = "".join(f'<li id="f{i+1}">{g.get("fuentes_txt", {}).get(k, FUENTES[k][0])} <a href="{FUENTES[k][1]}">{FUENTES[k][1].split("//")[1].rstrip("/")}</a></li>'
                       for i, k in enumerate(orden))
     ciudades = [c for c in g["ciudades"] if os.path.isdir(os.path.join(RAIZ, "negocios", c, g["rubro"]))]
     rel = [f'<li><a href="/{g["rubro"]}/">{g["rubro_nombre"]}</a>: la página del rubro</li>']
@@ -82,6 +82,8 @@ def pagina(g):
             '<li><a href="/cronometro/">El Cronómetro del Tío</a>: calcula cuántas ventas esperan respuesta en tus mensajes</li>',
             f'<li><a data-cta="audit" href="https://app.eltio.net/auditoria/{g["rubro"]}">Audit gratis de tu negocio</a></li>']
 
+    if "rel" in g:
+        rel = g["rel"]
     wa_txt = urllib_quote(f"Hola! Leí la guía de IA para {g['wa']} y quiero el Audit de mi negocio.")
     faq_ld = {"@context": "https://schema.org", "@type": "FAQPage",
               "mainEntity": [{"@type": "Question", "name": limpio(q),
@@ -110,7 +112,7 @@ def pagina(g):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(g['title'])}</title>
 <meta name="description" content="{e(g['desc'])}">
-<link rel="canonical" href="{url}">
+<link rel="canonical" href="{url}">{g.get("hreflang", "")}
 <meta name="theme-color" content="#04070B">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_MX">
@@ -172,7 +174,42 @@ def urllib_quote(s):
     return quote(s, safe="")
 
 
+EN_UI = [
+    ('<html lang="es-MX">', '<html lang="en">'), ('content="es_MX"', 'content="en_US"'), ('"es-MX"', '"en"'),
+    ("Saltar al contenido", "Skip to content"), ("EN LÍNEA", "ONLINE"), ('aria-label="Ruta"', 'aria-label="Breadcrumb"'),
+    ('<a href="https://eltio.net">El Tío</a> / <a href="https://eltio.net/guias/">Guías</a>', '<a href="https://eltio.net/en/">El Tío</a> / <a href="https://eltio.net/en/guides/">Guides</a>'),
+    ('"name": "Guías",\n   "item": "https://eltio.net/guias/"', '"name": "Guides",\n   "item": "https://eltio.net/en/guides/"'),
+    ("Actualizada el " + FECHA_TXT, "Updated November 6, 2026"), ('aria-label="En esta guía"', 'aria-label="In this guide"'),
+    ("<p>En esta guía</p>", "<p>In this guide</p>"), ("Preguntas frecuentes", "Frequently asked questions"),
+    ("Por dónde empezar", "Where to start"), ("Simulación de ejemplo: ", "Example simulation: "),
+    ("Simulación de ejemplo. Nombres, mensajes y cifras inventados para mostrar la idea.", "Example simulation. Names, messages and figures are made up to show the idea."),
+    ("El Audit es gratis: un cuestionario de 15 a 25 minutos sobre cómo trabaja hoy tu negocio y, en 24 a 48 horas hábiles, el mapa de qué ventaja conviene tomar primero. Si lo que más te sirve no es algo que hagamos nosotros, te lo decimos.",
+     "The Audit is free: a 15 to 25 minute questionnaire about how your business works today and, within 24 to 48 business hours, a map of which advantage to take first. If what would help you most isn't something we do, we'll tell you."),
+    ("No pierdas la ventaja, es hoy. Habla con El Tío.", "Don't lose the advantage. It's today. Talk to El Tío."),
+    (">Hacer el Audit gratis</a>", ">Take the free Audit</a><small class=\"nota-idioma\">The Audit is only available in Spanish for now. If you'd rather talk in your language, message us on WhatsApp or at hola@eltio.net.</small>"),
+    (">Escribir por WhatsApp</a>", ">Message us on WhatsApp</a>"), ('aria-label="Para seguir"', 'aria-label="Keep reading"'),
+    ("<p>Para seguir</p>", "<p>Keep reading</p>"), (">Fuentes</h2>", ">Sources</h2>"),
+]
+
+
+def en_pagina(g):
+    out = pagina(g)
+    for a, b in EN_UI:
+        out = out.replace(a, b)
+    pie = open(os.path.join(RAIZ, "en", "guides", "direct-bookings-whatsapp-hotels", "index.html"), encoding="utf-8").read()
+    out = out[:out.index('<footer class="pie">')] + pie[pie.index('<footer class="pie">'):]
+    return out
+
+
 if __name__ == "__main__":
+    from guias_pilar_en import GUIAS_EN
+    for g in GUIAS_EN:
+        d = os.path.join(RAIZ, *g["dir"].split("/"))
+        os.makedirs(d, exist_ok=True)
+        out = en_pagina(g)
+        assert "—" not in out and "–" not in out
+        open(os.path.join(d, "index.html"), "w", encoding="utf-8", newline="\n").write(out)
+        print(g["dir"], len(limpio(re.search(r"<article>.*?<section class=\"fuentes\"", out, re.S).group(0)).split()), "words")
     for g in GUIAS:
         d = os.path.join(RAIZ, "guias", g["slug"])
         os.makedirs(d, exist_ok=True)

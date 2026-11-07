@@ -2701,7 +2701,7 @@ Cómo usar IA en una empresa de eventos en 2026: 5 ventajas que tu competencia y
 Productoras, salones, promotores y organizadores trabajan con fechas que no se mueven y clientes que deciden rápido. Esta guía explica las cinco ventajas que la IA da hoy en eventos, con ejemplos de cómo se ven y qué conviene medir.
 Actualizada el 6 de noviembre de 2026
 Por qué la ventaja es hoy
-Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en marzo de 2025, 78 % de las organizaciones dijo usar inteligencia artificial en al menos una función de su negocio. [1]
+Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en noviembre de 2025, 88 % de las organizaciones dijo usar inteligencia artificial de forma habitual en al menos una función de su negocio. [1]
 Los negocios chicos, en cambio, en su mayoría todavía no empiezan. En el Índice El Tío contamos 83,714 negocios de hasta 50 personas en cuatro estados de México con el directorio del INEGI, y 94 de cada 100 no tienen una web registrada. [2] Si muchos productoras, salones y organizadores todavía no tienen lo básico, quien hoy suma IA a su forma de trabajar queda adelante en su zona.
 En eventos, quien cotiza primero suele quedarse con la fecha. Un estudio publicado en Harvard Business Review encontró que las empresas que contestaban a un interesado dentro de la primera hora tenían casi siete veces más probabilidades de concretar algo con él que las que esperaban una hora más. [3] Cuando alguien pide tres cotizaciones para la misma fecha, la que llega a la mañana siguiente compite en desventaja.
 Esa distancia es la ventana. Hoy alcanza con dar un paso. Cuando la mayoría de tu competencia haya empezado, vas a tener que dar diez para llegar al mismo lugar. Las cinco ventajas que siguen son las que más se repiten en tu rubro, ordenadas de lo que ya tienes a lo que te falta.
@@ -2767,7 +2767,7 @@ No pierdas la ventaja, es hoy. Habla con El Tío.
 Hacer el Audit gratis
 Escribir por WhatsApp
 Fuentes
-McKinsey & Company, «The state of AI», encuesta global publicada en marzo de 2025: 78 % de las organizaciones usa IA en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+McKinsey & Company, «The State of AI in 2025», encuesta global publicada en noviembre de 2025: 88 % de las organizaciones usa IA de forma habitual en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
 El Tío, «Índice El Tío», edición 1, noviembre de 2026: 83,714 negocios de hasta 50 personas en cuatro estados de México, sobre el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del INEGI. eltio.net/indice
 James B. Oldroyd, Kristina McElheran y David Elkington, «The Short Life of Online Sales Leads», Harvard Business Review, marzo de 2011. hbr.org/2011/03/the-short-life-of-online-sales-leads
 Meta, «Pricing on the WhatsApp Business Platform», documentación para desarrolladores: ventana de atención de 24 horas, mensajes con y sin plantilla y permiso del usuario. developers.facebook.com/docs/whatsapp/pricing
@@ -2781,7 +2781,7 @@ Cómo usar IA en un gimnasio en 2026: 5 ventajas que tu competencia ya aprovecha
 Un gimnasio o un estudio vive de que la gente vuelva. Esta guía explica las cinco ventajas que la IA da hoy en fitness, desde recuperar socios que se fueron hasta que las renovaciones salgan solas, con ejemplos de cómo se ven y qué conviene medir.
 Actualizada el 6 de noviembre de 2026
 Por qué la ventaja es hoy
-Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en marzo de 2025, 78 % de las organizaciones dijo usar inteligencia artificial en al menos una función de su negocio. [1]
+Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en noviembre de 2025, 88 % de las organizaciones dijo usar inteligencia artificial de forma habitual en al menos una función de su negocio. [1]
 Los negocios chicos, en cambio, en su mayoría todavía no empiezan. En el Índice El Tío contamos 83,714 negocios de hasta 50 personas en cuatro estados de México con el directorio del INEGI, y 94 de cada 100 no tienen una web registrada. [2] Si muchos gimnasios y estudios todavía no tienen lo básico, quien hoy suma IA a su forma de trabajar queda adelante en su zona.
 En fitness el problema de fondo es el hábito. Stefano DellaVigna y Ulrike Malmendier siguieron a 7,752 socios de tres gimnasios de Estados Unidos durante tres años: muchos iban menos de lo que esperaban al inscribirse y tardaban en darse de baja aunque ya no fueran. [3] Quien acompaña a sus socios a tiempo los conserva.
 Esa distancia es la ventana. Hoy alcanza con dar un paso. Cuando la mayoría de tu competencia haya empezado, vas a tener que dar diez para llegar al mismo lugar. Las cinco ventajas que siguen son las que más se repiten en tu rubro, ordenadas de lo que ya tienes a lo que te falta.
@@ -2847,7 +2847,7 @@ No pierdas la ventaja, es hoy. Habla con El Tío.
 Hacer el Audit gratis
 Escribir por WhatsApp
 Fuentes
-McKinsey & Company, «The state of AI», encuesta global publicada en marzo de 2025: 78 % de las organizaciones usa IA en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+McKinsey & Company, «The State of AI in 2025», encuesta global publicada en noviembre de 2025: 88 % de las organizaciones usa IA de forma habitual en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
 El Tío, «Índice El Tío», edición 1, noviembre de 2026: 83,714 negocios de hasta 50 personas en cuatro estados de México, sobre el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del INEGI. eltio.net/indice
 Stefano DellaVigna y Ulrike Malmendier, «Paying Not to Go to the Gym», American Economic Review, vol. 96, núm. 3, junio de 2006, págs. 694 a 719. www.aeaweb.org/articles?id=10.1257/aer.96.3.694
 Meta, «Pricing on the WhatsApp Business Platform», documentación para desarrolladores: ventana de atención de 24 horas, mensajes con y sin plantilla y permiso del usuario. developers.facebook.com/docs/whatsapp/pricing
@@ -2861,7 +2861,7 @@ Cómo usar IA en un hotel en 2026: 5 ventajas que tu competencia ya aprovecha
 Un hotel boutique, una renta vacacional o un operador de tours compite con las plataformas grandes por la atención del viajero. Esta guía explica las cinco ventajas que la IA da hoy en hospitality, con ejemplos de cómo se ven y qué conviene medir.
 Actualizada el 6 de noviembre de 2026
 Por qué la ventaja es hoy
-Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en marzo de 2025, 78 % de las organizaciones dijo usar inteligencia artificial en al menos una función de su negocio. [1]
+Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en noviembre de 2025, 88 % de las organizaciones dijo usar inteligencia artificial de forma habitual en al menos una función de su negocio. [1]
 Los negocios chicos, en cambio, en su mayoría todavía no empiezan. En el Índice El Tío contamos 83,714 negocios de hasta 50 personas en cuatro estados de México con el directorio del INEGI, y 94 de cada 100 no tienen una web registrada. [2] Si muchos hoteles, rentas y operadores de tours todavía no tienen lo básico, quien hoy suma IA a su forma de trabajar queda adelante en su zona.
 En hospitality el viajero llega de lejos. El aeropuerto de Cancún movió 29,345,538 pasajeros en 2025, y 19,464,554 fueron internacionales. [3] Son pasajeros que llegan y salen, no personas distintas, pero dejan clara una cosa: buena parte de tus huéspedes escribe en otro idioma y desde otro huso horario.
 Esa distancia es la ventana. Hoy alcanza con dar un paso. Cuando la mayoría de tu competencia haya empezado, vas a tener que dar diez para llegar al mismo lugar. Las cinco ventajas que siguen son las que más se repiten en tu rubro, ordenadas de lo que ya tienes a lo que te falta.
@@ -2927,7 +2927,7 @@ No pierdas la ventaja, es hoy. Habla con El Tío.
 Hacer el Audit gratis
 Escribir por WhatsApp
 Fuentes
-McKinsey & Company, «The state of AI», encuesta global publicada en marzo de 2025: 78 % de las organizaciones usa IA en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+McKinsey & Company, «The State of AI in 2025», encuesta global publicada en noviembre de 2025: 88 % de las organizaciones usa IA de forma habitual en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
 El Tío, «Índice El Tío», edición 1, noviembre de 2026: 83,714 negocios de hasta 50 personas en cuatro estados de México, sobre el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del INEGI. eltio.net/indice
 ASUR, «ASUR Announces Total Passenger Traffic for December 2025», comunicado del 6 de enero de 2026 con el tráfico de enero a diciembre de 2025 del aeropuerto de Cancún, reproducido en Stock Titan. www.stocktitan.net/news/ASR/asur-announces-total-passenger-traffic-for-december-53f52b4efyoo.html
 Meta, «Pricing on the WhatsApp Business Platform», documentación para desarrolladores: ventana de atención de 24 horas, mensajes con y sin plantilla y permiso del usuario. developers.facebook.com/docs/whatsapp/pricing
@@ -2941,7 +2941,7 @@ Cómo usar IA en un restaurante en 2026: 5 ventajas que tu competencia ya aprove
 Un restaurante ya tiene lo que más vale para la IA: cientos de clientes que le escribieron, reservaron o pidieron a domicilio. Esta guía explica las cinco ventajas que hoy separan a los restaurantes que se mueven de los que esperan, con ejemplos de cómo se ven y qué conviene medir.
 Actualizada el 6 de noviembre de 2026
 Por qué la ventaja es hoy
-Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en marzo de 2025, 78 % de las organizaciones dijo usar inteligencia artificial en al menos una función de su negocio. [1]
+Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en noviembre de 2025, 88 % de las organizaciones dijo usar inteligencia artificial de forma habitual en al menos una función de su negocio. [1]
 Los negocios chicos, en cambio, en su mayoría todavía no empiezan. En el Índice El Tío contamos 83,714 negocios de hasta 50 personas en cuatro estados de México con el directorio del INEGI, y 94 de cada 100 no tienen una web registrada. [2] Si muchos restaurantes, bares y cafeterías todavía no tienen lo básico, quien hoy suma IA a su forma de trabajar queda adelante en su zona.
 En un restaurante la diferencia se nota rápido. El cliente que pregunta por una mesa a las nueve de la noche reserva donde le contestan primero, y el grupo que busca dónde festejar elige al lugar que ve seguido en sus redes.
 Esa distancia es la ventana. Hoy alcanza con dar un paso. Cuando la mayoría de tu competencia haya empezado, vas a tener que dar diez para llegar al mismo lugar. Las cinco ventajas que siguen son las que más se repiten en tu rubro, ordenadas de lo que ya tienes a lo que te falta.
@@ -3008,7 +3008,7 @@ No pierdas la ventaja, es hoy. Habla con El Tío.
 Hacer el Audit gratis
 Escribir por WhatsApp
 Fuentes
-McKinsey & Company, «The state of AI», encuesta global publicada en marzo de 2025: 78 % de las organizaciones usa IA en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+McKinsey & Company, «The State of AI in 2025», encuesta global publicada en noviembre de 2025: 88 % de las organizaciones usa IA de forma habitual en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
 El Tío, «Índice El Tío», edición 1, noviembre de 2026: 83,714 negocios de hasta 50 personas en cuatro estados de México, sobre el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del INEGI. eltio.net/indice
 James B. Oldroyd, Kristina McElheran y David Elkington, «The Short Life of Online Sales Leads», Harvard Business Review, marzo de 2011. hbr.org/2011/03/the-short-life-of-online-sales-leads
 Meta, «Pricing on the WhatsApp Business Platform», documentación para desarrolladores: ventana de atención de 24 horas, mensajes con y sin plantilla y permiso del usuario. developers.facebook.com/docs/whatsapp/pricing
@@ -3022,7 +3022,7 @@ Cómo usar IA en una distribuidora en 2026: 5 ventajas que tu competencia ya apr
 Una distribuidora vive de clientes que piden seguido, y pierde dinero cada vez que uno deja de pedir sin que nadie lo note. Esta guía explica las cinco ventajas que la IA da hoy en distribución, con ejemplos de cómo se ven y qué conviene medir.
 Actualizada el 6 de noviembre de 2026
 Por qué la ventaja es hoy
-Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en marzo de 2025, 78 % de las organizaciones dijo usar inteligencia artificial en al menos una función de su negocio. [1]
+Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en noviembre de 2025, 88 % de las organizaciones dijo usar inteligencia artificial de forma habitual en al menos una función de su negocio. [1]
 Los negocios chicos, en cambio, en su mayoría todavía no empiezan. En el Índice El Tío contamos 83,714 negocios de hasta 50 personas en cuatro estados de México con el directorio del INEGI, y 94 de cada 100 no tienen una web registrada. [2] Si muchos distribuidoras, mayoristas y ferreterías todavía no tienen lo básico, quien hoy suma IA a su forma de trabajar queda adelante en su zona.
 En distribución el comprador compara rápido. Un estudio publicado en Harvard Business Review encontró que las empresas que contestaban a un interesado dentro de la primera hora tenían casi siete veces más probabilidades de concretar algo con él que las que esperaban una hora más. [3] Cuando una tienda pide precio y disponibilidad a tres proveedores, suele comprarle al que contesta primero con el dato correcto.
 Esa distancia es la ventana. Hoy alcanza con dar un paso. Cuando la mayoría de tu competencia haya empezado, vas a tener que dar diez para llegar al mismo lugar. Las cinco ventajas que siguen son las que más se repiten en tu rubro, ordenadas de lo que ya tienes a lo que te falta.
@@ -3088,7 +3088,7 @@ No pierdas la ventaja, es hoy. Habla con El Tío.
 Hacer el Audit gratis
 Escribir por WhatsApp
 Fuentes
-McKinsey & Company, «The state of AI», encuesta global publicada en marzo de 2025: 78 % de las organizaciones usa IA en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+McKinsey & Company, «The State of AI in 2025», encuesta global publicada en noviembre de 2025: 88 % de las organizaciones usa IA de forma habitual en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
 El Tío, «Índice El Tío», edición 1, noviembre de 2026: 83,714 negocios de hasta 50 personas en cuatro estados de México, sobre el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del INEGI. eltio.net/indice
 James B. Oldroyd, Kristina McElheran y David Elkington, «The Short Life of Online Sales Leads», Harvard Business Review, marzo de 2011. hbr.org/2011/03/the-short-life-of-online-sales-leads
 Meta, «Pricing on the WhatsApp Business Platform», documentación para desarrolladores: ventana de atención de 24 horas, mensajes con y sin plantilla y permiso del usuario. developers.facebook.com/docs/whatsapp/pricing
@@ -3102,7 +3102,7 @@ Cómo usar IA en una inmobiliaria en 2026: 5 ventajas que tu competencia ya apro
 En una inmobiliaria cada contacto puede ser una operación grande, y la mayoría se pierde por falta de seguimiento, no por falta de interés. Esta guía explica las cinco ventajas que la IA da hoy en real estate, con ejemplos de cómo se ven y qué conviene medir.
 Actualizada el 6 de noviembre de 2026
 Por qué la ventaja es hoy
-Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en marzo de 2025, 78 % de las organizaciones dijo usar inteligencia artificial en al menos una función de su negocio. [1]
+Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en noviembre de 2025, 88 % de las organizaciones dijo usar inteligencia artificial de forma habitual en al menos una función de su negocio. [1]
 Los negocios chicos, en cambio, en su mayoría todavía no empiezan. En el Índice El Tío contamos 83,714 negocios de hasta 50 personas en cuatro estados de México con el directorio del INEGI, y 94 de cada 100 no tienen una web registrada. [2] Si muchos inmobiliarias y brokers todavía no tienen lo básico, quien hoy suma IA a su forma de trabajar queda adelante en su zona.
 En real estate la velocidad pesa. Un estudio publicado en Harvard Business Review encontró que las empresas que contactaban a un interesado dentro de la primera hora tenían casi siete veces más probabilidades de calificarlo que las que esperaban una hora más. [3] El estudio no es sobre inmobiliarias, pero quien deja sus datos en tres portales un domingo suele visitar con el primero que le contesta.
 Esa distancia es la ventana. Hoy alcanza con dar un paso. Cuando la mayoría de tu competencia haya empezado, vas a tener que dar diez para llegar al mismo lugar. Las cinco ventajas que siguen son las que más se repiten en tu rubro, ordenadas de lo que ya tienes a lo que te falta.
@@ -3168,7 +3168,7 @@ No pierdas la ventaja, es hoy. Habla con El Tío.
 Hacer el Audit gratis
 Escribir por WhatsApp
 Fuentes
-McKinsey & Company, «The state of AI», encuesta global publicada en marzo de 2025: 78 % de las organizaciones usa IA en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+McKinsey & Company, «The State of AI in 2025», encuesta global publicada en noviembre de 2025: 88 % de las organizaciones usa IA de forma habitual en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
 El Tío, «Índice El Tío», edición 1, noviembre de 2026: 83,714 negocios de hasta 50 personas en cuatro estados de México, sobre el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del INEGI. eltio.net/indice
 James B. Oldroyd, Kristina McElheran y David Elkington, «The Short Life of Online Sales Leads», Harvard Business Review, marzo de 2011. hbr.org/2011/03/the-short-life-of-online-sales-leads
 Meta, «Pricing on the WhatsApp Business Platform», documentación para desarrolladores: ventana de atención de 24 horas, mensajes con y sin plantilla y permiso del usuario. developers.facebook.com/docs/whatsapp/pricing
@@ -3182,7 +3182,7 @@ Cómo usar IA siendo artista en 2026: 5 ventajas que otros artistas ya aprovecha
 Un artista, un DJ o un manager vive de su público y de su agenda, y casi nunca tiene tiempo para ordenar ninguno de los dos. Esta guía explica las cinco ventajas que la IA da hoy a quien crea, con ejemplos de cómo se ven y qué conviene medir.
 Actualizada el 6 de noviembre de 2026
 Por qué la ventaja es hoy
-Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en marzo de 2025, 78 % de las organizaciones dijo usar inteligencia artificial en al menos una función de su negocio. [1]
+Las empresas grandes ya se movieron. En la encuesta global de McKinsey publicada en noviembre de 2025, 88 % de las organizaciones dijo usar inteligencia artificial de forma habitual en al menos una función de su negocio. [1]
 Los negocios chicos, en cambio, en su mayoría todavía no empiezan. En el Índice El Tío contamos 83,714 negocios de hasta 50 personas en cuatro estados de México con el directorio del INEGI, y 94 de cada 100 no tienen una web registrada. [2] Si muchos artistas, estudios y proyectos independientes todavía no tienen lo básico, quien hoy suma IA a su forma de trabajar queda adelante en su zona.
 En el mundo de los artistas la diferencia la hace la constancia. Las salas, los festivales y las marcas eligen a quien ven activo, y el público sigue a quien le habla seguido. Quien ordena su público y su agenda hoy llega antes a las fechas que importan.
 Esa distancia es la ventana. Hoy alcanza con dar un paso. Cuando la mayoría de tu competencia haya empezado, vas a tener que dar diez para llegar al mismo lugar. Las cinco ventajas que siguen son las que más se repiten en tu rubro, ordenadas de lo que ya tienes a lo que te falta.
@@ -3248,7 +3248,7 @@ No pierdas la ventaja, es hoy. Habla con El Tío.
 Hacer el Audit gratis
 Escribir por WhatsApp
 Fuentes
-McKinsey & Company, «The state of AI», encuesta global publicada en marzo de 2025: 78 % de las organizaciones usa IA en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+McKinsey & Company, «The State of AI in 2025», encuesta global publicada en noviembre de 2025: 88 % de las organizaciones usa IA de forma habitual en al menos una función del negocio. www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
 El Tío, «Índice El Tío», edición 1, noviembre de 2026: 83,714 negocios de hasta 50 personas en cuatro estados de México, sobre el Directorio Estadístico Nacional de Unidades Económicas (DENUE) del INEGI. eltio.net/indice
 Meta, «Pricing on the WhatsApp Business Platform», documentación para desarrolladores: ventana de atención de 24 horas, mensajes con y sin plantilla y permiso del usuario. developers.facebook.com/docs/whatsapp/pricing
 WhatsApp, «Política de mensajería de WhatsApp Business», actualizada el 23 de septiembre de 2026. whatsappbusiness.com/es-la/policy

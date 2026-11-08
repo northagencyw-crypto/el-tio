@@ -33,6 +33,8 @@ def wa(texto):
 
 def ciudad(c):
     slug, nombre, estado, pais, perfil, region, nota, eltio = c
+    if not eltio and os.path.exists(os.path.join(RAIZ, "ciudades", slug, "index.html")):
+        eltio = slug
     return dict(slug=slug, nombre=nombre, estado=estado, pais=pais, perfil=perfil, region=region, nota=nota, eltio=eltio)
 
 
@@ -223,7 +225,10 @@ def hub_ciudad(c, todas):
           f'      <a class="enlace" data-cta="whatsapp" href="{e(wa("Hola! Tengo un negocio en " + c["nombre"] + " y quiero el Audit gratis."))}">Escribir por WhatsApp</a></div></section>',
           '    <nav class="relacionado" aria-label="Para seguir"><p>Ciudades cercanas</p><ul>']
     h += [f'      <li><a href="/negocios/{v["slug"]}/">{e(v["nombre"])}</a></li>' for v in cercanas(c, todas, 6)]
-    h += ["    </ul></nav>", "  </article>"]
+    h += ["    </ul></nav>"]
+    if c["eltio"]:
+        h.append(f'    <p class="relacionado"><a href="/ciudades/{c["eltio"]}/">El Tío en {e(c["nombre"] if c["eltio"] != "tulum-riviera-maya" else "Tulum y Riviera Maya")}</a></p>')
+    h += ["  </article>"]
     return ruta, documento(ruta, titulo, desc, pais["lang"], "og-portada.jpg", [l_m], "\n".join(h))
 
 

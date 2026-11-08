@@ -69,6 +69,26 @@ C = [
          intro="Página web, agentes de WhatsApp e Instagram y CRM para negocios de Lima, de Miraflores y San Isidro a Barranco y Surco.",
          parr=["Lima es uno de los centros gastronómicos de la región y recibe visitantes todo el año. Eso hace que la competencia en restaurantes, hoteles y tours sea fuerte, y que buena parte de los clientes llegue preguntando en inglés o desde un asistente de IA que arma la lista de recomendaciones.",
                "Al mismo tiempo, en Lima casi todo se cierra por WhatsApp, y el mensaje que no se contesta en minutos se va a otro distrito. El Tío en Lima empieza por la web en 8 idiomas para que te encuentren, y por un agente que contesta, toma la reserva o el pedido y deja cada contacto guardado."]),
+    dict(slug="cali", nombre="Cali", region="Valle del Cauca", pais="co", zona="Cali y el Valle del Cauca",
+         rubros=["gastronomia", "eventos", "fitness", "distribucion", "real-estate"],
+         intro="Página web, agentes de WhatsApp e Instagram y CRM para negocios de Cali, de Granada y San Antonio al Peñón y el sur de la ciudad.",
+         parr=["Cali vive de noche y de fin de semana: restaurantes, bares, escuelas de salsa y eventos que llenan la agenda, sobre todo cuando se acerca la Feria de diciembre. Quien sale a comer o busca dónde bailar decide desde el celular y en el momento, y elige al que aparece primero y contesta rápido.",
+               "Cali también es el centro comercial del Valle, con distribuidoras y mayoristas que reciben pedidos por WhatsApp todo el día. En los dos casos El Tío empieza igual: una web que te haga aparecer en Google y en los asistentes de IA, y un agente que contesta, toma la reserva o el pedido y lo deja guardado en un CRM."]),
+    dict(slug="rosario", nombre="Rosario", region="Provincia de Santa Fe", pais="ar", zona="Rosario y el Gran Rosario",
+         rubros=["gastronomia", "distribucion", "real-estate", "fitness", "eventos"],
+         intro="Página web, agentes de WhatsApp y CRM para negocios de Rosario, del centro y Pichincha a Fisherton y la costa del Paraná.",
+         parr=["Rosario es una ciudad de comercio, con una economía muy ligada al campo y al puerto. Muchas empresas de la zona, de distribuidoras a corralones, reciben pedidos y consultas por WhatsApp a toda hora y los contestan a mano, uno por uno, cuando el equipo puede.",
+               "Al mismo tiempo, Rosario tiene una vida gastronómica y nocturna fuerte, con un público que elige dónde ir mirando el celular. Para unos y otros El Tío empieza por la web, para que te encuentren en Google y en los asistentes de IA, y por un agente que responde al instante y ordena cada pedido o reserva."]),
+    dict(slug="valparaiso", nombre="Valparaíso", region="Región de Valparaíso", pais="cl", zona="Valparaíso y Viña del Mar",
+         rubros=["hospitality", "gastronomia", "eventos", "real-estate", "distribucion"],
+         intro="Página web en 8 idiomas, agentes de WhatsApp e Instagram y CRM para negocios de Valparaíso, de los cerros Alegre y Concepción al Plan y Viña del Mar.",
+         parr=["Valparaíso recibe turistas de todo el mundo durante el año, y en temporada de cruceros y en Año Nuevo la ciudad se llena. Buena parte de esos visitantes busca hospedaje, restaurantes y paseos en inglés, desde antes de llegar, y cada vez más le pide la lista a un asistente de IA.",
+               "Para un hostal en los cerros, un restaurante con vista a la bahía o una agencia de paseos, eso significa estar en Google y en esos asistentes con datos claros, y contestar en el idioma de quien escribe aunque sea de madrugada. Ahí empieza El Tío en Valparaíso: la web en 8 idiomas y un agente que responde mientras tu equipo atiende a quien ya está ahí."]),
+    dict(slug="arequipa", nombre="Arequipa", region="Región Arequipa", pais="pe", zona="Arequipa y el sur del Perú",
+         rubros=["gastronomia", "hospitality", "distribucion", "real-estate", "fitness"],
+         intro="Página web, agentes de WhatsApp e Instagram y CRM para negocios de Arequipa, del Centro Histórico y Yanahuara a Cayma y Cerro Colorado.",
+         parr=["Arequipa es la puerta de entrada al Colca y recibe visitantes todo el año, que llegan buscando hospedaje en el centro, una picantería o un tour para el día siguiente. Muchos preguntan en inglés y comparan desde el celular, así que gana el negocio que aparece con información clara y contesta primero.",
+               "Arequipa también es el centro comercial del sur del país, con distribuidoras e importadores que atienden pedidos por WhatsApp desde varias regiones. El Tío en Arequipa empieza por la web, para que te encuentren en Google y en los asistentes de IA, y por un agente que responde, toma la reserva o el pedido y deja cada contacto guardado."]),
 ]
 
 
@@ -209,7 +229,7 @@ def hub():
     s = re.sub(r'  <section class="franja" id="latam">.*?</section>\n', '', s, flags=re.S)
     cards = "\n".join(
         f'      <a class="tarjeta" href="/ciudades/{c["slug"]}/"><span class="tag">{PAIS[c["pais"]][0]}</span><h3>{c["nombre"]}</h3><p>{c["intro"]}</p></a>'
-        for c in C)
+        for c in sorted(C, key=lambda c: list(PAIS).index(c["pais"])))
     sec = f'  <section class="franja" id="latam">\n    <h2>Colombia, Argentina, Chile y Perú</h2>\n    <div class="grilla">\n{cards}\n    </div>\n  </section>\n'
     i = s.index('  <section class="franja">\n    <h2>Lo que sigue</h2>')
     s = s[:i] + sec + s[i:]

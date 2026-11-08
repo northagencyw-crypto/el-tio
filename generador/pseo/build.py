@@ -270,18 +270,36 @@ def main():
         paginas.append(hub_ciudad(c, todas))
         for rk in RUBROS:
             paginas.append(pagina(c, rk, todas, guias))
+    smp = os.path.join(RAIZ, "sitemap-negocios.xml")
+    previo = open(smp, encoding="utf-8").read() if os.path.exists(smp) else ""
+    lastmod = dict(re.findall(r"<loc>(.*?)</loc><lastmod>(.*?)</lastmod>", previo))
+    sin_fecha = lambda t: re.sub(r"Actualizada el \d\d/\d\d/\d{4}", "", t)
+    fechas = {}
     for ruta, doc in paginas:
         if "—" in doc:
             raise SystemExit(f"raya larga en {ruta}")
         d = os.path.join(RAIZ, ruta.strip("/"))
         os.makedirs(d, exist_ok=True)
-        open(os.path.join(d, "index.html"), "w", encoding="utf-8", newline="\n").write(doc)
+        f = os.path.join(d, "index.html")
+        viejo = open(f, encoding="utf-8").read() if os.path.exists(f) else None
+        if viejo is not None and sin_fecha(viejo) == sin_fecha(doc):
+            # Contenido igual: se conserva el archivo con su fecha.
+            fechas[ruta] = lastmod.get(BASE + ruta, HOY)
+            continue
+        fechas[ruta] = HOY
+        open(f, "w", encoding="utf-8", newline="\n").write(doc)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for ruta, _ in paginas:
         pr = "0.6" if ruta.count("/") > 3 else "0.7"
-        sm.append(f"  <url><loc>{BASE}{ruta}</loc><lastmod>{HOY}</lastmod><changefreq>monthly</changefreq><priority>{pr}</priority></url>")
+        sm.append(f"  <url><loc>{BASE}{ruta}</loc><lastmod>{fechas[ruta]}</lastmod><changefreq>monthly</changefreq><priority>{pr}</priority></url>")
+    # Conserva las URL de otros generadores (por ejemplo /pt/ de build_pt.py).
+    propias = {BASE + r for r, _ in paginas}
+    for linea in previo.split("\n"):
+        m = re.search(r"<loc>(.*?)</loc>", linea)
+        if m and m.group(1) not in propias:
+            sm.append(linea)
     sm.append("</urlset>")
-    open(os.path.join(RAIZ, "sitemap-negocios.xml"), "w", encoding="utf-8", newline="\n").write("\n".join(sm) + "\n")
+    open(smp, "w", encoding="utf-8", newline="\n").write("\n".join(sm) + "\n")
     n = sum(1 for r, _ in paginas if r.count("/") == 4)
     print(f"{len(paginas)} páginas ({n} ciudad x rubro, {len(todas)} ciudades)")
 

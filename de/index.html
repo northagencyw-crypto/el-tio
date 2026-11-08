@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Tío · KI ist schon ein Vorteil in deiner Branche</title>
-<meta name="description" content="Wähle deine Branche und sieh dir die 5 Vorteile an, die dir KI heute gegenüber der Konkurrenz verschafft. Mach das kostenlose Audit und erhalte einen schriftlichen Plan, ohne Anrufe.">
+<title>El Tío · Ihre Website in 8 Sprachen, bei Google und in ChatGPT</title>
+<meta name="description" content="Website mit eigener Domain, in 8 Sprachen und mit Sichtbarkeit bei Google, ChatGPT, Perplexity und Gemini. Danach Chatbot, CRM und Kundenakquise.">
 <meta name="theme-color" content="#04070B">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
@@ -15,8 +15,8 @@
 <meta property="og:locale:alternate" content="it_IT">
 <meta property="og:locale:alternate" content="zh_CN">
 <meta property="og:locale:alternate" content="ja_JP">
-<meta property="og:title" content="El Tío · KI ist schon ein Vorteil in deiner Branche">
-<meta property="og:description" content="Wähle deine Branche und sieh dir die 5 Vorteile an, die dir KI heute gegenüber der Konkurrenz verschafft. Mach das kostenlose Audit und erhalte einen schriftlichen Plan, ohne Anrufe.">
+<meta property="og:title" content="El Tío · Ihre Website in 8 Sprachen, bei Google und in ChatGPT">
+<meta property="og:description" content="Website mit eigener Domain, in 8 Sprachen, bereit, damit man Sie bei Google und in KI-Assistenten findet. Danach Chatbot, CRM und Kundenakquise.">
 <link rel="canonical" href="https://eltio.net/de/">
 <link rel="alternate" hreflang="es" href="https://eltio.net/">
 <link rel="alternate" hreflang="en" href="https://eltio.net/en/">
@@ -32,11 +32,12 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" imagesrcset="/assets/tio-1-768.webp 768w, /assets/tio-1.webp 1536w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-var.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/geist.woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2304070B'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%237FC9F2' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/inicio.css">
+<link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -60,64 +61,32 @@
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://eltio.net/de/#organization",
-   "name": "El Tío",
-   "url": "https://eltio.net/de/",
-   "logo": "https://eltio.net/assets/og.jpg",
-   "email": "hola@eltio.net",
-   "areaServed": [
-    "MX",
-    "AR",
-    "CO",
-    "CL",
-    "PE",
-    "BR"
-   ],
-   "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer service",
-    "email": "hola@eltio.net",
-    "url": "https://wa.me/525568976898",
-    "availableLanguage": [
-     "es",
-     "en",
-     "pt",
-     "fr",
-     "de",
-     "it",
-     "zh",
-     "ja"
-    ]
-   }
-  },
-  {
-   "@type": "WebSite",
-   "@id": "https://eltio.net/de/#website",
-   "name": "El Tío",
-   "url": "https://eltio.net/de/",
-   "inLanguage": "de",
-   "publisher": {
-    "@id": "https://eltio.net/de/#organization"
-   }
-  }
- ]
+ "@type": "WebPage",
+ "name": "El Tío · Ihre Website in 8 Sprachen, bei Google und in ChatGPT",
+ "description": "Website mit eigener Domain, in 8 Sprachen und mit Sichtbarkeit bei Google, ChatGPT, Perplexity und Gemini. Danach Chatbot, CRM und Kundenakquise.",
+ "url": "https://eltio.net/de/",
+ "inLanguage": "de",
+ "isPartOf": {
+  "@type": "WebSite",
+  "name": "El Tío",
+  "url": "https://eltio.net/de/"
+ }
 }
 </script>
 <script src="/medicion.js" defer></script>
 </head>
 <body>
 
-<a class="skip" href="#rubro">Zum Inhalt springen</a>
+<a class="skip" href="#manifiesto">Zum Inhalt springen</a>
+<div id="progress" aria-hidden="true"></div>
 <header class="top">
-  <a class="wordmark" href="/de/" aria-label="El Tío, Startseite">EL TIO<span>.</span></a>
+  <div class="wordmark">EL TIO<span class="dot">.</span></div>
   <nav class="nav" aria-label="Bereiche">
-    <a href="#rubro">Deine Branche</a>
-    <a href="#demos">So sieht es aus</a>
-    <a href="#dias">30 Tage</a>
-    <a href="#preguntas">Fragen</a>
+    <a href="/de/webseiten/">Websites</a>
+    <a href="#web">Was er macht</a>
+    <a href="#casos">Beispiele</a>
+    <a href="#metodo">Methode</a>
+    <a href="#contacto">Kontakt</a>
   </nav>
     <details class="idioma">
     <summary aria-label="Sprache: Deutsch">DE</summary>
@@ -132,220 +101,261 @@
       <li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li>
     </ul>
   </details>
-  <a class="btn solid chico" data-cta="cabecera" href="#rubro">Kostenloses Audit</a>
+  <div class="status" aria-hidden="true"><span class="pulse"></span>ONLINE</div>
 </header>
 
-<main>
-<section class="hero" id="rubro" aria-labelledby="titulo">
-  <div class="inner hero-grid">
-    <div class="hero-txt">
-      <h1 id="titulo" class="display">KI ist schon ein Vorteil in deiner Branche. Und zwar heute.</h1>
-      <p class="lead">Heute ist es ein Schritt. Morgen sind es zehn, um am selben Ort anzukommen. Wähle deine Branche und sieh, was sich ändert.</p>
-      <p class="pregunta" id="pregunta">Was ist deine Branche?</p>
-      <div class="chips" role="group" aria-labelledby="pregunta">
-        <button type="button" class="chip" id="t-gastronomia" aria-controls="p-gastronomia" aria-pressed="true">Gastronomie</button>
-        <button type="button" class="chip" id="t-hospitality" aria-controls="p-hospitality" aria-pressed="false">Hotellerie</button>
-        <button type="button" class="chip" id="t-real-estate" aria-controls="p-real-estate" aria-pressed="false">Immobilien</button>
-        <button type="button" class="chip" id="t-fitness" aria-controls="p-fitness" aria-pressed="false">Fitness</button>
-        <button type="button" class="chip" id="t-eventos" aria-controls="p-eventos" aria-pressed="false">Events</button>
-        <button type="button" class="chip" id="t-artistas" aria-controls="p-artistas" aria-pressed="false">Künstler</button>
-        <button type="button" class="chip" id="t-distribucion" aria-controls="p-distribucion" aria-pressed="false">Großhandel</button>
+<!-- ============ HERO: LA DIGITALIZACION ============ -->
+<div class="hero" id="hero">
+  <div class="hero-stage">
+    <div class="hero-media" aria-hidden="true">
+      <img class="frame f1" src="/assets/tio-1.jpg" srcset="/assets/tio-1-768.webp 768w, /assets/tio-1.webp 1536w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
+      <img class="frame f2" data-src="/assets/tio-2.webp" data-src-sm="/assets/tio-2-768.webp" alt="" decoding="async">
+      <img class="frame f3" data-src="/assets/tio-3.webp" data-src-sm="/assets/tio-3-768.webp" alt="" decoding="async">
+      <img class="frame f4" data-src="/assets/tio-4.webp" data-src-sm="/assets/tio-4-768.webp" alt="" decoding="async">
+      <img class="frame f5" data-src="/assets/tio-1.webp" data-src-sm="/assets/tio-1-768.webp" alt="" decoding="async">
+    </div>
+    <canvas id="rain" aria-hidden="true"></canvas>
+    <div class="hero-veil" aria-hidden="true"></div>
+
+    <div class="beat b0" aria-hidden="true">
+      <p class="eyebrow">KÜNSTLICHE INTELLIGENZ FÜR UNTERNEHMEN</p>
+      <p class="beat-line">Man sucht Sie bei Google und in ChatGPT.<br>Er sorgt dafür, dass man Sie findet.</p>
+    </div>
+    <div class="beat b1" aria-hidden="true">
+      <p class="eyebrow">01 &nbsp;/&nbsp; PROZESSE</p>
+      <p class="beat-word">ICH AUTOMATISIERE</p>
+      <p class="beat-line">Vertrieb, Kundenservice und Abläufe laufen von allein. Rund um die Uhr.</p>
+    </div>
+    <div class="beat b2" aria-hidden="true">
+      <p class="eyebrow">02 &nbsp;/&nbsp; ERGEBNISSE</p>
+      <p class="beat-word">ICH OPTIMIERE</p>
+      <p class="beat-line">Weniger Kosten. Weniger Fehler. Mehr Marge.</p>
+    </div>
+    <div class="beat b3" aria-hidden="true">
+      <p class="eyebrow">03 &nbsp;/&nbsp; TEAMS</p>
+      <p class="beat-word">ICH SCHULE</p>
+      <p class="beat-line">Ihr Team beherrscht KI in Wochen, nicht in Jahren.</p>
+    </div>
+
+    <div class="hero-title">
+      <h1 class="display">EL TIO</h1>
+      <p class="hero-sub">KI ist schon heute ein Vorsprung in Ihrem Markt. El Tío zeigt Ihnen den Ihrer Branche.</p>
+      <div class="hero-cta">
+        <a class="btn solid" data-cta="hero" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">Mit El Tío sprechen</a>
+        <a class="btn ghost" href="#web">Sehen, was er macht</a>
       </div>
     </div>
-    <div class="tablero" aria-live="polite">
-      <div class="panel" id="p-gastronomia" data-rubro="gastronomia">
-        <ol class="ventajas">
-          <li><h3>Schlafende Daten wecken</h3><p>Die Hunderte Kunden, die dir schon geschrieben haben, sind eine Liste. Sie werden zum richtigen Zeitpunkt eingeladen, wiederzukommen.</p></li>
-          <li><h3>Neue Kunden gewinnen</h3><p>Firmen aus der Gegend mit Teamessen, Events und Großbestellungen, gefunden vor deiner Konkurrenz.</p></li>
-          <li><h3>Vertrauen in den sozialen Medien</h3><p>Küche, Team und Gerichte, jede Woche erzählt. Wer dich oft sieht, wählt dich, bevor er dich probiert hat.</p></li>
-          <li><h3>Ständige Präsenz</h3><p>Jeden Tag posten und zu jeder Zeit antworten, auch mitten im Service.</p></li>
-          <li><h3>Optimierte Arbeit</h3><p>Reservierungen, Bestellungen und die üblichen Fragen erledigen sich von selbst, während dein Team im Gastraum ist.</p></li>
-        </ol>
-        <div class="acciones">
-          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/gastronomia?utm_source=eltio&amp;utm_medium=portada">Mach das kostenlose Audit</a><small class="nota-idioma">Das Audit gibt es vorerst nur auf Spanisch. Wenn Sie lieber in Ihrer Sprache sprechen, schreiben Sie uns per WhatsApp oder an hola@eltio.net.</small>
-          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">Schreib uns auf WhatsApp</a>
-        </div>
-      </div>
-      <div class="panel" id="p-hospitality" data-rubro="hospitality">
-        <ol class="ventajas">
-          <li><h3>Schlafende Daten wecken</h3><p>Gäste vergangener Saisons werden zurückgeladen, bevor sie woanders buchen.</p></li>
-          <li><h3>Neue Kunden gewinnen</h3><p>Agenturen, Firmen und Veranstalter von Hochzeiten und Retreats, die Gruppen bringen.</p></li>
-          <li><h3>Vertrauen in den sozialen Medien</h3><p>Bewertungen und der Alltag des Hauses konstant gezeigt. Reisende buchen dort, wo sie vertrauen.</p></li>
-          <li><h3>Ständige Präsenz</h3><p>In der Sprache und zur Zeit des Gastes antworten, auch wenn er aus einer anderen Zeitzone schreibt.</p></li>
-          <li><h3>Optimierte Arbeit</h3><p>Anreisen, wiederkehrende Fragen und Erinnerungen, ohne über die Rezeption zu gehen.</p></li>
-        </ol>
-        <div class="acciones">
-          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/hospitality?utm_source=eltio&amp;utm_medium=portada">Mach das kostenlose Audit</a>
-          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">Schreib uns auf WhatsApp</a>
-        </div>
-      </div>
-      <div class="panel" id="p-real-estate" data-rubro="real-estate">
-        <ol class="ventajas">
-          <li><h3>Schlafende Daten wecken</h3><p>Die Kontakte, die vor Monaten gefragt und nicht gekauft haben. Viele suchen noch.</p></li>
-          <li><h3>Neue Kunden gewinnen</h3><p>Eigentümer, die verkaufen oder vermieten wollen, und qualifizierte Käufer, bevor ein anderes Maklerbüro sie erreicht.</p></li>
-          <li><h3>Vertrauen in den sozialen Medien</h3><p>Abschlüsse, Gegenden und Urteilsvermögen konstant gezeigt. Bei einem großen Kauf wählt man jemanden, den man kennt.</p></li>
-          <li><h3>Ständige Präsenz</h3><p>Jede Anfrage in Minuten beantwortet, auch am Wochenende.</p></li>
-          <li><h3>Optimierte Arbeit</h3><p>Anfragen gefiltert, Besichtigungen geplant und Nachverfolgung, ohne jemanden zwischen den Chats zu verlieren.</p></li>
-        </ol>
-        <div class="acciones">
-          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/real-estate?utm_source=eltio&amp;utm_medium=portada">Mach das kostenlose Audit</a>
-          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">Schreib uns auf WhatsApp</a>
-        </div>
-      </div>
-      <div class="panel" id="p-fitness" data-rubro="fitness">
-        <ol class="ventajas">
-          <li><h3>Schlafende Daten wecken</h3><p>Mitglieder, die gekündigt haben, und Probeschüler, die nicht wiederkamen. Eine Einladung zur richtigen Zeit bringt sie zurück.</p></li>
-          <li><h3>Neue Kunden gewinnen</h3><p>Firmen aus der Gegend mit Teams, die Wohlbefinden suchen, und Nachbarn, die dich noch nicht kennen.</p></li>
-          <li><h3>Vertrauen in den sozialen Medien</h3><p>Kurse, Coaches und Fortschritte in den sozialen Medien erzählt. Man trainiert dort, wo man sich zugehörig fühlt.</p></li>
-          <li><h3>Ständige Präsenz</h3><p>Zeiten und Probestunden sofort beantwortet, zu jeder Uhrzeit.</p></li>
-          <li><h3>Optimierte Arbeit</h3><p>Anmeldungen, Verlängerungen und Zahlungserinnerungen, die von selbst rausgehen.</p></li>
-        </ol>
-        <div class="acciones">
-          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/fitness?utm_source=eltio&amp;utm_medium=portada">Mach das kostenlose Audit</a>
-          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">Schreib uns auf WhatsApp</a>
-        </div>
-      </div>
-      <div class="panel" id="p-eventos" data-rubro="eventos">
-        <ol class="ventajas">
-          <li><h3>Schlafende Daten wecken</h3><p>Kunden vergangener Events mit Terminen, die jedes Jahr wiederkehren.</p></li>
-          <li><h3>Neue Kunden gewinnen</h3><p>Firmen, Hochzeitsplaner und Agenturen, die mehrere Termine im Jahr organisieren.</p></li>
-          <li><h3>Vertrauen in den sozialen Medien</h3><p>Aufbauten, Details und Referenzen konstant gezeigt. Niemand bucht ein Event blind.</p></li>
-          <li><h3>Ständige Präsenz</h3><p>Angebote am selben Tag beantwortet, auch wenn du mitten im Aufbau steckst.</p></li>
-          <li><h3>Optimierte Arbeit</h3><p>Angebote erstellen, Dienstleister bestätigen und Zahlungen verfolgen an einem Ort.</p></li>
-        </ol>
-        <div class="acciones">
-          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/eventos?utm_source=eltio&amp;utm_medium=portada">Mach das kostenlose Audit</a>
-          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">Schreib uns auf WhatsApp</a>
-        </div>
-      </div>
-      <div class="panel" id="p-artistas" data-rubro="artistas">
-        <ol class="ventajas">
-          <li><h3>Schlafende Daten wecken</h3><p>Wer schon ein Ticket, ein Werk oder einen Kurs gekauft hat, erfährt als Erster, was als Nächstes kommt.</p></li>
-          <li><h3>Neue Kunden gewinnen</h3><p>Häuser, Marken, Festivals und Produzenten, die Profile wie deines suchen.</p></li>
-          <li><h3>Vertrauen in den sozialen Medien</h3><p>Prozess, Proben und Werk konstant erzählt. Das Publikum folgt den Menschen.</p></li>
-          <li><h3>Ständige Präsenz</h3><p>Oft posten, ohne mit dem Schaffen aufzuhören.</p></li>
-          <li><h3>Optimierte Arbeit</h3><p>Buchungen, Termine und Nachrichten in Ordnung, mit Zeit für das Werk.</p></li>
-        </ol>
-        <div class="acciones">
-          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/artistas?utm_source=eltio&amp;utm_medium=portada">Mach das kostenlose Audit</a>
-          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">Schreib uns auf WhatsApp</a>
-        </div>
-      </div>
-      <div class="panel" id="p-distribucion" data-rubro="distribucion">
-        <ol class="ventajas">
-          <li><h3>Schlafende Daten wecken</h3><p>Kunden, die nicht mehr bestellen, erkannt und reaktiviert, bevor du sie verlierst.</p></li>
-          <li><h3>Neue Kunden gewinnen</h3><p>Läden, Restaurants und Betriebe aus der Gegend, die noch nicht bei dir kaufen.</p></li>
-          <li><h3>Vertrauen in den sozialen Medien</h3><p>Katalog, Lieferungen und Referenzen konstant gezeigt. Käufer wechseln den Lieferanten, wenn sie vertrauen.</p></li>
-          <li><h3>Ständige Präsenz</h3><p>Katalog und Verfügbarkeit sofort beantwortet, zu jeder Uhrzeit.</p></li>
-          <li><h3>Optimierte Arbeit</h3><p>Bestellungen, Lager und Touren in Ordnung, ohne Handeingabe.</p></li>
-        </ol>
-        <div class="acciones">
-          <a class="btn solid" data-cta="hero-audit" href="https://app.eltio.net/auditoria/distribucion?utm_source=eltio&amp;utm_medium=portada">Mach das kostenlose Audit</a>
-          <a class="btn ghost" data-cta="hero-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">Schreib uns auf WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="contraste" aria-label="Warum heute">
-  <div class="inner contraste-grid">
-    <p><strong>78 von 100</strong> Organisationen nutzen KI bereits in mindestens einem Teil ihres Geschäfts. <cite>McKinsey, The state of AI, 2025</cite></p>
-    <p><strong>94 von 100</strong> kleinen Betrieben in vier mexikanischen Bundesstaaten haben keine registrierte Website. <cite><a href="/de/index/">El Tío Index, auf Basis des DENUE des INEGI</a></cite></p>
-    <p class="remate">Die Großen haben sich schon bewegt. Die Kleinen noch nicht. Da liegt dein Vorteil.</p>
+    <div class="scroll-cue" aria-hidden="true">SCROLLEN</div>
   </div>
-</section>
+</div>
 
-<section class="bloque" id="demos" aria-labelledby="demos-t">
+<!-- ============ LO PRIMERO: LA WEB ============ -->
+<section class="block orden" id="web">
   <div class="inner">
-    <h2 id="demos-t" class="display">So sieht es in deinem Betrieb aus</h2>
-    <p class="lead">Drei Beispielbildschirme. Die Namen und Nachrichten sind erfunden.</p>
-    <div class="ventanas">
-      <figure class="ventana">
-        <div class="barra" aria-hidden="true"><i></i><i></i><i></i><span>WhatsApp des Betriebs</span></div>
-        <div class="chat">
-          <p class="hora">23:40</p>
-          <p class="msg ellos">Hallo, habt ihr morgen um 9 einen Tisch für 6?</p>
-          <p class="msg nos">Hallo, ja. Ich reserviere die Terrasse für 6 um 21:00. Auf welchen Namen?</p>
-          <p class="msg ellos">Ana López</p>
-          <p class="msg nos">Erledigt, Ana. Morgen um 18:00 schicke ich dir die Erinnerung.</p>
-        </div>
-        <figcaption><strong>Ständige Präsenz.</strong> Sie schreiben dir nachts und jemand antwortet.</figcaption>
-      </figure>
-      <figure class="ventana">
-        <div class="barra" aria-hidden="true"><i></i><i></i><i></i><span>Kunden</span></div>
-        <div class="tabla">
-          <p class="fila cab"><span>Kunde</span><span>Letzter Besuch</span><span>Status</span></p>
-          <p class="fila"><span>Marta R.</span><span>März</span><span class="et">Einladung gesendet</span></p>
-          <p class="fila"><span>Luis G.</span><span>April</span><span class="et ok">Zurückgekehrt</span></p>
-          <p class="fila"><span>Empresa Norte</span><span>Mai</span><span class="et">Einladung gesendet</span></p>
-          <p class="fila"><span>Sofía P.</span><span>Juni</span><span class="et ok">Hat reserviert</span></p>
-        </div>
-        <figcaption><strong>Schlafende Daten.</strong> Wer schon bei dir gekauft hat, bekommt eine Einladung zurückzukommen.</figcaption>
-      </figure>
-      <figure class="ventana">
-        <div class="barra" aria-hidden="true"><i></i><i></i><i></i><span>Beiträge der Woche</span></div>
-        <div class="semana">
-          <p><span>Mo</span><b>Die Küche vor der Öffnung</b></p>
-          <p><span>Di</span><b>Das Barteam</b></p>
-          <p><span>Mi</span><b>Saisongericht</b></p>
-          <p><span>Do</span><b>Bewertung eines Kunden</b></p>
-          <p><span>Fr</span><b>Was am Wochenende kommt</b></p>
-        </div>
-        <figcaption><strong>Vertrauen in den sozialen Medien.</strong> Du zeigst dich jede Woche, ohne darüber nachzudenken, was du posten sollst.</figcaption>
-      </figure>
+    <p class="eyebrow reveal">WAS ER MACHT, DER REIHE NACH</p>
+    <h2 class="display reveal d1">Zuerst: gefunden werden</h2>
+    <p class="lead reveal d2">Eine eigene Website, in den Sprachen Ihrer Kunden, gebaut, um bei Google und in den Antworten von ChatGPT, Perplexity und Gemini aufzutauchen. Danach: keine Anfrage bleibt unbeantwortet. Später: aktiv neue Kunden suchen.</p>
+    <div class="steps">
+      <div class="step reveal"><span class="s-num">01</span><h3><a href="/de/webseiten/">Website</a></h3><p>Eigene Domain, 8 Sprachen und SEO. <a href="/de/ki-sichtbarkeit/">Sichtbarkeit in KI-Suchen</a> inklusive.</p></div>
+      <div class="step reveal d1"><span class="s-num">02</span><h3><a href="/de/leistungen/whatsapp-instagram-agent/">Chatbot und CRM</a></h3><p>Ein Agent, der auf WhatsApp und Instagram antwortet, und ein <a href="/de/leistungen/crm-und-nachverfolgung/">CRM</a>, in dem Ihre Daten geordnet sind.</p></div>
+      <div class="step reveal d2"><span class="s-num">03</span><h3><a href="/de/akquise-und-email/">Kundenakquise</a></h3><p>Firmenlisten, E-Mails mit Nachfassen und E-Mail-Marketing für Ihre Kunden.</p></div>
+      <div class="step reveal d3"><span class="s-num">04</span><h3><a href="/de/leistungen/">Mehr KI</a></h3><p>Sprachagent, Automatisierungen, Berichte und Schulung Ihres Teams.</p></div>
+    </div>
+    <div class="hero-cta reveal">
+      <a class="btn solid" data-cta="web" href="/de/webseiten/#audit">Das kostenlose Audit machen</a>
+      <a class="btn ghost" href="/de/ratgeber/in-chatgpt-und-google-gefunden-werden/">Den Leitfaden lesen</a>
     </div>
   </div>
 </section>
 
-<section class="bloque" id="dias" aria-labelledby="dias-t">
-  <div class="inner">
-    <h2 id="dias-t" class="display">Was sich in 30 Tagen ändert</h2>
-    <p class="lead">Keine Zahlenversprechen. Was passiert, in der Reihenfolge, in der es passiert.</p>
-    <ol class="linea">
-      <li><span class="cuando">Tag 1</span><h3>Du machst das Audit</h3><p>Ein Fragebogen von 15 bis 25 Minuten über deinen Betrieb. Ohne Anrufe.</p></li>
-      <li><span class="cuando">Tage 2 und 3</span><h3>Du erhältst deine Karte</h3><p>Die Vorteile deiner Branche für deinen Fall geordnet, mit Datum und schriftlich.</p></li>
-      <li><span class="cuando">Wochen 1 und 2</span><h3>Das Erste läuft an</h3><p>Was du aus der Karte auswählst, fängt an zu funktionieren: dass man dich findet, dass niemand ohne Antwort bleibt.</p></li>
-      <li><span class="cuando">Wochen 3 und 4</span><h3>Du siehst, was sich geändert hat</h3><p>Mit deinen eigenen Daten: wer geschrieben hat, wer zurückkam, was von selbst beantwortet wurde.</p></li>
-    </ol>
+<!-- ============ CONFIAN ============ -->
+<section class="clients" aria-label="Marken, die El Tío vertrauen">
+  <div class="inner clients-head">
+    <p class="eyebrow reveal">SIE VERTRAUEN EL TÍO</p>
+    <button class="marquee-pause" type="button" aria-pressed="false" aria-label="Laufband anhalten"><span class="vo">Anhalten</span></button>
   </div>
-</section>
-
-<section class="clientes" aria-labelledby="clientes-t">
-  <div class="inner">
-    <h2 id="clientes-t" class="sub">Sie vertrauen El Tío</h2>
-    <ul class="logos">
-      <li>NORTH</li><li>LOGIN</li><li>420 CREW</li><li>GIORGINI</li><li>UPDATE NOW</li><li>NORTH CAFÉ FESTIVAL</li><li>FREEDOM SERVER</li>
-    </ul>
-  </div>
-</section>
-
-<section class="bloque" id="preguntas" aria-labelledby="preguntas-t">
-  <div class="inner estrecho">
-    <h2 id="preguntas-t" class="display">Fragen</h2>
-    <details><summary>Was ist das Audit?</summary><p>Ein Fragebogen über deinen Betrieb. Mit deinen Antworten erhältst du eine Karte mit den Vorteilen deiner Branche, geordnet und mit Datum, schriftlich.</p></details>
-    <details><summary>Kostet das Audit etwas?</summary><p>Nein. Es ist kostenlos und verpflichtet dich zu nichts.</p></details>
-    <details><summary>Muss ich telefonieren oder Meetings machen?</summary><p>Nein. Alles läuft schriftlich: das Audit, die Karte und das, was folgt, per WhatsApp oder E-Mail.</p></details>
-    <details><summary>Muss ich mich mit Technik auskennen?</summary><p>Nein. Du erzählst, wie dein Betrieb funktioniert. El Tío kümmert sich um den Rest.</p></details>
-    <details><summary>Eignet sich das für einen kleinen Betrieb?</summary><p>Ja. Dort fällt es am meisten auf: Die meisten kleinen Betriebe haben noch nicht angefangen.</p></details>
-    <details><summary>Was passiert mit meinen Daten?</summary><p>Sie gehören dir. Sie werden weder weitergegeben noch verkauft.</p></details>
-    <p class="mas"><a href="/de/haeufige-fragen/">Alle Fragen ansehen</a></p>
-  </div>
-</section>
-
-<section class="cierre" id="contacto" aria-labelledby="cierre-t">
-  <div class="inner cierre-grid">
-    <div>
-      <h2 id="cierre-t" class="display">Verlier den Vorteil nicht, es ist heute. Sprich mit El Tío.</h2>
-      <div class="acciones">
-        <a class="btn solid" data-cta="cierre-audit" href="https://app.eltio.net/auditoria/gastronomia?utm_source=eltio&amp;utm_medium=cierre">Mach das kostenlose Audit</a>
-        <a class="btn ghost" data-cta="cierre-whatsapp" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">Schreib uns auf WhatsApp</a>
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span class="cl cl-north">NORTH</span>
+        <span class="cl cl-login">LOGIN</span>
+        <span class="cl cl-420">420 CREW</span>
+        <span class="cl cl-giorgini">GIORGINI</span>
+        <span class="cl cl-update">UPDATE NOW</span>
+        <span class="cl cl-ncf">NORTH CAFÉ FESTIVAL</span>
+        <span class="cl cl-freedom">FREEDOM SERVER</span>
+        <span class="cl cl-cat">ARCHITEKTURBÜROS</span>
+        <span class="cl cl-cat">INGENIEURBÜROS</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span class="cl cl-north">NORTH</span>
+        <span class="cl cl-login">LOGIN</span>
+        <span class="cl cl-420">420 CREW</span>
+        <span class="cl cl-giorgini">GIORGINI</span>
+        <span class="cl cl-update">UPDATE NOW</span>
+        <span class="cl cl-ncf">NORTH CAFÉ FESTIVAL</span>
+        <span class="cl cl-freedom">FREEDOM SERVER</span>
+        <span class="cl cl-cat">ARCHITEKTURBÜROS</span>
+        <span class="cl cl-cat">INGENIEURBÜROS</span>
       </div>
     </div>
-    <img src="/assets/re-tio-retrato-480.webp" srcset="/assets/re-tio-retrato-480.webp 480w, /assets/re-tio-retrato-768.webp 768w" sizes="(min-width: 900px) 360px, 70vw" width="480" height="720" alt="El Tío, im Anzug und mit schwarzer Brille" loading="lazy" decoding="async">
   </div>
 </section>
-</main>
+
+<!-- ============ MANIFIESTO ============ -->
+<section class="block" id="manifiesto">
+  <div class="inner">
+    <p class="eyebrow reveal">DIE THESE</p>
+    <h2 class="display giant reveal d1">KI, die funktioniert.<br><span class="hl">Echte Ergebnisse.</span></h2>
+    <p class="lead reveal d2">El Tío setzt künstliche Intelligenz dort ein, wo Ihr Unternehmen sie am meisten braucht: Vertrieb, Abläufe, Kundenservice, Daten und Ihr eigenes Team. Wenn sich keine Kennzahl verbessert, wird es nicht umgesetzt.</p>
+  </div>
+</section>
+
+<!-- ============ PILARES ============ -->
+<section class="block" id="pilares">
+  <div class="inner">
+    <p class="eyebrow reveal">WAS ER MACHT</p>
+    <p class="lead reveal d1">Wir finden heraus, wo Ihr Unternehmen Zeit, Kunden oder Geld verliert, und bauen eine einfachere Arbeitsweise.</p>
+    <div class="pillar reveal">
+      <div class="pillar-head">
+        <h3 class="display p-word">AUTOMATISIERUNG</h3>
+        <p class="p-claim">Prozesse, die von allein laufen.</p>
+      </div>
+      <ul class="p-list">
+        <li>Chatbots und Assistenten, die rund um die Uhr auf WhatsApp, Instagram und der Website verkaufen und beraten</li>
+        <li>Interne Abläufe ohne Handarbeit: Rechnungen, Berichte, Nachfassen, Erinnerungen</li>
+        <li>CRM und Marketing auf Autopilot: Kampagnen, Funnels, Remarketing, zurückgeholte Warenkörbe</li>
+        <li>Verbindungen zwischen den Systemen, die Sie schon nutzen, ohne das Werkzeug zu wechseln</li>
+      </ul>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-head">
+        <h3 class="display p-word">OPTIMIERUNG</h3>
+        <p class="p-claim">Entscheidungen nach Daten, nicht nach Bauchgefühl.</p>
+      </div>
+      <ul class="p-list">
+        <li>Prognosen: Nachfrage, Verbrauch, Lagerbestand und Kundenverhalten</li>
+        <li>Dynamische Preise und intelligente Segmentierung Ihres Kundenstamms</li>
+        <li>Dashboards in Echtzeit: Ihr gesamter Betrieb auf einem Bildschirm</li>
+        <li>Betrugserkennung, Qualitätskontrolle und Warnungen, bevor das Problem entsteht</li>
+      </ul>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-head">
+        <h3 class="display p-word">SCHULUNG</h3>
+        <p class="p-claim">Ihr Team beherrscht die KI.</p>
+      </div>
+      <ul class="p-list">
+        <li>Training nach Bereich: Vertrieb, Marketing, Betrieb, Verwaltung</li>
+        <li>Playbooks und KI-Arbeitsabläufe, ab dem ersten Tag einsatzbereit</li>
+        <li>Echte Begleitung, bis das Team vollständig selbstständig arbeitet</li>
+        <li>Kriterien, Grenzen und Sicherheit: eine KI-Kultur statt Abhängigkeit von einem Anbieter</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASOS ============ -->
+<section class="block" id="casos">
+  <div class="inner">
+    <p class="eyebrow reveal">IN DER PRAXIS</p>
+    <h2 class="display reveal d1">Konkrete Automatisierungen</h2>
+    <p class="lead reveal d2">Beispiele für die Art von Systemen, die El Tío in einem Unternehmen zum Laufen bringt.</p>
+    <div class="case-grid">
+      <div class="case reveal">
+        <span class="case-tag">VERTRIEB</span>
+        <h3>Sofortige Antwort auf WhatsApp</h3>
+        <p>Jede Anfrage wird in Sekunden beantwortet und automatisch bewertet. Die lohnenden landen im Kalender des Verkäufers, mit Erinnerung für beide Seiten.</p>
+      </div>
+      <div class="case reveal d1">
+        <span class="case-tag">MARKETING</span>
+        <h3>Inhalte, die sich selbst veröffentlichen</h3>
+        <p>Das System schreibt die Texte, erstellt die Bilder und postet jeden Tag in den sozialen Netzwerken, nach festem Kalender und festen Uhrzeiten. Das Team kontrolliert nur.</p>
+      </div>
+      <div class="case reveal d2">
+        <span class="case-tag">KAMPAGNEN</span>
+        <h3>Versand in kontrollierten Etappen</h3>
+        <p>WhatsApp-Kampagnen, die in zeitlich verteilten Wellen rausgehen, mit abgestimmten Pausen und Uhrzeiten, damit die Nummer geschützt bleibt und die ganze Liste ohne Sperren erreicht wird.</p>
+      </div>
+      <div class="case reveal">
+        <span class="case-tag">VERWALTUNG</span>
+        <h3>Inkasso ohne Hinterherlaufen</h3>
+        <p>Die Rechnung wird beim Abschluss erstellt und automatisch verschickt, die Zahlungserinnerungen gehen nacheinander raus, bis bezahlt ist. Alles wird festgehalten.</p>
+      </div>
+      <div class="case reveal d1">
+        <span class="case-tag">GESCHÄFTSFÜHRUNG</span>
+        <h3>Montags ist der Bericht schon da</h3>
+        <p>Jede Woche erhält die Geschäftsführung eine automatische Zusammenfassung mit Umsatz, Kosten, Abweichungen und Warnungen, erstellt aus den Systemen, die das Unternehmen schon nutzt.</p>
+      </div>
+      <div class="case reveal d2">
+        <span class="case-tag">BETRIEB</span>
+        <h3>Ein Lager, das vorher Bescheid gibt</h3>
+        <p>Der Bestand wird anhand der bisherigen Nachfrage hochgerechnet und meldet, was nachbestellt werden muss, bevor es fehlt, mit fertigen Bestellungen zur Freigabe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARSENAL ============ -->
+<section class="block arsenal" id="arsenal">
+  <div class="arsenal-bg" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="eyebrow reveal">DAS ARSENAL</p>
+    <h2 class="display reveal d1">Alles, was er löst</h2>
+    <p class="lead reveal d2">Ein einziger Ansprechpartner. Ein komplettes Arsenal. El Tío stellt genau das Team zusammen, das Ihr Problem braucht.</p>
+    <div class="cap-grid">
+      <div class="cap reveal"><span class="cap-tag">WEB + SICHTBARKEIT</span><p>Websites in 8 Sprachen mit eigener Domain, SEO, strukturierten Daten und Präsenz in KI-Suchmaschinen</p></div>
+      <div class="cap reveal d1"><span class="cap-tag">GESPRÄCH</span><p>Mehrsprachige Chatbots, Sprachassistenten, Verkaufs- und Terminbots</p></div>
+      <div class="cap reveal d2"><span class="cap-tag">MARKETING + CRM</span><p>Kampagnen mit KI, Texte, automatisierte E-Mails, Lead-Scoring, Bewertungen</p></div>
+      <div class="cap reveal d3"><span class="cap-tag">DATEN</span><p>Automatische Berichte, Prognosen, Empfehlungen, intelligente Dashboards</p></div>
+      <div class="cap reveal"><span class="cap-tag">INHALTE</span><p>Bilder, Video, Design und visuelle Kampagnen, erstellt mit aktueller KI</p></div>
+      <div class="cap reveal d1"><span class="cap-tag">AUDIO + STIMME</span><p>Voice-overs, Stimmklonen, Transkription, Untertitel, Live-Übersetzung</p></div>
+      <div class="cap reveal d2"><span class="cap-tag">BILDERKENNUNG</span><p>OCR, Dokumentenerfassung, visuelle Qualitätskontrolle, Videoanalyse</p></div>
+      <div class="cap reveal d3"><span class="cap-tag">MASSGESCHNEIDERT</span><p>RAG, private Wissensdatenbanken, E-Commerce mit KI, Apps und Systeme nach Maß</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METODO ============ -->
+<section class="block" id="metodo">
+  <div class="inner">
+    <p class="eyebrow reveal">DIE METHODE</p>
+    <h2 class="display reveal d1">Vier Schritte. Ohne Umwege.</h2>
+    <div class="steps">
+      <div class="step reveal"><span class="s-num">01</span><h3>Scan</h3><p>Wir verstehen das Problem und wo die Chance liegt.</p></div>
+      <div class="step reveal d1"><span class="s-num">02</span><h3>Upgrade</h3><p>Wir verbessern den Prozess und setzen um, was nötig ist.</p></div>
+      <div class="step reveal d2"><span class="s-num">03</span><h3>Train</h3><p>Das Team lernt, damit umzugehen.</p></div>
+      <div class="step reveal d3"><span class="s-num">04</span><h3>Measure</h3><p>Wir messen, was sich verändert hat.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CODIGO DEL TIO ============ -->
+<section class="block codigo" id="codigo">
+  <div class="inner">
+    <p class="eyebrow reveal">DER KODEX VON EL TÍO</p>
+    <div class="rules">
+      <div class="rule reveal"><h3>Klarer Umfang</h3><p>Umfang, Ergebnis und Zeitrahmen werden vor dem Start vereinbart. Keine endlosen Projekte.</p></div>
+      <div class="rule reveal d1"><h3>Keine langen Verträge</h3><p>Monatlich. Sie können jederzeit kündigen, ohne Vertragsstrafe.</p></div>
+      <div class="rule reveal d2"><h3>Ihre Daten gehören Ihnen</h3><p>Volle Vertraulichkeit. Private Modelle, wenn nötig. Nichts wird weitergegeben.</p></div>
+      <div class="rule reveal d3"><h3>Echter Support</h3><p>Ihnen antwortet El Tío, kein Ticket. Auf Spanisch oder Englisch, per WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIERRE ============ -->
+<section class="block cierre" id="contacto">
+  <div class="cierre-bg" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="eyebrow reveal">DER NÄCHSTE SCHRITT</p>
+    <h2 class="display giant reveal d1">Verlieren Sie den Vorsprung nicht.<br><span class="hl">Es ist heute.</span></h2>
+    <p class="lead reveal d2">Heute ein Schritt. Morgen zehn, um am selben Punkt anzukommen.<br>El Tío zeigt Ihnen die Vorteile Ihrer Branche.<br>Machen Sie das kostenlose Audit und erhalten Sie einen Plan mit Termin, schriftlich.<br>Ohne Anrufe und ohne Meetings.</p>
+    <div class="hero-cta reveal d3">
+      <a class="btn solid" data-cta="cierre" href="https://wa.me/525568976898?text=Hola%21%20Quiero%20ver%20la%20ventaja%20de%20la%20IA%20para%20mi%20rubro." target="_blank" rel="noopener">Mit El Tío sprechen</a>
+    </div>
+  </div>
+</section>
 
 <footer>
   <nav class="foot-nav inner" aria-label="Branchenlösungen">
@@ -385,6 +395,6 @@
   </div>
 </footer>
 
-<script src="/inicio.js" defer></script>
+<script src="/main.js" defer></script>
 </body>
 </html>

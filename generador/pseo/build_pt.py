@@ -2,7 +2,7 @@
 
 Uso: python generador/pseo/build_pt.py   (depois de build.py; acrescenta as URLs ao sitemap-negocios.xml)
 """
-import json, os, sys
+import json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from build import RAIZ, BASE, HOY, e, semilla, rota, wa
 from datos_pt import CIDADES_BR, RUBROS_PT, SLUG_PT, VENTAGEM_TITULOS, PERFIS
@@ -194,6 +194,11 @@ def main():
     for c in todas:
         pags.append(hub_cidade(c, todas))
         pags += [pagina(c, rk, todas) for rk in RUBROS_PT]
+    sm = os.path.join(RAIZ, "sitemap-negocios.xml")
+    x = open(sm, encoding="utf-8").read()
+    lastmod = dict(re.findall(r"<loc>(.*?)</loc><lastmod>(.*?)</lastmod>", x))
+    sem_data = lambda t: re.sub(r"Atualizada em \d\d/\d\d/\d{4}", "", t)
+    datas = {}
     for ruta, d in pags:
         for a, b in ((" em Rio de Janeiro", " no Rio de Janeiro"), (" de Rio de Janeiro", " do Rio de Janeiro"), (" para Rio de Janeiro", " para o Rio de Janeiro"), ("em%20Rio%20de%20Janeiro", "no%20Rio%20de%20Janeiro")):
             d = d.replace(a, b)
@@ -201,11 +206,16 @@ def main():
             raise SystemExit(f"travessão em {ruta}")
         p = os.path.join(RAIZ, ruta.strip("/"))
         os.makedirs(p, exist_ok=True)
-        open(os.path.join(p, "index.html"), "w", encoding="utf-8", newline="\n").write(d)
-    sm = os.path.join(RAIZ, "sitemap-negocios.xml")
-    x = open(sm, encoding="utf-8").read()
+        f = os.path.join(p, "index.html")
+        velho = open(f, encoding="utf-8").read() if os.path.exists(f) else None
+        if velho is not None and sem_data(velho) == sem_data(d):
+            # Conteúdo igual: conserva o arquivo e a data.
+            datas[ruta] = lastmod.get(BASE + ruta, HOY)
+            continue
+        datas[ruta] = HOY
+        open(f, "w", encoding="utf-8", newline="\n").write(d)
     x = "\n".join(l for l in x.split("\n") if "/pt/negocios/" not in l)
-    linhas = "\n".join(f"  <url><loc>{BASE}{r}</loc><lastmod>{HOY}</lastmod><changefreq>monthly</changefreq><priority>{'0.6' if r.count('/') > 4 else '0.7'}</priority></url>" for r, _ in pags)
+    linhas = "\n".join(f"  <url><loc>{BASE}{r}</loc><lastmod>{datas[r]}</lastmod><changefreq>monthly</changefreq><priority>{'0.6' if r.count('/') > 4 else '0.7'}</priority></url>" for r, _ in pags)
     x = x.replace("</urlset>", linhas + "\n</urlset>")
     open(sm, "w", encoding="utf-8", newline="\n").write(x)
     n = sum(1 for r, _ in pags if r.count("/") == 5)

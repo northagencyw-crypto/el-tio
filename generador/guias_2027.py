@@ -200,6 +200,8 @@ def combos():
     for rk, r in R.items():
         for i, cs in enumerate(r["ciudades"]):
             out.append((TEMAS[i % 3], rk, cs))
+    # Pedidos explícitos del fundador (07/11) que la rotación no cubre.
+    out += [x for x in [("ia", "gastronomia", "ciudad-de-mexico"), ("clientes", "real-estate", "monterrey")] if x not in out]
     return out
 
 

@@ -182,6 +182,14 @@ Calculadora gratis para dueños de negocios de cualquier rubro, de restaurantes 
 
 Cuántos negocios chicos de Latinoamérica no tienen web propia. Edición 1, noviembre de 2026: 94 de cada 100 de los 83.714 negocios de hasta 50 personas contados en cuatro estados de México no tienen web registrada en el censo del INEGI (DENUE). Incluye Salta, Tucumán, Santiago, Medellín y Lima con Overture Maps. Solo totales, sin nombres de negocios. Método en la página.
 
+### Índice El Tío 2026 (https://eltio.net/indice/2026/)
+
+Edición 2026, 07/11/2026: 94,8 % de los 5.580.749 negocios de hasta 50 personas de los 32 estados de México (5.291.602) no tienen página web registrada en el DENUE del INEGI. Por estado (de 98,1 % en Tlaxcala a 87,6 % en Nuevo León), por rubro (talleres 99,0 %, belleza 98,7 %, restaurantes 97,7 %, hospitality 80,2 %, turismo 79,3 %) y las 10 ciudades con más negocios. Tablas en CSV (CC BY 4.0) y método en la página.
+
+### Prensa (https://eltio.net/prensa/)
+
+Kit de prensa: quién es El Tío, cifras del Índice listas para citar, imágenes y contacto (hola@eltio.net, WhatsApp +52 55 6897 6898).
+
 ## Que no hacemos
 
 - No prometemos resultados ni publicamos porcentajes de mejora.

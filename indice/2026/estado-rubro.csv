@@ -1,0 +1,318 @@
+﻿estado,rubro,negocios,sin_web_registrada,pct_sin_web
+Aguascalientes,Belleza,4505,4450,98.8
+Aguascalientes,Eventos,229,213,93.0
+Aguascalientes,Fitness,483,458,94.8
+Aguascalientes,Hospitality,144,105,72.9
+Aguascalientes,Otros,44778,40988,91.5
+Aguascalientes,Real estate,821,749,91.2
+Aguascalientes,Restaurantes,10933,10653,97.4
+Aguascalientes,Salud,2260,2179,96.4
+Aguascalientes,Talleres,2996,2946,98.3
+Aguascalientes,Turismo,355,301,84.8
+Baja California,Belleza,9283,9127,98.3
+Baja California,Eventos,423,403,95.3
+Baja California,Fitness,996,948,95.2
+Baja California,Hospitality,604,507,83.9
+Baja California,Otros,82116,72340,88.1
+Baja California,Real estate,1812,1611,88.9
+Baja California,Restaurantes,16201,15553,96.0
+Baja California,Salud,6029,5360,88.9
+Baja California,Talleres,8664,8556,98.8
+Baja California,Turismo,209,178,85.2
+Baja California Sur,Belleza,2086,2025,97.1
+Baja California Sur,Eventos,136,118,86.8
+Baja California Sur,Fitness,410,354,86.3
+Baja California Sur,Hospitality,368,260,70.7
+Baja California Sur,Otros,25447,22501,88.4
+Baja California Sur,Real estate,608,484,79.6
+Baja California Sur,Restaurantes,5797,5537,95.5
+Baja California Sur,Salud,1048,970,92.6
+Baja California Sur,Talleres,2547,2522,99.0
+Baja California Sur,Turismo,171,127,74.3
+Campeche,Belleza,1833,1824,99.5
+Campeche,Eventos,117,117,100.0
+Campeche,Fitness,274,263,96.0
+Campeche,Hospitality,322,272,84.5
+Campeche,Otros,31488,29120,92.5
+Campeche,Real estate,267,250,93.6
+Campeche,Restaurantes,6204,6113,98.5
+Campeche,Salud,1113,1062,95.4
+Campeche,Talleres,1715,1708,99.6
+Campeche,Turismo,59,41,69.5
+Chiapas,Belleza,8682,8660,99.7
+Chiapas,Eventos,828,820,99.0
+Chiapas,Fitness,1014,993,97.9
+Chiapas,Hospitality,1296,1128,87.0
+Chiapas,Otros,175356,171211,97.6
+Chiapas,Real estate,1232,1198,97.2
+Chiapas,Restaurantes,31156,30972,99.4
+Chiapas,Salud,4352,4273,98.2
+Chiapas,Talleres,9302,9281,99.8
+Chiapas,Turismo,264,217,82.2
+Chihuahua,Belleza,8456,8357,98.8
+Chihuahua,Eventos,417,405,97.1
+Chihuahua,Fitness,1169,1127,96.4
+Chihuahua,Hospitality,576,490,85.1
+Chihuahua,Otros,86399,78545,90.9
+Chihuahua,Real estate,1381,1289,93.3
+Chihuahua,Restaurantes,16159,15732,97.4
+Chihuahua,Salud,4706,4536,96.4
+Chihuahua,Talleres,9384,9309,99.2
+Chihuahua,Turismo,314,268,85.4
+Ciudad de México,Belleza,25094,24275,96.7
+Ciudad de México,Eventos,938,846,90.2
+Ciudad de México,Fitness,2577,2220,86.1
+Ciudad de México,Hospitality,775,512,66.1
+Ciudad de México,Otros,316156,285413,90.3
+Ciudad de México,Real estate,2673,1966,73.6
+Ciudad de México,Restaurantes,56120,52445,93.5
+Ciudad de México,Salud,13919,12960,93.1
+Ciudad de México,Talleres,15215,14815,97.4
+Ciudad de México,Turismo,449,222,49.4
+Coahuila de Zaragoza,Belleza,6889,6804,98.8
+Coahuila de Zaragoza,Eventos,542,527,97.2
+Coahuila de Zaragoza,Fitness,1021,976,95.6
+Coahuila de Zaragoza,Hospitality,391,319,81.6
+Coahuila de Zaragoza,Otros,79286,71604,90.3
+Coahuila de Zaragoza,Real estate,1661,1576,94.9
+Coahuila de Zaragoza,Restaurantes,14905,14513,97.4
+Coahuila de Zaragoza,Salud,3706,3572,96.4
+Coahuila de Zaragoza,Talleres,6782,6696,98.7
+Coahuila de Zaragoza,Turismo,202,173,85.6
+Colima,Belleza,2436,2421,99.4
+Colima,Eventos,119,117,98.3
+Colima,Fitness,307,290,94.5
+Colima,Hospitality,227,177,78.0
+Colima,Otros,25564,23483,91.9
+Colima,Real estate,362,333,92.0
+Colima,Restaurantes,7318,7198,98.4
+Colima,Salud,1079,1035,95.9
+Colima,Talleres,1865,1855,99.5
+Colima,Turismo,39,31,79.5
+Durango,Belleza,4216,4188,99.3
+Durango,Eventos,222,218,98.2
+Durango,Fitness,488,473,96.9
+Durango,Hospitality,259,233,90.0
+Durango,Otros,46155,43658,94.6
+Durango,Real estate,799,778,97.4
+Durango,Restaurantes,10973,10854,98.9
+Durango,Salud,1854,1819,98.1
+Durango,Talleres,3724,3700,99.4
+Durango,Turismo,122,109,89.3
+Guanajuato,Belleza,14492,14370,99.2
+Guanajuato,Eventos,904,884,97.8
+Guanajuato,Fitness,2046,1969,96.2
+Guanajuato,Hospitality,913,651,71.3
+Guanajuato,Otros,204830,194547,95.0
+Guanajuato,Real estate,2628,2446,93.1
+Guanajuato,Restaurantes,34493,33775,97.9
+Guanajuato,Salud,8401,8069,96.0
+Guanajuato,Talleres,11136,11042,99.2
+Guanajuato,Turismo,710,597,84.1
+Guerrero,Eventos,169,169,100.0
+Guerrero,Fitness,71,70,98.6
+Guerrero,Hospitality,379,355,93.7
+Guerrero,Otros,12136,11904,98.1
+Guerrero,Restaurantes,1704,1700,99.8
+Guerrero,Salud,1423,1407,98.9
+Guerrero,Turismo,38,34,89.5
+Hidalgo,Belleza,7725,7669,99.3
+Hidalgo,Eventos,565,557,98.6
+Hidalgo,Fitness,978,948,96.9
+Hidalgo,Hospitality,666,563,84.5
+Hidalgo,Otros,109481,105534,96.4
+Hidalgo,Real estate,1032,973,94.3
+Hidalgo,Restaurantes,19859,19547,98.4
+Hidalgo,Salud,3616,3536,97.8
+Hidalgo,Talleres,7123,7069,99.2
+Hidalgo,Turismo,134,113,84.3
+Jalisco,Belleza,24618,24194,98.3
+Jalisco,Eventos,860,789,91.7
+Jalisco,Fitness,3002,2838,94.5
+Jalisco,Hospitality,1549,1177,76.0
+Jalisco,Otros,266124,245665,92.3
+Jalisco,Real estate,3775,3438,91.1
+Jalisco,Restaurantes,50910,49350,96.9
+Jalisco,Salud,9944,9530,95.8
+Jalisco,Talleres,16840,16535,98.2
+Jalisco,Turismo,1064,847,79.6
+Michoacán de Ocampo,Belleza,14167,14097,99.5
+Michoacán de Ocampo,Eventos,846,837,98.9
+Michoacán de Ocampo,Fitness,1990,1958,98.4
+Michoacán de Ocampo,Hospitality,902,734,81.4
+Michoacán de Ocampo,Otros,196776,191040,97.1
+Michoacán de Ocampo,Real estate,2208,2143,97.1
+Michoacán de Ocampo,Restaurantes,34684,34421,99.2
+Michoacán de Ocampo,Salud,8543,8409,98.4
+Michoacán de Ocampo,Talleres,11759,11707,99.6
+Michoacán de Ocampo,Turismo,747,676,90.5
+Morelos,Belleza,5660,5609,99.1
+Morelos,Eventos,255,247,96.9
+Morelos,Fitness,686,656,95.6
+Morelos,Hospitality,540,410,75.9
+Morelos,Otros,76541,73079,95.5
+Morelos,Real estate,588,531,90.3
+Morelos,Restaurantes,15276,15019,98.3
+Morelos,Salud,2631,2548,96.8
+Morelos,Talleres,4151,4117,99.2
+Morelos,Turismo,70,51,72.9
+México,Belleza,46789,46491,99.4
+México,Eventos,2240,2204,98.4
+México,Fitness,5446,5269,96.7
+México,Hospitality,1050,893,85.0
+México,Otros,584046,563117,96.4
+México,Real estate,4222,3941,93.3
+México,Restaurantes,92328,90865,98.4
+México,Salud,17209,16856,97.9
+México,Talleres,32197,31942,99.2
+México,Turismo,425,333,78.4
+Nayarit,Belleza,3961,3923,99.0
+Nayarit,Eventos,230,213,92.6
+Nayarit,Fitness,464,441,95.0
+Nayarit,Hospitality,786,611,77.7
+Nayarit,Otros,44174,41968,95.0
+Nayarit,Real estate,717,654,91.2
+Nayarit,Restaurantes,13070,12915,98.8
+Nayarit,Salud,1803,1764,97.8
+Nayarit,Talleres,3020,3007,99.6
+Nayarit,Turismo,76,59,77.6
+Nuevo León,Belleza,13809,13427,97.2
+Nuevo León,Eventos,732,656,89.6
+Nuevo León,Fitness,1739,1586,91.2
+Nuevo León,Hospitality,380,315,82.9
+Nuevo León,Otros,128401,107950,84.1
+Nuevo León,Real estate,2139,1826,85.4
+Nuevo León,Restaurantes,26619,25202,94.7
+Nuevo León,Salud,7577,7021,92.7
+Nuevo León,Talleres,10515,10239,97.4
+Nuevo León,Turismo,577,449,77.8
+Oaxaca,Belleza,8169,8113,99.3
+Oaxaca,Eventos,874,857,98.1
+Oaxaca,Fitness,909,883,97.1
+Oaxaca,Hospitality,1681,1325,78.8
+Oaxaca,Otros,198740,194457,97.8
+Oaxaca,Real estate,805,755,93.8
+Oaxaca,Restaurantes,37497,37241,99.3
+Oaxaca,Salud,5667,5569,98.3
+Oaxaca,Talleres,7704,7678,99.7
+Oaxaca,Turismo,178,131,73.6
+Puebla,Belleza,17472,17288,98.9
+Puebla,Eventos,1831,1802,98.4
+Puebla,Fitness,1953,1854,94.9
+Puebla,Hospitality,1369,1139,83.2
+Puebla,Otros,292574,282343,96.5
+Puebla,Real estate,2109,1954,92.7
+Puebla,Restaurantes,46626,45865,98.4
+Puebla,Salud,8852,8556,96.7
+Puebla,Talleres,15133,15008,99.2
+Puebla,Turismo,209,142,67.9
+Querétaro,Belleza,5882,5713,97.1
+Querétaro,Eventos,340,311,91.5
+Querétaro,Fitness,727,641,88.2
+Querétaro,Hospitality,420,254,60.5
+Querétaro,Otros,70190,61154,87.1
+Querétaro,Real estate,856,681,79.6
+Querétaro,Restaurantes,14825,14182,95.7
+Querétaro,Salud,3473,3124,90.0
+Querétaro,Talleres,4326,4204,97.2
+Querétaro,Turismo,207,144,69.6
+Quintana Roo,Belleza,2760,2668,96.7
+Quintana Roo,Eventos,192,174,90.6
+Quintana Roo,Fitness,649,544,83.8
+Quintana Roo,Hospitality,1072,724,67.5
+Quintana Roo,Otros,42355,36256,85.6
+Quintana Roo,Real estate,502,385,76.7
+Quintana Roo,Restaurantes,10577,10084,95.3
+Quintana Roo,Salud,1352,1228,90.8
+Quintana Roo,Talleres,2755,2726,98.9
+Quintana Roo,Turismo,328,248,75.6
+San Luis Potosí,Belleza,6663,6603,99.1
+San Luis Potosí,Eventos,495,474,95.8
+San Luis Potosí,Fitness,939,902,96.1
+San Luis Potosí,Hospitality,556,458,82.4
+San Luis Potosí,Otros,81673,76818,94.1
+San Luis Potosí,Real estate,1256,1173,93.4
+San Luis Potosí,Restaurantes,18221,17946,98.5
+San Luis Potosí,Salud,3655,3540,96.9
+San Luis Potosí,Talleres,5634,5583,99.1
+San Luis Potosí,Turismo,252,204,81.0
+Sinaloa,Belleza,8422,8350,99.1
+Sinaloa,Eventos,794,770,97.0
+Sinaloa,Fitness,971,929,95.7
+Sinaloa,Hospitality,439,347,79.0
+Sinaloa,Otros,85018,76086,89.5
+Sinaloa,Real estate,1502,1400,93.2
+Sinaloa,Restaurantes,17458,17030,97.5
+Sinaloa,Salud,4683,4535,96.8
+Sinaloa,Talleres,8224,8163,99.3
+Sinaloa,Turismo,117,86,73.5
+Sonora,Belleza,7588,7507,98.9
+Sonora,Eventos,505,481,95.2
+Sonora,Fitness,931,862,92.6
+Sonora,Hospitality,555,482,86.8
+Sonora,Otros,78226,69445,88.8
+Sonora,Real estate,1518,1374,90.5
+Sonora,Restaurantes,13960,13501,96.7
+Sonora,Salud,3932,3722,94.7
+Sonora,Talleres,8560,8476,99.0
+Sonora,Turismo,47,31,66.0
+Tabasco,Belleza,3807,3774,99.1
+Tabasco,Eventos,295,290,98.3
+Tabasco,Fitness,422,409,96.9
+Tabasco,Hospitality,394,355,90.1
+Tabasco,Otros,62434,58350,93.5
+Tabasco,Real estate,491,467,95.1
+Tabasco,Restaurantes,12757,12615,98.9
+Tabasco,Salud,2401,2332,97.1
+Tabasco,Talleres,4241,4222,99.6
+Tabasco,Turismo,54,45,83.3
+Tamaulipas,Belleza,7910,7871,99.5
+Tamaulipas,Eventos,496,488,98.4
+Tamaulipas,Fitness,984,971,98.7
+Tamaulipas,Hospitality,566,504,89.0
+Tamaulipas,Otros,90649,84302,93.0
+Tamaulipas,Real estate,1769,1740,98.4
+Tamaulipas,Restaurantes,17963,17732,98.7
+Tamaulipas,Salud,4957,4757,96.0
+Tamaulipas,Talleres,10782,10746,99.7
+Tamaulipas,Turismo,67,60,89.6
+Tlaxcala,Belleza,4328,4311,99.6
+Tlaxcala,Eventos,487,484,99.4
+Tlaxcala,Fitness,557,550,98.7
+Tlaxcala,Hospitality,398,359,90.2
+Tlaxcala,Otros,71600,70081,97.9
+Tlaxcala,Real estate,535,518,96.8
+Tlaxcala,Restaurantes,10706,10605,99.1
+Tlaxcala,Salud,1879,1837,97.8
+Tlaxcala,Talleres,3875,3864,99.7
+Tlaxcala,Turismo,34,27,79.4
+Veracruz de Ignacio de la Llave,Belleza,15220,15114,99.3
+Veracruz de Ignacio de la Llave,Eventos,980,968,98.8
+Veracruz de Ignacio de la Llave,Fitness,2180,2125,97.5
+Veracruz de Ignacio de la Llave,Hospitality,1761,1515,86.0
+Veracruz de Ignacio de la Llave,Otros,233622,223420,95.6
+Veracruz de Ignacio de la Llave,Real estate,2130,2032,95.4
+Veracruz de Ignacio de la Llave,Restaurantes,51282,50722,98.9
+Veracruz de Ignacio de la Llave,Salud,8253,8095,98.1
+Veracruz de Ignacio de la Llave,Talleres,15947,15851,99.4
+Veracruz de Ignacio de la Llave,Turismo,296,260,87.8
+Yucatán,Belleza,5587,5488,98.2
+Yucatán,Eventos,525,507,96.6
+Yucatán,Fitness,845,779,92.2
+Yucatán,Hospitality,643,453,70.5
+Yucatán,Otros,99176,90511,91.3
+Yucatán,Real estate,1299,1081,83.2
+Yucatán,Restaurantes,19351,18896,97.6
+Yucatán,Salud,3676,3440,93.6
+Yucatán,Talleres,4616,4539,98.3
+Yucatán,Turismo,293,210,71.7
+Zacatecas,Belleza,3564,3553,99.7
+Zacatecas,Eventos,268,264,98.5
+Zacatecas,Fitness,735,724,98.5
+Zacatecas,Hospitality,270,223,82.6
+Zacatecas,Otros,49313,47566,96.5
+Zacatecas,Real estate,812,799,98.4
+Zacatecas,Restaurantes,9190,9102,99.0
+Zacatecas,Salud,2548,2481,97.4
+Zacatecas,Talleres,3631,3612,99.5
+Zacatecas,Turismo,142,128,90.1

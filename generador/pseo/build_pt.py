@@ -195,6 +195,8 @@ def main():
         pags.append(hub_cidade(c, todas))
         pags += [pagina(c, rk, todas) for rk in RUBROS_PT]
     for ruta, d in pags:
+        for a, b in ((" em Rio de Janeiro", " no Rio de Janeiro"), (" de Rio de Janeiro", " do Rio de Janeiro"), (" para Rio de Janeiro", " para o Rio de Janeiro"), ("em%20Rio%20de%20Janeiro", "no%20Rio%20de%20Janeiro")):
+            d = d.replace(a, b)
         if "—" in d:
             raise SystemExit(f"travessão em {ruta}")
         p = os.path.join(RAIZ, ruta.strip("/"))

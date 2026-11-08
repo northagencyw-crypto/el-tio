@@ -51,6 +51,49 @@ R = {
 
 TEMAS = ["chatbot", "ia", "clientes"]
 
+# Imagen de cabecera por rubro (assets/g27-{rubro}.webp, 1536x1024, generada con IA, sin texto ni caras).
+IMG = {
+ "gastronomia": ("Restaurante mexicano vacío al atardecer, con mesas de madera puestas y un teléfono junto al libro de reservas en la barra",
+                 "Empty Mexican restaurant at dusk with set wooden tables and a phone next to the reservation book on the bar"),
+ "hospitality": ("Lobby de un hotel boutique en Tulum al anochecer, con techo de palma, muebles de ratán y la selva detrás de los arcos",
+                 "Boutique hotel lobby in Tulum at nightfall, with a palm thatch ceiling, rattan furniture and the jungle behind the arches"),
+ "real-estate": ("Departamento vacío con ventanales sobre la ciudad a la hora azul, con llaves y un plano en la isla de la cocina",
+                 "Empty apartment with large windows over the city at blue hour, with keys and a floor plan on the kitchen island"),
+ "fitness": ("Gimnasio boutique vacío al amanecer, con mancuernas, piso de madera y luz entrando por ventanas altas",
+             "Empty boutique gym at dawn, with dumbbells, a wooden floor and light coming in through tall windows"),
+ "eventos": ("Patio de una hacienda preparado para un evento al anochecer, con mesas largas, velas y luces colgantes",
+             "Hacienda courtyard set for an event at nightfall, with long tables, candles and string lights"),
+ "artistas": ("Estudio de música pequeño de noche, con una guitarra, un micrófono, discos de vinilo y una libreta",
+              "Small music studio at night, with a guitar, a microphone, vinyl records and a notebook"),
+ "distribucion": ("Bodega de distribución ordenada, con estantes altos de cajas y luz de la mañana entrando por el andén de carga",
+                  "Tidy distribution warehouse with tall shelves of boxes and morning light coming in through the loading dock"),
+}
+EN_RUBRO = {"gastronomia": "restaurants", "hospitality": "hotels-and-tours", "real-estate": "real-estate", "fitness": "gyms",
+            "eventos": "events", "artistas": "artists", "distribucion": "distributors"}
+EN_CIUDAD = {"tulum": "tulum", "cancun": "cancun", "playa-del-carmen": "playa-del-carmen"}
+
+
+def slug_en(t, rk, cs):
+    base = {"chatbot": "best-whatsapp-chatbots-for", "ia": "ai-for", "clientes": "get-clients"}[t]
+    mid = f"{base}-{EN_RUBRO[rk]}" if t != "clientes" else f"get-more-clients-{EN_RUBRO[rk]}"
+    return f"{mid}-{EN_CIUDAD[cs]}-2027"
+
+
+def hero(rk, alt):
+    return (f'    <figure class="g27-hero"><img src="/assets/g27-{rk}.webp" width="1536" height="1024" '
+            f'alt="{e(alt)}" fetchpriority="high" decoding="async"></figure>')
+
+
+def ajustes(doc, ruta, rk, alt, alternos):
+    """Suma hreflang, og:image de la guía y su alt al documento que arma build.documento."""
+    og = (f'<meta property="og:image" content="{BASE}/assets/g27-{rk}.webp">\n<meta property="og:image:width" content="1536">'
+          f'\n<meta property="og:image:height" content="1024">\n<meta property="og:image:alt" content="{e(alt)}">')
+    doc = re.sub(r'<meta property="og:image" content="[^"]*">', lambda m: og, doc, count=1)
+    if alternos:
+        links = "".join(f'\n<link rel="alternate" hreflang="{l}" href="{BASE}{u}">' for l, u in alternos)
+        doc = doc.replace(f'<link rel="canonical" href="{BASE}{ruta}">', f'<link rel="canonical" href="{BASE}{ruta}">' + links, 1)
+    return doc
+
 
 def titulo(t, r, c):
     if t == "chatbot":
@@ -150,7 +193,7 @@ def pagina(t, rk, cs, todas):
     ctx = [f"Las empresas grandes ya se movieron: en la encuesta global de McKinsey publicada en noviembre de 2025, 88 % de las organizaciones dijo usar IA de forma habitual en al menos una función del negocio.{{{{mck}}}} Entre los negocios chicos, en cambio, la mayoría todavía no empezó. Quien da el paso en {c} en 2027 queda adelante de su zona."]
     if rk == "hospitality" and cs in CARIBE:
         ctx.append("El aeropuerto de Cancún movió 29,345,538 pasajeros en 2025, y 19,464,554 fueron internacionales.{{asur}} Muchos de esos viajeros escriben desde otro huso horario y en otro idioma, y reservan donde les contestan primero.")
-    h = [f"  <article>", f"    <h1>{e(tit)}</h1>",
+    h = [f"  <article>", hero(rk, IMG[rk][0]), f"    <h1>{e(tit)}</h1>",
          f'    <p class="bajada"><strong>{e(resp)}</strong></p>',
          f'    <p class="fecha">Actualizada el 7 de noviembre de 2026 · guía para 2027</p>',
          '    <h2 id="contexto">Por qué importa en 2027</h2>']
@@ -190,9 +233,12 @@ def pagina(t, rk, cs, todas):
              "datePublished": "2026-11-07", "dateModified": HOY, "inLanguage": "es-MX", "url": BASE + ruta,
              "author": {"@type": "Organization", "name": "El Tío", "url": BASE},
              "publisher": {"@type": "Organization", "name": "El Tío", "url": BASE},
-             "about": [{"@type": "Place", "name": c}], "mainEntityOfPage": BASE + ruta}
+             "about": [{"@type": "Place", "name": c}], "mainEntityOfPage": BASE + ruta,
+             "image": {"@type": "ImageObject", "url": f"{BASE}/assets/g27-{rk}.webp", "width": 1536, "height": 1024, "caption": IMG[rk][0]}}
     cuerpo = h_m + "\n" + "\n".join(h)
-    return ruta, tit, documento(ruta, tit, desc, "es-MX", f"og-{rk}.jpg", [l_art, l_faq, l_m], cuerpo)
+    doc = documento(ruta, tit, desc, "es-MX", f"g27-{rk}.webp", [l_art, l_faq, l_m], cuerpo)
+    alt = [("es", ruta), ("en", f"/en/guides/2027/{slug_en(t, rk, cs)}/"), ("x-default", ruta)] if cs in CARIBE else []
+    return ruta, tit, ajustes(doc, ruta, rk, IMG[rk][0], alt)
 
 
 def combos():
@@ -231,6 +277,9 @@ def main():
         ruta, tit, doc = pagina(*x, todas)
         paginas.append((ruta, doc)); lista.append((ruta, tit, x[1]))
     paginas.insert(0, indice(lista))
+    import guias_2027_en
+    pag_en, lista_en = guias_2027_en.construir(todas)
+    paginas += pag_en
     for ruta, doc in paginas:
         for malo in ("—", "USD", "$", "llamada"):
             if malo in re.sub(r"<script.*?</script>", "", doc, flags=re.S).replace("$(", ""):
@@ -248,11 +297,13 @@ def main():
         open(si, "w", encoding="utf-8", newline="\n").write(x)
     lt = os.path.join(RAIZ, "llms.txt"); x = open(lt, encoding="utf-8").read()
     bloque = "<!-- guias 2027 -->\n## Guias 2027 por rubro y ciudad\n\n- Indice: https://eltio.net/guias/2027/\n" + \
-             "".join(f"- {t}: {BASE}{r}\n" for r, t, _ in lista) + "<!-- fin guias 2027 -->\n"
+             "".join(f"- {t}: {BASE}{r}\n" for r, t, _ in lista) + \
+             "\n### 2027 guides in English (Tulum, Cancún, Playa del Carmen)\n\n- Index: https://eltio.net/en/guides/2027/\n" + \
+             "".join(f"- {t}: {BASE}{r}\n" for r, t, _ in lista_en) + "<!-- fin guias 2027 -->\n"
     x = re.sub(r"<!-- guias 2027 -->.*?<!-- fin guias 2027 -->\n", "", x, flags=re.S)
     x = x.replace("<!-- fin otros idiomas -->", "<!-- fin otros idiomas -->\n\n" + bloque) if "<!-- fin otros idiomas -->" in x else x + "\n" + bloque
     open(lt, "w", encoding="utf-8", newline="\n").write(x)
-    print(f"{len(paginas)} páginas (índice + {len(lista)} guías)")
+    print(f"{len(paginas)} páginas (ES: índice + {len(lista)} guías; EN: índice + {len(lista_en)} guías)")
 
 
 if __name__ == "__main__":

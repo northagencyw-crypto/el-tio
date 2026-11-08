@@ -119,3 +119,5 @@ td:first-child{color:var(--hueso);font-weight:500}
 .ventana .filas span{grid-column:1;color:var(--ceniza);font-size:14px}
 .ventana .filas em{grid-column:2;grid-row:1/3;align-self:center;font-style:normal;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--acento);text-align:right;max-width:140px}
 .ventana figcaption{padding:0 18px 14px;font-size:13px;color:var(--ceniza)}
+.g27-hero{margin:0 0 24px}
+.g27-hero img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:14px;background:#0b1118}

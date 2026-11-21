@@ -541,7 +541,9 @@ def pagina(slug, d, pie):
     indice = "".join(f'<li><a href="#{i}">{e(t)}</a></li>' for i, t, _ in d["cuerpo"])
     cuerpo = "\n".join(f'<h2 id="{i}">{e(t)}</h2>{c}' for i, t, c in d["cuerpo"])
     faqh = "\n".join(f"<h3>{e(q)}</h3>\n<p>{e(a)}</p>" for q, a in d["faq"])
-    otras = "".join(f'<li><a href="/guias/{s}/">{e(G[s]["titulo"])}</a></li>' for s in ORDEN if s != slug)
+    gen = next(s for s in ("como-aparecer-en-chatgpt-negocio-en-tu-ciudad", "como-pedir-resenas-google-sin-incentivos") if s != slug)
+    rel = [s for s in ORDEN if s != slug and G[s]["rubro"] == d["rubro"] and s != gen] + [gen]
+    otras = "".join(f'<li><a href="/guias/{s}/">{e(G[s]["titulo"])}</a></li>' for s in rel)
     fuentes = "".join(f'<li id="f{n}">{e(F[k][0])} <a href="{F[k][1]}">{e(F[k][1].split("://")[1].rstrip("/"))}</a></li>'
                       for n, k in enumerate(d["fuentes"], 1))
     ig = f' · <a class="enlace" data-cta="instagram" href="{IG}">Escribir por DM en Instagram</a>'

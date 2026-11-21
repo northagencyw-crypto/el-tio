@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Genera 5 guías SEO por búsqueda (21/11/2026). Solo español. Uso: python generador/guias_busqueda.py"""
+"""Genera 11 guías SEO por búsqueda (21/11/2026). Solo español. Uso: python generador/guias_busqueda.py"""
 import json, html, pathlib, re, urllib.parse
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
@@ -22,7 +22,7 @@ F = {
  "g_mobile": ("Google Search Central, «Prácticas recomendadas de indexación mobile-first».", "https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing"),
  "g_cwv": ("Google Search Central, «Métricas web esenciales (Core Web Vitals) y los resultados de búsqueda».", "https://developers.google.com/search/docs/appearance/core-web-vitals"),
  "lfpc": ("Ley Federal de Protección al Consumidor, artículo 7 Bis: obligación de informar el precio total. Texto vigente en la Cámara de Diputados.", "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPC.pdf"),
- "nom247": ("Secretaría de Economía, NOM-247-SE-2021, «Prácticas comerciales. Requisitos de la información comercial y la publicidad de bienes inmuebles destinados a casa habitación». Consulta en Profeco.", "https://www.gob.mx/profeco"),
+ "nom247": ("Secretaría de Economía, NOM-247-SE-2021, «Prácticas comerciales. Requisitos de la información comercial y la publicidad de bienes inmuebles destinados a casa habitación y elementos mínimos que deben contener los contratos relacionados», Diario Oficial de la Federación, 22 de marzo de 2022.", "https://dof.gob.mx/nota_detalle.php?codigo=5646251&fecha=22/03/2022"),
 }
 
 G = {}  # slug -> datos
@@ -240,6 +240,276 @@ G["pagina-web-inmobiliaria-monterrey"] = dict(
   ("¿Sirve si ya publico en los portales?", "Los portales traen visitas, pero el cliente queda en el portal. Tu página construye un canal propio que también aparece en Google y en ChatGPT."),
  ],
  fuentes=["g_mobile", "g_cwv", "lfpc", "nom247", "g_localbiz"],
+)
+
+F["g_resenas"] = ("Google, «Consejos para conseguir más reseñas», Ayuda de Perfil de Empresa: enlace o código QR para pedir reseñas y responderlas.", "https://support.google.com/business/answer/3474122?hl=es")
+F["g_contenido"] = ("Google, «Contenido prohibido y restringido», Política de contenido aportado por usuarios de Maps: interacción falsa, incentivos y solicitud selectiva de reseñas.", "https://support.google.com/contributionpolicy/answer/7400114?hl=es")
+F["g_responder"] = ("Google, «Leer y responder reseñas», Ayuda de Perfil de Empresa.", "https://support.google.com/business/answer/3474050?hl=es")
+F["sch_gym"] = ("Schema.org, tipo «ExerciseGym».", "https://schema.org/ExerciseGym")
+F["sch_rest"] = ("Schema.org, tipo «Restaurant»: propiedades acceptsReservations, menu y servesCuisine.", "https://schema.org/Restaurant")
+
+G["chatbot-whatsapp-restaurantes-guadalajara"] = dict(
+ titulo="Chatbot de WhatsApp para restaurantes en Guadalajara: reservas, pedidos y fin de semana",
+ corto="Chatbot de WhatsApp para restaurantes en Guadalajara",
+ desc="Cómo usar un chatbot de WhatsApp en un restaurante de Guadalajara o Zapopan para reservar, tomar pedidos y contestar en hora pico, con las reglas de WhatsApp y la ley de datos en México.",
+ rubro=("Gastronomía", "/gastronomia/"), audit="gastronomia", og="og-gastronomia.jpg",
+ wa="Hola! Leí la guía de chatbot de WhatsApp para restaurantes en Guadalajara y quiero el Audit de mi restaurante.",
+ bajada="En Guadalajara el WhatsApp del restaurante se llena justo cuando nadie puede verlo: el sábado a mediodía, cuando la gente arma la comida familiar, y en las noches de partido. Esta guía explica qué conviene que conteste un chatbot en un restaurante de Guadalajara, qué no debe hacer nunca y cómo empezar sin cambiar tu número.",
+ cuerpo=[
+  ("zonas", "Una ciudad, varias formas de comer", """
+<p>No es lo mismo un restaurante en la Colonia Americana o en Chapultepec, donde las mesas se piden para la noche, que una birriería o una marisquería en Zapopan o Tlaquepaque, donde el movimiento fuerte es de mediodía y en familia. El chatbot tiene que contestar lo que pregunta tu cliente, no lo que pregunta un cliente promedio.</p>
+<ul>
+<li><strong>Cena y barra:</strong> mesa para hoy, código de vestimenta, si hay música en vivo y hasta qué hora cocinan.</li>
+<li><strong>Comida familiar:</strong> mesa para grupos grandes, sillas para niños, estacionamiento y si se puede apartar.</li>
+<li><strong>Para llevar:</strong> menú vigente, tiempo de espera, zona de reparto y forma de pago.</li>
+</ul>
+<p>Antes de configurar nada, revisa los últimos chats de tu WhatsApp y anota las cinco preguntas que más se repiten. Ese es el guion del chatbot.</p>"""),
+  ("hora-pico", "La hora pico es la que importa", """
+<p>Un chatbot vale por lo que hace cuando el equipo está ocupado. Si a la hora de más servicio el mensaje espera, el cliente le escribe al de enfrente. Un agente conectado a la plataforma de WhatsApp Business contesta al momento, sin importar cuántos chats entren a la vez.<a class="ref" href="#f1">[1]</a></p>
+<div class="tabla"><table><thead><tr><th>Momento</th><th>Qué conviene que haga</th></tr></thead><tbody>
+<tr><td>Antes de abrir</td><td>Confirmar reservas del día y contestar horarios y ubicación</td></tr>
+<tr><td>Servicio lleno</td><td>Tomar reservas y pedidos completos y pasar a una persona lo que no sabe</td></tr>
+<tr><td>Después de cerrar</td><td>Dejar la reserva de mañana tomada y avisar al encargado</td></tr>
+<tr><td>Evento o grupo</td><td>Pedir fecha, número de personas y tipo de evento y pasarlo a una persona</td></tr>
+</tbody></table></div>"""),
+  ("reglas", "Lo que permite WhatsApp", """
+<p>Cuando el cliente te escribe se abre una ventana de 24 horas para contestarle libremente. Para escribirle después, por ejemplo para recordarle la reserva o avisar del menú de temporada, necesitas una plantilla aprobada por Meta y que el cliente haya aceptado tus mensajes.<a class="ref" href="#f2">[2]</a> Mandar promociones a quien no las pidió va contra la política de WhatsApp Business y puede terminar con el número bloqueado.<a class="ref" href="#f3">[3]</a></p>
+<div class="aviso">En la práctica: pide el permiso en el mismo chat de la reserva con una pregunta simple, por ejemplo si quiere recibir un recordatorio el día anterior.</div>"""),
+  ("precio", "Precios y menú: lo que dice la ley", """
+<p>La Ley Federal de Protección al Consumidor pide informar el precio total.<a class="ref" href="#f4">[4]</a> Si el chatbot manda el menú o el costo de un pedido, que sea el vigente y con lo que el cliente va a pagar, incluido el envío si lo hay. Que el agente lea el menú que tú cargas y no conteste de memoria.</p>"""),
+  ("datos", "Datos de tus clientes", """
+<p>Nombre, teléfono y dirección de entrega son datos personales y los rige la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f5">[5]</a> Ten el aviso de privacidad a un enlace de distancia y usa los datos solo para lo que le dijiste al cliente. Esta guía no reemplaza a un abogado.</p>
+<p>Para elegir proveedor, sigue con la guía de <a href="/guias/chatbot-whatsapp-restaurantes/">cómo elegir un chatbot de WhatsApp que sí reserve</a>. Lo que hacemos en la ciudad está en la página de <a href="/negocios/guadalajara/gastronomia/">restaurantes y cafeterías en Guadalajara</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Sirve un chatbot de WhatsApp para un restaurante en Guadalajara?", "Sirve si contesta lo que preguntan tus clientes y toma la reserva o el pedido completo, sobre todo en las horas de más servicio, cuando nadie del equipo puede ver el teléfono."),
+  ("¿Tengo que cambiar el número del restaurante?", "No necesariamente. El número puede pasar a la plataforma de WhatsApp Business, y lo importante es que siga a nombre del restaurante."),
+  ("¿Puedo mandar promociones a todos mis contactos?", "Solo a quien aceptó recibir tus mensajes y con una plantilla aprobada por Meta. Mandar promociones sin permiso va contra la política de WhatsApp Business."),
+  ("¿Qué pasa con las reservas de grupos grandes?", "El chatbot pide fecha, número de personas y tipo de evento, y pasa la conversación a una persona del equipo para cerrar."),
+ ],
+ fuentes=["wa_api", "wa_precios", "wa_politica", "lfpc", "lfpdppp"],
+)
+
+G["reservas-instagram-restaurantes-monterrey"] = dict(
+ titulo="Reservas por Instagram para restaurantes en Monterrey: del DM a la mesa",
+ corto="Reservas por Instagram para restaurantes en Monterrey",
+ desc="Cómo tomar reservas desde los DMs y las historias de Instagram en un restaurante de Monterrey o San Pedro, qué permite la API de Instagram y cómo no perder la mesa cuando nadie contesta.",
+ rubro=("Gastronomía", "/gastronomia/"), audit="gastronomia", og="og-gastronomia.jpg",
+ wa="Hola! Leí la guía de reservas por Instagram para restaurantes en Monterrey y quiero el Audit de mi restaurante.",
+ bajada="En Monterrey mucha gente elige restaurante desde Instagram: ve el reel del corte o del brunch y escribe por DM «¿tienen mesa para el sábado?». Ese mensaje es una reserva casi hecha. Si nadie la contesta hasta el lunes, se pierde. Esta guía explica cómo convertir los DMs en mesas confirmadas sin tener a alguien pegado al teléfono.",
+ cuerpo=[
+  ("dm", "El DM es una reserva a medio camino", """
+<p>Quien escribe por Instagram ya vio la comida, el lugar y el ambiente. No necesita que lo convenzas: necesita saber si hay lugar y a qué hora. En San Pedro, Valle Oriente o el Barrio Antiguo, donde la cena del fin de semana se decide con pocas horas de anticipación, contestar rápido vale más que cualquier promoción.</p>
+<p>El problema de casi todos los restaurantes es el mismo: la cuenta la maneja alguien de marketing, la reserva la toma el gerente y los DMs se quedan en medio.</p>"""),
+  ("api", "Qué permite Instagram", """
+<p>Para que un agente conteste los DMs, la cuenta tiene que ser profesional y conectarse a la API de mensajes de Instagram, a través de Meta o de un proveedor.<a class="ref" href="#f1">[1]</a> El agente puede contestar los mensajes directos y las respuestas a tus historias durante las 24 horas siguientes al último mensaje del cliente. Pasado ese plazo, solo una persona del equipo puede seguir la conversación, hasta siete días.<a class="ref" href="#f1">[1]</a></p>
+<div class="aviso">En la práctica: el agente debe pedir el WhatsApp del cliente al confirmar la mesa. Así el recordatorio del día y cualquier cambio llegan por un canal que no se cierra a las 24 horas.</div>"""),
+  ("flujo", "Cómo se ve una reserva desde el DM", """
+<div class="tabla"><table><thead><tr><th>Paso</th><th>Qué hace el agente</th></tr></thead><tbody>
+<tr><td>Pregunta</td><td>Pide día, hora y número de personas</td></tr>
+<tr><td>Disponibilidad</td><td>Lee el sistema de reservas del restaurante. Si no está conectado, toma la solicitud y avisa que el equipo confirma</td></tr>
+<tr><td>Confirmación</td><td>Deja la reserva a nombre del cliente y pide su WhatsApp</td></tr>
+<tr><td>Casos especiales</td><td>Grupos, cumpleaños con pastel, alergias o quejas pasan a una persona</td></tr>
+</tbody></table></div>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">Instagram · 18:40</span>
+<span class="yo">Hola, ¿tienen mesa para 6 este sábado en la noche?</span>
+<span class="bot">¡Hola! El sábado tengo mesa para 6 a las 20:00 o a las 21:30. ¿Cuál te queda mejor? Soy el asistente con IA del restaurante.</span>
+<span class="yo">20:00</span>
+<span class="bot">Listo. ¿Me compartes un WhatsApp para mandarte la confirmación y un recordatorio el sábado?</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("contenido", "Que el contenido lleve al DM", """
+<p>Las reservas por Instagram suben cuando cada publicación dice qué hacer. Un reel del platillo con un texto que invite a escribir «MESA» por DM, o una historia con el sticker de mensaje, le da al cliente el siguiente paso. El agente reconoce la palabra y abre la conversación de reserva.</p>
+<p>En tu perfil, deja claro el horario, la dirección y que se reserva por DM o por WhatsApp. Y si usas un enlace en la biografía, que lleve a reservar, no a una página de inicio.</p>"""),
+  ("datos", "Datos de tus clientes", """
+<p>El nombre y el teléfono de quien reserva son datos personales y los rige la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f2">[2]</a> Ten tu aviso de privacidad enlazado en la biografía o en el mismo chat.</p>
+<p>Si tu restaurante también recibe reservas por WhatsApp, sigue con la guía de <a href="/guias/chatbot-whatsapp-restaurantes/">chatbot de WhatsApp para restaurantes</a>. Lo que hacemos en la ciudad está en la página de <a href="/negocios/monterrey/gastronomia/">restaurantes y cafeterías en Monterrey</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Se pueden tomar reservas automáticas por Instagram?", "Sí, con una cuenta profesional conectada a la API de mensajes de Instagram. El agente contesta los DMs y confirma la mesa si está conectado al sistema de reservas."),
+  ("¿Qué pasa si el cliente contesta después de 24 horas?", "El agente ya no puede escribirle libremente. Por eso conviene pedir el WhatsApp al confirmar la reserva."),
+  ("¿El agente puede contestar respuestas a historias?", "Sí. Las respuestas a historias llegan como mensajes directos y el agente puede contestarlas dentro de la ventana de 24 horas."),
+  ("¿Qué no debe hacer el agente?", "Confirmar una mesa sin ver la disponibilidad real, inventar respuestas sobre alergias o resolver una queja. Esos casos pasan a una persona."),
+ ],
+ fuentes=["ig_api", "lfpdppp"],
+)
+
+G["automatizar-mensajes-hoteles-tulum"] = dict(
+ titulo="Automatizar mensajes para hoteles en Tulum: antes, durante y después de la estancia",
+ corto="Automatizar mensajes para hoteles en Tulum",
+ desc="Qué mensajes conviene automatizar en un hotel boutique de Tulum, en español y en inglés, desde la consulta hasta la reseña, con las reglas de WhatsApp e Instagram y la ley mexicana.",
+ rubro=("Hospitality", "/hospitality/"), audit="hospitality", og="og-hospitality.jpg",
+ wa="Hola! Leí la guía de automatizar mensajes para hoteles en Tulum y quiero el Audit de mi hotel.",
+ bajada="En un hotel de Tulum el huésped pregunta lo mismo una y otra vez: cómo llegar desde el aeropuerto, a qué hora es el check-in, si la playa está cerca y si aceptan tarjeta. Contestarlo a mano, en dos idiomas y de madrugada, se come la recepción. Esta guía ordena qué mensajes automatizar en cada momento de la estancia y cuáles dejar siempre a una persona.",
+ cuerpo=[
+  ("momentos", "Los cuatro momentos de la estancia", """
+<p>Automatizar no es poner un bot que conteste todo. Es decidir qué mensaje sale en cada momento, en qué idioma y por qué canal. En un hotel boutique de Tulum, entre la zona hotelera, Aldea Zamá y el pueblo, las preguntas cambian según dónde esté el huésped en su viaje.</p>
+<div class="tabla"><table><thead><tr><th>Momento</th><th>Mensajes que conviene automatizar</th><th>Lo que queda para una persona</th></tr></thead><tbody>
+<tr><td>Consulta</td><td>Disponibilidad, tarifa directa y lo que incluye</td><td>Grupos, bodas y retiros</td></tr>
+<tr><td>Antes de llegar</td><td>Confirmación, cómo llegar, hora de check-in y qué traer</td><td>Pedidos especiales y cambios de fecha</td></tr>
+<tr><td>Durante la estancia</td><td>Horarios, recomendaciones que el hotel cargó y solicitudes a recepción</td><td>Quejas y cualquier tema de salud o seguridad</td></tr>
+<tr><td>Después</td><td>Agradecimiento, enlace para dejar reseña y permiso para escribirle en otra temporada</td><td>Respuesta a una mala experiencia</td></tr>
+</tbody></table></div>"""),
+  ("idioma", "El idioma lo pone el huésped", """
+<p>Una parte de los huéspedes de Tulum escribe en inglés y planea desde otro huso horario. El agente tiene que responder en el idioma en que le escriben, guardar ese idioma en el contacto y usarlo en cada mensaje que siga. Una plantilla de WhatsApp se aprueba por idioma, así que conviene tener cada una en español y en inglés.<a class="ref" href="#f1">[1]</a></p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 02:15</span>
+<span class="yo">Hi, we land in Tulum at 4pm tomorrow. Can we check in early?</span>
+<span class="bot">Hi! Check-in is from 3pm, so you're fine. I'll note your arrival time for reception. Do you need directions from the airport? I'm the hotel's AI assistant.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("reglas", "Las reglas de cada canal", """
+<p>En WhatsApp, el huésped abre una ventana de 24 horas cada vez que escribe. Los mensajes que salen fuera de esa ventana, como la confirmación de la semana anterior o el enlace de la reseña, necesitan plantilla aprobada y permiso del huésped.<a class="ref" href="#f1">[1]</a> La política de WhatsApp Business no permite mensajes a quien no los aceptó.<a class="ref" href="#f2">[2]</a></p>
+<p>En Instagram, la ventana también es de 24 horas, y después solo una persona del equipo puede seguir la conversación, hasta siete días.<a class="ref" href="#f3">[3]</a> Por eso, en Tulum, la consulta suele empezar por Instagram y la estancia conviene llevarla por WhatsApp.</p>"""),
+  ("precio", "Tarifas en el mensaje", """
+<p>Si el agente cotiza, el precio tiene que ser el total que va a pagar el huésped. Lo pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f4">[4]</a> Que la tarifa salga del sistema del hotel, con impuestos y cargos incluidos, y no de una lista que alguien actualiza a mano.</p>"""),
+  ("datos", "Datos del huésped", """
+<p>Nombre, fechas, teléfono y datos de pago son datos personales, regidos por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f5">[5]</a> Pide solo lo necesario y enlaza tu aviso de privacidad en el primer mensaje.</p>
+<p>Para que el huésped reserve directo y no por la plataforma, sigue con la guía de <a href="/guias/reservas-directas-whatsapp-hoteles/">reservas directas por WhatsApp para hoteles</a>. Si además vendes tours, mira la de <a href="/guias/chatbot-whatsapp-tours-riviera-maya/">chatbot de WhatsApp para tours en la Riviera Maya</a>. Lo que hacemos en la ciudad está en <a href="/negocios/tulum/hospitality/">hoteles y hospedajes en Tulum</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Qué mensajes conviene automatizar en un hotel de Tulum?", "La respuesta a consultas de disponibilidad, la confirmación, las indicaciones antes de llegar, las preguntas durante la estancia y el pedido de reseña al salir. Quejas, grupos y cambios quedan para una persona."),
+  ("¿El agente contesta en inglés?", "Sí. Responde en el idioma del huésped y lo guarda en el contacto. Las plantillas de WhatsApp se aprueban por idioma, así que conviene tenerlas en español y en inglés."),
+  ("¿Puedo mandar mensajes a un huésped después de su estancia?", "Solo con una plantilla aprobada y si el huésped aceptó recibir tus mensajes."),
+  ("¿Conviene usar WhatsApp o Instagram?", "Los dos. La consulta suele llegar por Instagram y la estancia conviene llevarla por WhatsApp, porque la ventana de Instagram se cierra antes para el agente."),
+ ],
+ fuentes=["wa_precios", "wa_politica", "ig_api", "lfpc", "lfpdppp"],
+)
+
+G["automatizar-mensajes-hoteles-playa-del-carmen"] = dict(
+ titulo="Automatizar mensajes para hoteles en Playa del Carmen: consultas, traslados y grupos",
+ corto="Automatizar mensajes para hoteles en Playa del Carmen",
+ desc="Cómo automatizar los mensajes de un hotel, condohotel o renta vacacional en Playa del Carmen: consultas en varios idiomas, traslados, grupos y check-in sin recepción, con las reglas de WhatsApp.",
+ rubro=("Hospitality", "/hospitality/"), audit="hospitality", og="og-hospitality.jpg",
+ wa="Hola! Leí la guía de automatizar mensajes para hoteles en Playa del Carmen y quiero el Audit de mi hotel.",
+ bajada="En Playa del Carmen conviven hoteles con recepción las 24 horas, condohoteles y departamentos en renta que se entregan con un código. En todos, el teléfono suena por lo mismo: cómo llegar desde el aeropuerto de Cancún, dónde estacionar cerca de la Quinta Avenida, a qué hora se entra. Esta guía explica qué mensajes automatizar según el tipo de hospedaje y cómo no perder al grupo que pide cotización a varios a la vez.",
+ cuerpo=[
+  ("tipo", "Depende de cómo opera tu hospedaje", """
+<p>No se automatiza igual un hotel con recepción que una renta vacacional sin personal en sitio. Lo primero es ver quién atiende hoy cada pregunta y a qué hora.</p>
+<div class="tabla"><table><thead><tr><th>Tipo de hospedaje</th><th>Mensajes que conviene automatizar</th></tr></thead><tbody>
+<tr><td>Hotel con recepción</td><td>Consultas fuera de horario, confirmación y preguntas frecuentes, para que la recepción atienda a quien está ahí</td></tr>
+<tr><td>Condohotel o varias unidades</td><td>Instrucciones por unidad, horario de entrada y salida, reglas del edificio y avisos de limpieza</td></tr>
+<tr><td>Renta vacacional sin personal</td><td>Cómo llegar, entrega del acceso el día de llegada, wifi, basura y contacto para emergencias, que siempre es una persona</td></tr>
+</tbody></table></div>"""),
+  ("llegada", "La llegada es el mensaje que más se repite", """
+<p>Casi todos los huéspedes llegan por el aeropuerto de Cancún o por carretera, y muchos preguntan por el traslado, el estacionamiento y la hora de entrada. Un mensaje de llegada bien escrito, enviado el día anterior, resuelve la mayoría de esas consultas antes de que lleguen.</p>
+<ul>
+<li>Dirección exacta y un enlace al mapa, con una referencia que se vea desde la calle.</li>
+<li>Opciones de traslado que ofreces o recomiendas, sin prometer horarios que no controlas.</li>
+<li>Hora de entrada, qué hacer si llegan antes y a quién escribir si algo falla.</li>
+</ul>
+<p>Ese mensaje sale fuera de la ventana de 24 horas, así que necesita una plantilla aprobada y el permiso del huésped.<a class="ref" href="#f1">[1]</a></p>"""),
+  ("grupos", "Grupos: el que contesta primero cotiza", """
+<p>Bodas, viajes de amigos o equipos de trabajo piden cotización a varios hospedajes al mismo tiempo. El agente no cierra un grupo, pero puede pedir en el primer mensaje lo que tu equipo necesita para cotizar: fechas, número de personas, habitaciones y presupuesto. Con eso, una persona responde con la propuesta el mismo día.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 22:30</span>
+<span class="yo">Hola, somos 14 para una boda en marzo, ¿tienen lugar?</span>
+<span class="bot">¡Hola! Con gusto te cotizamos. ¿Me dices las fechas de entrada y salida y cuántas habitaciones necesitan? Mañana temprano alguien del equipo te manda la propuesta. Soy el asistente con IA del hotel.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("reglas", "Reglas de WhatsApp y del precio", """
+<p>Cada mensaje del huésped abre una ventana de 24 horas para contestar libremente; fuera de ella solo salen plantillas aprobadas.<a class="ref" href="#f1">[1]</a> La política de WhatsApp Business no permite escribir a quien no lo aceptó.<a class="ref" href="#f2">[2]</a> Y si el agente da una tarifa, tiene que ser el precio total, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f3">[3]</a></p>"""),
+  ("datos", "Datos del huésped y códigos de acceso", """
+<p>Nombre, teléfono, fechas y documentos de identidad son datos personales, regidos por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f4">[4]</a> Si entregas códigos de acceso por mensaje, que se envíen solo el día de llegada y solo al huésped que reservó.</p>
+<p>Si la consulta llega por Instagram, mira la guía de <a href="/guias/reservas-automaticas-instagram-hoteles-boutique/">reservas automáticas por Instagram para hoteles boutique</a>. Lo que hacemos en la ciudad está en <a href="/negocios/playa-del-carmen/hospitality/">hoteles y hospedajes en Playa del Carmen</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Qué mensajes conviene automatizar en un hotel de Playa del Carmen?", "Las consultas fuera de horario, la confirmación, el mensaje de llegada con traslado y estacionamiento, las preguntas frecuentes de la estancia y el primer contacto con grupos."),
+  ("¿Sirve para una renta vacacional sin recepción?", "Sí. El agente envía las instrucciones de llegada y el acceso el día de entrada, y deja las emergencias siempre a una persona."),
+  ("¿El agente puede cotizar un grupo?", "Puede pedir fechas, personas y habitaciones en el primer mensaje. La propuesta la arma una persona del equipo."),
+  ("¿Puedo mandar el mensaje de llegada por WhatsApp?", "Sí, con una plantilla aprobada por Meta y con el permiso del huésped, porque sale fuera de la ventana de 24 horas."),
+ ],
+ fuentes=["wa_precios", "wa_politica", "lfpc", "lfpdppp"],
+)
+
+G["paginas-web-gimnasios-cdmx"] = dict(
+ titulo="Páginas web para gimnasios en CDMX: qué necesita la tuya para llenar clases",
+ corto="Páginas web para gimnasios en CDMX",
+ desc="Qué tiene que tener la página web de un gimnasio o estudio en Ciudad de México para aparecer en búsquedas por colonia, mostrar horarios y llevar a la clase de prueba, con lo que piden Google y la ley.",
+ rubro=("Fitness", "/fitness/"), audit="fitness", og="og-fitness.jpg",
+ wa="Hola! Leí la guía de páginas web para gimnasios en CDMX y quiero el Audit de mi gimnasio.",
+ bajada="En Ciudad de México la gente no busca «gimnasio». Busca «box en la Del Valle», «pilates en Polanco» o «gimnasio abierto a las 6 en la Narvarte». Si tu página es una portada bonita con un formulario, esa búsqueda se la queda el estudio de al lado o una app de reservas. Esta guía explica qué necesita la página de un gimnasio en la capital para que la encuentren y para que quien entra agende la clase de prueba.",
+ cuerpo=[
+  ("colonia", "La colonia va escrita", """
+<p>Google ordena los resultados locales por relevancia, distancia y prominencia.<a class="ref" href="#f1">[1]</a> En una ciudad donde hay estudios en cada colonia, la distancia pesa, y la relevancia empieza por decir en texto dónde estás y qué das.</p>
+<ul>
+<li>Nombre de la colonia y de la disciplina en el título y en el primer párrafo: por ejemplo, «Estudio de pilates en la Roma Norte».</li>
+<li>Dirección, referencias de llegada, estacionamiento o bicicletas y la estación de Metro o Metrobús más cercana.</li>
+<li>Si tienes más de una sede, una página por sede con su horario y sus fotos.</li>
+</ul>"""),
+  ("horarios", "Horarios y clase de prueba, a un toque", """
+<p>Lo primero que busca quien entra es el horario. Ponlo en texto, no en una imagen de Instagram, y que se lea bien en el celular: Google indexa la versión móvil de tu sitio.<a class="ref" href="#f2">[2]</a> Una página lenta pierde la visita antes de que llegue al botón.<a class="ref" href="#f3">[3]</a></p>
+<div class="tabla"><table><thead><tr><th>Lo que debe estar arriba</th><th>Por qué</th></tr></thead><tbody>
+<tr><td>Disciplina y colonia</td><td>Es lo que la persona buscó</td></tr>
+<tr><td>Horario de la semana</td><td>Decide si le sirve antes de mirar cualquier otra cosa</td></tr>
+<tr><td>Botón de clase de prueba</td><td>Es el siguiente paso, no la membresía</td></tr>
+<tr><td>Botón de WhatsApp</td><td>Para quien quiere preguntar antes de agendar</td></tr>
+</tbody></table></div>"""),
+  ("precio", "Precios en la página", """
+<p>Si publicas planes, la Ley Federal de Protección al Consumidor pide informar el precio total, con inscripción y cargos incluidos.<a class="ref" href="#f4">[4]</a> Si prefieres no publicarlos, deja claro cómo se piden y que la respuesta llegue al momento.</p>"""),
+  ("datos-estructurados", "Datos estructurados para gimnasios", """
+<p>Schema.org tiene un tipo específico para gimnasios, ExerciseGym, que hereda las propiedades de empresa local: dirección, horario, teléfono y área que atiendes.<a class="ref" href="#f5">[5]</a> Google usa los datos estructurados de empresa local para entender tu negocio.<a class="ref" href="#f6">[6]</a> No reemplazan al texto: lo ordenan.</p>"""),
+  ("despues", "Lo que pasa después del clic", """
+<p>La página trae la clase de prueba. Lo que la convierte en socio es el seguimiento: el recordatorio del día anterior, el mensaje después de entrenar y la respuesta rápida al DM. Lo explicamos en la guía de <a href="/guias/responder-dms-instagram-automaticamente-gimnasios/">cómo responder DMs de Instagram en un gimnasio</a> y en la de <a href="/guias/retencion-socios-gimnasio-reservas-clases/">retención de socios</a>.</p>
+<p>Para aparecer también cuando alguien le pregunta a ChatGPT, sigue con <a href="/guias/como-aparecer-en-chatgpt-negocio-en-tu-ciudad/">cómo aparecer en ChatGPT en tu ciudad</a>. Lo que hacemos en la ciudad está en <a href="/negocios/ciudad-de-mexico/fitness/">gimnasios y estudios en Ciudad de México</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Qué tiene que tener la página web de un gimnasio?", "Disciplina y colonia en el título, horario en texto, botón de clase de prueba y de WhatsApp, carga rápida en el celular y datos estructurados de gimnasio."),
+  ("¿Conviene una página por sede?", "Sí, si tienes más de una. Cada sede con su dirección, su horario y sus fotos."),
+  ("¿Tengo que publicar los precios?", "No es obligatorio, pero si los publicas, la Ley Federal de Protección al Consumidor pide informar el precio total."),
+  ("¿Sirve solo tener Instagram?", "Instagram ayuda, pero la búsqueda por colonia pasa por Google y por tu Perfil de Empresa. Una página propia te da un lugar que no depende de una red."),
+ ],
+ fuentes=["gbp_rank", "g_mobile", "g_cwv", "lfpc", "sch_gym", "g_localbiz"],
+)
+
+G["como-pedir-resenas-google-sin-incentivos"] = dict(
+ titulo="Cómo pedir reseñas en Google sin incentivos (y sin romper las reglas)",
+ corto="Pedir reseñas en Google sin incentivos",
+ desc="Cómo pedir reseñas en Google a tus clientes sin ofrecer descuentos ni regalos, qué prohíbe la política de Google Maps, en qué momento pedirlas por WhatsApp y cómo responderlas.",
+ rubro=("Posicionamiento en IA", "/posicionamiento-en-ia/"), audit="", og="og-portada.jpg",
+ wa="Hola! Leí la guía de cómo pedir reseñas en Google y quiero el Audit de mi negocio.",
+ bajada="«Déjanos cinco estrellas y te damos un postre» parece inofensivo, pero va contra las reglas de Google y puede costarte las reseñas que ya tienes. La buena noticia es que no hace falta: la mayoría de los clientes contentos dejan reseña si se la pides en el momento justo y con un enlace directo. Esta guía explica cómo hacerlo bien.",
+ cuerpo=[
+  ("reglas", "Lo que prohíbe Google", """
+<p>La política de contenido de Google Maps considera interacción falsa ofrecer incentivos, como pagos, descuentos o productos gratis, a cambio de publicar una reseña o de cambiar o retirar una negativa.<a class="ref" href="#f1">[1]</a> También prohíbe desalentar las reseñas negativas y pedir reseñas positivas solo a los clientes que crees que van a hablar bien de ti.<a class="ref" href="#f1">[1]</a></p>
+<div class="aviso">En la práctica: pídele reseña a todos tus clientes, de la misma forma, sin preguntar antes si quedaron contentos y sin ofrecer nada a cambio.</div>"""),
+  ("enlace", "Usa el enlace directo", """
+<p>Google permite compartir un enlace o un código QR que abre directamente la ventana para dejar la reseña de tu negocio.<a class="ref" href="#f2">[2]</a> Lo sacas desde tu Perfil de Empresa. Cuantos menos pasos tenga el cliente, más reseñas llegan.</p>
+<ul>
+<li>El enlace va en el mensaje de agradecimiento por WhatsApp.</li>
+<li>El código QR va en la cuenta, en el mostrador o en la tarjeta que entregas con el pedido.</li>
+<li>El mismo enlace va en tu firma de correo y en la biografía de Instagram si quieres.</li>
+</ul>"""),
+  ("momento", "El momento importa más que el texto", """
+<p>Una reseña se pide cuando el cliente todavía tiene presente la experiencia. Cada rubro tiene su momento:</p>
+<div class="tabla"><table><thead><tr><th>Rubro</th><th>Cuándo pedirla</th></tr></thead><tbody>
+<tr><td>Restaurante</td><td>El mismo día, después de la visita</td></tr>
+<tr><td>Hotel</td><td>Al hacer el check-out o al día siguiente</td></tr>
+<tr><td>Gimnasio</td><td>Después de las primeras semanas, no después de la clase de prueba</td></tr>
+<tr><td>Inmobiliaria</td><td>Al entregar las llaves o firmar el contrato</td></tr>
+<tr><td>Servicio a domicilio</td><td>Cuando el trabajo quedó terminado</td></tr>
+</tbody></table></div>
+<p>Si lo pides por WhatsApp fuera de las 24 horas desde el último mensaje del cliente, necesitas una plantilla aprobada y su permiso para escribirle.<a class="ref" href="#f3">[3]</a></p>"""),
+  ("mensaje", "Un mensaje que funciona", """
+<div class="chat" role="figure" aria-label="Ejemplo de mensaje">
+<span class="t">WhatsApp · 21:30</span>
+<span class="bot">Gracias por venir hoy. Si tienes un minuto, nos ayuda mucho que cuentes en Google cómo te fue, lo bueno y lo que podemos mejorar: [enlace]</span>
+<span class="nota">Mensaje de ejemplo.</span>
+</div>
+<p>Fíjate en lo que no dice: no pide cinco estrellas, no ofrece nada y no pregunta antes si le gustó. Pedir que cuente qué pidió o qué servicio recibió ayuda además a que la reseña nombre lo que vendes, que es lo que leen Google y los buscadores con IA cuando alguien pregunta por tu rubro en tu ciudad.</p>"""),
+  ("responder", "Responde todas, también las malas", """
+<p>Google recomienda responder las reseñas de forma clara, útil y educada.<a class="ref" href="#f4">[4]</a> Una respuesta tranquila a una reseña negativa le dice más al siguiente cliente que diez reseñas de cinco estrellas. Agradece, reconoce lo que pasó si pasó, y ofrece seguir la conversación por un canal privado.</p>
+<p>Las reseñas son parte de lo que te hace aparecer en búsquedas locales. Sigue con la guía de <a href="/guias/como-aparecer-en-chatgpt-negocio-en-tu-ciudad/">cómo aparecer en ChatGPT en tu ciudad</a> y con la de <a href="/guias/como-aparecer-en-chatgpt-y-google-negocio-pequeno/">cómo aparecer en ChatGPT y en Google si tienes un negocio pequeño</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Puedo dar un descuento a cambio de una reseña en Google?", "No. La política de Google Maps considera interacción falsa ofrecer pagos, descuentos o productos gratis a cambio de una reseña, y esas reseñas se retiran."),
+  ("¿Puedo pedir reseñas solo a los clientes contentos?", "No. Google prohíbe pedir reseñas positivas de forma selectiva. Pídele a todos de la misma forma."),
+  ("¿Cómo saco el enlace para pedir reseñas?", "Desde tu Perfil de Empresa en Google puedes crear un enlace o un código QR que abre directamente la ventana de reseña."),
+  ("¿Puedo pedir reseñas por WhatsApp?", "Sí. Dentro de las 24 horas desde el último mensaje del cliente contestas libremente; después necesitas una plantilla aprobada y su permiso."),
+  ("¿Tengo que responder las reseñas negativas?", "Conviene responder todas. Una respuesta clara y educada a una reseña negativa le muestra al siguiente cliente cómo tratas los problemas."),
+ ],
+ fuentes=["g_contenido", "g_resenas", "wa_precios", "g_responder"],
 )
 
 ORDEN = list(G.keys())

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Genera 11 guías SEO por búsqueda (21/11/2026). Solo español. Uso: python generador/guias_busqueda.py"""
+"""Genera 21 guías SEO por búsqueda (21/11/2026, dos tandas). Solo español. Uso: python generador/guias_busqueda.py"""
 import json, html, pathlib, re, urllib.parse
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
@@ -510,6 +510,398 @@ G["como-pedir-resenas-google-sin-incentivos"] = dict(
   ("¿Tengo que responder las reseñas negativas?", "Conviene responder todas. Una respuesta clara y educada a una reseña negativa le muestra al siguiente cliente cómo tratas los problemas."),
  ],
  fuentes=["g_contenido", "g_resenas", "wa_precios", "g_responder"],
+)
+
+# ---- 10 guías nuevas (21/11/2026, tanda 2) ----
+F["lie"] = ("Ley de Inversión Extranjera, artículos 10 y 11: adquisición de inmuebles en la zona restringida mediante fideicomiso. Texto vigente en la Cámara de Diputados.", "https://www.diputados.gob.mx/LeyesBiblio/ref/lie.htm")
+F["cpeum27"] = ("Constitución Política de los Estados Unidos Mexicanos, artículo 27, fracción I: zona restringida de 100 kilómetros en fronteras y 50 en playas.", "https://www.diputados.gob.mx/LeyesBiblio/pdf/CPEUM.pdf")
+F["sch_rea"] = ("Schema.org, tipo «RealEstateAgent».", "https://schema.org/RealEstateAgent")
+F["sch_bar"] = ("Schema.org, tipo «BarOrPub».", "https://schema.org/BarOrPub")
+F["sch_cafe"] = ("Schema.org, tipo «CafeOrCoffeeShop».", "https://schema.org/CafeOrCoffeeShop")
+F["sch_venue"] = ("Schema.org, tipo «EventVenue».", "https://schema.org/EventVenue")
+F["wa_catalogo"] = ("Meta, «Sell products and services», documentación de WhatsApp Cloud API: catálogo y mensajes de uno o varios productos.", "https://developers.facebook.com/docs/whatsapp/cloud-api/guides/sell-products-and-services")
+
+RE = ("Real estate", "/real-estate/")
+GA = ("Gastronomía", "/gastronomia/")
+EV = ("Eventos", "/eventos/")
+FI = ("Fitness", "/fitness/")
+DI = ("Distribución", "/distribucion/")
+
+G["agente-whatsapp-inmobiliarias-cdmx"] = dict(
+ titulo="Agente de WhatsApp para inmobiliarias en CDMX: contestar cada lead antes que el portal",
+ corto="Agente de WhatsApp para inmobiliarias en CDMX",
+ desc="Cómo una inmobiliaria en Ciudad de México puede contestar al momento los leads que llegan de portales, Instagram y su sitio, calificar por colonia y presupuesto y agendar visitas por WhatsApp, con las reglas de Meta y de la ley.",
+ rubro=RE, audit="real-estate", og="og-real-estate.jpg",
+ wa="Hola! Leí la guía de agente de WhatsApp para inmobiliarias en CDMX y quiero el Audit de mi inmobiliaria.",
+ bajada="Un departamento en renta en la Narvarte o en la Del Valle recibe consultas de varias personas el mismo día, y cada una escribe también a otras tres inmobiliarias. La que contesta primero y con datos concretos agenda la visita. Esta guía explica qué tiene que hacer un agente de WhatsApp en una inmobiliaria de la capital y qué no le conviene hacer solo.",
+ cuerpo=[
+  ("origen", "De dónde llegan los leads", """
+<p>En una inmobiliaria de Ciudad de México los contactos llegan por varios lados a la vez: portales, Marketplace, Instagram, el sitio propio y el letrero en la fachada. Cada canal trae a la persona con una pregunta distinta y casi siempre con la misma prisa. El primer paso es que todos terminen en un solo número de WhatsApp y en un solo registro, para saber quién preguntó por qué propiedad.</p>
+<div class="tabla"><table><thead><tr><th>Origen</th><th>Qué suele preguntar</th></tr></thead><tbody>
+<tr><td>Portal o Marketplace</td><td>Si sigue disponible, precio total y requisitos</td></tr>
+<tr><td>Instagram</td><td>Zona, fotos de más y si se puede visitar el fin de semana</td></tr>
+<tr><td>Letrero en la propiedad</td><td>Qué es exactamente, venta o renta, y cuándo verla</td></tr>
+<tr><td>Sitio propio</td><td>Opciones parecidas en la misma colonia</td></tr>
+</tbody></table></div>"""),
+  ("calificar", "Calificar sin interrogar", """
+<p>El agente no está para vender el departamento. Está para que el asesor llegue a la visita sabiendo lo esencial: colonia o alcaldía que busca, presupuesto, si es compra o renta, cuándo quiere mudarse y, en renta, si cumple con los requisitos que pide el propietario. Dos o tres preguntas bien puestas bastan; un formulario por chat espanta.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 22:40</span>
+<span class="yo">Hola, ¿sigue disponible el depa de la Narvarte?</span>
+<span class="bot">¡Hola! Sí, sigue disponible. ¿Lo buscas para mudarte este mes o más adelante? Si te queda bien, tengo visitas el sábado por la mañana. Soy el asistente con IA de la inmobiliaria.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("reglas", "Reglas de WhatsApp que importan aquí", """
+<p>Para conectar un agente se usa la plataforma de WhatsApp Business, la API.<a class="ref" href="#f1">[1]</a> Cada mensaje del cliente abre una ventana de 24 horas para contestar libremente; fuera de ella, por ejemplo para avisar que bajó el precio o que entró una opción nueva en su colonia, se necesita una plantilla aprobada y su permiso.<a class="ref" href="#f2">[2]</a> La política de WhatsApp Business no permite escribir a listas compradas ni a quien no aceptó recibir mensajes.<a class="ref" href="#f3">[3]</a></p>"""),
+  ("precio", "Precio y datos de la propiedad", """
+<p>Si el agente da un precio, tiene que ser el total, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f4">[4]</a> En venta de vivienda, la NOM-247-SE-2021 fija qué información comercial debe darse al consumidor.<a class="ref" href="#f5">[5]</a> Por eso conviene que el agente responda solo con la ficha que cargó la inmobiliaria y pase a un asesor cualquier pregunta sobre escrituras, crédito o contrato.</p>"""),
+  ("datos", "Datos del cliente", """
+<p>Nombre, teléfono, ingresos y documentos para una renta son datos personales, y algunos son delicados. Los rige la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f6">[6]</a> No pidas identificaciones ni comprobantes por el chat del agente: que los reciba el asesor por el canal que la inmobiliaria definió.</p>
+<p>Para el seguimiento después de la visita, sigue con la guía de <a href="/guias/crm-inmobiliaria-seguimiento-leads/">CRM para inmobiliarias</a>. Lo que hacemos en la ciudad está en <a href="/negocios/ciudad-de-mexico/real-estate/">inmobiliarias en Ciudad de México</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Qué hace un agente de WhatsApp en una inmobiliaria?", "Contesta al momento si la propiedad sigue disponible, pregunta zona, presupuesto y fecha de mudanza, agenda la visita y pasa la conversación a un asesor."),
+  ("¿Puede responder los leads que llegan de los portales?", "Sí, si el contacto termina en el WhatsApp de la inmobiliaria. Lo importante es que todos los canales lleguen a un solo número y a un solo registro."),
+  ("¿Puedo avisar por WhatsApp cuando entra una propiedad nueva?", "Sí, con una plantilla aprobada por Meta y con el permiso del cliente, porque el aviso sale fuera de la ventana de 24 horas."),
+  ("¿El agente puede pedir documentos para la renta?", "Conviene que no. Identificaciones y comprobantes son datos personales delicados y es mejor que los reciba un asesor por el canal que defina la inmobiliaria."),
+ ],
+ fuentes=["wa_api", "wa_precios", "wa_politica", "lfpc", "nom247", "lfpdppp"],
+)
+
+G["leads-inmobiliarios-guadalajara-zapopan"] = dict(
+ titulo="Leads inmobiliarios en Guadalajara y Zapopan: de la consulta a la visita agendada",
+ corto="Leads inmobiliarios en Guadalajara y Zapopan",
+ desc="Cómo una inmobiliaria o desarrolladora en Guadalajara y Zapopan puede ordenar los leads de preventa y reventa, contestar por WhatsApp al momento y agendar visitas a la obra o al departamento muestra.",
+ rubro=RE, audit="real-estate", og="og-real-estate.jpg",
+ wa="Hola! Leí la guía de leads inmobiliarios en Guadalajara y quiero el Audit de mi inmobiliaria.",
+ bajada="En la zona metropolitana de Guadalajara se buscan cosas muy distintas con la misma palabra: un departamento en preventa en Zapopan, una casa en reventa en Tlajomulco o una renta cerca de una universidad. Si todos los leads caen en el mismo chat y los contesta quien pueda, el que pregunta por la preventa espera lo mismo que el curioso. Esta guía explica cómo separar, contestar y agendar.",
+ cuerpo=[
+  ("separar", "Separa el lead por tipo de operación", """
+<p>La primera pregunta que tiene que resolver la conversación es qué busca la persona, porque de eso depende quién la atiende y qué tan rápido.</p>
+<div class="tabla"><table><thead><tr><th>Tipo de lead</th><th>Lo que necesita en el primer mensaje</th></tr></thead><tbody>
+<tr><td>Preventa</td><td>Avance de obra, fecha estimada de entrega, esquema de pagos y visita al departamento muestra</td></tr>
+<tr><td>Reventa</td><td>Disponibilidad, precio total, si acepta crédito y cuándo se puede ver</td></tr>
+<tr><td>Renta</td><td>Disponibilidad, requisitos del propietario y fecha de mudanza</td></tr>
+<tr><td>Propietario que quiere vender</td><td>Zona, tipo de inmueble y una persona del equipo que lo atienda por chat</td></tr>
+</tbody></table></div>"""),
+  ("preventa", "Lo que pide la norma en preventa", """
+<p>La NOM-247-SE-2021 fija la información comercial y los elementos de los contratos de vivienda, incluida la que se vende antes de terminarse.<a class="ref" href="#f1">[1]</a> Para el agente eso significa una regla simple: responde con la información que la desarrolladora ya publicó y revisó, y cualquier pregunta sobre contrato, entrega o garantía va a una persona. Cuando da un precio, es el total.<a class="ref" href="#f2">[2]</a></p>"""),
+  ("visita", "Agendar la visita en el mismo chat", """
+<p>El lead que agenda en la misma conversación tiene más probabilidades de llegar que el que queda en «te marco mañana». El agente puede ofrecer horarios reales del asesor o del departamento muestra, confirmar y mandar la ubicación.</p>
+<p>El recordatorio del día anterior sale fuera de la ventana de 24 horas, así que necesita plantilla aprobada y el permiso del cliente.<a class="ref" href="#f3">[3]</a> Pide ese permiso al confirmar la cita, no después.</p>"""),
+  ("pagina", "Una página por desarrollo o por zona", """
+<p>Quien busca en Google «departamentos en preventa en Zapopan» quiere ver ese desarrollo o esa zona, no la portada de la inmobiliaria. Una página por desarrollo, con su avance, su ubicación y un botón de WhatsApp que ya diga de qué desarrollo se trata, hace que el lead llegue con contexto. Los datos estructurados de agente inmobiliario ayudan a que el buscador entienda quién eres.<a class="ref" href="#f4">[4]</a></p>"""),
+  ("datos", "Datos personales", """
+<p>Los datos de quien pregunta y, más todavía, los de quien aparta una unidad, se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f5">[5]</a> Ten el aviso de privacidad a la mano en el chat.</p>
+<p>El seguimiento de preventa y renta está en la guía de <a href="/guias/crm-inmobiliaria-seguimiento-leads/">CRM para inmobiliarias</a>. Lo que hacemos en la ciudad está en <a href="/negocios/guadalajara/real-estate/">inmobiliarias en Guadalajara</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Cómo organizo los leads de una inmobiliaria en Guadalajara?", "Separa desde el primer mensaje preventa, reventa, renta y propietarios que quieren vender, porque cada uno necesita información y una persona distinta."),
+  ("¿El agente puede contestar sobre una preventa?", "Sí, con la información que la desarrolladora ya publicó y revisó. Las preguntas de contrato, entrega o garantía van a una persona."),
+  ("¿Puedo mandar recordatorio de la visita por WhatsApp?", "Sí, con una plantilla aprobada y el permiso del cliente, que conviene pedir al confirmar la cita."),
+  ("¿Conviene una página por desarrollo?", "Sí. Quien busca un desarrollo o una zona quiere llegar a esa página, y el botón de WhatsApp ya lleva el contexto de lo que le interesa."),
+ ],
+ fuentes=["nom247", "lfpc", "wa_precios", "sch_rea", "lfpdppp"],
+)
+
+G["inmobiliarias-tulum-compradores-extranjeros"] = dict(
+ titulo="Inmobiliarias en Tulum: cómo atender por WhatsApp a compradores extranjeros",
+ corto="Inmobiliarias en Tulum y compradores extranjeros",
+ desc="Cómo una inmobiliaria o desarrolladora en Tulum puede atender en inglés y en español a compradores de otros países, qué decir y qué no sobre el fideicomiso en la zona restringida, y cómo llevar el seguimiento con husos horarios distintos.",
+ rubro=RE, audit="real-estate", og="og-real-estate.jpg",
+ wa="Hola! Leí la guía de inmobiliarias en Tulum y compradores extranjeros y quiero el Audit de mi inmobiliaria.",
+ bajada="En Tulum, buena parte de quien pregunta por un departamento o un terreno escribe en inglés, desde otro país y a una hora en la que tu equipo ya duerme. Pregunta por el precio, por la renta vacacional y por cómo puede comprar un extranjero cerca de la playa. Esta guía explica cómo contestar rápido sin dar asesoría legal que no te corresponde.",
+ cuerpo=[
+  ("idioma", "Contesta en el idioma en que te escriben", """
+<p>Un agente con IA puede detectar el idioma del primer mensaje y seguir en ese idioma, en inglés, español o el que use el cliente. Lo que no puede hacer es traducir mal la ficha de la propiedad: conviene que la inmobiliaria cargue la información en los idiomas que atiende y que el agente responda con eso.</p>
+<p>Con la API de WhatsApp, las plantillas para escribir fuera de la ventana de 24 horas se aprueban por idioma.<a class="ref" href="#f1">[1]</a> Si atiendes en inglés y en español, prepara las dos versiones del recordatorio de visita o del aviso de unidad disponible.</p>"""),
+  ("fideicomiso", "Fideicomiso: informar sin asesorar", """
+<p>La Constitución define una zona restringida de 50 kilómetros a lo largo de las playas en la que los extranjeros no adquieren el dominio directo de tierras.<a class="ref" href="#f2">[2]</a> La Ley de Inversión Extranjera permite que adquieran derechos sobre inmuebles en esa zona mediante un fideicomiso con una institución de crédito.<a class="ref" href="#f3">[3]</a></p>
+<div class="aviso">En la práctica: el agente puede explicar que existe esta figura y ofrecer que un asesor y el notario den el detalle. No debe decir cuánto cuesta, cuánto tarda ni si una operación concreta es viable.</div>"""),
+  ("horarios", "Husos horarios y seguimiento", """
+<p>Si el cliente escribe de noche desde otro país, el agente contesta al momento y deja la conversación lista para que el asesor la retome al empezar el día: qué propiedad, qué presupuesto, si quiere comprar para vivir o para rentar y cuándo viaja a Tulum. Cuando el cliente vuelve a escribir, se abre otra vez la ventana de 24 horas.<a class="ref" href="#f1">[1]</a></p>"""),
+  ("renta", "La pregunta de la renta vacacional", """
+<p>Casi todo comprador extranjero pregunta cuánto puede rentar la unidad. Es la pregunta en la que más fácil se promete de más. El agente no debe dar rendimientos ni ocupaciones esperadas: si la inmobiliaria tiene números reales de unidades que administra, que los entregue una persona, con su origen y su fecha.</p>"""),
+  ("precio", "Precio y datos", """
+<p>El precio que se informe tiene que ser el total, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f4">[4]</a> Los datos de compradores extranjeros también se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f5">[5]</a></p>
+<p>Para el seguimiento de cada lead, mira la guía de <a href="/guias/crm-inmobiliaria-seguimiento-leads/">CRM para inmobiliarias</a>. Lo que hacemos en la ciudad está en <a href="/negocios/tulum/real-estate/">inmobiliarias en Tulum</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Un extranjero puede comprar un departamento en Tulum?", "En la zona restringida de 50 kilómetros desde la playa, la Ley de Inversión Extranjera permite adquirir derechos mediante un fideicomiso con un banco. El detalle de cada operación lo da un notario."),
+  ("¿El agente de WhatsApp puede atender en inglés?", "Sí. Puede seguir la conversación en el idioma del cliente, con la información que la inmobiliaria cargó en ese idioma."),
+  ("¿El agente puede decir cuánto rinde la renta vacacional?", "No conviene. Cualquier número de ocupación o renta lo da una persona, con datos reales y su origen."),
+  ("¿Las plantillas de WhatsApp se aprueban por idioma?", "Sí. Si atiendes en inglés y en español, necesitas una versión aprobada de cada plantilla en cada idioma."),
+ ],
+ fuentes=["wa_precios", "cpeum27", "lie", "lfpc", "lfpdppp"],
+)
+
+G["reservas-whatsapp-bares-antros-cdmx"] = dict(
+ titulo="Reservas por WhatsApp para bares y antros en CDMX: mesas, listas y grupos",
+ corto="Reservas por WhatsApp para bares y antros en CDMX",
+ desc="Cómo un bar o antro en Ciudad de México puede tomar reservas de mesa, armar la lista de la puerta y atender cumpleaños y grupos por WhatsApp a cualquier hora, con las reglas de Meta y lo que pide la ley sobre el precio.",
+ rubro=GA, audit="gastronomia", og="og-gastronomia.jpg",
+ wa="Hola! Leí la guía de reservas por WhatsApp para bares y antros en CDMX y quiero el Audit de mi bar.",
+ bajada="En un bar de la Roma o un antro en Polanco, las consultas llegan cuando nadie puede contestar: el jueves en la tarde, el sábado a medianoche. «Somos ocho para un cumpleaños, ¿tienen mesa?» Si la respuesta tarda, el grupo ya está en otra lista. Esta guía explica qué automatizar y qué dejar siempre a una persona.",
+ cuerpo=[
+  ("consultas", "Las consultas de siempre", """
+<div class="tabla"><table><thead><tr><th>Consulta</th><th>Lo que debe hacer el agente</th></tr></thead><tbody>
+<tr><td>Mesa para hoy o el fin de semana</td><td>Ver la disponibilidad que cargó el bar y reservar, o pasar a la persona de reservas</td></tr>
+<tr><td>Lista de la puerta</td><td>Tomar nombre y número de personas y sumarlos a la lista</td></tr>
+<tr><td>Cumpleaños y grupos</td><td>Pedir fecha, personas y qué buscan, y pasar a una persona para la propuesta</td></tr>
+<tr><td>Consumo mínimo o cover</td><td>Responder con el precio total vigente que cargó el bar</td></tr>
+<tr><td>Quejas o algo que pasó en el lugar</td><td>Pasar a una persona siempre</td></tr>
+</tbody></table></div>"""),
+  ("precio", "Cover y consumo mínimo, claros", """
+<p>Si hay cover, consumo mínimo o un paquete para la mesa, el agente tiene que decirlo con el precio total, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f1">[1]</a> Un precio que cambia en la puerta es la peor reseña posible. Que el bar actualice esos datos antes de cada fin de semana y el agente conteste solo con eso.</p>"""),
+  ("whatsapp", "Reglas de WhatsApp", """
+<p>Para un agente que entienda lo que escribe el cliente se usa la plataforma de WhatsApp Business, la API.<a class="ref" href="#f2">[2]</a> Cada mensaje abre una ventana de 24 horas para contestar libremente. El recordatorio de la reserva o el aviso del evento del próximo viernes salen fuera de esa ventana y necesitan plantilla aprobada y permiso del cliente.<a class="ref" href="#f3">[3]</a> Mandar promociones a quien no lo aceptó va contra la política de WhatsApp Business.<a class="ref" href="#f4">[4]</a></p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 23:10</span>
+<span class="yo">Hola, somos 8 para un cumpleaños el sábado, ¿hay mesa?</span>
+<span class="bot">¡Hola! Para el sábado tengo mesa para 8 desde las 22:00. ¿A nombre de quién la aparto? Si quieres, te aviso por aquí el viernes para confirmar. Soy el asistente con IA del bar.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("google", "Que te encuentren el viernes", """
+<p>«Bar con terraza en la Condesa» o «antro en Polanco» se resuelve en el mapa. Google ordena esos resultados por relevancia, distancia y prominencia.<a class="ref" href="#f5">[5]</a> Horario real de cada día, fotos actuales, categoría correcta y respuestas a las reseñas pesan. En tu página, los datos estructurados de bar dicen dirección, horario y si aceptan reservas.<a class="ref" href="#f6">[6]</a></p>"""),
+  ("datos", "Datos de la lista", """
+<p>Nombres y teléfonos de la lista son datos personales y se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f7">[7]</a> Úsalos para lo que el cliente aceptó, la reserva y los avisos que pidió.</p>
+<p>Para elegir proveedor, sigue con la guía de <a href="/guias/chatbot-whatsapp-restaurantes/">cómo elegir un chatbot de WhatsApp que sí reserve</a>. Lo que hacemos en la ciudad está en <a href="/negocios/ciudad-de-mexico/gastronomia/">gastronomía en Ciudad de México</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Un bar puede tomar reservas automáticas por WhatsApp?", "Sí, con un agente conectado a la API de WhatsApp Business y a la disponibilidad que carga el bar. Los grupos grandes y las quejas pasan a una persona."),
+  ("¿El agente puede armar la lista de la puerta?", "Sí. Toma nombre y número de personas y los suma a la lista que ve el equipo de la puerta."),
+  ("¿Tengo que informar el cover por WhatsApp?", "Si preguntan, el agente debe responder con el precio total vigente, como pide la Ley Federal de Protección al Consumidor."),
+  ("¿Puedo mandar promociones del fin de semana por WhatsApp?", "Solo a quien aceptó recibirlas y con una plantilla aprobada por Meta."),
+ ],
+ fuentes=["lfpc", "wa_api", "wa_precios", "wa_politica", "gbp_rank", "sch_bar", "lfpdppp"],
+)
+
+G["reservas-mesas-bares-antros-monterrey"] = dict(
+ titulo="Reservas de mesa para bares y antros en Monterrey: del DM a la lista",
+ corto="Reservas de mesa para bares y antros en Monterrey",
+ desc="Cómo un bar o antro en Monterrey puede convertir los DMs de Instagram y los mensajes de WhatsApp en mesas confirmadas para el fin de semana, con la ventana de 24 horas de Meta y el precio total claro.",
+ rubro=GA, audit="gastronomia", og="og-gastronomia.jpg",
+ wa="Hola! Leí la guía de reservas para bares y antros en Monterrey y quiero el Audit de mi bar.",
+ bajada="En Monterrey la noche se decide por Instagram. El cartel del sábado sale el miércoles, y los DMs empiezan a llegar: «¿mesa para seis?», «¿hay paquete de botella?», «¿hasta qué hora es la lista?». Si los contesta quien tenga el celular a mano, la mitad se pierde. Esta guía explica cómo llevar esas consultas a una mesa confirmada.",
+ cuerpo=[
+  ("dm", "El DM es donde empieza la reserva", """
+<p>Un agente conectado a la API de mensajes de Instagram puede contestar los DMs y las respuestas a tus historias al momento.<a class="ref" href="#f1">[1]</a> La regla clave es la ventana: puedes contestar libremente durante las 24 horas siguientes al último mensaje del cliente. Pasado ese plazo, solo una persona del equipo puede seguir, con la etiqueta de agente humano, hasta siete días.<a class="ref" href="#f1">[1]</a></p>
+<p>Por eso conviene que la conversación termine en algo concreto el mismo día: la mesa confirmada o el número de WhatsApp para el recordatorio.</p>"""),
+  ("flujo", "De la pregunta a la mesa", """
+<div class="tabla"><table><thead><tr><th>Paso</th><th>Qué hace el agente</th></tr></thead><tbody>
+<tr><td>1. Pregunta</td><td>Contesta qué hay esa noche, horario y si hay mesa para ese número de personas</td></tr>
+<tr><td>2. Condiciones</td><td>Informa paquete o consumo mínimo con el precio total que cargó el bar</td></tr>
+<tr><td>3. Datos</td><td>Pide nombre, personas y hora de llegada</td></tr>
+<tr><td>4. Confirmación</td><td>Aparta la mesa o pasa a la persona de reservas si hace falta</td></tr>
+<tr><td>5. Recordatorio</td><td>Pide permiso para avisar por WhatsApp el día anterior</td></tr>
+</tbody></table></div>
+<p>El recordatorio por WhatsApp sale fuera de la ventana de 24 horas, así que necesita plantilla aprobada.<a class="ref" href="#f2">[2]</a></p>"""),
+  ("precio", "Paquetes y precio total", """
+<p>Paquetes de botella, consumo mínimo o cover se informan con el precio total, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f3">[3]</a> Que el agente responda solo con lo que el bar cargó para esa noche, y que una persona confirme los grupos grandes.</p>"""),
+  ("mapa", "En el mapa y en tu página", """
+<p>Quien busca «bar en San Pedro» o «antro en Barrio Antiguo» decide en el mapa. Google ordena los resultados locales por relevancia, distancia y prominencia.<a class="ref" href="#f4">[4]</a> Mantén el horario real, las fotos de la temporada y responde las reseñas. En tu página, los datos estructurados de bar ordenan dirección, horario y reservas.<a class="ref" href="#f5">[5]</a></p>"""),
+  ("datos", "Datos de quien reserva", """
+<p>Nombre y teléfono de quien reserva son datos personales, regidos por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f6">[6]</a></p>
+<p>Si además tienes cocina y reservas de comida, mira la guía de <a href="/guias/reservas-instagram-restaurantes-monterrey/">reservas por Instagram para restaurantes en Monterrey</a>. Lo que hacemos en la ciudad está en <a href="/negocios/monterrey/gastronomia/">gastronomía en Monterrey</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Puedo automatizar las reservas que llegan por DM de Instagram?", "Sí, con una cuenta profesional conectada a la API de mensajes de Instagram. El agente contesta dentro de las 24 horas desde el último mensaje del cliente."),
+  ("¿Qué pasa si el cliente contesta dos días después?", "Pasadas las 24 horas, solo una persona del equipo puede seguir la conversación con la etiqueta de agente humano, hasta siete días."),
+  ("¿El agente puede informar paquetes de botella?", "Sí, con el precio total que el bar cargó para esa noche. Los grupos grandes los confirma una persona."),
+  ("¿Cómo mando el recordatorio de la mesa?", "Por WhatsApp, con una plantilla aprobada y el permiso del cliente, que conviene pedir al confirmar."),
+ ],
+ fuentes=["ig_api", "wa_precios", "lfpc", "gbp_rank", "sch_bar", "lfpdppp"],
+)
+
+G["cotizaciones-salones-eventos-guadalajara"] = dict(
+ titulo="Cotizaciones para salones de eventos en Guadalajara: bodas, XV años y empresas",
+ corto="Cotizaciones para salones de eventos en Guadalajara",
+ desc="Cómo un salón o jardín de eventos en Guadalajara y Zapopan puede contestar al momento las consultas de bodas, XV años y eventos de empresa, revisar fechas libres y mandar la cotización el mismo día.",
+ rubro=EV, audit="eventos", og="og-eventos.jpg",
+ wa="Hola! Leí la guía de cotizaciones para salones de eventos en Guadalajara y quiero el Audit de mi salón.",
+ bajada="Quien organiza una boda o unos XV años en Guadalajara le escribe a varios salones el mismo fin de semana, con la misma pregunta: «¿tienen libre el 14 de marzo para 200 personas?». El salón que contesta primero con la fecha y una propuesta clara se queda con la visita. Esta guía explica cómo responder ese primer mensaje sin que nadie del equipo esté pegado al teléfono.",
+ cuerpo=[
+  ("primer-mensaje", "Lo que se resuelve en el primer mensaje", """
+<p>Para cotizar, el salón necesita lo mismo casi siempre. Un agente puede pedirlo de forma natural en la primera conversación y revisar si la fecha está libre en el calendario que lleva el salón.</p>
+<div class="tabla"><table><thead><tr><th>Dato</th><th>Para qué sirve</th></tr></thead><tbody>
+<tr><td>Tipo de evento</td><td>Boda, XV años, bautizo, posada o evento de empresa cambian el paquete</td></tr>
+<tr><td>Fecha y horario</td><td>Saber si está libre antes de seguir</td></tr>
+<tr><td>Número de invitados</td><td>Elegir salón o jardín y armar la propuesta</td></tr>
+<tr><td>Qué necesitan</td><td>Solo el espacio, banquete, mobiliario o todo incluido</td></tr>
+</tbody></table></div>"""),
+  ("cotizacion", "Cotización el mismo día", """
+<p>El agente no arma la propuesta final: la arma una persona con esos datos. Lo que sí hace es que la persona la reciba completa, ordenada y en el momento, para mandar la cotización el mismo día y ofrecer la visita al salón.</p>
+<p>Si en la cotización hay precios, tienen que ser totales, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f1">[1]</a> El anticipo, lo que incluye y las condiciones de cancelación conviene dejarlos por escrito.</p>"""),
+  ("whatsapp", "Seguimiento con las reglas de WhatsApp", """
+<p>Entre la cotización y el anticipo pasan días o semanas. Dentro de las 24 horas desde el último mensaje del cliente contestas libremente; después, cualquier seguimiento sale con una plantilla aprobada y con su permiso.<a class="ref" href="#f2">[2]</a> La política de WhatsApp Business no permite escribir a quien no aceptó.<a class="ref" href="#f3">[3]</a></p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 21:05</span>
+<span class="yo">Hola, ¿tienen libre el 14 de marzo para unos XV años, como 200 personas?</span>
+<span class="bot">¡Hola! El 14 de marzo tenemos libre el jardín, con capacidad para ese número. ¿Buscan solo el espacio o con banquete? Con eso, mañana temprano te mandamos la cotización. Soy el asistente con IA del salón.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("google", "Que te encuentren en Zapopan y Tlaquepaque", """
+<p>«Salón de eventos en Zapopan» o «jardín para bodas en Tlajomulco» son búsquedas locales que Google ordena por relevancia, distancia y prominencia.<a class="ref" href="#f4">[4]</a> Fotos reales de eventos, capacidad en texto y respuestas a las reseñas cuentan. En tu página, los datos estructurados de recinto de eventos ordenan dirección y capacidad.<a class="ref" href="#f5">[5]</a></p>"""),
+  ("datos", "Datos de los clientes", """
+<p>Los datos de quien cotiza se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f6">[6]</a></p>
+<p>Para ver qué más puede hacer la IA en el rubro, sigue con <a href="/guias/como-usar-ia-en-eventos/">cómo usar IA en una empresa de eventos</a>. Lo que hacemos en la ciudad está en <a href="/negocios/guadalajara/eventos/">eventos en Guadalajara</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Un agente puede revisar si la fecha está libre?", "Sí, si está conectado al calendario que lleva el salón. Si no lo está, toma los datos y avisa a una persona."),
+  ("¿El agente manda la cotización?", "Pide los datos y los ordena. La propuesta la arma una persona del equipo, para mandarla el mismo día."),
+  ("¿Puedo dar seguimiento por WhatsApp a una cotización?", "Sí. Dentro de las 24 horas desde el último mensaje del cliente contestas libremente; después necesitas una plantilla aprobada y su permiso."),
+  ("¿Tengo que poner precios totales en la cotización?", "Sí. La Ley Federal de Protección al Consumidor pide informar el precio total."),
+ ],
+ fuentes=["lfpc", "wa_precios", "wa_politica", "gbp_rank", "sch_venue", "lfpdppp"],
+)
+
+G["salones-eventos-monterrey-apartar-fechas"] = dict(
+ titulo="Salones de eventos en Monterrey: agendar visitas y apartar fechas por WhatsApp",
+ corto="Salones de eventos en Monterrey: visitas y fechas",
+ desc="Cómo un salón o quinta de eventos en Monterrey puede pasar de la consulta a la visita agendada y a la fecha apartada por WhatsApp, con recordatorios y seguimiento que respetan las reglas de Meta.",
+ rubro=EV, audit="eventos", og="og-eventos.jpg",
+ wa="Hola! Leí la guía de salones de eventos en Monterrey y quiero el Audit de mi salón.",
+ bajada="En Monterrey un salón no se contrata por chat: se contrata después de verlo. El trabajo del WhatsApp es llevar a la familia o a la empresa a la visita, y de la visita al anticipo. Lo que se pierde está en el medio: la visita que nadie confirmó, la cotización que nadie siguió, la fecha que se fue con otro. Esta guía explica cómo cubrir ese tramo.",
+ cuerpo=[
+  ("visita", "La visita es el objetivo", """
+<p>En la primera conversación, el agente revisa si la fecha está libre, pide tipo de evento y número de invitados, y ofrece horarios reales de visita. Si la persona elige uno, queda agendada en el mismo chat, con la ubicación de la quinta o el salón.</p>"""),
+  ("recordatorio", "Recordatorio y confirmación", """
+<p>El recordatorio del día anterior a la visita sale fuera de la ventana de 24 horas, así que necesita una plantilla aprobada por Meta y el permiso del cliente.<a class="ref" href="#f1">[1]</a> Pídelo al agendar. Si la persona responde al recordatorio, se abre otra ventana y el agente puede contestar sus dudas antes de llegar.</p>"""),
+  ("apartar", "De la visita a la fecha apartada", """
+<div class="tabla"><table><thead><tr><th>Momento</th><th>Quién actúa</th></tr></thead><tbody>
+<tr><td>Después de la visita</td><td>El agente manda el resumen de lo que se vio y pregunta si quedó alguna duda</td></tr>
+<tr><td>Cotización</td><td>Una persona arma la propuesta con precios totales</td></tr>
+<tr><td>Fecha en espera</td><td>Una persona define cuánto tiempo se sostiene la fecha sin anticipo y lo deja por escrito</td></tr>
+<tr><td>Anticipo</td><td>Una persona confirma el pago y el agente manda el comprobante y los siguientes pasos</td></tr>
+</tbody></table></div>
+<p>Los precios de la cotización tienen que ser totales, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f2">[2]</a></p>"""),
+  ("reglas", "Lo que no conviene automatizar", """
+<p>Negociar el precio, mover una fecha ya apartada y atender un problema el día del evento son trabajo de una persona. La política de WhatsApp Business además pide no escribir a quien no lo aceptó y respetar cuando alguien pide dejar de recibir mensajes.<a class="ref" href="#f3">[3]</a></p>"""),
+  ("mapa", "En el mapa de San Pedro, Santa Catarina o Apodaca", """
+<p>Las búsquedas de salones son locales y Google las ordena por relevancia, distancia y prominencia.<a class="ref" href="#f4">[4]</a> Capacidad, estacionamiento y tipos de evento en texto, fotos reales y reseñas respondidas. Los datos de la familia o la empresa se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f5">[5]</a></p>
+<p>Para el resto de lo que puede hacer la IA en el rubro, mira <a href="/guias/como-usar-ia-en-eventos/">cómo usar IA en una empresa de eventos</a> y la guía de <a href="/guias/cotizaciones-salones-eventos-guadalajara/">cotizaciones para salones de eventos</a>. Lo que hacemos en la ciudad está en <a href="/negocios/monterrey/eventos/">eventos en Monterrey</a>.</p>"""),
+ ],
+ faq=[
+  ("¿El agente puede agendar visitas al salón?", "Sí. Revisa si la fecha está libre, ofrece horarios reales de visita y la deja agendada en el mismo chat."),
+  ("¿Puedo mandar recordatorio de la visita?", "Sí, con una plantilla aprobada por Meta y con el permiso del cliente, que conviene pedir al agendar."),
+  ("¿El agente aparta la fecha?", "No. Cuánto tiempo se sostiene una fecha y el anticipo los define y confirma una persona."),
+  ("¿Qué no conviene automatizar en un salón?", "Negociar el precio, mover una fecha apartada y atender problemas el día del evento."),
+ ],
+ fuentes=["wa_precios", "lfpc", "wa_politica", "gbp_rank", "lfpdppp"],
+)
+
+G["cafeterias-cdmx-pedidos-whatsapp-google-maps"] = dict(
+ titulo="Cafeterías en CDMX: pedidos por WhatsApp y aparecer en Google Maps",
+ corto="Cafeterías en CDMX: WhatsApp y Google Maps",
+ desc="Cómo una cafetería en Ciudad de México puede aparecer cuando buscan café de especialidad en su colonia, tomar pedidos para llevar por WhatsApp sin frenar la barra y avisar a sus clientes frecuentes con permiso.",
+ rubro=GA, audit="gastronomia", og="og-gastronomia.jpg",
+ wa="Hola! Leí la guía de cafeterías en CDMX y quiero el Audit de mi cafetería.",
+ bajada="En la Roma, la Condesa o Coyoacán hay una cafetería por cuadra. Quien busca «café de especialidad cerca» elige en el mapa en segundos, y quien ya te conoce quiere pedir su latte para llevar sin hacer fila. Las dos cosas pasan por el celular y casi nunca hay alguien libre para atenderlo. Esta guía explica cómo resolverlo sin frenar la barra.",
+ cuerpo=[
+  ("mapa", "El mapa decide", """
+<p>Google ordena los resultados locales por relevancia, distancia y prominencia.<a class="ref" href="#f1">[1]</a> Para una cafetería eso se traduce en cosas concretas:</p>
+<ul>
+<li>Categoría exacta en tu Perfil de Empresa, horario real de cada día y fotos actuales de la barra y del espacio.</li>
+<li>Lo que te distingue escrito en texto: tueste propio, métodos, opciones sin lácteos, enchufes para trabajar, si aceptan mascotas.</li>
+<li>Respuesta a todas las reseñas, también las malas.</li>
+</ul>
+<p>En tu página, los datos estructurados de cafetería ordenan dirección, horario y menú.<a class="ref" href="#f2">[2]</a></p>"""),
+  ("pedidos", "Pedidos para llevar sin frenar la barra", """
+<p>Un agente de WhatsApp puede tomar el pedido completo, confirmar la hora de recogida y pasarlo a la barra o a tu sistema, para que quien prepara no tenga que contestar el celular. Si tienes catálogo cargado, el agente puede mandarlo dentro del chat.<a class="ref" href="#f3">[3]</a></p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 08:12</span>
+<span class="yo">Hola, ¿me preparan un flat white con leche de avena para las 8:30?</span>
+<span class="bot">¡Claro! Flat white con avena, listo a las 8:30 a tu nombre. Te esperamos en la barra. Soy el asistente con IA de la cafetería.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("frecuentes", "Clientes frecuentes, con permiso", """
+<p>El cliente que viene todos los días es el que más vale. Avisarle de un grano nuevo o de un horario especial por WhatsApp es posible, pero sale fuera de la ventana de 24 horas: necesita una plantilla aprobada y que el cliente haya aceptado recibir esos mensajes.<a class="ref" href="#f4">[4]</a> La política de WhatsApp Business no permite escribir a quien no lo aceptó.<a class="ref" href="#f5">[5]</a> Pide el permiso en el mismo chat del pedido, con una línea clara.</p>"""),
+  ("precio", "Precios y datos", """
+<p>Si el agente da precios, son totales, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f6">[6]</a> Nombres y teléfonos de tus clientes son datos personales, regidos por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f7">[7]</a></p>
+<p>Para elegir proveedor, mira la guía de <a href="/guias/chatbot-whatsapp-restaurantes/">cómo elegir un chatbot de WhatsApp</a>. Lo que hacemos en la ciudad está en <a href="/negocios/ciudad-de-mexico/gastronomia/">gastronomía en Ciudad de México</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Cómo aparece mi cafetería en Google Maps?", "Con un Perfil de Empresa completo: categoría exacta, horario real, fotos actuales, lo que te distingue en texto y respuesta a las reseñas."),
+  ("¿Puedo tomar pedidos para llevar por WhatsApp?", "Sí. Un agente toma el pedido, confirma la hora de recogida y lo pasa a la barra sin que nadie conteste el celular."),
+  ("¿Puedo avisar a mis clientes frecuentes por WhatsApp?", "Sí, si aceptaron recibir esos mensajes, con una plantilla aprobada por Meta."),
+  ("¿Sirve el catálogo de WhatsApp para una cafetería?", "Sí. El agente puede mandar el catálogo dentro del chat para que el cliente elija."),
+ ],
+ fuentes=["gbp_rank", "sch_cafe", "wa_catalogo", "wa_precios", "wa_politica", "lfpc", "lfpdppp"],
+)
+
+G["estudios-pilates-monterrey-reservas-clases"] = dict(
+ titulo="Estudios de pilates en Monterrey: reservas de clase y lista de espera por WhatsApp",
+ corto="Estudios de pilates en Monterrey: reservas y lista de espera",
+ desc="Cómo un estudio de pilates reformer en Monterrey puede tomar reservas de clase, llenar lugares cancelados con lista de espera y responder DMs al momento, con las reglas de WhatsApp, Instagram y la ley sobre precios.",
+ rubro=FI, audit="fitness", og="og-fitness.jpg",
+ wa="Hola! Leí la guía de estudios de pilates en Monterrey y quiero el Audit de mi estudio.",
+ bajada="En un estudio de pilates reformer cada clase tiene pocos lugares. Una cancelación de último minuto es un reformer vacío, y una consulta por DM que tarda en contestarse es una alumna que se va al estudio de San Pedro o de Cumbres que respondió antes. Esta guía explica cómo usar WhatsApp e Instagram para que los lugares se llenen.",
+ cuerpo=[
+  ("reservas", "Reservar en el mismo chat", """
+<p>Un agente de WhatsApp puede mostrar los lugares libres de cada clase, reservar y confirmar, si está conectado al sistema de reservas del estudio. Si el estudio usa una app de reservas, el agente responde las dudas y manda el enlace a la clase exacta.</p>"""),
+  ("espera", "Lista de espera que se mueve sola", """
+<div class="tabla"><table><thead><tr><th>Momento</th><th>Qué hace el agente</th></tr></thead><tbody>
+<tr><td>Clase llena</td><td>Ofrece entrar a la lista de espera y pide permiso para avisar</td></tr>
+<tr><td>Alguien cancela</td><td>Avisa a la primera persona de la lista y le da un tiempo para confirmar</td></tr>
+<tr><td>No confirma</td><td>Pasa a la siguiente de la lista</td></tr>
+<tr><td>Política de cancelación</td><td>La recuerda con la que fijó el estudio, sin cambiarla</td></tr>
+</tbody></table></div>
+<p>El aviso de lugar libre suele salir fuera de la ventana de 24 horas, así que necesita una plantilla aprobada y el permiso de la alumna.<a class="ref" href="#f1">[1]</a></p>"""),
+  ("dm", "Los DMs de Instagram", """
+<p>En pilates, Instagram es la vitrina. Un agente conectado a la API de mensajes de Instagram contesta los DMs y las respuestas a historias al momento, dentro de las 24 horas desde el último mensaje.<a class="ref" href="#f2">[2]</a> Que termine en algo concreto: la clase muestra reservada o el WhatsApp para seguir.</p>"""),
+  ("precio", "Paquetes y precio total", """
+<p>Si el agente informa paquetes de clases o membresías, el precio tiene que ser total, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f3">[3]</a> Vigencia de los paquetes y política de cancelación, por escrito y las mismas en el chat, la app y el mostrador.</p>"""),
+  ("salud", "Lesiones y datos de salud", """
+<p>Muchas alumnas preguntan si pueden tomar clase con una lesión o durante el embarazo. Esa respuesta la da una instructora, nunca el agente. Los datos sobre salud son datos personales sensibles para la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f4">[4]</a> No los pidas por el chat del agente.</p>
+<p>Sigue con la guía de <a href="/guias/retencion-socios-gimnasio-reservas-clases/">retención de socios y reservas de clase</a> y la de <a href="/guias/responder-dms-instagram-automaticamente-gimnasios/">cómo responder DMs de Instagram</a>. Lo que hacemos en la ciudad está en <a href="/negocios/monterrey/fitness/">gimnasios y estudios en Monterrey</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Puedo tomar reservas de pilates por WhatsApp?", "Sí, con un agente conectado al sistema de reservas del estudio, o que mande el enlace a la clase exacta si usas una app."),
+  ("¿Cómo funciona una lista de espera por WhatsApp?", "Cuando alguien cancela, el agente avisa a la primera persona de la lista, le da un tiempo para confirmar y si no, pasa a la siguiente."),
+  ("¿El agente puede responder si puedo tomar clase con una lesión?", "No. Esa respuesta la da una instructora, y los datos de salud no se piden por el chat del agente."),
+  ("¿Tengo que dar el precio total de los paquetes?", "Sí. La Ley Federal de Protección al Consumidor pide informar el precio total."),
+ ],
+ fuentes=["wa_precios", "ig_api", "lfpc", "lfpdppp"],
+)
+
+G["pedidos-recurrentes-whatsapp-distribuidoras"] = dict(
+ titulo="Pedidos recurrentes por WhatsApp para distribuidoras: recompra, corte y ruta",
+ corto="Pedidos recurrentes por WhatsApp para distribuidoras",
+ desc="Cómo una distribuidora o mayorista puede tomar por WhatsApp los pedidos de sus clientes de siempre, con catálogo, horario de corte y ruta de entrega, y recordar la recompra con permiso y plantillas aprobadas.",
+ rubro=DI, audit="distribucion", og="og-distribucion.jpg",
+ wa="Hola! Leí la guía de pedidos recurrentes por WhatsApp para distribuidoras y quiero el Audit de mi distribuidora.",
+ bajada="La mayoría de los pedidos de una distribuidora no son nuevos: son la tienda de abarrotes, el restaurante o la ferretería de siempre pidiendo lo mismo que la semana pasada, por WhatsApp, a la hora que pueden. El problema no es vender, es que ese pedido llegue completo, antes del corte y a la ruta correcta. Esta guía explica cómo ordenarlo.",
+ cuerpo=[
+  ("recompra", "El pedido de siempre, en un mensaje", """
+<p>Un agente puede reconocer al cliente por su número, recordarle lo que pidió la última vez y preguntar si repite o cambia algo. Lo que necesita es tener a mano el historial de pedidos y el catálogo vigente con existencias.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 18:40</span>
+<span class="yo">Buenas, lo mismo de la otra semana pero 2 cajas más de aceite.</span>
+<span class="bot">¡Buenas! Queda igual que el pedido anterior con 2 cajas más de aceite. Entra antes del corte, así que sale en la ruta del jueves. ¿Lo confirmo? Soy el asistente con IA de la distribuidora.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("catalogo", "Catálogo dentro del chat", """
+<p>La API de WhatsApp permite tener un catálogo y mandar mensajes con uno o varios productos para que el cliente elija sin salir del chat.<a class="ref" href="#f1">[1]</a> Para una distribuidora, sirve para el cliente que quiere probar algo nuevo; para el que repite, el atajo es el pedido anterior.</p>"""),
+  ("corte", "Horario de corte y ruta", """
+<div class="tabla"><table><thead><tr><th>Regla</th><th>Qué hace el agente</th></tr></thead><tbody>
+<tr><td>Horario de corte</td><td>Dice si el pedido entra en la siguiente ruta o en la otra</td></tr>
+<tr><td>Zona del cliente</td><td>Asigna el día de entrega que le toca</td></tr>
+<tr><td>Sin existencia</td><td>Avisa y ofrece el sustituto que definió la distribuidora, o pasa a un vendedor</td></tr>
+<tr><td>Crédito o saldo vencido</td><td>Pasa a una persona, sin negar ni aprobar nada</td></tr>
+</tbody></table></div>"""),
+  ("recordatorio", "Recordar la recompra, con permiso", """
+<p>Escribirle al cliente que suele pedir cada semana y esta vez no pidió es de lo más útil que puede hacer una distribuidora. Ese mensaje sale fuera de la ventana de 24 horas, así que necesita una plantilla aprobada y que el cliente haya aceptado recibir esos avisos.<a class="ref" href="#f2">[2]</a> La política de WhatsApp Business no permite escribir a listas compradas.<a class="ref" href="#f3">[3]</a></p>"""),
+  ("precios", "Precios y datos", """
+<p>Los precios que dé el agente tienen que ser los vigentes y totales, como pide la Ley Federal de Protección al Consumidor cuando aplica.<a class="ref" href="#f4">[4]</a> Los datos de contacto de tus clientes se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f5">[5]</a></p>
+<p>Para pedidos nuevos que necesitan cotización, sigue con la guía de <a href="/guias/pedidos-whatsapp-cotizaciones-distribuidoras/">pedidos por WhatsApp a cotización</a>. Para el resto, mira <a href="/guias/como-usar-ia-en-una-distribuidora/">cómo usar IA en una distribuidora</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Un agente puede tomar el pedido de siempre por WhatsApp?", "Sí, si tiene el historial de pedidos y el catálogo con existencias. Reconoce al cliente, le recuerda el último pedido y confirma cambios."),
+  ("¿Puede avisar si el pedido entra antes del corte?", "Sí. Con el horario de corte y las zonas de ruta, dice en qué entrega sale el pedido."),
+  ("¿Puedo recordar la recompra a un cliente que no pidió?", "Sí, si aceptó recibir esos avisos, con una plantilla aprobada por Meta."),
+  ("¿El agente puede aprobar crédito?", "No. Crédito y saldos vencidos pasan siempre a una persona."),
+ ],
+ fuentes=["wa_catalogo", "wa_precios", "wa_politica", "lfpc", "lfpdppp"],
 )
 
 ORDEN = list(G.keys())

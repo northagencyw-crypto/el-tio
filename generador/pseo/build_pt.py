@@ -167,7 +167,8 @@ def hub_cidade(c, todas):
     for k, r in RUBROS_PT.items():
         h.append(f'      <li><a href="/pt/negocios/{c["slug"]}/{SLUG_PT[k]}/"><strong>{e(r["plural"].capitalize())}</strong></a>: {e(p[k])}</li>')
     h += ["    </ul>", '    <section class="cierre"><h2>Por onde começar</h2><p>O Audit é gratuito e em 24 a 48 horas úteis você tem o mapa do que convém fazer primeiro.</p>',
-          '      <div class="acciones"><a class="btn" data-cta="audit" href="https://app.eltio.net/">Fazer o Audit gratuito</a>',
+          '      <p>Audit gratuito por setor: ' + ' · '.join(f'<a data-cta="audit" href="https://app.eltio.net/auditoria/{r["es"]}">{e(r["nome"])}</a>' for r in RUBROS_PT.values()) + '</p>',
+          '      <div class="acciones"><a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria/gastronomia">Fazer o Audit gratuito</a>',
           f'      <a class="enlace" data-cta="whatsapp" href="{e(wa("Olá! Tenho um negócio em " + c["nome"] + " e quero o Audit gratuito."))}">Escrever pelo WhatsApp</a></div></section>',
           '    <nav class="relacionado" aria-label="Para continuar"><p>Outras cidades</p><ul>']
     h += [f'      <li><a href="/pt/negocios/{v["slug"]}/">{e(v["nome"])}</a></li>' for v in vizinhas(c, todas, 6)]

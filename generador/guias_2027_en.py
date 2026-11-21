@@ -203,7 +203,7 @@ def construir(todas):
   <article>
     <h1>{tit}</h1>
     <p class="bajada">For hotels, villas, tour operators, real estate agencies and every business in the Riviera Maya that serves clients from abroad. Each guide answers one concrete question for one industry in one city, with criteria to compare and sources. To know what fits your business, the Audit is free.</p>
-{grupos}    <p><a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria">Take the free Audit</a> · <a href="/guias/2027/" hreflang="es">Guías 2027 en español</a></p>
+{grupos}    <p><a class="btn" data-cta="audit" href="/en/ai-search-visibility/#audit">Take the free Audit</a> · <a href="/guias/2027/" hreflang="es">Guías 2027 en español</a></p>
   </article>"""
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": tit, "url": BASE + ruta, "inLanguage": "en"}
     doc = en_shell(documento(ruta, tit, desc, "en", "og-portada.jpg", [ld, l_m], cuerpo), pie)

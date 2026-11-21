@@ -264,7 +264,7 @@ def indice(lista):
   <article>
     <h1>{tit}</h1>
     <p class="bajada">Cada guía responde una pregunta concreta de un rubro en una ciudad, con criterios para comparar y fuentes. Si quieres saber qué le conviene a tu negocio, el Audit es gratis.</p>
-{grupos}    <p><a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria">Hacer el Audit gratis</a> · <a href="/ventaja/">Calcula tu ventaja</a></p>
+{grupos}    <p><a class="btn" data-cta="audit" href="/posicionamiento-en-ia/#audit">Hacer el Audit gratis</a> · <a href="/ventaja/">Calcula tu ventaja</a></p>
   </article>"""
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": tit, "url": BASE + ruta}
     return ruta, documento(ruta, tit, desc, "es-MX", "og-portada.jpg", [ld, l_m], cuerpo)

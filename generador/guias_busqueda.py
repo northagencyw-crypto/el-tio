@@ -252,7 +252,7 @@ def renum(cuerpo_html, fuentes):
 
 def pagina(slug, d, pie):
     url = f"https://eltio.net/guias/{slug}/"
-    audit = f"https://app.eltio.net/auditoria/{d['audit']}" if d["audit"] else "https://app.eltio.net/auditoria"
+    audit = f"https://app.eltio.net/auditoria/{d['audit']}" if d["audit"] else "/posicionamiento-en-ia/#audit"
     wa = WA + urllib.parse.quote(d["wa"])
     article = {"@context": "https://schema.org", "@type": "Article", "headline": d["titulo"], "description": d["desc"],
                "inLanguage": "es-MX", "datePublished": FECHA, "dateModified": FECHA,

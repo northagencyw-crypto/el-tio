@@ -221,7 +221,8 @@ def hub_ciudad(c, todas):
     for k, r in RUBROS.items():
         h.append(f'      <li><a href="/negocios/{c["slug"]}/{k}/"><strong>{e(r["plural"].capitalize())}</strong></a>: {e(perfil(c)[k])}</li>')
     h += ["    </ul>", '    <section class="cierre"><h2>Por dónde empezar</h2><p>El Audit es gratis y en 24 a 48 horas hábiles tienes el mapa de lo que conviene hacer primero.</p>',
-          '      <div class="acciones"><a class="btn" data-cta="audit" href="https://app.eltio.net/">Hacer el Audit gratis</a>',
+          '      <p>Audit gratis por rubro: ' + ' · '.join(f'<a data-cta="audit" href="https://app.eltio.net/auditoria/{k}">{e(r["nombre"])}</a>' for k, r in RUBROS.items()) + '</p>',
+          '      <div class="acciones"><a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria/gastronomia">Hacer el Audit gratis</a>',
           f'      <a class="enlace" data-cta="whatsapp" href="{e(wa("Hola! Tengo un negocio en " + c["nombre"] + " y quiero el Audit gratis."))}">Escribir por WhatsApp</a></div></section>',
           '    <nav class="relacionado" aria-label="Para seguir"><p>Ciudades cercanas</p><ul>']
     h += [f'      <li><a href="/negocios/{v["slug"]}/">{e(v["nombre"])}</a></li>' for v in cercanas(c, todas, 6)]
@@ -244,6 +245,7 @@ def hub_indice(todas):
         if not cs:
             continue
         h += [f"    <h2>{e(pv['nombre'])}</h2>", "    <ul>"] + [f'      <li><a href="/negocios/{x["slug"]}/">{e(x["nombre"])}</a>, {e(x["estado"])}</li>' for x in sorted(cs, key=lambda x: x["nombre"])] + ["    </ul>"]
+    h.append('    <section class="cierre"><h2>Audit gratis por rubro</h2><ul>' + "".join(f'<li><a data-cta="audit" href="https://app.eltio.net/auditoria/{k}">{e(r["nombre"])}</a></li>' for k, r in RUBROS.items()) + "</ul></section>")
     h.append("  </article>")
     return ruta, documento(ruta, titulo, desc, "es-MX", "og-portada.jpg", [l_m], "\n".join(h))
 

@@ -3,7 +3,7 @@ Uso: python generador/llms_full.py  (desde la raiz del repo o desde cualquier la
 import html, os, re
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAGINAS = ["", "paginas-web/", "posicionamiento-en-ia/", "prospeccion-y-email/", "como-trabajamos/",
+PAGINAS = ["", "prueba/", "paginas-web/", "posicionamiento-en-ia/", "prospeccion-y-email/", "como-trabajamos/",
            "servicios/", "gastronomia/", "hospitality/", "real-estate/", "fitness/", "eventos/",
            "artistas/", "distribucion/", "ciudades/", "preguntas-frecuentes/", "sobre-el-tio/",
            "indice/", "cronometro/", "glosario/"]

@@ -161,7 +161,8 @@ def page(c):
     <h1>Tu página web para que te encuentren en {c["nombre"]}</h1>
     <p class="bajada">Una página con dominio propio, en 8 idiomas y con posicionamiento en Google y en los asistentes de IA, para que quien busca en {c["nombre"]} llegue a tu negocio y no al de al lado.</p>
     <div class="acciones">
-      <a class="btn" data-cta="audit" href="#audit">Hacer el Audit gratis</a>
+      <a class="btn" data-cta="prueba" href="/prueba/">Probar 14 días gratis</a>
+      <a class="enlace" data-cta="audit" href="#audit">Hacer el Audit gratis</a>
       <a class="enlace" data-cta="whatsapp" href="{wa}">Escribir por WhatsApp</a>
     </div>
   </section>
@@ -183,7 +184,7 @@ def page(c):
     <h2>Tu ventaja en {c["nombre"]} es hoy</h2>
     <p>La mayoría de los negocios de {c["zona"]} todavía no usa IA para contestar, dar seguimiento ni aparecer cuando alguien le pregunta a un asistente. Eso no va a durar: cada mes se suma alguien de tu rubro y de tu zona.</p>
     <p>Quien se mueve ahora se queda con las consultas que hoy nadie contesta a tiempo. El primer paso es saber cómo está tu negocio, y para eso está el Audit gratis.</p>
-    <div class="acciones"><a class="btn" data-cta="audit" href="#audit">No pierdas la ventaja, es hoy</a></div>
+    <div class="acciones"><a class="btn" data-cta="prueba" href="/prueba/">Probar 14 días gratis</a> <a class="enlace" data-cta="audit" href="#audit">No pierdas la ventaja, es hoy</a></div>
   </section>
   <section class="franja">
     <h2>Rubros en {c["nombre"]}</h2>

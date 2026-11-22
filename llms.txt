@@ -4,7 +4,20 @@
 > pagina web con dominio propio, en 8 idiomas y con posicionamiento en Google
 > y en buscadores de IA (ChatGPT, Perplexity, Gemini, AI Overviews). Despues:
 > chatbot, CRM y datos; luego prospeccion y email marketing; luego otras
-> soluciones de IA.
+> soluciones de IA. La entrada mas rapida es la prueba gratis de 14 dias del
+> agente de mensajes: https://eltio.net/prueba/
+
+## Prueba gratis de 14 dias (https://eltio.net/prueba/)
+
+El gancho de entrada de El Tio: se instala el agente que contesta los DMs de
+Instagram y el WhatsApp del negocio, el negocio lo usa 14 dias sin pagar nada y
+paga solo si le sirvio. El agente responde precios, horarios, ubicacion, menu o
+disponibilidad con la informacion del negocio, toma reservas, citas o pedidos y
+pasa la conversacion a una persona cuando se la piden. Se conecta con un enlace
+en cinco minutos. Al dia 7 y al dia 12 llega el reporte de como va; al dia 14 el
+negocio decide. Si sigue: USD 399 de inicio y la mensualidad del plan, con link
+de pago por chat. Si no, se desconecta y no se paga nada. Sin contratos y sin
+llamadas. Se pide en https://eltio.net/prueba/ o por chat.
 
 ## Oferta principal
 
@@ -90,6 +103,7 @@ https://eltio.net/pt/negocios/.
 
 ## Mas paginas
 
+- Prueba gratis de 14 dias del agente de mensajes: https://eltio.net/prueba/
 - Como trabajamos: https://eltio.net/como-trabajamos/
 - Preguntas frecuentes: https://eltio.net/preguntas-frecuentes/
 - Guias: https://eltio.net/guias/
@@ -108,6 +122,30 @@ https://eltio.net/pt/negocios/.
   - Como usar IA en una empresa de eventos en 2026, 5 ventajas que tu competencia ya aprovecha: https://eltio.net/guias/como-usar-ia-en-eventos/
   - Como usar IA siendo artista en 2026, 5 ventajas que otros artistas ya aprovechan: https://eltio.net/guias/como-usar-ia-siendo-artista/
   - Como usar IA en una distribuidora en 2026, 5 ventajas que tu competencia ya aprovecha: https://eltio.net/guias/como-usar-ia-en-una-distribuidora/
+  - Chatbot de WhatsApp para restaurantes, como elegir uno que si reserve: https://eltio.net/guias/chatbot-whatsapp-restaurantes/
+  - Como aparecer cuando le preguntan a ChatGPT por un negocio en tu ciudad: https://eltio.net/guias/como-aparecer-en-chatgpt-negocio-en-tu-ciudad/
+  - Reservas automaticas por Instagram para hoteles boutique: https://eltio.net/guias/reservas-automaticas-instagram-hoteles-boutique/
+  - Como responder DMs de Instagram automaticamente en un gimnasio: https://eltio.net/guias/responder-dms-instagram-automaticamente-gimnasios/
+  - Pagina web para inmobiliaria en Monterrey, que necesita para traer clientes: https://eltio.net/guias/pagina-web-inmobiliaria-monterrey/
+  - Chatbot de WhatsApp para restaurantes en Guadalajara, reservas, pedidos y fin de semana: https://eltio.net/guias/chatbot-whatsapp-restaurantes-guadalajara/
+  - Reservas por Instagram para restaurantes en Monterrey, del DM a la mesa: https://eltio.net/guias/reservas-instagram-restaurantes-monterrey/
+  - Automatizar mensajes para hoteles en Tulum, antes, durante y despues de la estancia: https://eltio.net/guias/automatizar-mensajes-hoteles-tulum/
+  - Automatizar mensajes para hoteles en Playa del Carmen, consultas, traslados y grupos: https://eltio.net/guias/automatizar-mensajes-hoteles-playa-del-carmen/
+  - Paginas web para gimnasios en CDMX, que necesita la tuya para llenar clases: https://eltio.net/guias/paginas-web-gimnasios-cdmx/
+  - Como pedir resenas en Google sin incentivos (y sin romper las reglas): https://eltio.net/guias/como-pedir-resenas-google-sin-incentivos/
+  - Agente de WhatsApp para inmobiliarias en CDMX, contestar cada lead antes que el portal: https://eltio.net/guias/agente-whatsapp-inmobiliarias-cdmx/
+  - Leads inmobiliarios en Guadalajara y Zapopan, de la consulta a la visita agendada: https://eltio.net/guias/leads-inmobiliarios-guadalajara-zapopan/
+  - Inmobiliarias en Tulum, como atender por WhatsApp a compradores extranjeros: https://eltio.net/guias/inmobiliarias-tulum-compradores-extranjeros/
+  - Reservas por WhatsApp para bares y antros en CDMX, mesas, listas y grupos: https://eltio.net/guias/reservas-whatsapp-bares-antros-cdmx/
+  - Reservas de mesa para bares y antros en Monterrey, del DM a la lista: https://eltio.net/guias/reservas-mesas-bares-antros-monterrey/
+  - Cotizaciones para salones de eventos en Guadalajara, bodas, XV anos y empresas: https://eltio.net/guias/cotizaciones-salones-eventos-guadalajara/
+  - Salones de eventos en Monterrey, agendar visitas y apartar fechas por WhatsApp: https://eltio.net/guias/salones-eventos-monterrey-apartar-fechas/
+  - Cafeterias en CDMX, pedidos por WhatsApp y aparecer en Google Maps: https://eltio.net/guias/cafeterias-cdmx-pedidos-whatsapp-google-maps/
+  - Estudios de pilates en Monterrey, reservas de clase y lista de espera por WhatsApp: https://eltio.net/guias/estudios-pilates-monterrey-reservas-clases/
+  - Pedidos recurrentes por WhatsApp para distribuidoras, recompra, corte y ruta: https://eltio.net/guias/pedidos-recurrentes-whatsapp-distribuidoras/
+  - Mesas que se reservan y no llegan, confirmacion por WhatsApp para restaurantes en CDMX: https://eltio.net/guias/confirmar-reservas-whatsapp-restaurantes-cdmx/
+  - Hoteles en CDMX, cotizar grupos y viajeros de negocios por WhatsApp sin perder la noche: https://eltio.net/guias/cotizaciones-grupos-hoteles-cdmx-whatsapp/
+  - Gimnasios en Guadalajara, recuperar al socio que dejo de venir, por WhatsApp: https://eltio.net/guias/recuperar-socios-inactivos-gimnasios-guadalajara/
   - (EN) How to use AI in a restaurant in 2026: 5 advantages your competitors already use: https://eltio.net/en/guides/how-to-use-ai-in-a-restaurant/
   - (EN) How to use AI in a hotel in 2026: 5 advantages your competitors already use: https://eltio.net/en/guides/how-to-use-ai-in-a-hotel/
   - (EN) How to use AI in a real estate agency in 2026: 5 advantages your competitors already use: https://eltio.net/en/guides/how-to-use-ai-in-a-real-estate-agency/
@@ -583,6 +621,8 @@ El sitio esta en espanol en la raiz y traducido a estos idiomas. El Audit es en 
 - AI for distributors in Cancún: 2027 guide: https://eltio.net/en/guides/2027/ai-for-distributors-cancun-2027/
 - How to get more clients for your distribution business in Tulum in 2027: https://eltio.net/en/guides/2027/get-more-clients-distributors-tulum-2027/
 <!-- fin guias 2027 -->
+
+
 
 
 

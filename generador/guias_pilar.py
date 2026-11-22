@@ -152,7 +152,8 @@ def pagina(g):
       <p>El Audit es gratis: un cuestionario de 15 a 25 minutos sobre cómo trabaja hoy tu negocio y, en 24 a 48 horas hábiles, el mapa de qué ventaja conviene tomar primero. Si lo que más te sirve no es algo que hagamos nosotros, te lo decimos.</p>
       <p><strong>No pierdas la ventaja, es hoy. Habla con El Tío.</strong></p>
       <div class="acciones">
-        <a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria/{g['rubro']}">Hacer el Audit gratis</a>
+        <a class="btn" data-cta="prueba" href="/prueba/">Probar 14 días gratis</a>
+        <a class="enlace" data-cta="audit" href="https://app.eltio.net/auditoria/{g['rubro']}">Hacer el Audit gratis</a>
         <a class="enlace" data-cta="whatsapp" href="https://wa.me/{WA}?text={wa_txt}">Escribir por WhatsApp</a>
       </div>
     </section>

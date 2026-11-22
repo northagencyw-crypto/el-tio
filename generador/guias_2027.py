@@ -213,7 +213,8 @@ def pagina(t, rk, cs, todas):
       <p>El Audit gratis de El Tío mira cómo trabaja hoy {e(r['tu'])} y te dice qué ventaja tomar primero. Es un cuestionario de 15 a 25 minutos y el mapa llega en 24 a 48 horas hábiles.</p>
       <p><strong>No pierdas la ventaja, es hoy. Habla con El Tío.</strong></p>
       <div class="acciones">
-        <a class="btn" data-cta="audit" href="{audit}">Hacer el Audit gratis</a>
+        <a class="btn" data-cta="prueba" href="/prueba/">Probar 14 días gratis</a>
+        <a class="enlace" data-cta="audit" href="{audit}">Hacer el Audit gratis</a>
         <a class="enlace" data-cta="whatsapp" href="{e(wa(f'Hola! Leí la guía 2027 para {r["plural"]} en {c} y quiero el Audit de mi negocio.'))}">Escribir por WhatsApp</a>
       </div>
     </section>""")
@@ -264,7 +265,8 @@ def indice(lista):
   <article>
     <h1>{tit}</h1>
     <p class="bajada">Cada guía responde una pregunta concreta de un rubro en una ciudad, con criterios para comparar y fuentes. Si quieres saber qué le conviene a tu negocio, el Audit es gratis.</p>
-{grupos}    <p><a class="btn" data-cta="audit" href="/posicionamiento-en-ia/#audit">Hacer el Audit gratis</a> · <a href="/ventaja/">Calcula tu ventaja</a></p>
+    <p><a class="btn" data-cta="prueba" href="/prueba/">Probar 14 días gratis</a></p>
+{grupos}    <p><a class="enlace" data-cta="audit" href="/posicionamiento-en-ia/#audit">Hacer el Audit gratis</a> · <a href="/ventaja/">Calcula tu ventaja</a></p>
   </article>"""
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": tit, "url": BASE + ruta}
     return ruta, documento(ruta, tit, desc, "es-MX", "og-portada.jpg", [ld, l_m], cuerpo)

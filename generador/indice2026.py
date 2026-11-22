@@ -157,7 +157,8 @@ html = head(TIT, DESC, URL, [dataset, ld_m]) + html_m + f"""  <section class="fr
       <div><b>{p(BAJO[3])}</b>en {corto(BAJO[0])}, el estado más bajo</div>
     </div>
     <div class="acciones">
-      <a class="btn" data-cta="audit" href="#audit">Hacer el Audit gratis</a>
+      <a class="btn" data-cta="prueba" href="/prueba/">Probar 14 días gratis</a>
+      <a class="enlace" data-cta="audit" href="#audit">Hacer el Audit gratis</a>
       <a class="enlace" href="#descargas">Descargar las tablas (CSV)</a>
     </div>
   </section>

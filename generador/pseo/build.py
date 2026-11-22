@@ -190,7 +190,8 @@ def pagina(c, rk, todas, guias):
     h += ['    <section class="cierre" id="empezar">', "      <h2>Por dónde empezar</h2>",
           f"      <p>El Audit es gratis: un cuestionario de 15 a 25 minutos sobre {e(r['uno'])} y, en 24 a 48 horas hábiles, el mapa de lo que conviene hacer primero. Todo sigue por chat.</p>",
           '      <div class="acciones">',
-          f'        <a class="btn" data-cta="audit" href="{audit}">Hacer el Audit gratis</a>',
+          f'        <a class="btn" data-cta="prueba" href="/prueba/">Probar 14 días gratis</a>',
+          f'        <a class="enlace" data-cta="audit" href="{audit}">Hacer el Audit gratis</a>',
           f'        <a class="enlace" data-cta="whatsapp" href="{e(wtxt)}">Escribir por WhatsApp</a>',
           "      </div>", "    </section>",
           '    <nav class="relacionado" aria-label="Para seguir">', "      <p>Para seguir</p>", "      <ul>",
@@ -222,7 +223,7 @@ def hub_ciudad(c, todas):
         h.append(f'      <li><a href="/negocios/{c["slug"]}/{k}/"><strong>{e(r["plural"].capitalize())}</strong></a>: {e(perfil(c)[k])}</li>')
     h += ["    </ul>", '    <section class="cierre"><h2>Por dónde empezar</h2><p>El Audit es gratis y en 24 a 48 horas hábiles tienes el mapa de lo que conviene hacer primero.</p>',
           '      <p>Audit gratis por rubro: ' + ' · '.join(f'<a data-cta="audit" href="https://app.eltio.net/auditoria/{k}">{e(r["nombre"])}</a>' for k, r in RUBROS.items()) + '</p>',
-          '      <div class="acciones"><a class="btn" data-cta="audit" href="https://app.eltio.net/auditoria/gastronomia">Hacer el Audit gratis</a>',
+          '      <div class="acciones"><a class="btn" data-cta="prueba" href="/prueba/">Probar 14 días gratis</a> <a class="enlace" data-cta="audit" href="https://app.eltio.net/auditoria/gastronomia">Hacer el Audit gratis</a>',
           f'      <a class="enlace" data-cta="whatsapp" href="{e(wa("Hola! Tengo un negocio en " + c["nombre"] + " y quiero el Audit gratis."))}">Escribir por WhatsApp</a></div></section>',
           '    <nav class="relacionado" aria-label="Para seguir"><p>Ciudades cercanas</p><ul>']
     h += [f'      <li><a href="/negocios/{v["slug"]}/">{e(v["nombre"])}</a></li>' for v in cercanas(c, todas, 6)]

@@ -904,6 +904,181 @@ G["pedidos-recurrentes-whatsapp-distribuidoras"] = dict(
  fuentes=["wa_catalogo", "wa_precios", "wa_politica", "lfpc", "lfpdppp"],
 )
 
+# ---- 3 guias nuevas (22/11/2026) ----
+F["sch_hotel"] = ("Schema.org, tipo «Hotel».", "https://schema.org/Hotel")
+F["g_hreflang"] = ("Google Search Central, «Indicarle a Google las versiones traducidas de tus paginas (hreflang)».", "https://developers.google.com/search/docs/specialty/international/localized-versions")
+
+HO = ("Hospitality", "/hospitality/")
+
+G["confirmar-reservas-whatsapp-restaurantes-cdmx"] = dict(
+ fecha="2026-11-22", fecha_txt="22 de noviembre de 2026",
+ titulo="Mesas que se reservan y no llegan: confirmación por WhatsApp para restaurantes en CDMX",
+ titulo_seo="Confirmar reservas por WhatsApp en restaurantes de CDMX",
+ corto="Confirmar reservas por WhatsApp en restaurantes de CDMX",
+ desc="Cómo confirmar por WhatsApp las reservas de tu restaurante en CDMX, liberar las mesas que no llegan y cuándo pedir anticipo, con las reglas de Meta.",
+ rubro=GA, audit="gastronomia", og="og-gastronomia.jpg",
+ wa="Hola! Leí la guía de confirmación de reservas por WhatsApp para restaurantes en CDMX y quiero probar el agente 14 días.",
+ bajada="Un sábado en la Roma tu restaurante está lleno en el papel y con dos mesas vacías a las nueve y media. Reservaron y no avisaron. Esas dos mesas son la diferencia del servicio, y la fila de la puerta ya se fue a otro lado. Esta guía explica cómo confirmar cada reserva por WhatsApp, liberar la mesa a tiempo y cuándo pedir anticipo.",
+ cuerpo=[
+  ("por-que", "Por qué una mesa se queda vacía", """
+<p>Casi nadie reserva pensando en faltar. Reserva en tres lugares por si acaso, o se le hace tarde y no avisa porque le da pena. En Ciudad de México se suma el tráfico: una reserva de las 21:00 en Polanco que sale de Santa Fe a las 20:30 llega tarde o no llega.</p>
+<p>La mesa no se pierde por el cliente que falta. Se pierde porque te enteras cuando ya pasó la hora, y a esa altura no alcanzas a sentar a nadie más.</p>"""),
+  ("cuando", "Cuándo conviene confirmar", """
+<div class="tabla"><table><thead><tr><th>Momento</th><th>Qué manda el agente</th><th>Para qué sirve</th></tr></thead><tbody>
+<tr><td>Al reservar</td><td>Confirmación con fecha, hora, personas y la política de la casa</td><td>Que quede escrito lo que acordaron</td></tr>
+<tr><td>El día anterior</td><td>Un mensaje que se responde con sí o no</td><td>Liberar con un día de aviso</td></tr>
+<tr><td>Tres horas antes</td><td>Recordatorio corto con la dirección y el estacionamiento</td><td>Bajar el que llega tarde</td></tr>
+<tr><td>Sin respuesta</td><td>Avisa que la mesa se guarda 15 minutos</td><td>Dejar la regla clara antes, no después</td></tr>
+<tr><td>Cancelación</td><td>Libera el lugar en el sistema y ofrece el horario a la lista de espera</td><td>Volver a vender esa mesa</td></tr>
+</tbody></table></div>"""),
+  ("reglas", "Lo que permiten las reglas de WhatsApp", """
+<p>Para mandar estos mensajes se usa la plataforma de WhatsApp Business, la API, a través de un proveedor o directamente con Meta.<a class="ref" href="#f1">[1]</a> Dentro de las 24 horas siguientes al último mensaje del cliente contestas libremente. El recordatorio del día anterior cae fuera de esa ventana, así que necesita una plantilla aprobada por Meta y que el cliente haya aceptado recibir tus mensajes.<a class="ref" href="#f2">[2]</a></p>
+<div class="aviso">En la práctica: pide el permiso en el mismo chat donde se confirma la mesa. Una línea basta, y queda registrada en la conversación.</div>
+<p>La política de mensajería de WhatsApp Business no permite escribir a listas compradas ni a quien no te dio su número.<a class="ref" href="#f3">[3]</a></p>"""),
+  ("lista-espera", "La lista de espera es la otra mitad", """
+<p>Confirmar sirve si tienes a quién sentar. Cuando alguien cancela, el agente avisa a la primera persona de la lista de espera de ese horario y le da un tiempo para confirmar. Si no contesta, pasa a la siguiente.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 12:10</span>
+<span class="bot">¡Hola, Ana! Te recuerdo tu mesa para 4 mañana a las 21:00 en Álvaro Obregón. ¿La confirmas? Responde 1 para confirmar o 2 para cancelar.</span>
+<span class="yo">2, se nos complicó</span>
+<span class="bot">Listo, cancelada sin costo. Liberé la mesa y te aviso cuando tengamos lugar el próximo fin. Soy el asistente con IA del restaurante.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("anticipo", "Anticipo solo donde hace falta", """
+<p>Pedir anticipo a todo el mundo espanta reservas. Donde sí conviene es en grupos grandes, mesas de ventana, fin de año y menús de degustación. Si cobras anticipo o depósito, el monto total tiene que estar informado desde el principio, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f4">[4]</a> Escribe la política de cancelación en el mismo mensaje en que pides el pago.</p>"""),
+  ("medir", "Qué mirar cada semana", """
+<ol class="lista">
+<li>Cuántas reservas confirmaron, cuántas cancelaron con aviso y cuántas faltaron sin avisar.</li>
+<li>Cuántas mesas liberadas se volvieron a vender con la lista de espera.</li>
+<li>A qué hora y qué día se concentra el que no llega. Casi siempre hay un patrón.</li>
+</ol>
+<p>Si además quieres que el agente tome la reserva desde cero, está en la guía de <a href="/guias/chatbot-whatsapp-restaurantes-ciudad-de-mexico/">chatbot de WhatsApp para restaurantes en Ciudad de México</a>, y lo que debe hacer cualquier chatbot de restaurante, en <a href="/guias/chatbot-whatsapp-restaurantes/">cómo elegir uno que sí reserve</a>. Lo que hacemos en la ciudad está en <a href="/negocios/ciudad-de-mexico/gastronomia/">restaurantes y bares en Ciudad de México</a>.</p>"""),
+  ("datos", "Datos de tus clientes", """
+<p>Nombre, teléfono y la fecha de la reserva son datos personales, y en México los rige la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f5">[5]</a> Ten el aviso de privacidad a mano y usa esos datos solo para lo que le dijiste al cliente. Esta guía no reemplaza a un abogado.</p>"""),
+ ],
+ faq=[
+  ("¿Puedo mandar recordatorios de reserva por WhatsApp?", "Sí, con una plantilla aprobada por Meta y el permiso del cliente, porque el recordatorio sale fuera de la ventana de 24 horas."),
+  ("¿Cuándo conviene mandar la confirmación?", "Al reservar, el día anterior con una respuesta de sí o no, y un recordatorio corto unas horas antes del servicio."),
+  ("¿Puedo cobrar anticipo por una reserva?", "Sí, y conviene en grupos grandes y fechas pico. El monto total y la política de cancelación tienen que estar informados desde el principio."),
+  ("¿Qué hago con la mesa que se libera?", "Ofrecerla a la lista de espera de ese horario. El agente avisa a la primera persona y le da un tiempo para confirmar."),
+  ("¿Puedo escribirle a clientes que nunca me dieron su número?", "No. La política de mensajería de WhatsApp Business no permite escribir a listas compradas ni a quien no te dio su contacto."),
+ ],
+ fuentes=["wa_api", "wa_precios", "wa_politica", "lfpc", "lfpdppp"],
+)
+
+G["cotizaciones-grupos-hoteles-cdmx-whatsapp"] = dict(
+ fecha="2026-11-22", fecha_txt="22 de noviembre de 2026",
+ titulo="Hoteles en CDMX: cotizar grupos y viajeros de negocios por WhatsApp sin perder la noche",
+ titulo_seo="Cotizar grupos por WhatsApp en hoteles de CDMX",
+ corto="Cotizar grupos por WhatsApp en hoteles de CDMX",
+ desc="Cómo responder al momento las solicitudes de grupos y viajeros corporativos de tu hotel en CDMX y pasarlas a ventas completas, por WhatsApp e Instagram.",
+ rubro=HO, audit="hospitality", og="og-hospitality.jpg",
+ wa="Hola! Leí la guía de cotizaciones de grupos por WhatsApp para hoteles en CDMX y quiero probar el agente 14 días.",
+ bajada="En un hotel de Ciudad de México una solicitud de grupo vale diez habitaciones, no una. Llega por WhatsApp un viernes a las once de la noche, desde una asistente que está armando un viaje de equipo o una boda. El que contesta primero cotiza; el que contesta el lunes queda fuera. Esta guía explica cómo responder siempre y pasarle la solicitud a ventas lista.",
+ cuerpo=[
+  ("que-llega", "Qué llega por el chat de un hotel en la capital", """
+<p>En Ciudad de México conviven tres demandas distintas en el mismo número: el viajero de negocios que necesita factura y salida tarde, el grupo corporativo con salón y coffee break, y la familia que viene por una boda en Polanco o en el Centro. Cada uno pregunta distinto y a cada uno le urge distinto.</p>
+<p>Lo que casi nunca se puede es cotizar un grupo de forma automática. Lo que sí se puede, y cambia el resultado, es que nadie se quede esperando y que ventas reciba la solicitud completa.</p>"""),
+  ("calificar", "Las siete preguntas que arman una cotización", """
+<div class="tabla"><table><thead><tr><th>Dato</th><th>Por qué lo pide el agente</th></tr></thead><tbody>
+<tr><td>Fechas y noches</td><td>Define temporada y si hay bloqueo posible</td></tr>
+<tr><td>Habitaciones y ocupación</td><td>Separa un grupo real de una consulta suelta</td></tr>
+<tr><td>Motivo del viaje</td><td>Corporativo, boda, congreso o placer cambian la tarifa</td></tr>
+<tr><td>Salón o alimentos</td><td>Es la mitad del ingreso de un grupo</td></tr>
+<tr><td>Empresa y facturación</td><td>Evita rehacer todo al final</td></tr>
+<tr><td>Quién decide y para cuándo</td><td>Ordena la prioridad de ventas</td></tr>
+<tr><td>WhatsApp y correo</td><td>Permite seguir después de la ventana de 24 horas</td></tr>
+</tbody></table></div>
+<div class="aviso">En la práctica: el agente no manda tarifas de grupo. Toma los siete datos, confirma que una persona de ventas responde con la cotización y dice en cuánto tiempo.</div>"""),
+  ("reglas", "Qué permiten WhatsApp e Instagram", """
+<p>Para que un agente conteste el WhatsApp del hotel se usa la plataforma de WhatsApp Business, la API.<a class="ref" href="#f1">[1]</a> Dentro de las 24 horas siguientes al último mensaje contestas libremente; para escribir después necesitas una plantilla aprobada y el permiso del huésped.<a class="ref" href="#f2">[2]</a> En Instagram, con una cuenta profesional conectada a la API de mensajes, pasa algo parecido: 24 horas para el agente y hasta siete días para una persona del equipo con la etiqueta de agente humano.<a class="ref" href="#f3">[3]</a></p>
+<p>Por eso el primer objetivo del chat nocturno es tener el correo y el WhatsApp de quien pregunta. Sin eso, la conversación se cierra sola.</p>"""),
+  ("respuesta", "Cómo se ve una buena respuesta de madrugada", """
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 23:20</span>
+<span class="yo">Hola, necesito 12 habitaciones del 10 al 12 de marzo y un salón para 30 personas</span>
+<span class="bot">¡Hola! Tomo los datos: 12 habitaciones del 10 al 12 de marzo y salón para 30. ¿Es un viaje de empresa o un evento social, y necesitan alimentos? Las tarifas de grupo las arma ventas y te llegan mañana antes de las 11:00. ¿Te las paso por este WhatsApp o por correo? Soy el asistente con IA del hotel.</span>
+<span class="yo">Empresa, con coffee break. Por correo mejor.</span>
+<span class="bot">Perfecto. Déjame el correo y el nombre de la empresa y queda agendado con ventas. Soy el asistente con IA del hotel.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("no-hace", "Lo que el agente no debe hacer", """
+<ol class="lista">
+<li><strong>No confirmar bloqueos.</strong> Un grupo se confirma contra inventario y con una persona. Si el agente confirma de más, el problema cuesta más que la venta.</li>
+<li><strong>No inventar tarifas.</strong> Si no tiene la tarifa cargada, no la estima.</li>
+<li><strong>No prometer salones.</strong> El montaje y los horarios los define el hotel.</li>
+<li><strong>No tocar quejas.</strong> Un huésped molesto pasa a una persona siempre.</li>
+</ol>"""),
+  ("idiomas", "Dos idiomas y una ficha que se pueda leer", """
+<p>Buena parte de las solicitudes corporativas de la capital llegan en inglés. El agente debe responder en el idioma en que le escriben y guardar ese idioma en el contacto. En el sitio del hotel, si hay una versión por idioma, conviene declararla con hreflang para que Google entienda cuál mostrar.<a class="ref" href="#f4">[4]</a> Suma datos estructurados de tipo Hotel con la dirección, el teléfono y los servicios.<a class="ref" href="#f5">[5]</a></p>
+<p>Para el huésped individual que pregunta tarifa de una noche, sigue con la guía de <a href="/guias/reservas-directas-whatsapp-hoteles/">reservas directas por WhatsApp para hoteles</a>, y para los DMs, la de <a href="/guias/reservas-automaticas-instagram-hoteles-boutique/">reservas automáticas por Instagram</a>. Lo que hacemos en la ciudad está en <a href="/negocios/ciudad-de-mexico/hospitality/">hoteles y rentas en Ciudad de México</a>.</p>"""),
+  ("datos", "Datos de quien cotiza", """
+<p>Nombre, correo, empresa y fechas son datos personales y los rige la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f6">[6]</a> Enlaza el aviso de privacidad en el mismo chat donde pides el correo.</p>"""),
+ ],
+ faq=[
+  ("¿Un agente de IA puede cotizar un grupo solo?", "No conviene. Puede tomar los datos completos y avisar en cuánto tiempo responde ventas, pero la tarifa de grupo la arma una persona contra inventario."),
+  ("¿Qué datos tiene que pedir antes de pasar la solicitud?", "Fechas, habitaciones, motivo del viaje, salón o alimentos, empresa y facturación, quién decide y para cuándo, más WhatsApp y correo."),
+  ("¿Puede contestar en inglés?", "Sí. Responde en el idioma en que le escriben y guarda ese idioma en el contacto del huésped."),
+  ("¿Hasta cuándo puede seguir la conversación?", "El agente contesta libremente durante 24 horas desde el último mensaje. Después se escribe con una plantilla aprobada en WhatsApp, o sigue una persona del equipo en Instagram hasta siete días."),
+  ("¿Sirve para hoteles chicos?", "Sí. Un hotel de 20 habitaciones recibe menos solicitudes de grupo, y justamente por eso perder una pesa más."),
+ ],
+ fuentes=["wa_api", "wa_precios", "ig_api", "g_hreflang", "sch_hotel", "lfpdppp"],
+)
+
+G["recuperar-socios-inactivos-gimnasios-guadalajara"] = dict(
+ fecha="2026-11-22", fecha_txt="22 de noviembre de 2026",
+ titulo="Gimnasios en Guadalajara: recuperar al socio que dejó de venir, por WhatsApp",
+ titulo_seo="Recuperar socios inactivos en gimnasios de Guadalajara",
+ corto="Recuperar socios inactivos en gimnasios de Guadalajara",
+ desc="Cómo detectar en Guadalajara al socio que dejó de entrenar y escribirle con permiso y plantillas aprobadas, sin regalar la membresía.",
+ rubro=FI, audit="fitness", og="og-fitness.jpg",
+ wa="Hola! Leí la guía de recuperar socios inactivos en gimnasios de Guadalajara y quiero probar el agente 14 días.",
+ bajada="El socio que se da de baja no te avisa: deja de venir. Pasa tres semanas sin entrar al gimnasio de Providencia o de Zapopan, llega el cobro del mes y ahí cancela. Para entonces ya decidió. Esta guía explica cómo darte cuenta a tiempo y escribirle cuando todavía se puede hacer algo, con las reglas de Meta y de la ley.",
+ cuerpo=[
+  ("senal", "La señal llega antes de la baja", """
+<p>La baja se ve en la asistencia, no en el cobro. Un socio que entrenaba tres veces por semana y lleva diez días sin aparecer es un socio en riesgo. Si tu control de acceso o tu sistema de clases guarda las entradas, ya tienes el dato; falta que alguien lo mire todos los días, y eso es lo que puede hacer un agente.</p>
+<div class="tabla"><table><thead><tr><th>Señal</th><th>Cuándo escribir</th><th>Qué dice el mensaje</th></tr></thead><tbody>
+<tr><td>7 días sin entrar</td><td>Al octavo día</td><td>Pregunta cómo va y ofrece reservar la clase de la semana</td></tr>
+<tr><td>Faltó a dos clases reservadas</td><td>Al día siguiente</td><td>Pregunta si cambió de horario y ofrece otro</td></tr>
+<tr><td>21 días sin entrar</td><td>Antes del siguiente cobro</td><td>Ofrece una sesión con un coach para rearmar la rutina</td></tr>
+<tr><td>Pidió cancelar</td><td>En el momento</td><td>Pasa a una persona, sin retener a la fuerza</td></tr>
+</tbody></table></div>"""),
+  ("permiso", "Escribirle fuera de la conversación: permiso y plantilla", """
+<p>Estos mensajes salen cuando el socio no escribió nada, es decir, fuera de la ventana de 24 horas. En WhatsApp eso significa plantilla aprobada por Meta y permiso previo del socio.<a class="ref" href="#f1">[1]</a> La política de mensajería de WhatsApp Business no permite escribir a quien no aceptó recibir tus mensajes.<a class="ref" href="#f2">[2]</a></p>
+<div class="aviso">En la práctica: el permiso se pide al inscribirse, en el mismo formulario donde el socio deja su teléfono, con una casilla que diga para qué le vas a escribir.</div>
+<p>Si el socio llegó por Instagram, el agente puede contestarle en el DM dentro de las 24 horas desde su último mensaje, y después sigue una persona del equipo hasta siete días con la etiqueta de agente humano.<a class="ref" href="#f3">[3]</a> Por eso conviene mover la conversación a WhatsApp apenas se pueda.</p>"""),
+  ("mensaje", "El mensaje que trae de vuelta", """
+<p>El que dejó de venir casi nunca se fue por el precio. Se fue porque cambió de horario, se lesionó, se aburrió de la misma rutina o perdió el hábito. Un mensaje que ofrece descuento le confirma que el gimnasio vale menos. Uno que ofrece resolver el motivo funciona mejor.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 09:30</span>
+<span class="bot">¡Hola, Diego! Vi que no has venido estas dos semanas. ¿Se te cruzó el horario? Abrimos lugares a las 7:00 y a las 21:00, y si quieres te agendo 20 minutos con un coach para rearmar tu rutina. ¿Te late? Soy el asistente con IA del gimnasio.</span>
+<span class="yo">Ando full en el trabajo, no alcanzo a las 8</span>
+<span class="bot">Te dejo lugar mañana a las 21:00 y te mando el recordatorio. Si ese horario te funciona, lo dejamos fijo. Soy el asistente con IA del gimnasio.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("precio", "Promociones y precio total", """
+<p>Si en algún momento ofreces una reactivación con precio, tiene que ser el precio total, con vigencia y condiciones claras, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f4">[4]</a> Que la condición sea la misma en el chat, en el mostrador y en Instagram.</p>"""),
+  ("salud", "Lesiones y datos sensibles", """
+<p>Muchos socios dejan de venir por una lesión. Esa conversación la toma un coach, no el agente. Los datos sobre salud son datos personales sensibles para la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, que pide más cuidado con ellos.<a class="ref" href="#f5">[5]</a> Lo más simple es que el agente no los pregunte y pase el tema a una persona.</p>"""),
+  ("medir", "Cómo saber si funcionó", """
+<ol class="lista">
+<li>Cuántos socios en riesgo detectaste en la semana y a cuántos les escribiste.</li>
+<li>Cuántos volvieron a entrenar en los siete días siguientes.</li>
+<li>Cuántas bajas hubo ese mes contra el anterior. Es el número que importa.</li>
+</ol>
+<p>Para el prospecto nuevo que escribe por DM, mira la guía de <a href="/guias/responder-dms-instagram-automaticamente-gimnasios/">cómo responder DMs de Instagram en un gimnasio</a>, y para el día a día de reservas y retención, la de <a href="/guias/retencion-socios-gimnasio-reservas-clases/">retención de socios y reservas de clases</a>. Lo que hacemos en la ciudad está en <a href="/negocios/guadalajara/fitness/">gimnasios y estudios en Guadalajara</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Cómo sé qué socio está por darse de baja?", "Por la asistencia. Diez días sin entrar, o dos clases reservadas a las que faltó, son la señal más clara, y está en el control de acceso o en el sistema de clases."),
+  ("¿Puedo escribirle por WhatsApp a un socio que no me escribió?", "Sí, si aceptó recibir tus mensajes, y con una plantilla aprobada por Meta, porque el mensaje sale fuera de la ventana de 24 horas."),
+  ("¿Conviene ofrecer un descuento para que vuelva?", "Casi nunca. El que dejó de venir suele irse por el horario, una lesión o el aburrimiento, y resolver eso funciona mejor que bajar el precio."),
+  ("¿El agente puede hablar de una lesión?", "No. Ese tema pasa a un coach, y los datos de salud no se piden por el chat del agente."),
+  ("¿Sirve en un estudio chico?", "Sí. Con 80 socios, recuperar tres al mes ya cambia el número del mes."),
+ ],
+ fuentes=["wa_precios", "wa_politica", "ig_api", "lfpc", "lfpdppp"],
+)
+
+
 ORDEN = list(G.keys())
 
 
@@ -914,10 +1089,11 @@ def renum(cuerpo_html, fuentes):
 
 def pagina(slug, d, pie):
     url = f"https://eltio.net/guias/{slug}/"
+    fecha, fecha_txt = d.get("fecha", FECHA), d.get("fecha_txt", FECHA_TXT)
     audit = f"https://app.eltio.net/auditoria/{d['audit']}" if d["audit"] else "/posicionamiento-en-ia/#audit"
     wa = WA + urllib.parse.quote(d["wa"])
     article = {"@context": "https://schema.org", "@type": "Article", "headline": d["titulo"], "description": d["desc"],
-               "inLanguage": "es-MX", "datePublished": FECHA, "dateModified": FECHA,
+               "inLanguage": "es-MX", "datePublished": fecha, "dateModified": fecha,
                "image": f"https://eltio.net/assets/{d['og']}",
                "author": {"@type": "Organization", "name": "El Tío", "url": "https://eltio.net"},
                "publisher": {"@type": "Organization", "name": "El Tío", "url": "https://eltio.net"},
@@ -944,7 +1120,7 @@ def pagina(slug, d, pie):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{e(d['titulo'])} · El Tío</title>
+<title>{e(d.get("titulo_seo") or d["titulo"])} · El Tío</title>
 <meta name="description" content="{e(d['desc'])}">
 <link rel="canonical" href="{url}">
 <meta name="theme-color" content="#04070B">
@@ -981,16 +1157,17 @@ def pagina(slug, d, pie):
   <article>
     <h1>{e(d['titulo'])}</h1>
     <p class="bajada">{e(d['bajada'])}</p>
-    <p class="fecha">Actualizada el {FECHA_TXT}</p>
+    <p class="fecha">Actualizada el {fecha_txt}</p>
     <nav class="indice" aria-label="En esta guía"><p>En esta guía</p><ol>{indice}<li><a href="#preguntas">Preguntas frecuentes</a></li><li><a href="#empezar">Por dónde empezar</a></li></ol></nav>
 {cuerpo}
     <h2 id="preguntas">Preguntas frecuentes</h2>
 {faqh}
     <section class="cierre" id="empezar">
       <h2>Por dónde empezar</h2>
-      <p>Antes de instalar nada, El Tío mira cómo trabaja hoy tu negocio: cuántos mensajes llegan, a qué hora, quién los contesta y cuántos se quedan sin respuesta. El Audit es gratis: un cuestionario de 15 a 25 minutos y, en 24 a 48 horas hábiles, el mapa de lo que conviene hacer primero. Si prefieres, escríbenos y lo vemos por chat.</p>
+      <p>Lo más rápido es probarlo: instalamos el agente que contesta los mensajes de Instagram y de WhatsApp de tu negocio, lo usas <a href="/prueba/">14 días gratis</a> y pagas solo si te sirvió. Si prefieres empezar mirando, el Audit también es gratis: un cuestionario de 15 a 25 minutos y, en 24 a 48 horas hábiles, el mapa de lo que conviene hacer primero.</p>
       <div class="acciones">
-        <a class="btn" data-cta="audit" href="{audit}">Hacer el Audit gratis</a>
+        <a class="btn" data-cta="prueba" href="/prueba/">Probar 14 días gratis</a>
+        <a class="enlace" data-cta="audit" href="{audit}">Hacer el Audit gratis</a>
         <a class="enlace" data-cta="whatsapp" href="{wa}">Escribir por WhatsApp</a>{ig}
       </div>
     </section>
@@ -999,6 +1176,7 @@ def pagina(slug, d, pie):
       <ul>
         <li><a href="{d['rubro'][1]}">{e(d['rubro'][0])}</a>: la página del rubro</li>
         {otras}
+        <li><a href="/prueba/">Prueba gratis de 14 días</a>: el agente instalado y funcionando antes de pagar</li>
         <li><a href="/guias/">Todas las guías</a></li>
       </ul>
     </nav>
@@ -1030,7 +1208,8 @@ def main():
     for slug in ORDEN:
         u = f"https://eltio.net/guias/{slug}/"
         if f"<loc>{u}</loc>" not in txt:
-            nuevas += f"  <url><loc>{u}</loc><lastmod>{FECHA}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>\n"
+            fg = G[slug].get("fecha", FECHA)
+            nuevas += f"  <url><loc>{u}</loc><lastmod>{fg}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>\n"
     if nuevas:
         txt = txt.replace("</urlset>", nuevas + "</urlset>")
         sm.write_text(txt, encoding="utf-8")

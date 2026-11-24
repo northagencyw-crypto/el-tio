@@ -146,6 +146,9 @@ https://eltio.net/pt/negocios/.
   - Mesas que se reservan y no llegan, confirmacion por WhatsApp para restaurantes en CDMX: https://eltio.net/guias/confirmar-reservas-whatsapp-restaurantes-cdmx/
   - Hoteles en CDMX, cotizar grupos y viajeros de negocios por WhatsApp sin perder la noche: https://eltio.net/guias/cotizaciones-grupos-hoteles-cdmx-whatsapp/
   - Gimnasios en Guadalajara, recuperar al socio que dejo de venir, por WhatsApp: https://eltio.net/guias/recuperar-socios-inactivos-gimnasios-guadalajara/
+  - Posadas y fiestas de fin de ano en CDMX, cotizar sin perder al que escribe primero: https://eltio.net/guias/posadas-fiestas-fin-de-ano-cotizaciones-cdmx/
+  - Restaurantes en Tulum, contestar en ingles las reservas que entran por Instagram y WhatsApp: https://eltio.net/guias/reservas-restaurantes-tulum-ingles-whatsapp/
+  - Distribuidoras en Monterrey, tomar el pedido por WhatsApp sin que se pierda en el chat: https://eltio.net/guias/distribuidoras-monterrey-pedidos-whatsapp/
   - (EN) How to use AI in a restaurant in 2026: 5 advantages your competitors already use: https://eltio.net/en/guides/how-to-use-ai-in-a-restaurant/
   - (EN) How to use AI in a hotel in 2026: 5 advantages your competitors already use: https://eltio.net/en/guides/how-to-use-ai-in-a-hotel/
   - (EN) How to use AI in a real estate agency in 2026: 5 advantages your competitors already use: https://eltio.net/en/guides/how-to-use-ai-in-a-real-estate-agency/
@@ -1095,7 +1098,7 @@ Tu página con dominio propio y la carta en 8 idiomas, para el turista que lleg�
 Y el Tío mira lo otro.
 Si quieres, el Audit entra por la trastienda: las ventas hora por hora, la base de clientes y las reseñas.
 Quiero mi página web
-Auditar mi local gratis
+Probar 14 días gratis
 TU PÁGINA WEB
 Una página a tu nombre, con la carta que se lee en el teléfono.
 DOMINIO PROPIO tulocal.com La página queda a tu nombre, con la carta, el horario, las fotos y el botón para reservar o escribir.
@@ -1808,7 +1811,7 @@ Los seguidores están en una plataforma y los oyentes en otra. Tu
 página con dominio propio está en 8 idiomas y posicionada en Google y en ChatGPT,
 Perplexity y Gemini, para que el promotor y el fan de otra plaza te encuentren.
 Quiero mi página web
-Auditar mi proyecto
+Probar 14 días gratis
 Prestada
 Los oyentes y los seguidores. Grandes, y de la plataforma.
 Propia
@@ -1925,7 +1928,7 @@ proveedor en tu zona.
 Tu catálogo, a la vista de quien busca proveedor.
 Una página con dominio propio para tu distribuidora, con el catálogo en 8 idiomas y posicionada en Google y en ChatGPT, Perplexity y Gemini.
 Quiero mi página web
-Pedir el Audit
+Probar 14 días gratis
 TU PÁGINA WEB
 El catálogo que se encuentra solo
 001 Dominio propio
@@ -4182,6 +4185,62 @@ Meta, «Pricing on the WhatsApp Business Platform», documentación para desarro
 WhatsApp, «Política de mensajería de WhatsApp Business», actualizada el 23 de septiembre de 2026. whatsappbusiness.com/es-la/policy
 Ley Federal de Protección de Datos Personales en Posesión de los Particulares, Diario Oficial de la Federación, 20 de marzo de 2025. Texto vigente en la Cámara de Diputados: diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
 
+## Pedidos por WhatsApp para distribuidoras en Monterrey · El Tío
+URL: https://eltio.net/guias/distribuidoras-monterrey-pedidos-whatsapp/
+
+Distribuidoras en Monterrey: tomar el pedido por WhatsApp sin que se pierda en el chat
+En una distribuidora de Monterrey el pedido entra a las seis de la mañana, en forma de nota de voz, y alguien lo pasa a mano a una hoja. Lo que se pierde ahí no es el pedido: es la clave equivocada, la caja que faltó y el reclamo del lunes. Esta guía explica cómo recibir el pedido por WhatsApp y que llegue completo a quien lo surte.
+Actualizada el 24 de noviembre de 2026
+Lo que tiene que quedar escrito de cada pedido
+Un pedido sirve si quien surte no tiene que releer la conversación. Son siempre los mismos campos, y un agente los pide uno por uno en el chat antes de confirmar.
+Dato Para qué sirve
+Cliente y sucursal Saber a qué dirección va y con qué precio de lista
+Clave y cantidad por producto Que almacén surta sin interpretar
+Fecha de entrega Cerrar la ruta del día en Monterrey, San Nicolás, Apodaca o Santa Catarina
+Forma de pago y factura No descubrirlo cuando el camión ya salió
+Quién recibe Evitar la entrega que vuelve
+Lo que el agente no hace es decidir. Un crédito, una excepción de precio o un faltante los resuelve una persona.
+Catálogo y precios en el chat
+La plataforma de WhatsApp Business permite mandar mensajes de uno o varios productos desde un catálogo, en lugar de pegar una lista en texto. [1] Para un distribuidor eso sirve sobre todo con el cliente nuevo, que todavía no sabe las claves.
+Si en el chat hay precios, tienen que ser el monto total a pagar, como pide la Ley Federal de Protección al Consumidor. [2] Y conviene que el precio salga de tu lista, no de lo que el agente recuerde: si no tiene el precio cargado, lo correcto es que lo pase a una persona.
+WhatsApp · 06:40
+Mándame 10 cajas de la 250 y 4 de la chica, para mañana
+Listo, don Raúl. Anoto 10 cajas de 250 ml y 4 de 355 ml para la sucursal Cumbres, entrega mañana en la ruta de la mañana. ¿Lo confirmo así y te paso el total con IVA de la lista? Soy el asistente con IA de la distribuidora.
+Conversación de ejemplo.
+Por qué hace falta la API y no la app
+La app gratuita de WhatsApp Business sirve para respuestas rápidas y mensaje de ausencia, pero no conecta un agente que entienda el pedido ni lo pase a tu sistema. Para eso se usa la plataforma de WhatsApp Business, la API, con un proveedor o directamente con Meta. [3]
+Con la API, cada mensaje del cliente abre una ventana de 24 horas para contestar libremente. Fuera de esa ventana, cualquier aviso tuyo sale con una plantilla aprobada por Meta y con el permiso del cliente. [4]
+El cliente que pide lo mismo cada semana
+La mayor parte del volumen de una distribuidora es pedido repetido. Ahí es donde el agente ahorra más: propone el pedido anterior y el cliente solo ajusta cantidades.
+El agente manda el pedido de la semana pasada y pregunta si va igual. Si sale fuera de la ventana de 24 horas, va con plantilla y con permiso. [4]
+El cliente cambia dos líneas y confirma.
+El pedido entra completo, con cliente, claves, cantidades, fecha y quién recibe.
+Datos de tus clientes y de tu ruta
+Los nombres, teléfonos, direcciones de entrega y el historial de compra de tus clientes son datos personales, y en México los rige la Ley Federal de Protección de Datos Personales en Posesión de los Particulares. [5] Lo básico es el aviso de privacidad a la mano y usarlos solo para lo que le dijiste al cliente. Esta guía no reemplaza a un abogado.
+Para el detalle del pedido recurrente, sigue con la guía de pedidos recurrentes por WhatsApp , y para la cotización del cliente nuevo, la de pedidos y cotizaciones por WhatsApp . Lo que puede hacer la IA en el rubro está en cómo usar IA en una distribuidora , y lo que hacemos en la ciudad en distribuidoras y mayoristas en Monterrey .
+Preguntas frecuentes
+¿El agente puede tomar un pedido de una nota de voz?
+Puede pedir los datos que faltan y dejar el pedido escrito con claves y cantidades. Lo que no conviene es que interprete una nota de voz y lo dé por bueno sin confirmar.
+¿Puedo mandar mi catálogo por WhatsApp?
+Sí. La plataforma de WhatsApp Business permite mensajes de uno o varios productos desde un catálogo, lo que ayuda sobre todo con el cliente nuevo.
+¿Sirve la app gratuita de WhatsApp Business?
+Para respuestas rápidas y horario sí, pero no conecta un agente que entienda el pedido ni lo pase a tu sistema. Para eso se usa la API.
+¿Puedo recordarle al cliente que le toca pedido?
+Sí, con una plantilla aprobada por Meta y con su permiso, porque ese mensaje sale fuera de la ventana de 24 horas.
+¿Qué no debe decidir el agente?
+Crédito, excepciones de precio, faltantes y reclamos de entrega. Todo eso pasa a una persona.
+Por dónde empezar
+Lo más rápido es probarlo: instalamos el agente que contesta los mensajes de Instagram y de WhatsApp de tu negocio, lo usas 14 días gratis y pagas solo si te sirvió. Si prefieres empezar mirando, el Audit también es gratis: un cuestionario de 15 a 25 minutos y, en 24 a 48 horas hábiles, el mapa de lo que conviene hacer primero.
+Probar 14 días gratis
+Hacer el Audit gratis
+Escribir por WhatsApp · Escribir por DM en Instagram
+Fuentes
+Meta, «Sell products and services», documentación de WhatsApp Cloud API: catálogo y mensajes de uno o varios productos. developers.facebook.com/docs/whatsapp/cloud-api/guides/sell-products-and-services
+Ley Federal de Protección al Consumidor, artículo 7 Bis: obligación de informar el precio total. Texto vigente en la Cámara de Diputados. www.diputados.gob.mx/LeyesBiblio/pdf/LFPC.pdf
+Meta, «WhatsApp Cloud API», documentación para desarrolladores. developers.facebook.com/docs/whatsapp/cloud-api
+Meta, «Pricing on the WhatsApp Business Platform», documentación para desarrolladores: ventana de atención de 24 horas, mensajes con plantilla y permiso del usuario. developers.facebook.com/docs/whatsapp/pricing
+Ley Federal de Protección de Datos Personales en Posesión de los Particulares, Diario Oficial de la Federación, 20 de marzo de 2025. Texto vigente en la Cámara de Diputados. www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+
 ## Estudios de pilates en Monterrey: reservas de clase y lista de espera por WhatsApp · El Tío
 URL: https://eltio.net/guias/estudios-pilates-monterrey-reservas-clases/
 
@@ -4505,6 +4564,63 @@ WhatsApp, «Política de mensajería de WhatsApp Business», actualizada el 23 d
 SAT, «El SAT informa sobre el avance de la emisión de CFDI en la versión 4.0», comunicado del 5 de abril de 2023. gob.mx/sat/prensa/el-sat-informa-sobre-el-avance-de-la-emision-de-cfdi-en-la-version-4-0-0012-2023
 Código Fiscal de la Federación, artículo 29-A, fracción IV. Texto vigente en la Cámara de Diputados: diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf
 Ley Federal de Protección de Datos Personales en Posesión de los Particulares, Diario Oficial de la Federación, 20 de marzo de 2025. Texto vigente en la Cámara de Diputados: diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+
+## Cotizar posadas y fiestas de fin de año en CDMX · El Tío
+URL: https://eltio.net/guias/posadas-fiestas-fin-de-ano-cotizaciones-cdmx/
+
+Posadas y fiestas de fin de año en CDMX: cotizar sin perder al que escribe primero
+Quien organiza la posada de la empresa le escribe a seis lugares el mismo martes y pregunta lo mismo: qué fecha tienen libre, cuántas personas caben y cuánto sale por persona. El que contesta primero con la fecha y un número claro se queda con la visita. Esta guía explica cómo contestar ese mensaje a la hora en que entra, sin que nadie del equipo esté pegado al teléfono.
+Actualizada el 24 de noviembre de 2026
+Quién escribe y qué pide
+En diciembre no te escribe un solo tipo de cliente. Son tres, y cada uno necesita una respuesta distinta en el primer mensaje.
+Quién Qué pregunta primero Qué necesita para decidir
+Empresa chica, 30 a 60 personas Fecha libre y precio por persona Un número cerrado y qué incluye
+Corporativo, 150 o más Capacidad, factura y formas de pago Propuesta formal y una persona a cargo
+Grupo de amigos o familia Si pueden llevar bebida y hasta qué hora Las reglas de la casa por escrito
+El agente no decide nada de esto. Pide los cuatro datos que hacen falta para cotizar, revisa la fecha y deja la conversación lista para que una persona arme la propuesta.
+La fecha se revisa en el primer mensaje
+En temporada, la fecha es el filtro. Si el 12 de diciembre ya está tomado, no tiene sentido pedir presupuesto ni número de invitados: lo que sirve es ofrecer las dos fechas cercanas que sí tienes y el horario de la segunda tanda, si la manejas.
+Un agente conectado al calendario que ya lleva el salón contesta eso al momento. Si no está conectado a ningún calendario, toma los datos y avisa a una persona, que es mejor que dejar el mensaje sin leer hasta mañana.
+WhatsApp · 22:40
+Hola, busco lugar para la posada de la empresa, somos 45. ¿Tienen el viernes 12?
+¡Hola! El viernes 12 ya está apartado. Tengo libre el jueves 11 y el viernes 19, los dos con lugar para 45 personas. ¿Alguno te sirve? Con eso y si quieren solo el espacio o con alimentos, mañana temprano te mandamos la cotización con el total. Soy el asistente con IA del salón.
+Conversación de ejemplo.
+Precio por persona y precio total
+En diciembre casi todos preguntan el precio por persona, y ahí se arman los malentendidos: el cliente compara un número que incluye alimentos contra otro que no. La Ley Federal de Protección al Consumidor pide informar el monto total a pagar. [1]
+Lo práctico es que la cotización diga el total para el número de personas acordado, qué incluye, qué no, el mínimo de consumo si lo hay, el horario que cubre y qué pasa si llegan menos invitados de los que se cotizaron. Esta guía no reemplaza a un abogado.
+Lo que más cancela un cierre en temporada: el cliente se enteró del descorche, del tiempo extra o del servicio después de recibir el total.
+El seguimiento hasta el anticipo
+Entre la cotización y el anticipo pasan días, y en diciembre pasan horas. Con la plataforma de WhatsApp Business, cada mensaje del cliente abre una ventana de 24 horas en la que contestas libremente; para escribirle después necesitas una plantilla aprobada por Meta y que haya aceptado recibir tus mensajes. [2] La política de mensajería de WhatsApp Business no permite escribirle a quien no lo aceptó. [3]
+Al mandar la cotización, pide el permiso para dar seguimiento en el mismo chat.
+Deja escrito cuánto tiempo se sostiene la fecha sin anticipo. Esa decisión la toma una persona, no el agente.
+Cuando entra el anticipo, el agente manda el comprobante, la hora de acceso y a quién buscar el día del evento.
+Cómo te encuentran en la ciudad
+«Salón para posada en la Roma» o «terraza para fiesta de fin de año en Polanco» son búsquedas locales, y Google las ordena por relevancia, distancia y prominencia. [4] Que la capacidad, las colonias que atiendes y el tipo de evento estén escritos en texto en tu página, con fotos reales y las reseñas respondidas. Los datos estructurados de recinto de eventos ordenan dirección y capacidad para cualquier buscador. [5]
+Los datos de quien cotiza, incluidos los de la empresa que factura, se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares. [6]
+Para el resto del año, sigue con la guía de cotizaciones para salones de eventos y la de visitas y fechas apartadas por WhatsApp . Lo que puede hacer la IA en el rubro está en cómo usar IA en una empresa de eventos , y lo que hacemos en la ciudad en eventos en Ciudad de México .
+Preguntas frecuentes
+¿El agente puede decir si una fecha de diciembre está libre?
+Sí, si está conectado al calendario que ya lleva el salón. Si no lo está, toma los datos y avisa a una persona en el momento.
+¿Tengo que dar el precio total y no solo el precio por persona?
+La Ley Federal de Protección al Consumidor pide informar el monto total a pagar. Lo práctico es dar el total para el número de personas acordado y decir qué incluye y qué no.
+¿Puedo dar seguimiento por WhatsApp a una cotización de posada?
+Dentro de las 24 horas desde el último mensaje del cliente contestas libremente. Después necesitas una plantilla aprobada por Meta y su permiso, que conviene pedir al mandar la cotización.
+¿El agente aparta la fecha?
+No. Cuánto tiempo se sostiene una fecha sin anticipo y la confirmación del pago las define una persona.
+¿Sirve si ya estoy casi lleno en diciembre?
+Sirve para dos cosas: ofrecer las fechas que sí quedan en lugar de perder la conversación, y quedarte con el contacto de quien cotizó para el año que viene, si aceptó recibir tus mensajes.
+Por dónde empezar
+Lo más rápido es probarlo: instalamos el agente que contesta los mensajes de Instagram y de WhatsApp de tu negocio, lo usas 14 días gratis y pagas solo si te sirvió. Si prefieres empezar mirando, el Audit también es gratis: un cuestionario de 15 a 25 minutos y, en 24 a 48 horas hábiles, el mapa de lo que conviene hacer primero.
+Probar 14 días gratis
+Hacer el Audit gratis
+Escribir por WhatsApp · Escribir por DM en Instagram
+Fuentes
+Ley Federal de Protección al Consumidor, artículo 7 Bis: obligación de informar el precio total. Texto vigente en la Cámara de Diputados. www.diputados.gob.mx/LeyesBiblio/pdf/LFPC.pdf
+Meta, «Pricing on the WhatsApp Business Platform», documentación para desarrolladores: ventana de atención de 24 horas, mensajes con plantilla y permiso del usuario. developers.facebook.com/docs/whatsapp/pricing
+WhatsApp, «Política de mensajería de WhatsApp Business». whatsappbusiness.com/es-la/policy
+Google, «Consejos para mejorar tu posicionamiento local en Google», Ayuda de Perfil de Empresa: relevancia, distancia y prominencia. support.google.com/business/answer/7091
+Schema.org, tipo «EventVenue». schema.org/EventVenue
+Ley Federal de Protección de Datos Personales en Posesión de los Particulares, Diario Oficial de la Federación, 20 de marzo de 2025. Texto vigente en la Cámara de Diputados. www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
 
 ## Recordatorios de citas por WhatsApp para clínicas y consultorios · El Tío
 URL: https://eltio.net/guias/recordatorios-citas-whatsapp-consultorios/
@@ -4841,6 +4957,58 @@ Meta, «Pricing on the WhatsApp Business Platform», documentación para desarro
 Ley Federal de Protección al Consumidor, artículo 7 Bis: obligación de informar el precio total. Texto vigente en la Cámara de Diputados. www.diputados.gob.mx/LeyesBiblio/pdf/LFPC.pdf
 Google, «Consejos para mejorar tu posicionamiento local en Google», Ayuda de Perfil de Empresa: relevancia, distancia y prominencia. support.google.com/business/answer/7091
 Schema.org, tipo «BarOrPub». schema.org/BarOrPub
+Ley Federal de Protección de Datos Personales en Posesión de los Particulares, Diario Oficial de la Federación, 20 de marzo de 2025. Texto vigente en la Cámara de Diputados. www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+
+## Reservas en inglés para restaurantes en Tulum · El Tío
+URL: https://eltio.net/guias/reservas-restaurantes-tulum-ingles-whatsapp/
+
+Restaurantes en Tulum: contestar en inglés las reservas que entran por Instagram y WhatsApp
+En Tulum el mensaje llega a las once de la noche y en inglés: «table for two tomorrow at 8?». Si nadie contesta hasta el mediodía del día siguiente, esa pareja ya reservó en otro lado desde la cama del hotel. Esta guía explica cómo contestar esos mensajes en el idioma en que llegan y a la hora en que llegan.
+Actualizada el 24 de noviembre de 2026
+El idioma en que llega el mensaje
+Un restaurante en Tulum recibe consultas en español, en inglés y bastantes en portugués, francés o italiano. El equipo del piso contesta lo que puede, cuando puede, y lo demás se acumula. El problema no es traducir: es que el que pregunta está decidiendo dónde cenar en los próximos diez minutos.
+Un agente que responde en el idioma del mensaje resuelve lo que se repite siempre: si hay lugar, a qué hora, si aceptan tarjeta, si hay opciones sin gluten o veganas, si se puede llegar en bici y si hay que dejar anticipo. Lo que no sabe, lo pasa a una persona y no lo adivina.
+La ventana de 24 horas en Instagram
+En Tulum buena parte de las consultas entran por DM de Instagram, no por WhatsApp. Para que un agente conteste esos DMs hace falta una cuenta profesional, y la respuesta tiene que salir dentro de la ventana de 24 horas desde el último mensaje de la persona. [1]
+Esa ventana es el motivo por el que conviene contestar de noche y no a la mañana siguiente: a las once de la mañana la ventana sigue abierta, pero el cliente ya cenó en otro lado. Si el agente deriva a una persona, Meta pide usar la etiqueta de agente humano para marcarlo. [1]
+La carta, el precio y lo que no se improvisa
+La pregunta que más cuesta en inglés es el precio. Si la respuesta es un rango inventado, el cliente llega con una expectativa distinta a la cuenta. La Ley Federal de Protección al Consumidor pide informar el monto total a pagar. [2] Lo sano es que el agente mande la carta vigente con precios, y que no prometa nada sobre propina, cover de la música o servicio si no está escrito ahí.
+Instagram · 23:10
+Hi! Table for 2 tomorrow at 8pm? Any vegan options?
+Hi! Yes, we have a table for 2 tomorrow at 8:00 pm. We have three vegan dishes on the menu, I am sending it to you with prices. Should I book it under your name? I am the restaurant AI assistant, and someone from the team can jump in anytime.
+Conversación de ejemplo.
+De la reserva a la mesa ocupada
+En temporada alta, la reserva que no se confirma es una mesa vacía en la mejor hora. El recordatorio del mismo día sale fuera de la ventana de 24 horas en WhatsApp, así que necesita una plantilla aprobada por Meta y el permiso del cliente, que conviene pedir cuando se confirma la mesa. [3]
+Confirmación al reservar, con hora, personas y cómo llegar.
+Recordatorio el mismo día, en el idioma de la reserva.
+Si no responde, el aviso de cuántos minutos se guarda la mesa, dicho antes y no después.
+Que te encuentren los que ya están en Tulum
+Casi nadie reserva en Tulum con un mes de anticipación: busca desde el hotel, en el teléfono y en inglés. Google ordena esos resultados locales por relevancia, distancia y prominencia. [4] Tener la zona escrita en texto, la carta en una página propia y las reseñas respondidas pesa más que cualquier truco.
+Los datos estructurados de restaurante ordenan la carta, la cocina y si aceptas reservas. [5] Si tienes la página en varios idiomas, una URL por idioma con hreflang evita que compitan entre ellas. [6] Y los datos de quien reserva se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares. [7]
+Para el DM de Instagram paso por paso, mira la guía de reservas por Instagram para restaurantes , y para todo lo demás del rubro, cómo usar IA en un restaurante . Lo mismo del lado de los hoteles está en automatizar mensajes para hoteles en Tulum , y lo que hacemos en la zona en restaurantes y bares en Tulum .
+Preguntas frecuentes
+¿El agente contesta en inglés y en español?
+Sí. Responde en el idioma del mensaje, con la información que el restaurante cargó, y pasa a una persona lo que no sabe.
+¿Puedo contestar los DMs de Instagram con un agente?
+Sí, con una cuenta profesional y dentro de la ventana de 24 horas desde el último mensaje de la persona.
+¿Puede mandar la carta con precios?
+Sí, la carta vigente que cargó el restaurante. Conviene que no improvise precios: la ley pide informar el monto total a pagar.
+¿Sirve para recordar la reserva el mismo día?
+Sí, con una plantilla aprobada por Meta y el permiso del cliente, que conviene pedir al confirmar la mesa.
+¿Qué no debería contestar el agente?
+Un reclamo, un cambio de precio o un pedido especial de cocina. Eso pasa a una persona del equipo.
+Por dónde empezar
+Lo más rápido es probarlo: instalamos el agente que contesta los mensajes de Instagram y de WhatsApp de tu negocio, lo usas 14 días gratis y pagas solo si te sirvió. Si prefieres empezar mirando, el Audit también es gratis: un cuestionario de 15 a 25 minutos y, en 24 a 48 horas hábiles, el mapa de lo que conviene hacer primero.
+Probar 14 días gratis
+Hacer el Audit gratis
+Escribir por WhatsApp · Escribir por DM en Instagram
+Fuentes
+Meta, «Messenger Platform: Instagram», documentación para desarrolladores: cuenta profesional, ventana de 24 horas y etiqueta de agente humano. developers.facebook.com/docs/messenger-platform/instagram
+Ley Federal de Protección al Consumidor, artículo 7 Bis: obligación de informar el precio total. Texto vigente en la Cámara de Diputados. www.diputados.gob.mx/LeyesBiblio/pdf/LFPC.pdf
+Meta, «Pricing on the WhatsApp Business Platform», documentación para desarrolladores: ventana de atención de 24 horas, mensajes con plantilla y permiso del usuario. developers.facebook.com/docs/whatsapp/pricing
+Google, «Consejos para mejorar tu posicionamiento local en Google», Ayuda de Perfil de Empresa: relevancia, distancia y prominencia. support.google.com/business/answer/7091
+Schema.org, tipo «Restaurant»: propiedades acceptsReservations, menu y servesCuisine. schema.org/Restaurant
+Google Search Central, «Indicarle a Google las versiones traducidas de tus paginas (hreflang)». developers.google.com/search/docs/specialty/international/localized-versions
 Ley Federal de Protección de Datos Personales en Posesión de los Particulares, Diario Oficial de la Federación, 20 de marzo de 2025. Texto vigente en la Cámara de Diputados. www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
 
 ## Reservas por WhatsApp para bares y antros en CDMX: mesas, listas y grupos · El Tío

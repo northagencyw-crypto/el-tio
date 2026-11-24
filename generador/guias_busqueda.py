@@ -1079,6 +1079,160 @@ G["recuperar-socios-inactivos-gimnasios-guadalajara"] = dict(
 )
 
 
+# ---- 3 guias nuevas (24/11/2026) ----
+
+G["posadas-fiestas-fin-de-ano-cotizaciones-cdmx"] = dict(
+ fecha="2026-11-24", fecha_txt="24 de noviembre de 2026",
+ titulo="Posadas y fiestas de fin de año en CDMX: cotizar sin perder al que escribe primero",
+ titulo_seo="Cotizar posadas y fiestas de fin de año en CDMX",
+ corto="Cotizar posadas y fiestas de fin de año en CDMX",
+ desc="Cómo cotizar posadas y fiestas de fin de año de empresa en CDMX por WhatsApp: revisar la fecha al momento, dar el precio total y seguir hasta el anticipo.",
+ rubro=EV, audit="eventos", og="og-eventos.jpg",
+ wa="Hola! Leí la guía de cotizaciones de posadas en CDMX y quiero probar el agente 14 días.",
+ bajada="Quien organiza la posada de la empresa le escribe a seis lugares el mismo martes y pregunta lo mismo: qué fecha tienen libre, cuántas personas caben y cuánto sale por persona. El que contesta primero con la fecha y un número claro se queda con la visita. Esta guía explica cómo contestar ese mensaje a la hora en que entra, sin que nadie del equipo esté pegado al teléfono.",
+ cuerpo=[
+  ("quien-escribe", "Quién escribe y qué pide", """
+<p>En diciembre no te escribe un solo tipo de cliente. Son tres, y cada uno necesita una respuesta distinta en el primer mensaje.</p>
+<div class="tabla"><table><thead><tr><th>Quién</th><th>Qué pregunta primero</th><th>Qué necesita para decidir</th></tr></thead><tbody>
+<tr><td>Empresa chica, 30 a 60 personas</td><td>Fecha libre y precio por persona</td><td>Un número cerrado y qué incluye</td></tr>
+<tr><td>Corporativo, 150 o más</td><td>Capacidad, factura y formas de pago</td><td>Propuesta formal y una persona a cargo</td></tr>
+<tr><td>Grupo de amigos o familia</td><td>Si pueden llevar bebida y hasta qué hora</td><td>Las reglas de la casa por escrito</td></tr>
+</tbody></table></div>
+<p>El agente no decide nada de esto. Pide los cuatro datos que hacen falta para cotizar, revisa la fecha y deja la conversación lista para que una persona arme la propuesta.</p>"""),
+  ("fecha", "La fecha se revisa en el primer mensaje", """
+<p>En temporada, la fecha es el filtro. Si el 12 de diciembre ya está tomado, no tiene sentido pedir presupuesto ni número de invitados: lo que sirve es ofrecer las dos fechas cercanas que sí tienes y el horario de la segunda tanda, si la manejas.</p>
+<p>Un agente conectado al calendario que ya lleva el salón contesta eso al momento. Si no está conectado a ningún calendario, toma los datos y avisa a una persona, que es mejor que dejar el mensaje sin leer hasta mañana.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 22:40</span>
+<span class="yo">Hola, busco lugar para la posada de la empresa, somos 45. ¿Tienen el viernes 12?</span>
+<span class="bot">¡Hola! El viernes 12 ya está apartado. Tengo libre el jueves 11 y el viernes 19, los dos con lugar para 45 personas. ¿Alguno te sirve? Con eso y si quieren solo el espacio o con alimentos, mañana temprano te mandamos la cotización con el total. Soy el asistente con IA del salón.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("precio", "Precio por persona y precio total", """
+<p>En diciembre casi todos preguntan el precio por persona, y ahí se arman los malentendidos: el cliente compara un número que incluye alimentos contra otro que no. La Ley Federal de Protección al Consumidor pide informar el monto total a pagar.<a class="ref" href="#f1">[1]</a></p>
+<p>Lo práctico es que la cotización diga el total para el número de personas acordado, qué incluye, qué no, el mínimo de consumo si lo hay, el horario que cubre y qué pasa si llegan menos invitados de los que se cotizaron. Esta guía no reemplaza a un abogado.</p>
+<div class="aviso">Lo que más cancela un cierre en temporada: el cliente se enteró del descorche, del tiempo extra o del servicio después de recibir el total.</div>"""),
+  ("seguimiento", "El seguimiento hasta el anticipo", """
+<p>Entre la cotización y el anticipo pasan días, y en diciembre pasan horas. Con la plataforma de WhatsApp Business, cada mensaje del cliente abre una ventana de 24 horas en la que contestas libremente; para escribirle después necesitas una plantilla aprobada por Meta y que haya aceptado recibir tus mensajes.<a class="ref" href="#f2">[2]</a> La política de mensajería de WhatsApp Business no permite escribirle a quien no lo aceptó.<a class="ref" href="#f3">[3]</a></p>
+<ol class="lista">
+<li>Al mandar la cotización, pide el permiso para dar seguimiento en el mismo chat.</li>
+<li>Deja escrito cuánto tiempo se sostiene la fecha sin anticipo. Esa decisión la toma una persona, no el agente.</li>
+<li>Cuando entra el anticipo, el agente manda el comprobante, la hora de acceso y a quién buscar el día del evento.</li>
+</ol>"""),
+  ("encontrar", "Cómo te encuentran en la ciudad", """
+<p>«Salón para posada en la Roma» o «terraza para fiesta de fin de año en Polanco» son búsquedas locales, y Google las ordena por relevancia, distancia y prominencia.<a class="ref" href="#f4">[4]</a> Que la capacidad, las colonias que atiendes y el tipo de evento estén escritos en texto en tu página, con fotos reales y las reseñas respondidas. Los datos estructurados de recinto de eventos ordenan dirección y capacidad para cualquier buscador.<a class="ref" href="#f5">[5]</a></p>
+<p>Los datos de quien cotiza, incluidos los de la empresa que factura, se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f6">[6]</a></p>
+<p>Para el resto del año, sigue con la guía de <a href="/guias/cotizaciones-salones-eventos-guadalajara/">cotizaciones para salones de eventos</a> y la de <a href="/guias/salones-eventos-monterrey-apartar-fechas/">visitas y fechas apartadas por WhatsApp</a>. Lo que puede hacer la IA en el rubro está en <a href="/guias/como-usar-ia-en-eventos/">cómo usar IA en una empresa de eventos</a>, y lo que hacemos en la ciudad en <a href="/negocios/ciudad-de-mexico/eventos/">eventos en Ciudad de México</a>.</p>"""),
+ ],
+ faq=[
+  ("¿El agente puede decir si una fecha de diciembre está libre?", "Sí, si está conectado al calendario que ya lleva el salón. Si no lo está, toma los datos y avisa a una persona en el momento."),
+  ("¿Tengo que dar el precio total y no solo el precio por persona?", "La Ley Federal de Protección al Consumidor pide informar el monto total a pagar. Lo práctico es dar el total para el número de personas acordado y decir qué incluye y qué no."),
+  ("¿Puedo dar seguimiento por WhatsApp a una cotización de posada?", "Dentro de las 24 horas desde el último mensaje del cliente contestas libremente. Después necesitas una plantilla aprobada por Meta y su permiso, que conviene pedir al mandar la cotización."),
+  ("¿El agente aparta la fecha?", "No. Cuánto tiempo se sostiene una fecha sin anticipo y la confirmación del pago las define una persona."),
+  ("¿Sirve si ya estoy casi lleno en diciembre?", "Sirve para dos cosas: ofrecer las fechas que sí quedan en lugar de perder la conversación, y quedarte con el contacto de quien cotizó para el año que viene, si aceptó recibir tus mensajes."),
+ ],
+ fuentes=["lfpc", "wa_precios", "wa_politica", "gbp_rank", "sch_venue", "lfpdppp"],
+)
+
+G["reservas-restaurantes-tulum-ingles-whatsapp"] = dict(
+ fecha="2026-11-24", fecha_txt="24 de noviembre de 2026",
+ titulo="Restaurantes en Tulum: contestar en inglés las reservas que entran por Instagram y WhatsApp",
+ titulo_seo="Reservas en inglés para restaurantes en Tulum",
+ corto="Reservas en inglés para restaurantes en Tulum",
+ desc="Cómo un restaurante en Tulum contesta en inglés las reservas que llegan por Instagram y WhatsApp a cualquier hora, con la carta y el precio total claros.",
+ rubro=GA, audit="gastronomia", og="og-gastronomia.jpg",
+ wa="Hola! Leí la guía de reservas en inglés para restaurantes en Tulum y quiero probar el agente 14 días.",
+ bajada="En Tulum el mensaje llega a las once de la noche y en inglés: «table for two tomorrow at 8?». Si nadie contesta hasta el mediodía del día siguiente, esa pareja ya reservó en otro lado desde la cama del hotel. Esta guía explica cómo contestar esos mensajes en el idioma en que llegan y a la hora en que llegan.",
+ cuerpo=[
+  ("idioma", "El idioma en que llega el mensaje", """
+<p>Un restaurante en Tulum recibe consultas en español, en inglés y bastantes en portugués, francés o italiano. El equipo del piso contesta lo que puede, cuando puede, y lo demás se acumula. El problema no es traducir: es que el que pregunta está decidiendo dónde cenar en los próximos diez minutos.</p>
+<p>Un agente que responde en el idioma del mensaje resuelve lo que se repite siempre: si hay lugar, a qué hora, si aceptan tarjeta, si hay opciones sin gluten o veganas, si se puede llegar en bici y si hay que dejar anticipo. Lo que no sabe, lo pasa a una persona y no lo adivina.</p>"""),
+  ("ventana", "La ventana de 24 horas en Instagram", """
+<p>En Tulum buena parte de las consultas entran por DM de Instagram, no por WhatsApp. Para que un agente conteste esos DMs hace falta una cuenta profesional, y la respuesta tiene que salir dentro de la ventana de 24 horas desde el último mensaje de la persona.<a class="ref" href="#f1">[1]</a></p>
+<p>Esa ventana es el motivo por el que conviene contestar de noche y no a la mañana siguiente: a las once de la mañana la ventana sigue abierta, pero el cliente ya cenó en otro lado. Si el agente deriva a una persona, Meta pide usar la etiqueta de agente humano para marcarlo.<a class="ref" href="#f1">[1]</a></p>"""),
+  ("carta", "La carta, el precio y lo que no se improvisa", """
+<p>La pregunta que más cuesta en inglés es el precio. Si la respuesta es un rango inventado, el cliente llega con una expectativa distinta a la cuenta. La Ley Federal de Protección al Consumidor pide informar el monto total a pagar.<a class="ref" href="#f2">[2]</a> Lo sano es que el agente mande la carta vigente con precios, y que no prometa nada sobre propina, cover de la música o servicio si no está escrito ahí.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">Instagram · 23:10</span>
+<span class="yo">Hi! Table for 2 tomorrow at 8pm? Any vegan options?</span>
+<span class="bot">Hi! Yes, we have a table for 2 tomorrow at 8:00 pm. We have three vegan dishes on the menu, I am sending it to you with prices. Should I book it under your name? I am the restaurant AI assistant, and someone from the team can jump in anytime.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("reserva", "De la reserva a la mesa ocupada", """
+<p>En temporada alta, la reserva que no se confirma es una mesa vacía en la mejor hora. El recordatorio del mismo día sale fuera de la ventana de 24 horas en WhatsApp, así que necesita una plantilla aprobada por Meta y el permiso del cliente, que conviene pedir cuando se confirma la mesa.<a class="ref" href="#f3">[3]</a></p>
+<ul>
+<li>Confirmación al reservar, con hora, personas y cómo llegar.</li>
+<li>Recordatorio el mismo día, en el idioma de la reserva.</li>
+<li>Si no responde, el aviso de cuántos minutos se guarda la mesa, dicho antes y no después.</li>
+</ul>"""),
+  ("encontrar", "Que te encuentren los que ya están en Tulum", """
+<p>Casi nadie reserva en Tulum con un mes de anticipación: busca desde el hotel, en el teléfono y en inglés. Google ordena esos resultados locales por relevancia, distancia y prominencia.<a class="ref" href="#f4">[4]</a> Tener la zona escrita en texto, la carta en una página propia y las reseñas respondidas pesa más que cualquier truco.</p>
+<p>Los datos estructurados de restaurante ordenan la carta, la cocina y si aceptas reservas.<a class="ref" href="#f5">[5]</a> Si tienes la página en varios idiomas, una URL por idioma con hreflang evita que compitan entre ellas.<a class="ref" href="#f6">[6]</a> Y los datos de quien reserva se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f7">[7]</a></p>
+<p>Para el DM de Instagram paso por paso, mira la guía de <a href="/guias/reservas-instagram-restaurantes-monterrey/">reservas por Instagram para restaurantes</a>, y para todo lo demás del rubro, <a href="/guias/como-usar-ia-en-un-restaurante/">cómo usar IA en un restaurante</a>. Lo mismo del lado de los hoteles está en <a href="/guias/automatizar-mensajes-hoteles-tulum/">automatizar mensajes para hoteles en Tulum</a>, y lo que hacemos en la zona en <a href="/negocios/tulum/gastronomia/">restaurantes y bares en Tulum</a>.</p>"""),
+ ],
+ faq=[
+  ("¿El agente contesta en inglés y en español?", "Sí. Responde en el idioma del mensaje, con la información que el restaurante cargó, y pasa a una persona lo que no sabe."),
+  ("¿Puedo contestar los DMs de Instagram con un agente?", "Sí, con una cuenta profesional y dentro de la ventana de 24 horas desde el último mensaje de la persona."),
+  ("¿Puede mandar la carta con precios?", "Sí, la carta vigente que cargó el restaurante. Conviene que no improvise precios: la ley pide informar el monto total a pagar."),
+  ("¿Sirve para recordar la reserva el mismo día?", "Sí, con una plantilla aprobada por Meta y el permiso del cliente, que conviene pedir al confirmar la mesa."),
+  ("¿Qué no debería contestar el agente?", "Un reclamo, un cambio de precio o un pedido especial de cocina. Eso pasa a una persona del equipo."),
+ ],
+ fuentes=["ig_api", "lfpc", "wa_precios", "gbp_rank", "sch_rest", "g_hreflang", "lfpdppp"],
+)
+
+G["distribuidoras-monterrey-pedidos-whatsapp"] = dict(
+ fecha="2026-11-24", fecha_txt="24 de noviembre de 2026",
+ titulo="Distribuidoras en Monterrey: tomar el pedido por WhatsApp sin que se pierda en el chat",
+ titulo_seo="Pedidos por WhatsApp para distribuidoras en Monterrey",
+ corto="Pedidos por WhatsApp para distribuidoras en Monterrey",
+ desc="Cómo una distribuidora en Monterrey recibe el pedido por WhatsApp con el catálogo y el precio claros, lo confirma y lo pasa a entrega sin releer la conversación.",
+ rubro=DI, audit="distribucion", og="og-distribucion.jpg",
+ wa="Hola! Leí la guía de pedidos por WhatsApp para distribuidoras en Monterrey y quiero probar el agente 14 días.",
+ bajada="En una distribuidora de Monterrey el pedido entra a las seis de la mañana, en forma de nota de voz, y alguien lo pasa a mano a una hoja. Lo que se pierde ahí no es el pedido: es la clave equivocada, la caja que faltó y el reclamo del lunes. Esta guía explica cómo recibir el pedido por WhatsApp y que llegue completo a quien lo surte.",
+ cuerpo=[
+  ("pedido", "Lo que tiene que quedar escrito de cada pedido", """
+<p>Un pedido sirve si quien surte no tiene que releer la conversación. Son siempre los mismos campos, y un agente los pide uno por uno en el chat antes de confirmar.</p>
+<div class="tabla"><table><thead><tr><th>Dato</th><th>Para qué sirve</th></tr></thead><tbody>
+<tr><td>Cliente y sucursal</td><td>Saber a qué dirección va y con qué precio de lista</td></tr>
+<tr><td>Clave y cantidad por producto</td><td>Que almacén surta sin interpretar</td></tr>
+<tr><td>Fecha de entrega</td><td>Cerrar la ruta del día en Monterrey, San Nicolás, Apodaca o Santa Catarina</td></tr>
+<tr><td>Forma de pago y factura</td><td>No descubrirlo cuando el camión ya salió</td></tr>
+<tr><td>Quién recibe</td><td>Evitar la entrega que vuelve</td></tr>
+</tbody></table></div>
+<p>Lo que el agente no hace es decidir. Un crédito, una excepción de precio o un faltante los resuelve una persona.</p>"""),
+  ("catalogo", "Catálogo y precios en el chat", """
+<p>La plataforma de WhatsApp Business permite mandar mensajes de uno o varios productos desde un catálogo, en lugar de pegar una lista en texto.<a class="ref" href="#f1">[1]</a> Para un distribuidor eso sirve sobre todo con el cliente nuevo, que todavía no sabe las claves.</p>
+<p>Si en el chat hay precios, tienen que ser el monto total a pagar, como pide la Ley Federal de Protección al Consumidor.<a class="ref" href="#f2">[2]</a> Y conviene que el precio salga de tu lista, no de lo que el agente recuerde: si no tiene el precio cargado, lo correcto es que lo pase a una persona.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 06:40</span>
+<span class="yo">Mándame 10 cajas de la 250 y 4 de la chica, para mañana</span>
+<span class="bot">Listo, don Raúl. Anoto 10 cajas de 250 ml y 4 de 355 ml para la sucursal Cumbres, entrega mañana en la ruta de la mañana. ¿Lo confirmo así y te paso el total con IVA de la lista? Soy el asistente con IA de la distribuidora.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("api", "Por qué hace falta la API y no la app", """
+<p>La app gratuita de WhatsApp Business sirve para respuestas rápidas y mensaje de ausencia, pero no conecta un agente que entienda el pedido ni lo pase a tu sistema. Para eso se usa la plataforma de WhatsApp Business, la API, con un proveedor o directamente con Meta.<a class="ref" href="#f3">[3]</a></p>
+<p>Con la API, cada mensaje del cliente abre una ventana de 24 horas para contestar libremente. Fuera de esa ventana, cualquier aviso tuyo sale con una plantilla aprobada por Meta y con el permiso del cliente.<a class="ref" href="#f4">[4]</a></p>"""),
+  ("recurrente", "El cliente que pide lo mismo cada semana", """
+<p>La mayor parte del volumen de una distribuidora es pedido repetido. Ahí es donde el agente ahorra más: propone el pedido anterior y el cliente solo ajusta cantidades.</p>
+<ol class="lista">
+<li>El agente manda el pedido de la semana pasada y pregunta si va igual. Si sale fuera de la ventana de 24 horas, va con plantilla y con permiso.<a class="ref" href="#f4">[4]</a></li>
+<li>El cliente cambia dos líneas y confirma.</li>
+<li>El pedido entra completo, con cliente, claves, cantidades, fecha y quién recibe.</li>
+</ol>"""),
+  ("datos", "Datos de tus clientes y de tu ruta", """
+<p>Los nombres, teléfonos, direcciones de entrega y el historial de compra de tus clientes son datos personales, y en México los rige la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f5">[5]</a> Lo básico es el aviso de privacidad a la mano y usarlos solo para lo que le dijiste al cliente. Esta guía no reemplaza a un abogado.</p>
+<p>Para el detalle del pedido recurrente, sigue con la guía de <a href="/guias/pedidos-recurrentes-whatsapp-distribuidoras/">pedidos recurrentes por WhatsApp</a>, y para la cotización del cliente nuevo, la de <a href="/guias/pedidos-whatsapp-cotizaciones-distribuidoras/">pedidos y cotizaciones por WhatsApp</a>. Lo que puede hacer la IA en el rubro está en <a href="/guias/como-usar-ia-en-una-distribuidora/">cómo usar IA en una distribuidora</a>, y lo que hacemos en la ciudad en <a href="/negocios/monterrey/distribucion/">distribuidoras y mayoristas en Monterrey</a>.</p>"""),
+ ],
+ faq=[
+  ("¿El agente puede tomar un pedido de una nota de voz?", "Puede pedir los datos que faltan y dejar el pedido escrito con claves y cantidades. Lo que no conviene es que interprete una nota de voz y lo dé por bueno sin confirmar."),
+  ("¿Puedo mandar mi catálogo por WhatsApp?", "Sí. La plataforma de WhatsApp Business permite mensajes de uno o varios productos desde un catálogo, lo que ayuda sobre todo con el cliente nuevo."),
+  ("¿Sirve la app gratuita de WhatsApp Business?", "Para respuestas rápidas y horario sí, pero no conecta un agente que entienda el pedido ni lo pase a tu sistema. Para eso se usa la API."),
+  ("¿Puedo recordarle al cliente que le toca pedido?", "Sí, con una plantilla aprobada por Meta y con su permiso, porque ese mensaje sale fuera de la ventana de 24 horas."),
+  ("¿Qué no debe decidir el agente?", "Crédito, excepciones de precio, faltantes y reclamos de entrega. Todo eso pasa a una persona."),
+ ],
+ fuentes=["wa_catalogo", "lfpc", "wa_api", "wa_precios", "lfpdppp"],
+)
+
 ORDEN = list(G.keys())
 
 

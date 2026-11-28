@@ -1233,6 +1233,179 @@ G["distribuidoras-monterrey-pedidos-whatsapp"] = dict(
  fuentes=["wa_catalogo", "lfpc", "wa_api", "wa_precios", "lfpdppp"],
 )
 
+AR = ("Artistas", "/artistas/")
+F["sch_music"] = ("Schema.org, tipo «MusicGroup».", "https://schema.org/MusicGroup")
+F["sch_event"] = ("Schema.org, tipo «Event»: propiedades startDate, location y offers.", "https://schema.org/Event")
+
+G["artistas-djs-cdmx-contrataciones-instagram"] = dict(
+ fecha="2026-11-28", fecha_txt="28 de noviembre de 2026",
+ titulo="Artistas y DJs en CDMX: contestar por Instagram las consultas de contratación",
+ titulo_seo="Contrataciones por Instagram para artistas y DJs en CDMX",
+ corto="Contrataciones por Instagram para artistas y DJs en CDMX",
+ desc="Cómo un artista, DJ o manager en Ciudad de México contesta por Instagram las consultas de contratación con fecha, horario y precio total claros, y deja el cierre en manos de una persona.",
+ rubro=AR, audit="artistas", og="og-artistas.jpg",
+ wa="Hola! Leí la guía de contrataciones por Instagram para artistas y DJs en CDMX y quiero probar el agente 14 días.",
+ bajada="La consulta de contratación casi nunca llega como un correo formal. Llega como un DM de Instagram a la una de la mañana: «¿tocas el 20 en un evento privado?». Si contestas tres días después, el que preguntaba ya cerró con otro. Esta guía explica cómo contestar esas consultas sin estar pegado al teléfono y sin que el precio se improvise.",
+ cuerpo=[
+  ("donde-llegan", "La bandeja de Instagram es tu oficina de contrataciones", """
+<p>Para un artista, un DJ o un manager en Ciudad de México, el DM es el canal de entrada real: llega desde el perfil, desde una historia y desde un video que alguien compartió. El problema no es la falta de consultas, es que se mezclan con mensajes de fans, con colaboraciones y con spam, y la de contratación se entierra.</p>
+<p>Para que un agente conteste esos DMs hace falta una cuenta profesional, y la respuesta tiene que salir dentro de la ventana de 24 horas desde el último mensaje de la persona.<a class="ref" href="#f1">[1]</a> Cuando la conversación pasa a una persona del equipo, Meta pide marcarlo con la etiqueta de agente humano.<a class="ref" href="#f1">[1]</a></p>
+<div class="aviso">En la práctica: lo que cambia el resultado no es contestar bonito, es contestar la misma noche con la fecha revisada.</div>"""),
+  ("datos", "Los cinco datos sin los que no hay cotización", """
+<p>Un agente no cierra la fecha. Lo que hace es dejar la consulta completa para que cotices una vez y bien, en lugar de cruzar diez mensajes.</p>
+<div class="tabla"><table><thead><tr><th>Dato</th><th>Por qué cambia el número</th></tr></thead><tbody>
+<tr><td>Fecha y si es fin de semana</td><td>Es lo primero: si está tomada, el resto no importa</td></tr>
+<tr><td>Tipo de evento y lugar</td><td>Privado, antro, festival o corporativo no se cotizan igual</td></tr>
+<tr><td>Horario y duración del set</td><td>Una hora en la madrugada no es lo mismo que tres en la tarde</td></tr>
+<tr><td>Qué equipo pone el lugar</td><td>Sonido, cabina, monitores y luces: si no hay, el costo sube</td></tr>
+<tr><td>Quién contrata y cómo paga</td><td>Si pide factura y anticipo, se arma distinto desde el principio</td></tr>
+</tbody></table></div>
+<p>En CDMX conviene sumar la zona, porque el traslado del equipo y la hora de carga pesan en la logística de un evento en la Roma, en Polanco o en Santa Fe.</p>"""),
+  ("precio", "El precio se dice completo o no se dice", """
+<p>La pregunta que llega siempre es «cuánto cobras». Si la respuesta es un número suelto y después aparece el traslado, el técnico o el equipo que faltaba, la conversación se cae justo cuando ya estaba cerrada. La Ley Federal de Protección al Consumidor pide informar el monto total a pagar.<a class="ref" href="#f2">[2]</a></p>
+<p>Lo sano es que el agente no invente tarifas. Si tienes un rango publicado, lo manda tal como está escrito; si no, toma los cinco datos y avisa que la cotización sale de una persona. Esta guía no reemplaza a un abogado.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">Instagram · 01:14</span>
+<span class="yo">Hola! ¿Tocas el sábado 20 en un evento privado en la Roma?</span>
+<span class="bot">¡Hola! El sábado 20 está libre. Para cotizarlo necesito cuatro cosas: horario y duración del set, si el lugar pone sonido y cabina, cuánta gente esperan y si necesitas factura. Con eso el equipo te manda mañana la cotización con el total. Soy el asistente con IA del artista.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("seguimiento", "El seguimiento hasta el anticipo", """
+<p>Entre la cotización y el anticipo se pierden la mitad de las fechas, y casi siempre por silencio. Si el seguimiento sigue por WhatsApp, cada mensaje de la persona abre una ventana de 24 horas en la que contestas libremente; para escribirle después hace falta una plantilla aprobada por Meta y que haya aceptado recibir tus mensajes.<a class="ref" href="#f3">[3]</a></p>
+<ol class="lista">
+<li>Al mandar la cotización, pide el permiso para dar seguimiento en el mismo chat.</li>
+<li>Deja escrito cuánto tiempo se sostiene la fecha sin anticipo. Eso lo define una persona, no el agente.</li>
+<li>Cuando entra el anticipo, el agente manda hora de llegada, requerimientos técnicos y a quién buscar en el lugar.</li>
+</ol>
+<div class="aviso">Lo que no delega nadie: el precio final, un descuento y una exclusividad de zona o de fecha.</div>"""),
+  ("encontrar", "Que te encuentren los que contratan, no solo tus fans", """
+<p>El que contrata busca distinto que el que te escucha: busca «DJ para evento privado en CDMX» o «banda para boda en Ciudad de México». Para aparecer en esas búsquedas hace falta una página propia con el texto escrito, no solo un perfil: lo que haces, las ciudades donde toca el proyecto, el formato del show, el rider y cómo se contrata.</p>
+<p>Los datos estructurados de grupo musical ordenan el nombre del proyecto, el género y los enlaces oficiales para cualquier buscador,<a class="ref" href="#f4">[4]</a> y los de evento sirven para las fechas con venta abierta, con la fecha, el lugar y el enlace a los boletos.<a class="ref" href="#f5">[5]</a> Los datos de quien te contrata, incluidos los de la empresa que factura, se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f6">[6]</a></p>
+<p>Lo que puede hacer la IA en el rubro está en <a href="/guias/como-usar-ia-siendo-artista/">cómo usar IA siendo artista</a>, el lado de los lugares que te contratan en <a href="/guias/salones-eventos-monterrey-apartar-fechas/">salones de eventos: visitas y fechas apartadas</a>, y lo que hacemos en la ciudad en <a href="/negocios/ciudad-de-mexico/artistas/">artistas y DJs en Ciudad de México</a>.</p>"""),
+ ],
+ faq=[
+  ("¿Un agente puede contestar los DMs de contratación de Instagram?", "Sí, con una cuenta profesional y dentro de la ventana de 24 horas desde el último mensaje de la persona. Lo que no sabe lo pasa a una persona del equipo."),
+  ("¿El agente dice cuánto cobro?", "Solo si tienes un precio o un rango publicado, y lo manda tal como está escrito. Si no, toma los datos del evento y avisa que la cotización la manda una persona."),
+  ("¿Puede revisar si una fecha está libre?", "Sí, si está conectado al calendario que ya usas. Si no lo está, toma la consulta y avisa a una persona en el momento."),
+  ("¿Sirve para separar las consultas de contratación de los mensajes de fans?", "Es justo para lo que más sirve: reconoce la consulta de contratación, pide los datos del evento y la deja marcada, sin que se entierre entre el resto de la bandeja."),
+  ("¿Qué no debería contestar el agente?", "El precio final, un descuento, una exclusividad y cualquier condición del contrato. Eso lo cierra una persona."),
+ ],
+ fuentes=["ig_api", "lfpc", "wa_precios", "sch_music", "sch_event", "lfpdppp"],
+)
+
+G["hoteles-guadalajara-reservas-directas-whatsapp"] = dict(
+ fecha="2026-11-28", fecha_txt="28 de noviembre de 2026",
+ titulo="Hoteles en Guadalajara: contestar las consultas de reserva directa por WhatsApp",
+ titulo_seo="Reservas directas por WhatsApp para hoteles en Guadalajara",
+ corto="Reservas directas por WhatsApp para hoteles en Guadalajara",
+ desc="Cómo un hotel en Guadalajara contesta al momento las consultas de reserva directa y de tarifa corporativa por WhatsApp e Instagram, con el precio total y la factura claras.",
+ rubro=HO, audit="hospitality", og="og-hospitality.jpg",
+ wa="Hola! Leí la guía de reservas directas por WhatsApp para hoteles en Guadalajara y quiero probar el agente 14 días.",
+ bajada="El huésped que te escribe por WhatsApp ya te encontró y ya decidió que le gustas. Solo quiere saber si hay cuarto el jueves y cuánto sale con todo. Si nadie contesta hasta la mañana siguiente, esa reserva termina entrando por una plataforma que te cobra comisión, o no entra. Esta guía explica cómo contestar esas consultas en Guadalajara sin recepción pegada al teléfono.",
+ cuerpo=[
+  ("directa", "La reserva directa se gana en el primer mensaje", """
+<p>En un hotel de Guadalajara las consultas llegan por tres puertas: la plataforma de reservas, el DM de Instagram y el WhatsApp de recepción. Las dos últimas son las que te dejan la reserva sin comisión de intermediario, y son justo las que se contestan tarde porque recepción está haciendo otra cosa.</p>
+<p>Un agente que contesta ahí resuelve lo que se repite siempre: si hay disponibilidad para esas noches, qué incluye la tarifa, si hay estacionamiento, a qué hora es el check in, si aceptan mascotas y si pueden facturar. Lo que no sabe lo pasa a una persona y no lo adivina.</p>
+<div class="aviso">No prometas igualar el precio de una plataforma si tu contrato con ese canal no te lo permite. Revisa el contrato antes de escribirlo en una respuesta automática.</div>"""),
+  ("corporativo", "El viajero de negocios pregunta otra cosa", """
+<p>Guadalajara mueve congresos, ferias y viaje corporativo, y ese huésped no pregunta por la alberca. Pregunta por factura, por tarifa de empresa, por salida tarde y por internet que aguante una videollamada. Son consultas cortas que se pierden por no contestarlas a tiempo.</p>
+<div class="tabla"><table><thead><tr><th>Lo que pregunta</th><th>Lo que debe dejar listo el agente</th></tr></thead><tbody>
+<tr><td>Disponibilidad para dos noches</td><td>Las noches, el tipo de habitación y la tarifa vigente</td></tr>
+<tr><td>Tarifa corporativa</td><td>Nombre de la empresa y pasar la consulta a ventas</td></tr>
+<tr><td>Factura</td><td>Confirmar que se emite y qué datos hacen falta</td></tr>
+<tr><td>Grupo de varias habitaciones</td><td>Fechas, cantidad de cuartos y contacto, directo a una persona</td></tr>
+<tr><td>Salida tarde o llegada de madrugada</td><td>Lo que el hotel tenga escrito, sin improvisar</td></tr>
+</tbody></table></div>
+<p>Si el volumen de grupos es alto, el detalle de cómo cotizarlos está en la guía de <a href="/guias/cotizaciones-grupos-hoteles-cdmx-whatsapp/">cotizar grupos y viajeros de negocios por WhatsApp</a>.</p>"""),
+  ("precio", "El precio total, no la tarifa suelta", """
+<p>La confusión más común en una reserva directa es el número: el huésped compara una tarifa por noche sin impuestos contra el total que le mostró una plataforma. La Ley Federal de Protección al Consumidor pide informar el monto total a pagar.<a class="ref" href="#f1">[1]</a></p>
+<p>Lo práctico es que el agente responda con el total por las noches pedidas, qué incluye, si el desayuno va aparte y qué pasa si cancela. Y que ese número salga de tu tarifario, no de lo que el agente recuerde.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">WhatsApp · 23:40</span>
+<span class="yo">Buenas, ¿tienen habitación el jueves y viernes? Necesito factura</span>
+<span class="bot">¡Buenas! Sí, tengo habitación para esas dos noches. Te paso el total por las dos, qué incluye y la hora de check in. Sí facturamos: cuando confirmes te pido los datos fiscales. ¿La reservo a tu nombre? Soy el asistente con IA del hotel y si prefieres te paso con recepción.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("ventanas", "Las reglas del canal por el que contestas", """
+<p>En WhatsApp, cada mensaje del huésped abre una ventana de 24 horas en la que contestas libremente. Para escribirle fuera de esa ventana, por ejemplo el recordatorio del check in o la encuesta de salida, hace falta una plantilla aprobada por Meta y que haya aceptado recibir tus mensajes.<a class="ref" href="#f2">[2]</a> La política de mensajería de WhatsApp Business no permite escribirle a quien no lo aceptó.<a class="ref" href="#f3">[3]</a></p>
+<p>En Instagram la lógica es parecida: hace falta una cuenta profesional y la respuesta sale dentro de la ventana de 24 horas desde el último mensaje de la persona.<a class="ref" href="#f4">[4]</a> Por eso el agente sirve de noche, que es cuando la gente planea el viaje.</p>
+<ul>
+<li>Confirmación al reservar, con noches, tipo de habitación y total.</li>
+<li>Recordatorio el día anterior, con hora de check in y cómo llegar.</li>
+<li>Pedido de reseña después de la salida, con permiso y sin incentivos.</li>
+</ul>"""),
+  ("encontrar", "Que te encuentren buscando en Guadalajara", """
+<p>«Hotel cerca de Chapultepec en Guadalajara» o «hotel para congreso en Zapopan» son búsquedas locales, y Google las ordena por relevancia, distancia y prominencia.<a class="ref" href="#f5">[5]</a> Que la zona, los servicios y el tipo de huésped estén escritos en texto en tu página, con fotos reales y las reseñas respondidas, pesa más que cualquier truco.</p>
+<p>Los datos estructurados de hotel ordenan dirección, servicios y rango de precios para cualquier buscador.<a class="ref" href="#f6">[6]</a> Si recibes huéspedes de otros países, una URL por idioma con hreflang evita que tus propias páginas compitan entre ellas.<a class="ref" href="#f7">[7]</a> Y los datos del huésped se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f8">[8]</a></p>
+<p>Para el DM de Instagram paso por paso, mira la guía de <a href="/guias/reservas-automaticas-instagram-hoteles-boutique/">reservas automáticas por Instagram para hoteles boutique</a>, y para el canal directo completo, la de <a href="/guias/reservas-directas-whatsapp-hoteles/">reservas directas por WhatsApp</a>. Lo que puede hacer la IA en el rubro está en <a href="/guias/como-usar-ia-en-un-hotel/">cómo usar IA en un hotel</a>, y lo que hacemos en la ciudad en <a href="/negocios/guadalajara/hospitality/">hoteles y hospedaje en Guadalajara</a>.</p>"""),
+ ],
+ faq=[
+  ("¿El agente puede ver si hay habitación disponible?", "Sí, si está conectado al sistema que ya lleva la disponibilidad del hotel. Si no lo está, toma las fechas y avisa a recepción en el momento."),
+  ("¿Puede cobrar la reserva?", "Puede dejar la reserva tomada y pasar el enlace de pago que use el hotel. La confirmación del cobro y cualquier excepción las hace una persona."),
+  ("¿Contesta los DMs de Instagram además del WhatsApp?", "Sí, con una cuenta profesional y dentro de la ventana de 24 horas desde el último mensaje de la persona."),
+  ("¿Puedo mandar el recordatorio del check in?", "Sí, con una plantilla aprobada por Meta y con el permiso del huésped, porque ese mensaje sale fuera de la ventana de 24 horas."),
+  ("¿Qué no debería contestar el agente?", "Una tarifa que no está en el tarifario, un descuento, una tarifa corporativa nueva y cualquier reclamo. Eso pasa a una persona."),
+ ],
+ fuentes=["lfpc", "wa_precios", "wa_politica", "ig_api", "gbp_rank", "sch_hotel", "g_hreflang", "lfpdppp"],
+)
+
+G["bodas-destino-tulum-cotizaciones-ingles"] = dict(
+ fecha="2026-11-28", fecha_txt="28 de noviembre de 2026",
+ titulo="Bodas destino en Tulum: contestar en inglés las consultas de fecha y presupuesto",
+ titulo_seo="Bodas destino en Tulum: cotizar en inglés por WhatsApp e Instagram",
+ corto="Bodas destino en Tulum: cotizar en inglés",
+ desc="Cómo un venue, una productora o un wedding planner en Tulum contesta en inglés las consultas de bodas destino, con la fecha revisada y el precio total claro, sin perder a la pareja que escribe de madrugada.",
+ rubro=EV, audit="eventos", og="og-eventos.jpg",
+ wa="Hola! Leí la guía de bodas destino en Tulum y quiero probar el agente 14 días.",
+ bajada="La consulta de una boda destino llega en inglés, de madrugada y con tres preguntas: si la fecha está libre, cuánto sale y cuántos invitados caben. Del otro lado hay una pareja a seis husos horarios que está escribiéndole lo mismo a cuatro lugares. Contesta primero y con el total claro, y la visita virtual es tuya. Esta guía explica cómo.",
+ cuerpo=[
+  ("idioma-hora", "El idioma y la hora en que llega la consulta", """
+<p>En Tulum buena parte de las consultas de boda entran en inglés y fuera de tu horario, porque la pareja está en otro país y planea de noche. Casi siempre llegan por DM de Instagram, después de ver una foto del lugar.</p>
+<p>Para que un agente conteste esos DMs hace falta una cuenta profesional, y la respuesta tiene que salir dentro de la ventana de 24 horas desde el último mensaje de la persona.<a class="ref" href="#f1">[1]</a> Cuando pasa la conversación a una persona del equipo, Meta pide marcarlo con la etiqueta de agente humano.<a class="ref" href="#f1">[1]</a></p>
+<div class="aviso">La ventana sigue abierta a la mañana siguiente, pero la pareja ya habló con otros tres lugares. Lo que se gana de noche no es cortesía, es el turno.</div>"""),
+  ("datos", "Lo que hace falta antes de cotizar una boda", """
+<p>Una boda destino no se cotiza con un número suelto. El agente no arma la propuesta: deja la consulta completa para que la armes una vez.</p>
+<div class="tabla"><table><thead><tr><th>Dato</th><th>Para qué sirve</th></tr></thead><tbody>
+<tr><td>Fecha y alternativa</td><td>Es el filtro: si está tomada, ofrecer las dos cercanas que sí tienes</td></tr>
+<tr><td>Cantidad de invitados</td><td>Define el espacio, el montaje y casi todo el costo</td></tr>
+<tr><td>Si quieren ceremonia, recepción o las dos</td><td>Cambia horarios, permisos y proveedores</td></tr>
+<tr><td>Si traen planner o quieren uno</td><td>Define con quién sigue la conversación</td></tr>
+<tr><td>Rango de presupuesto y moneda</td><td>Evita mandar una propuesta que no tenía sentido para nadie</td></tr>
+</tbody></table></div>
+<p>La pregunta por la fecha se contesta al momento si el agente está conectado al calendario que ya lleva el lugar. Si no lo está, toma los datos y avisa a una persona, que es mejor que dejar el mensaje sin leer hasta el mediodía.</p>"""),
+  ("precio", "El precio total y la moneda", """
+<p>En una boda destino el malentendido del precio es caro: la pareja compara un número por persona contra un paquete que incluye montaje, contra otro que no incluye el servicio. La Ley Federal de Protección al Consumidor pide informar el monto total a pagar.<a class="ref" href="#f2">[2]</a></p>
+<p>Lo práctico es que la cotización diga el total para el número de invitados acordado, en qué moneda está, qué incluye, qué no, el mínimo de consumo si lo hay, el horario que cubre y la política de cancelación. Esta guía no reemplaza a un abogado.</p>
+<div class="chat" role="figure" aria-label="Ejemplo de conversación">
+<span class="t">Instagram · 02:20</span>
+<span class="yo">Hi! Is November 14th available for a 60 guest wedding? What is the price?</span>
+<span class="bot">Hi! November 14th is available for 60 guests. To send you the full quote I need three things: ceremony, reception or both, whether you are working with a planner, and your budget range. The team will send the total for 60 guests, what is included and the cancellation policy. I am the venue AI assistant and a person can take over anytime.</span>
+<span class="nota">Conversación de ejemplo.</span>
+</div>"""),
+  ("seguimiento", "El seguimiento a seis husos horarios", """
+<p>Entre la consulta y el anticipo de una boda pasan semanas, y la pareja no vive en tu horario. Si el seguimiento sigue por WhatsApp, cada mensaje de la pareja abre una ventana de 24 horas en la que contestas libremente; para escribirle después hace falta una plantilla aprobada por Meta y su permiso.<a class="ref" href="#f3">[3]</a> La política de mensajería de WhatsApp Business no permite escribirle a quien no lo aceptó.<a class="ref" href="#f4">[4]</a></p>
+<ol class="lista">
+<li>Al mandar la propuesta, pide el permiso para dar seguimiento en el mismo chat.</li>
+<li>Deja escrito cuánto tiempo se sostiene la fecha sin anticipo. Eso lo decide una persona, no el agente.</li>
+<li>Cuando entra el anticipo, el agente confirma fecha, horario y quién es el contacto del lugar.</li>
+</ol>
+<div class="aviso">Lo que no delega nadie: sostener una fecha, mover un anticipo y cualquier excepción al contrato.</div>"""),
+  ("encontrar", "Que te encuentren buscando en inglés", """
+<p>La pareja busca «wedding venue in Tulum» o «beach wedding Tulum», no en español. Si tu sitio está solo en español, esa búsqueda no te alcanza. Una URL por idioma con hreflang le dice a Google qué versión mostrarle a cada quien y evita que tus páginas compitan entre ellas.<a class="ref" href="#f5">[5]</a></p>
+<p>Google ordena los resultados locales por relevancia, distancia y prominencia,<a class="ref" href="#f6">[6]</a> así que la capacidad, el tipo de evento y la zona tienen que estar escritos en texto, con fotos reales y las reseñas respondidas. Los datos estructurados de recinto de eventos ordenan dirección y capacidad para cualquier buscador.<a class="ref" href="#f7">[7]</a> Y los datos de la pareja y de sus invitados se rigen por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<a class="ref" href="#f8">[8]</a></p>
+<p>Para el resto del año y los eventos locales, sigue con la guía de <a href="/guias/cotizaciones-salones-eventos-guadalajara/">cotizaciones para salones de eventos</a> y la de <a href="/guias/salones-eventos-monterrey-apartar-fechas/">visitas y fechas apartadas por WhatsApp</a>. Lo que puede hacer la IA en el rubro está en <a href="/guias/como-usar-ia-en-eventos/">cómo usar IA en una empresa de eventos</a>, el lado de los restaurantes en inglés en <a href="/guias/reservas-restaurantes-tulum-ingles-whatsapp/">reservas en inglés para restaurantes en Tulum</a>, y lo que hacemos en la zona en <a href="/negocios/tulum/eventos/">eventos y salones en Tulum</a>.</p>"""),
+ ],
+ faq=[
+  ("¿El agente contesta en inglés?", "Sí. Responde en el idioma del mensaje, con la información que el lugar cargó, y pasa a una persona lo que no sabe."),
+  ("¿Puede decir si una fecha está libre?", "Sí, si está conectado al calendario que ya lleva el lugar. Si no lo está, toma los datos y avisa a una persona en el momento."),
+  ("¿Puede mandar la cotización de la boda?", "Puede mandar un paquete ya escrito y con precio publicado. Una propuesta a medida la arma una persona, y el agente deja los datos listos para eso."),
+  ("¿Puedo dar seguimiento por WhatsApp a una pareja en otro país?", "Dentro de las 24 horas desde su último mensaje contestas libremente. Después hace falta una plantilla aprobada por Meta y su permiso, que conviene pedir al mandar la propuesta."),
+  ("¿Qué no debería contestar el agente?", "Sostener una fecha, cambiar un precio, mover un anticipo o aceptar una excepción del contrato. Eso lo define una persona."),
+ ],
+ fuentes=["ig_api", "lfpc", "wa_precios", "wa_politica", "g_hreflang", "gbp_rank", "sch_venue", "lfpdppp"],
+)
+
+
 ORDEN = list(G.keys())
 
 
